@@ -1,8 +1,8 @@
 /**
  * Service Worker — cache estático + catálogo stale-while-revalidate.
  */
-const CACHE_STATIC = "akirascan-static-v15";
-const CACHE_DATA = "akirascan-data-v15";
+const CACHE_STATIC = "akirascan-static-v16";
+const CACHE_DATA = "akirascan-data-v16";
 
 const STATIC_ASSETS = [
     "/",
@@ -17,8 +17,8 @@ const STATIC_ASSETS = [
 ];
 
 const DATA_ASSETS = [
-    "/data/catalogo-index.json",
-    "/data/terabox/chapters-index.json"
+    "data/catalogo-index.json",
+    "data/cloud/chapters-index.json"
 ];
 
 self.addEventListener("message", (event) => {

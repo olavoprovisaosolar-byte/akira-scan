@@ -1,10 +1,10 @@
 /**
- * Catálogo Terabox — caps enviados ao cloud (data/terabox/chapters-index.json).
+ * Capítulos em armazenamento remoto (data/cloud/chapters-index.json).
  */
 import { assetUrl } from "../site-config.js";
 import { isRealChapterPageSet } from "./chapter-label.js";
 
-const INDEX_URL = () => assetUrl("/data/terabox/chapters-index.json");
+const INDEX_URL = () => assetUrl("data/cloud/chapters-index.json");
 const CACHE_MS = 120000;
 
 let cacheIndex = null;
@@ -34,37 +34,37 @@ async function carregarIndice(force = false) {
     return inflight;
 }
 
-export async function capTeraboxInfo(mangaId, capId) {
+export async function capRemotoInfo(mangaId, capId) {
     const idx = await carregarIndice();
     if (!idx?.caps) return null;
     return idx.caps[`${mangaId}/${capId}`] || null;
 }
 
-export async function capsTeraboxManga(mangaId) {
+export async function capsRemotosManga(mangaId) {
     const idx = await carregarIndice();
     if (!idx?.caps) return [];
     return Object.values(idx.caps).filter((c) => c.mangaId === mangaId);
 }
 
-export async function mangaTemTerabox(mangaId) {
+export async function mangaTemCapsRemotos(mangaId) {
     const idx = await carregarIndice();
     return !!(idx?.porManga?.[mangaId]?.doneCaps);
 }
 
-export async function obterPaginasTerabox(mangaId, capId) {
-    const info = await capTeraboxInfo(mangaId, capId);
+export async function obterPaginasRemotas(mangaId, capId) {
+    const info = await capRemotoInfo(mangaId, capId);
     if (!info) return null;
 
     if (info.pages?.length && isRealChapterPageSet(info.pages)) {
         return info.pages.map((p, i) => ({
             index: p.index ?? i,
             url: p.url,
-            origem: "terabox"
+            origem: "remoto"
         }));
     }
 
     if (info.done && !info.localPurged) {
-        const base = assetUrl(`backup/mangas/${encodeURIComponent(mangaId)}/chapters/${encodeURIComponent(capId)}/pages`);
+        const base = assetUrl(`data/toonlivre-backup/mangas/${encodeURIComponent(mangaId)}/chapters/${encodeURIComponent(capId)}/pages`);
         const total = info.total || info.uploaded || 0;
         if (total > 0) {
             const pages = [];
@@ -79,12 +79,18 @@ export async function obterPaginasTerabox(mangaId, capId) {
     return null;
 }
 
-export async function obterShareTerabox(mangaId, capId) {
-    const info = await capTeraboxInfo(mangaId, capId);
+export async function obterShareRemoto(mangaId, capId) {
+    const info = await capRemotoInfo(mangaId, capId);
     return info?.shareUrl || null;
 }
 
-export function invalidarCacheTerabox() {
+/** Caps prontos para leitura (com páginas ou backup local). */
+export async function capsLegiveisManga(mangaId) {
+    const caps = await capsRemotosManga(mangaId);
+    return caps.filter((c) => c.done && (c.pages?.length || !c.localPurged));
+}
+
+export function invalidarCacheRemoto() {
     cacheIndex = null;
     cacheTs = 0;
 }

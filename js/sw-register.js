@@ -1,5 +1,13 @@
 /** Registo do Service Worker — invalida caches antigos ao mudar versão. */
-const CACHE_VERSION = "v12";
+const CACHE_VERSION = "v13";
+
+function swUrl() {
+    if (typeof location === "undefined") return `/sw.js?${CACHE_VERSION}`;
+    const onGitHub = location.hostname.endsWith("github.io");
+    const seg = location.pathname.split("/").filter(Boolean)[0];
+    const base = onGitHub && seg && !seg.endsWith(".html") ? `/${seg}/` : "/";
+    return `${base}sw.js?${CACHE_VERSION}`;
+}
 
 async function limparCachesAkira() {
     if (!("caches" in window)) return;
@@ -22,7 +30,7 @@ export function registerServiceWorker() {
                 localStorage.setItem("akira-cache-version", CACHE_VERSION);
             }
 
-            const reg = await navigator.serviceWorker.register(`/sw.js?${CACHE_VERSION}`);
+            const reg = await navigator.serviceWorker.register(swUrl());
             await reg.update();
             if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
         } catch (err) {

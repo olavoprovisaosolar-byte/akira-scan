@@ -1,7 +1,7 @@
 /**
  * HealthCheck — monitora provedores; aviso só se o catálogo também falhar.
  */
-import { isStaticHost } from "./site-config.js";
+import { isStaticHost } from "../site-config.js";
 let lastStatus = { ok: true, providers: {}, ingestion: null };
 let catalogDisponivel = false;
 

@@ -112,16 +112,6 @@ export class MangaDetails {
         if (gridHost) {
             gridHost.innerHTML = renderChapterGrid(safe);
             bindChapterGrid(gridHost, safe);
-            import("../services/terabox-catalog-service.js")
-                .then(({ capsTeraboxManga }) => capsTeraboxManga(safe.id))
-                .then((tbCaps) => {
-                    if (!tbCaps.length || !gridHost.isConnected) return;
-                    gridHost.innerHTML = renderChapterGrid(safe, {
-                        teraboxCaps: new Set(tbCaps.filter((c) => c.done).map((c) => c.capId))
-                    });
-                    bindChapterGrid(gridHost, safe);
-                })
-                .catch(() => {});
         }
 
         this.container.appendChild(article);

@@ -150,8 +150,12 @@ async function main() {
     fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
     fs.writeFileSync(OUT_FILE, JSON.stringify(out), "utf8");
 
+    const cloudOut = path.join(ROOT, "data", "cloud", "chapters-index.json");
+    fs.mkdirSync(path.dirname(cloudOut), { recursive: true });
+    fs.copyFileSync(OUT_FILE, cloudOut);
+
     const kb = (fs.statSync(OUT_FILE).size / 1024).toFixed(1);
-    console.log(`Índice Terabox: ${out.total} caps → ${OUT_FILE} (${kb} KB, dlinks: ${dlinkCount})`);
+    console.log(`Índice remoto: ${out.total} caps → ${OUT_FILE} (${kb} KB, dlinks: ${dlinkCount})`);
 }
 
 main().catch((e) => {

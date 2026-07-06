@@ -11,6 +11,15 @@ const ROOT = path.join(__dirname, "..");
 const FULL = path.join(ROOT, "data", "catalogo.json");
 const INDEX = path.join(ROOT, "data", "catalogo-index.json");
 
+function fixMediaPath(p) {
+    if (!p) return "";
+    if (p.startsWith("/backup/mangas/")) {
+        return `data/toonlivre-backup/mangas/${p.slice("/backup/mangas/".length)}`;
+    }
+    if (p.startsWith("/data/")) return p.slice(1);
+    return p.replace(/^\//, "");
+}
+
 function slimManga(m) {
     const caps = (m.capitulos || []).slice(0, 3).map((c) => ({
         id: c.id,
@@ -35,8 +44,8 @@ function slimManga(m) {
         autor: m.autor || m.author || "",
         generos: m.generos || m.genres || [],
         status: m.status || "Em lançamento",
-        capa: m.capa || m.coverUrl || "",
-        banner: m.banner || m.capa || "",
+        capa: fixMediaPath(m.capa || m.coverUrl || ""),
+        banner: fixMediaPath(m.banner || m.capa || ""),
         popularidade: m.popularidade ?? m.popularity ?? 50,
         capitulos: caps.length ? caps : [{ id: "cap-1", numero: 1, publicadoEm: m.atualizadoEm }],
         totalCapitulos: totalCaps,

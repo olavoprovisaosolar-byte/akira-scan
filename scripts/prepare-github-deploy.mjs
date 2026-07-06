@@ -66,6 +66,7 @@ function copyStaticSite(basePath) {
         if (SKIP_DIRS.has(name)) continue;
         if (name === "data") continue;
         if (name === "Biblioteca_Mangas") continue;
+        if (name === "terabox.html") continue;
         if (name.startsWith(".")) continue;
 
         const stat = fs.statSync(src);
@@ -93,11 +94,11 @@ function copyData() {
     }
 
     const tbDir = path.join(ROOT, "data", "terabox");
-    const tbOut = path.join(dataOut, "terabox");
-    mkdirp(tbOut);
-    for (const f of ["chapters-index.json", "mangas-cache.json"]) {
-        const src = path.join(tbDir, f);
-        if (fs.existsSync(src)) copyFile(src, path.join(tbOut, f));
+    const cloudOut = path.join(dataOut, "cloud");
+    mkdirp(cloudOut);
+    const chaptersSrc = path.join(tbDir, "chapters-index.json");
+    if (fs.existsSync(chaptersSrc)) {
+        copyFile(chaptersSrc, path.join(cloudOut, "chapters-index.json"));
     }
 }
 

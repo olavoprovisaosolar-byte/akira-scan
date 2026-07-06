@@ -27,11 +27,11 @@ jobs:
 
       - run: npm ci
 
-      - name: Build catalog + Terabox index
+      - name: Build catalog + remote chapter index
         run: |
           node scripts/build-catalog-index.mjs
-          if [ -f data/terabox/chapters-index.json ]; then
-            echo "Usando chapters-index.json do repositório"
+          if [ -n "$TERABOX_NDUS" ]; then
+            node scripts/build-terabox-chapters-index.mjs --dlinks --limit=200 || node scripts/build-terabox-chapters-index.mjs
           else
             node scripts/build-terabox-chapters-index.mjs || true
           fi

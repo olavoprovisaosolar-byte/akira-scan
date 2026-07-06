@@ -5,23 +5,41 @@ import { assetUrl } from "../site-config.js";
 
 const PLACEHOLDER_RE = /placehold\.co\/.*text=\?|^$|placeholder|no-?image|default-cover/i;
 
+/** Converte caminhos legados (/backup/…) para URLs válidas no GitHub Pages. */
+export function normalizeAssetPath(url) {
+    if (!url || typeof url !== "string") return url;
+    const u = url.trim();
+    if (u.startsWith("http") || u.startsWith("//")) return u;
+    if (u.startsWith("/backup/mangas/")) {
+        return assetUrl(`data/toonlivre-backup/mangas/${u.slice("/backup/mangas/".length)}`);
+    }
+    if (u.startsWith("/data/")) return assetUrl(u.slice(1));
+    if (u.startsWith("data/") || u.startsWith("backup/") || u.startsWith("biblioteca/")) {
+        return assetUrl(u);
+    }
+    if (u.startsWith("/")) return assetUrl(u.slice(1));
+    return u;
+}
+
 export function isValidCoverUrl(url) {
     if (!url || typeof url !== "string") return false;
     const u = url.trim();
     if (!u || PLACEHOLDER_RE.test(u)) return false;
-    return (
-        u.startsWith("http") ||
+    if (u.startsWith("http") ||
         u.startsWith("/api/") ||
-        u.startsWith("/biblioteca/") ||
-        u.startsWith("/backup/") ||
-        u.startsWith("/data/toonlivre-backup/")
-    );
+        u.includes("/biblioteca/") ||
+        u.includes("/backup/") ||
+        u.includes("/data/toonlivre-backup/") ||
+        u.includes("data/toonlivre-backup/")) return true;
+    return false;
 }
 
 /** Escolhe a melhor capa disponível para um mangá (nunca de outro ID). */
 export function resolveMangaCover(manga) {
     if (!manga) return "";
-    const candidates = [manga.capa, manga.banner, manga.coverUrl, manga.bannerUrl].filter(Boolean);
+    const candidates = [manga.capa, manga.banner, manga.coverUrl, manga.bannerUrl]
+        .map(normalizeAssetPath)
+        .filter(Boolean);
     for (const c of candidates) {
         if (isValidCoverUrl(c)) return c;
     }

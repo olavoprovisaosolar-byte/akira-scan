@@ -16,7 +16,7 @@ export function injectHeadOptimizations() {
 
     if (isStaticHost()) {
         preloads.push({
-            href: assetUrl("data/terabox/chapters-index.json"),
+            href: assetUrl("data/cloud/chapters-index.json"),
             as: "fetch",
             crossOrigin: "anonymous"
         });

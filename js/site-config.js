@@ -15,7 +15,7 @@ export const SITE_CONFIG = {
     host: onGitHub ? "github-pages" : "local",
     basePath: detectBasePath(),
     staticOnly: onGitHub,
-    teraboxIndex: "/data/terabox/chapters-index.json"
+    cloudIndex: "data/cloud/chapters-index.json"
 };
 
 export function isStaticHost() {

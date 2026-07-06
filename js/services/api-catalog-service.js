@@ -247,11 +247,11 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
     } catch { /* retry acima */ }
 
     try {
-        const { obterPaginasTerabox } = await import("./terabox-catalog-service.js");
-        const paginasTb = await obterPaginasTerabox(mangaId, capId);
-        if (isRealChapterPageSet(paginasTb)) return paginasTb;
+        const { obterPaginasRemotas } = await import("./cloud-chapters-service.js");
+        const paginasRemotas = await obterPaginasRemotas(mangaId, capId);
+        if (isRealChapterPageSet(paginasRemotas)) return paginasRemotas;
     } catch (e) {
-        console.warn("[Catalogo] Terabox capítulo:", e.message);
+        console.warn("[Catalogo] capítulo remoto:", e.message);
     }
 
     if (!isStaticHost() && (manga.origem === "toonlivre" || /^obra-/i.test(mangaId))) {

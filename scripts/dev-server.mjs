@@ -274,7 +274,7 @@ function servirTeraboxCache(res) {
         return;
     }
 
-    if (url.pathname === "/data/terabox/chapters-index.json") {
+    if (url.pathname === "/data/cloud/chapters-index.json" || url.pathname === "/data/terabox/chapters-index.json") {
         const idxPath = path.join(ROOT, "data", "terabox", "chapters-index.json");
         if (!fs.existsSync(idxPath)) {
             return corsJson(res, { caps: {}, porManga: {}, aviso: "Execute: npm run terabox:build-index" });

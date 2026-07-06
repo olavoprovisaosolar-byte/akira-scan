@@ -3,7 +3,7 @@
  */
 import { avisoSeArquivoLocal } from "./servidor.js";
 import { initTema, alternarTema, temaAtual } from "./theme.js";
-import { BRAND, renderLogo } from "./brand.js";
+import { BRAND, renderLogo, injectBrandMeta } from "./brand.js";
 import { registerServiceWorker } from "./sw-register.js";
 import { injectHeadOptimizations } from "./head-optimizations.js";
 import { linkManhwa } from "./core/router.js";
@@ -54,6 +54,7 @@ export function renderFooter() {
 }
 
 export async function initShell() {
+    injectBrandMeta();
     injectHeadOptimizations();
     installCoverFallbackHandler();
     initTema();

@@ -80,7 +80,7 @@ export class LeitorController {
             const capLabel = numeroCapituloLabel(capAtual);
 
             this.tituloCap.textContent = `${manga.titulo} · Cap. ${capLabel}`;
-            document.title = `Cap. ${capLabel} — ${manga.titulo}`;
+            document.title = `Cap. ${capLabel} — ${manga.titulo} — AkiraScan`;
 
             const paginas = await MangaRepository.getChapterPages(mangaId, capLabel, capId, {
                 manga: this._manga

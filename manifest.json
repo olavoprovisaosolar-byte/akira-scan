@@ -1,0 +1,17 @@
+{
+  "name": "AkiraScan",
+  "short_name": "AkiraScan",
+  "description": "Leia mangás online — AkiraScan",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#060608",
+  "theme_color": "#060608",
+  "icons": [
+    {
+      "src": "img/akirascan-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
