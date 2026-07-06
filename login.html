@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+    <style>
+        body.auth-page {
+            min-height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background-color: var(--akira-bg-card);
+            padding: 40px;
+            border-radius: var(--akira-radius);
+            width: 400px;
+            max-width: 90vw;
+            border: 1px solid var(--akira-border);
+            box-shadow: var(--akira-shadow);
+        }
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 22px;
+        }
+        .login-box h2 span { color: #A855F7; }
+        .abas {
+            display: flex;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #2a2a35;
+        }
+        .aba {
+            flex: 1;
+            background: none;
+            border: none;
+            color: #a0a0a0;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+        .aba.ativa {
+            color: #A855F7;
+            border-bottom-color: #A855F7;
+        }
+        .input-group { margin-bottom: 20px; }
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #a0a0a0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: #0a0a0c;
+            border: 1px solid #2a2a35;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus { border-color: #A855F7; }
+        .input-group input::placeholder { color: #555; }
+        .btn-submit {
+            width: 100%;
+            background-color: #A855F7;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover { background-color: #7C3AED; }
+        .btn-submit:disabled { opacity: 0.6; cursor: wait; }
+        .btn-google {
+            width: 100%;
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+            transition: opacity 0.3s;
+        }
+        .btn-google:hover { opacity: 0.9; }
+        .btn-demo {
+            width: 100%;
+            background: transparent;
+            color: #A855F7;
+            border: 1px dashed #A855F7;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: inherit;
+            margin-top: 12px;
+            transition: background-color 0.3s;
+        }
+        .btn-demo:hover { background: rgba(157, 0, 255, 0.1); }
+        .credenciais-demo {
+            margin-top: 12px;
+            font-size: 11px;
+            color: #a0a0a0;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .credenciais-demo strong { color: #A855F7; }
+        .divisor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: #a0a0a0;
+            font-size: 12px;
+        }
+        .divisor::before,
+        .divisor::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #2a2a35;
+        }
+        .mensagem {
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+            display: none;
+        }
+        .mensagem.erro {
+            display: block;
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .mensagem.sucesso {
+            display: block;
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .mensagem.info {
+            display: block;
+            background: rgba(157, 0, 255, 0.1);
+            color: #c084fc;
+            border: 1px solid rgba(157, 0, 255, 0.25);
+        }
+        .escondido { display: none !important; }
+        .voltar {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #a0a0a0;
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .voltar:hover { color: #A855F7; }
+    </style>
+</head>
+<body class="akira-app auth-page">
+    <div class="login-box auth-box">
+        <h2 id="titulo-form"><span>BEM-VINDO</span> DE VOLTA!</h2>
+
+        <div class="abas">
+            <button type="button" class="aba ativa" data-modo="entrar">ENTRAR</button>
+            <button type="button" class="aba" data-modo="registar">CRIAR CONTA</button>
+        </div>
+
+        <form id="form-auth">
+            <div class="input-group">
+                <label for="auth-email">E-MAIL</label>
+                <input type="email" id="auth-email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="input-group">
+                <label for="auth-senha">SENHA</label>
+                <input type="password" id="auth-senha" placeholder="Mínimo 6 caracteres" required minlength="6">
+            </div>
+            <div class="input-group escondido" id="grupo-confirmar">
+                <label for="auth-confirmar">CONFIRMAR SENHA</label>
+                <input type="password" id="auth-confirmar" placeholder="Repita a senha">
+            </div>
+            <button type="submit" class="btn-submit" id="btn-acao">ENTRAR</button>
+        </form>
+
+        <div id="msg" class="mensagem"></div>
+
+        <div class="divisor">ou</div>
+
+        <button type="button" class="btn-google" id="btn-google">
+            <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            Continuar com Google
+        </button>
+
+        <button type="button" class="btn-demo" id="btn-demo">⚡ Entrar na conta Demo (já criada)</button>
+        <p class="credenciais-demo" id="credenciais-demo"></p>
+
+        <a href="index.html" class="voltar">← Voltar ao início</a>
+        <br>
+        <a href="configurar-firebase.html" class="voltar" style="margin-top:8px;">⚙ Configurar Firebase</a>
+    </div>
+
+    <script type="module">
+        import {
+            entrarComEmail,
+            registarComEmail,
+            entrarComGoogle,
+            processarRetornoGoogle,
+            observarAuth,
+            usaFirebase,
+            prepararContaDemo
+        } from "./js/auth.js";
+        import { firebaseConfigurado } from "./js/firebase-config.js";
+        import { CONTA_DEMO } from "./js/local-auth.js";
+        import { criarHistoricoDemonstracao } from "./js/usuario.js";
+
+        let modo = "entrar";
+        const form = document.getElementById("form-auth");
+        const btnAcao = document.getElementById("btn-acao");
+        const tituloForm = document.getElementById("titulo-form");
+        const grupoConfirmar = document.getElementById("grupo-confirmar");
+        const msgEl = document.getElementById("msg");
+        const btnGoogle = document.getElementById("btn-google");
+        const btnDemo = document.getElementById("btn-demo");
+        const credenciaisDemo = document.getElementById("credenciais-demo");
+
+        async function ativarContaDemo(mostrarSucesso) {
+            const resultado = await prepararContaDemo();
+            if (!resultado.ok) {
+                mostrarMsg(resultado.mensagem, "erro");
+                return;
+            }
+            await criarHistoricoDemonstracao(CONTA_DEMO.uid);
+            if (mostrarSucesso) {
+                mostrarMsg("Conta demo ativa! A redirecionar...", "sucesso");
+            }
+        }
+
+        function mostrarMsg(texto, tipo) {
+            msgEl.textContent = texto;
+            msgEl.className = `mensagem ${tipo}`;
+        }
+
+        function limparMsg() {
+            msgEl.className = "mensagem";
+            msgEl.textContent = "";
+        }
+
+        function definirModo(novoModo) {
+            modo = novoModo;
+            document.querySelectorAll(".aba").forEach((aba) => {
+                aba.classList.toggle("ativa", aba.dataset.modo === modo);
+            });
+
+            if (modo === "registar") {
+                tituloForm.innerHTML = "<span>CRIAR</span> A TUA CONTA";
+                btnAcao.textContent = "REGISTAR";
+                grupoConfirmar.classList.remove("escondido");
+            } else {
+                tituloForm.innerHTML = "<span>BEM-VINDO</span> DE VOLTA!";
+                btnAcao.textContent = "ENTRAR";
+                grupoConfirmar.classList.add("escondido");
+            }
+            limparMsg();
+        }
+
+        document.querySelectorAll(".aba").forEach((aba) => {
+            aba.addEventListener("click", () => definirModo(aba.dataset.modo));
+        });
+
+        // Completa login Google se voltou de redirect
+        const retornoGoogle = await processarRetornoGoogle();
+        if (retornoGoogle.ok) {
+            mostrarMsg("Login Google concluído! A redirecionar...", "sucesso");
+        } else if (retornoGoogle.mensagem) {
+            mostrarMsg(retornoGoogle.mensagem, "erro");
+        }
+
+        if (usaFirebase()) {
+            mostrarMsg("Firebase ligado ao projeto AkiraScan! Usa e-mail ou Google.", "sucesso");
+            btnDemo.classList.add("escondido");
+            credenciaisDemo.classList.add("escondido");
+        } else if (firebaseConfigurado()) {
+            mostrarMsg("Firebase configurado mas com erro. Tenta recarregar ou verifica o Firestore.", "erro");
+            btnDemo.classList.remove("escondido");
+        } else {
+            credenciaisDemo.innerHTML =
+                `Conta demo: <strong>${CONTA_DEMO.email}</strong> · Senha: <strong>${CONTA_DEMO.senha}</strong>`;
+            mostrarMsg("Modo local: conta demo a entrar automaticamente...", "info");
+        }
+
+        btnDemo.addEventListener("click", () => ativarContaDemo(true));
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            limparMsg();
+
+            const email = document.getElementById("auth-email").value.trim();
+            const senha = document.getElementById("auth-senha").value;
+            const confirmar = document.getElementById("auth-confirmar").value;
+
+            if (!email || !senha) {
+                mostrarMsg("Preenche o e-mail e a senha.", "erro");
+                return;
+            }
+
+            if (modo === "registar" && senha !== confirmar) {
+                mostrarMsg("As senhas não coincidem.", "erro");
+                return;
+            }
+
+            btnAcao.disabled = true;
+            btnAcao.textContent = modo === "registar" ? "A REGISTAR..." : "A ENTRAR...";
+
+            const resultado = modo === "registar"
+                ? await registarComEmail(email, senha)
+                : await entrarComEmail(email, senha);
+
+            btnAcao.disabled = false;
+            btnAcao.textContent = modo === "registar" ? "REGISTAR" : "ENTRAR";
+
+            if (!resultado.ok) {
+                mostrarMsg(resultado.mensagem, "erro");
+                return;
+            }
+
+            if (resultado.novo) {
+                mostrarMsg("Conta criada com sucesso! A redirecionar...", "sucesso");
+            }
+        });
+
+        btnGoogle.addEventListener("click", async () => {
+            limparMsg();
+            btnGoogle.disabled = true;
+
+            const resultado = await entrarComGoogle();
+
+            btnGoogle.disabled = false;
+
+            if (resultado.cancelado) return;
+
+            if (!resultado.ok) {
+                mostrarMsg(resultado.mensagem, "erro");
+            } else if (resultado.redirect) {
+                mostrarMsg("A redirecionar para o Google...", "info");
+            }
+        });
+
+        observarAuth((user) => {
+            if (user) {
+                window.location.href = "biblioteca.html";
+            }
+        });
+
+        if (!usaFirebase()) {
+            await ativarContaDemo(false);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangá — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+
+    <main class="container container-narrow" style="padding-bottom:80px">
+        <div id="manga-conteudo"></div>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { initMangaPage } from "./js/pages/manga-page.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader({ busca: false });
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+        await initMangaPage(document.getElementById("manga-conteudo"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arquivos no Terabox — cache local AkiraScan">
+    <title>Terabox — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+    <div class="akira-layout">
+        <div id="sidebar-slot"></div>
+        <main class="akira-main">
+            <div class="secao-header">
+                <h1 style="margin:0;font-size:1.5rem">Terabox</h1>
+                <span id="cache-info" class="msg-vazia" style="padding:0;margin:0"></span>
+            </div>
+            <p class="msg-vazia" id="status">Carregando cache…</p>
+            <div class="grid-mangas" id="grid-terabox"></div>
+        </main>
+    </div>
+    <div id="footer-slot"></div>
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader({});
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+
+        const grid = document.getElementById("grid-terabox");
+        const status = document.getElementById("status");
+        const info = document.getElementById("cache-info");
+
+        try {
+            const res = await fetch("/api/terabox/catalog");
+            const data = await res.json();
+            if (data.aviso) status.textContent = data.aviso;
+            else status.textContent = "";
+            info.textContent = data.atualizadoEm
+                ? `${data.total} itens · ${new Date(data.atualizadoEm).toLocaleString("pt-BR")}`
+                : "Cache vazio";
+
+            if (!data.itens?.length) {
+                grid.innerHTML = "<p class=\"msg-vazia\">Nenhum item no cache.</p>";
+            } else {
+                grid.innerHTML = data.itens.map((item) => {
+                    const link = item.link
+                        ? `<a href="${item.link}" target="_blank" rel="noopener" class="btn-akira btn-akira-ghost">Abrir</a>`
+                        : `<span class="msg-vazia">${item.tipo}</span>`;
+                    return `
+                        <article class="card-manga fade-in">
+                            <div class="card-manga-body">
+                                <h3 class="card-manga-titulo">${item.nome}</h3>
+                                <p class="msg-vazia" style="margin:0 0 12px;font-size:0.85rem">${item.caminho}</p>
+                                ${link}
+                            </div>
+                        </article>`;
+                }).join("");
+            }
+        } catch (e) {
+            status.textContent = "Erro ao carregar cache.";
+            console.error(e);
+        }
+    </script>
+</body>
+</html>

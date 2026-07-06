@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurar Firebase - AkiraScan</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #0a0a0c;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .wrap { max-width: 720px; margin: 0 auto; }
+        h1 { font-size: 1.5rem; margin-bottom: 8px; }
+        h1 span { color: #9d00ff; }
+        .sub { color: #a0a0a0; font-size: 0.9rem; margin-bottom: 30px; }
+        .passo {
+            background: #121216;
+            border: 1px solid #2a2a35;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .passo h2 {
+            font-size: 0.85rem;
+            color: #9d00ff;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .passo p, .passo li { font-size: 0.9rem; color: #ccc; }
+        .passo ul { margin: 10px 0 0 20px; }
+        .passo a { color: #9d00ff; }
+        .passo code {
+            background: #0a0a0c;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: #c084fc;
+        }
+        .form-box {
+            background: #121216;
+            border: 1px solid #2a2a35;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .form-box h2 { margin-bottom: 16px; font-size: 1.1rem; }
+        label {
+            display: block;
+            font-size: 11px;
+            color: #a0a0a0;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .campo { margin-bottom: 14px; }
+        input, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: #0a0a0c;
+            border: 1px solid #2a2a35;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+        input:focus, textarea:focus { outline: none; border-color: #9d00ff; }
+        textarea { min-height: 120px; resize: vertical; font-family: monospace; font-size: 12px; }
+        .botoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+        button, .btn-link {
+            padding: 10px 18px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-roxo { background: #9d00ff; color: #fff; }
+        .btn-roxo:hover { background: #7b00cc; }
+        .btn-outline {
+            background: transparent;
+            color: #9d00ff;
+            border: 1px solid #9d00ff;
+        }
+        .btn-cinza { background: #2a2a35; color: #fff; }
+        .msg {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: none;
+        }
+        .msg.ok { display: block; background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+        .msg.erro { display: block; background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+        .msg.info { display: block; background: rgba(157,0,255,0.1); color: #c084fc; border: 1px solid rgba(157,0,255,0.25); }
+        .status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .status.off { background: rgba(239,68,68,0.2); color: #f87171; }
+        .status.on { background: rgba(34,197,94,0.2); color: #4ade80; }
+        pre.regras {
+            background: #0a0a0c;
+            padding: 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            overflow-x: auto;
+            color: #a0a0a0;
+            margin-top: 10px;
+            border: 1px solid #2a2a35;
+        }
+        .voltar {
+            display: inline-block;
+            margin-top: 20px;
+            color: #a0a0a0;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        .voltar:hover { color: #9d00ff; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1>Configurar <span>Firebase</span></h1>
+        <p class="sub">Guia passo a passo — plano gratuito (Spark). Google Login também é grátis.</p>
+
+        <div id="status-badge" class="status off">Firebase: não configurado</div>
+
+        <div class="passo">
+            <h2>PASSO 1 — CRIAR PROJETO</h2>
+            <p>Abre o Firebase Console e cria um projeto gratuito:</p>
+            <ul>
+                <li>Vai a <a href="https://console.firebase.google.com/" target="_blank">console.firebase.google.com</a></li>
+                <li>Clica <strong>Criar projeto</strong> → nome: <code>AkiraScan</code></li>
+                <li>Desativa o Google Analytics (opcional, para ser mais simples)</li>
+                <li>Clica <strong>Criar projeto</strong></li>
+            </ul>
+        </div>
+
+        <div class="passo">
+            <h2>PASSO 2 — REGISTAR O SITE WEB</h2>
+            <ul>
+                <li>No projeto, clica no ícone <strong>&lt;/&gt;</strong> (Web)</li>
+                <li>Apelido: <code>AkiraScan Web</code> → Registar app</li>
+                <li>Copia o bloco <code>firebaseConfig</code> que aparece</li>
+                <li>Clica <strong>Continuar</strong> (não precisas do SDK npm)</li>
+            </ul>
+        </div>
+
+        <div class="passo">
+            <h2>PASSO 3 — ATIVAR AUTENTICAÇÃO</h2>
+            <ul>
+                <li>Menu <strong>Authentication</strong> → <strong>Começar</strong></li>
+                <li>Ativa <strong>E-mail/Senha</strong></li>
+                <li>Ativa <strong>Google</strong> → escolhe e-mail de suporte → Guardar</li>
+                <li>Em <strong>Settings → Authorized domains</strong>, confirma que <code>localhost</code> está na lista</li>
+            </ul>
+        </div>
+
+        <div class="passo">
+            <h2>PASSO 4 — CRIAR FIRESTORE</h2>
+            <ul>
+                <li>Menu <strong>Firestore Database</strong> → <strong>Criar base de dados</strong></li>
+                <li>Escolhe localização (ex: <code>europe-west1</code>)</li>
+                <li>Modo: <strong>Começar em modo de teste</strong> (para desenvolvimento)</li>
+                <li>Depois, em <strong>Regras</strong>, cola isto:</li>
+            </ul>
+            <pre class="regras" id="regras-firestore">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /usuarios/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}</pre>
+            <button type="button" class="btn-cinza" id="btn-copiar-regras" style="margin-top:10px;">Copiar regras</button>
+        </div>
+
+        <div class="form-box">
+            <h2>Colar configuração do Firebase</h2>
+            <p style="color:#a0a0a0;font-size:0.85rem;margin-bottom:16px;">
+                Cola o JSON completo do Firebase ou preenche campo a campo.
+            </p>
+
+            <div class="campo">
+                <label>COLAR JSON DO FIREBASE (opcional)</label>
+                <textarea id="json-bloco" placeholder='const firebaseConfig = { apiKey: "...", authDomain: "...", ... };'></textarea>
+            </div>
+
+            <div class="campo">
+                <label>API KEY</label>
+                <input type="text" id="cfg-apiKey" placeholder="AIza...">
+            </div>
+            <div class="campo">
+                <label>AUTH DOMAIN</label>
+                <input type="text" id="cfg-authDomain" placeholder="teu-projeto.firebaseapp.com">
+            </div>
+            <div class="campo">
+                <label>PROJECT ID</label>
+                <input type="text" id="cfg-projectId" placeholder="teu-projeto">
+            </div>
+            <div class="campo">
+                <label>STORAGE BUCKET</label>
+                <input type="text" id="cfg-storageBucket" placeholder="teu-projeto.appspot.com">
+            </div>
+            <div class="campo">
+                <label>MESSAGING SENDER ID</label>
+                <input type="text" id="cfg-messagingSenderId" placeholder="123456789">
+            </div>
+            <div class="campo">
+                <label>APP ID</label>
+                <input type="text" id="cfg-appId" placeholder="1:123:web:abc">
+            </div>
+
+            <div class="botoes">
+                <button type="button" class="btn-roxo" id="btn-guardar">Guardar e testar ligação</button>
+                <button type="button" class="btn-outline" id="btn-parse-json">Extrair do JSON</button>
+                <button type="button" class="btn-cinza" id="btn-limpar">Limpar</button>
+            </div>
+            <div id="msg" class="msg"></div>
+        </div>
+
+        <div class="passo">
+            <h2>PASSO 5 — TESTAR</h2>
+            <p>Depois de guardar, vai ao login e testa e-mail ou Google:</p>
+            <a href="login.html" class="btn-link btn-roxo">Ir para Login →</a>
+        </div>
+
+        <a href="index.html" class="voltar">← Voltar ao início</a>
+    </div>
+
+    <script type="module">
+        import { guardarConfigFirebase, obterConfigFirebase, firebaseConfigurado } from "./js/firebase-config.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const campos = ["apiKey", "authDomain", "projectId", "storageBucket", "messagingSenderId", "appId"];
+        const statusBadge = document.getElementById("status-badge");
+        const msgEl = document.getElementById("msg");
+
+        function mostrarMsg(texto, tipo) {
+            msgEl.textContent = texto;
+            msgEl.className = `msg ${tipo}`;
+        }
+
+        function atualizarStatus() {
+            if (firebaseConfigurado()) {
+                statusBadge.textContent = "Firebase: configurado ✓";
+                statusBadge.className = "status on";
+                preencherFormulario(obterConfigFirebase());
+            } else {
+                statusBadge.textContent = "Firebase: não configurado";
+                statusBadge.className = "status off";
+            }
+        }
+
+        function preencherFormulario(config) {
+            campos.forEach((c) => {
+                const el = document.getElementById(`cfg-${c}`);
+                if (el && config[c]) el.value = config[c];
+            });
+        }
+
+        function lerFormulario() {
+            const config = {};
+            campos.forEach((c) => {
+                config[c] = document.getElementById(`cfg-${c}`).value.trim();
+            });
+            return config;
+        }
+
+        function extrairJson(texto) {
+            const limpo = texto
+                .replace(/const\s+firebaseConfig\s*=\s*/, "")
+                .replace(/export\s+default\s*/, "")
+                .replace(/;+\s*$/, "")
+                .trim();
+
+            try {
+                return JSON.parse(limpo);
+            } catch {
+                const match = limpo.match(/\{[\s\S]*\}/);
+                if (match) return JSON.parse(match[0]);
+                throw new Error("JSON inválido. Copia o bloco firebaseConfig completo.");
+            }
+        }
+
+        document.getElementById("btn-parse-json").addEventListener("click", () => {
+            try {
+                const config = extrairJson(document.getElementById("json-bloco").value);
+                preencherFormulario(config);
+                mostrarMsg("Campos preenchidos a partir do JSON.", "info");
+            } catch (e) {
+                mostrarMsg(e.message, "erro");
+            }
+        });
+
+        document.getElementById("btn-copiar-regras").addEventListener("click", () => {
+            navigator.clipboard.writeText(document.getElementById("regras-firestore").textContent);
+            mostrarMsg("Regras copiadas! Cola no Firebase → Firestore → Regras.", "ok");
+        });
+
+        document.getElementById("btn-limpar").addEventListener("click", () => {
+            localStorage.removeItem("akirascan_firebase_config");
+            campos.forEach((c) => { document.getElementById(`cfg-${c}`).value = ""; });
+            document.getElementById("json-bloco").value = "";
+            mostrarMsg("Configuração limpa. Recarrega a página.", "info");
+            setTimeout(() => location.reload(), 800);
+        });
+
+        document.getElementById("btn-guardar").addEventListener("click", async () => {
+            const config = lerFormulario();
+
+            if (!config.apiKey || !config.projectId) {
+                mostrarMsg("Preenche pelo menos API Key e Project ID.", "erro");
+                return;
+            }
+
+            guardarConfigFirebase(config);
+            mostrarMsg("A testar ligação ao Firebase...", "info");
+
+            try {
+                const app = initializeApp(config, "teste-akirascan");
+                getAuth(app);
+                getFirestore(app);
+
+                mostrarMsg(
+                    "Firebase ligado com sucesso! Vai ao Login e testa e-mail ou Google.",
+                    "ok"
+                );
+                atualizarStatus();
+            } catch (e) {
+                mostrarMsg("Erro: " + e.message, "erro");
+            }
+        });
+
+        atualizarStatus();
+    </script>
+</body>
+</html>

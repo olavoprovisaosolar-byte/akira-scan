@@ -1,0 +1,3 @@
+# AkiraScan sync worker — API oficial ToonLivre (sem scraping desnecessário)
+httpx>=0.27.0
+python-dotenv>=1.0.0

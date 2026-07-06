@@ -1,0 +1,14 @@
+node_modules
+.playwright-browsers
+logs
+.git
+agent-transcripts
+terminals
+dist
+api/dist
+deploy-netlify
+.env
+config/toonlivre.env
+scripts/test-*.mjs
+data/toonlivre-backup/complete-state.json
+data/toonlivre-backup/chapters-state.json

@@ -1,0 +1,140 @@
+/* AkiraScan — Leitor premium */
+.leitor-app {
+    min-height: 100vh;
+    background: #060608;
+    color: #fff;
+    padding-top: 52px;
+}
+
+.leitor-barra {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: rgba(6, 6, 8, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(157, 0, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    gap: 12px;
+    z-index: 100;
+}
+
+.leitor-barra .titulo {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.leitor-progresso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--akira-purple, #9d00ff), #c44dff);
+    z-index: 101;
+    transition: width 0.15s ease;
+}
+
+.btn-leitor-voltar {
+    background: none;
+    border: none;
+    color: var(--akira-purple-light, #c44dff);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.leitor-contador {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+.meu-leitor-manga-css {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 8px 0 48px;
+}
+
+.meu-leitor-manga-css .pagina-manga {
+    display: block;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: #0e0e12;
+}
+
+.meu-leitor-manga-css .pagina-manga.carregada { opacity: 1; }
+.meu-leitor-manga-css .pagina-manga.erro { opacity: 0.4; min-height: 100px; }
+
+.leitor-estado {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 32px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.leitor-estado h2 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+
+.btn-retry {
+    margin-top: 16px;
+    padding: 12px 24px;
+    background: var(--akira-purple, #9d00ff);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.leitor-estado .spinner {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 16px;
+    border: 3px solid #333;
+    border-top-color: var(--akira-purple, #9d00ff);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.leitor-nav-caps {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: rgba(20, 20, 25, 0.95);
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(157, 0, 255, 0.3);
+    z-index: 90;
+}
+
+.leitor-nav-caps button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px 12px;
+    font-family: inherit;
+}
+
+.leitor-nav-caps button:disabled { opacity: 0.3; cursor: default; }

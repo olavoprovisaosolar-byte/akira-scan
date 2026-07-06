@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "message": "Biblioteca atualizada com 25 mangás.",
+  "userMessage": null,
+  "report": {
+    "startedAt": "2026-07-02T06:36:24.583Z",
+    "finishedAt": "2026-07-02T06:39:26.279Z",
+    "attempted": 32,
+    "published": 25,
+    "pendingReview": 1,
+    "failed": 6,
+    "sources": {
+      "mangalivreto": 26
+    },
+    "failures": [
+      {
+        "id": "demon-slayer",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/demon-slayer/ | mangalivreblog: sem capítulos | bladetoons: Lista de capítulos vazia.",
+        "attempts": []
+      },
+      {
+        "id": "tower-of-god",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/tower-of-god/ | mangalivreblog: browserType.launch: Executable doesn't exist at C:\\Users\\adm\\AppData\\Local\\Temp\\cursor-sandbox-cache\\d19775f2122bb0d3de020d477316b72a\\playwright\\chromium_headless_shell-1228\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝ | bladetoons: Lista de capítulos vazia.",
+        "attempts": []
+      },
+      {
+        "id": "naruto",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/naruto/ | mangalivreblog: sem capítulos | bladetoons: Lista de capítulos vazia.",
+        "attempts": []
+      },
+      {
+        "id": "spy-x-family",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/spy-x-family/ | mangalivreblog: sem capítulos | bladetoons: Provedor bladetoons indisponível (circuit open).",
+        "attempts": []
+      },
+      {
+        "id": "vinland-saga",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/vinland-saga/ | mangalivreblog: sem capítulos | bladetoons: Provedor bladetoons indisponível (circuit open).",
+        "attempts": []
+      },
+      {
+        "id": "mob-psycho-100",
+        "error": "toonlivre: sem capítulos | mangalivre: sem capítulos | mangalivreto: HTTP 404 — https://mangalivre.to/manga/mob-psycho-100/ | mangalivreblog: browserType.launch: Executable doesn't exist at C:\\Users\\adm\\AppData\\Local\\Temp\\cursor-sandbox-cache\\d19775f2122bb0d3de020d477316b72a\\playwright\\chromium_headless_shell-1228\\chrome-headless-shell-win64\\chrome-headless-shell.exe\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝ | bladetoons: Provedor bladetoons indisponível (circuit open).",
+        "attempts": []
+      }
+    ]
+  },
+  "ts": "2026-07-02T06:39:26.279Z"
+}

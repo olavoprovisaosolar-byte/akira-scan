@@ -1,0 +1,37 @@
+{
+  "atualizadoEm": "2026-07-02T06:39:26.279Z",
+  "total": 1,
+  "mangas": [
+    {
+      "id": "blue-lock",
+      "titulo": "Blue Lock",
+      "sinopse": "Ler Mangá Blue Lock traduzido em português online grátis. Manga Livre leia em pt-br no celular ou navegador.",
+      "capa": "/api/catalogo/img?url=https%3A%2F%2Fmangalivre.to%2Fwp-content%2Fuploads%2F2025%2F07%2FBlue-Lock-Manga-Livre.webp",
+      "banner": "/api/catalogo/img?url=https%3A%2F%2Fmangalivre.to%2Fwp-content%2Fuploads%2F2025%2F07%2FBlue-Lock-Manga-Livre.webp",
+      "generos": [
+        "Kaneshiro",
+        "Muneyuki",
+        "Nomura",
+        "Yusuke",
+        "Kaneshiro",
+        "Muneyuki",
+        "Nomura",
+        "Yusuke",
+        "Ação",
+        "Drama",
+        "Esportes",
+        "Shounen",
+        "2018"
+      ],
+      "status": "Em lançamento",
+      "autor": "",
+      "capitulos": [],
+      "origem": "mangalivreto",
+      "atualizadoEm": "2026-07-02T06:38:04.430Z",
+      "reviewStatus": "pending_review",
+      "sanityNotes": [
+        "Sem capítulos."
+      ]
+    }
+  ]
+}

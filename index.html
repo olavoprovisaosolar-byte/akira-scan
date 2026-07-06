@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AkiraScan — leia mangás online com interface premium, favoritos, histórico e catálogo Firestore.">
+    <meta name="theme-color" content="#060608">
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="apple-touch-icon" href="img/akirascan-logo.png">
+    <meta property="og:image" content="img/akirascan-logo.png">
+    <title>AkiraScan — Leia Mangás Online</title>
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+    <div id="aviso-servidor"></div>
+
+    <main class="container">
+        <!-- Zona Hero -->
+        <section id="hero-section" aria-label="Destaque principal">
+            <div id="hero-planet-slot"></div>
+            <div class="hero-carousel" id="hero-carousel" aria-label="Destaques">
+                <div class="hero-carousel-track" id="hero-track"></div>
+                <div class="hero-carousel-dots" id="hero-dots"></div>
+                <button type="button" class="hero-carousel-btn prev" id="hero-prev" aria-label="Anterior">‹</button>
+                <button type="button" class="hero-carousel-btn next" id="hero-next" aria-label="Próximo">›</button>
+            </div>
+        </section>
+
+        <!-- Zona Categorias / Listagens -->
+        <section id="categories-section" aria-label="Categorias e catálogo">
+            <section class="secao-akira" id="continuar">
+                <div class="secao-header"><h2>▶ Continuar lendo</h2></div>
+                <div class="row-continuar" id="sec-continuar">
+                    <p class="msg-vazia">Ainda não leste nenhum capítulo.</p>
+                </div>
+            </section>
+
+            <div id="category-grids"></div>
+
+            <section class="secao-akira">
+                <div class="secao-header">
+                    <h2>🆕 Recém-lançados</h2>
+                    <a href="biblioteca.html?sort=recentes">Ver todos</a>
+                </div>
+                <div class="lista-caps-recentes" id="sec-recentes"></div>
+            </section>
+
+            <div class="home-grid-duo">
+                <section class="secao-akira">
+                    <div class="secao-header">
+                        <h2>🏆 Ranking semanal</h2>
+                        <a href="biblioteca.html?sort=popular">Ver ranking</a>
+                    </div>
+                    <div class="ranking-list" id="sec-ranking"></div>
+                </section>
+                <section class="secao-akira">
+                    <div class="secao-header">
+                        <h2>✨ Novidades</h2>
+                        <a href="biblioteca.html?sort=recentes">Ver mais</a>
+                    </div>
+                    <div class="grid-mangas grid-mangas-compact" id="sec-novidades"></div>
+                </section>
+            </div>
+
+            <section class="secao-akira">
+                <div class="secao-header">
+                    <h2>🔥 Populares</h2>
+                    <a href="biblioteca.html?sort=popular">Ver todos</a>
+                </div>
+                <div class="grid-mangas" id="sec-populares"></div>
+            </section>
+
+            <section class="secao-akira">
+                <div class="secao-header"><h2>🏷️ Gêneros</h2></div>
+                <div class="genre-list" id="sec-generos"></div>
+            </section>
+        </section>
+
+        <!-- Zona Detalhes (sinopse + banner + capítulos) -->
+        <section id="details-section" hidden aria-label="Detalhes do mangá">
+            <div id="details-root"></div>
+        </section>
+
+        <!-- Zona Leitor (placeholder — leitura em leitor.html) -->
+        <section id="reader-section" hidden aria-label="Leitor">
+            <p class="msg-vazia">A redirecionar para o leitor…</p>
+        </section>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { initHomePage } from "./js/pages/home-page.js";
+
+        const errSlot = document.createElement("div");
+        errSlot.id = "boot-error";
+        errSlot.className = "aviso-servidor escondido";
+        document.body.prepend(errSlot);
+
+        try {
+            document.getElementById("header-slot").innerHTML = renderHeader();
+            document.getElementById("footer-slot").innerHTML = renderFooter();
+            await initShell();
+            await initHomePage();
+        } catch (err) {
+            console.error("[Boot]", err);
+            errSlot.classList.remove("escondido");
+            errSlot.innerHTML = `<h2>Erro ao iniciar</h2><p>${err?.message || err}</p><p>Use <a href="http://localhost:5501/">http://localhost:5501</a> com o servidor local (<code>npm run dev:legacy</code>).</p>`;
+        }
+    </script>
+</body>
+</html>

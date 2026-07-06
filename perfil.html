@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+
+    <main class="container container-narrow perfil-page">
+        <h1 class="perfil-titulo">O teu perfil</h1>
+
+        <div class="perfil-stats sidebar-block">
+            <div class="perfil-stat">
+                <p class="perfil-stat-num" id="stat-lendo">0</p>
+                <p class="perfil-stat-label">A ler</p>
+            </div>
+            <div class="perfil-stat">
+                <p class="perfil-stat-num" id="stat-fav">0</p>
+                <p class="perfil-stat-label">Favoritos</p>
+            </div>
+        </div>
+
+        <section class="secao-akira">
+            <div class="secao-header"><h2>Continuar lendo</h2></div>
+            <div class="row-continuar" id="lista-continuar"></div>
+        </section>
+
+        <section class="secao-akira">
+            <div class="secao-header"><h2>Favoritos</h2></div>
+            <div class="grid-mangas" id="lista-favoritos"></div>
+        </section>
+
+        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histórico</button>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, renderMangaCard, initShell, escHtml } from "./js/app-shell.js";
+        import { obterContinuarLista, obterFavoritos, limparHistorico } from "./js/storage.js";
+        import { obterManga, linkLeitor } from "./js/services/data-service.js";
+        import { normalizarNumeroProgresso } from "./js/services/chapter-label.js";
+        import { coverImgTagAttrs } from "./js/services/cover-utils.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader();
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+
+        const continuar = obterContinuarLista();
+        const favoritos = obterFavoritos();
+        document.getElementById("stat-lendo").textContent = continuar.length;
+        document.getElementById("stat-fav").textContent = favoritos.length;
+
+        const elCont = document.getElementById("lista-continuar");
+        elCont.innerHTML = continuar.length
+            ? continuar.map((h) => {
+                const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);
+                const img = coverImgTagAttrs(
+                    { id: h.mangaId, titulo: h.titulo, capa: h.capa },
+                    { loading: "lazy" }
+                );
+                return `
+                <a href="${linkLeitor(h.mangaId, capNum, h.chapterId)}" class="card-continuar"
+                   data-manga-id="${escHtml(h.mangaId)}">
+                    <img ${img.html}>
+                    <div class="card-continuar-body">
+                        <h3>${escHtml(h.titulo)}</h3>
+                        <span class="card-continuar-cap">Cap. ${capNum}</span>
+                    </div>
+                </a>`;
+            }).join("")
+            : '<p class="msg-vazia">Nenhum histórico ainda.</p>';
+
+        const elFav = document.getElementById("lista-favoritos");
+        if (!favoritos.length) {
+            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas páginas dos mangás.</p>';
+        } else {
+            for (const id of favoritos) {
+                try {
+                    const m = await obterManga(id);
+                    elFav.insertAdjacentHTML("beforeend", renderMangaCard(m));
+                } catch { /* skip */ }
+            }
+        }
+
+        document.getElementById("btn-limpar").addEventListener("click", () => {
+            if (confirm("Limpar todo o histórico de leitura?")) {
+                limparHistorico();
+                location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

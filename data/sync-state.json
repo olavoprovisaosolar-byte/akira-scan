@@ -1,0 +1,485 @@
+{
+  "ultimoSync": "2026-07-02T06:13:31.986Z",
+  "mangas": {
+    "obra-c1f65a0b": {
+      "ultimoCapId": "cap-908a6074-169",
+      "ultimoCapNum": "169",
+      "totalCaps": 169,
+      "atualizadoEm": "2026-07-02T06:13:04.578Z"
+    },
+    "obra-26085ffa": {
+      "ultimoCapId": "cap-16e7b7d6-112",
+      "ultimoCapNum": "112",
+      "totalCaps": 113,
+      "atualizadoEm": "2026-07-02T06:13:05.301Z"
+    },
+    "obra-e22def8b": {
+      "ultimoCapId": "cap-22df0efc-127",
+      "ultimoCapNum": "127",
+      "totalCaps": 127,
+      "atualizadoEm": "2026-07-02T06:13:05.997Z"
+    },
+    "obra-3e865dae": {
+      "ultimoCapId": "cap-1269ef59-16",
+      "ultimoCapNum": "16",
+      "totalCaps": 16,
+      "atualizadoEm": "2026-07-02T06:13:06.693Z"
+    },
+    "obra-88c81057": {
+      "ultimoCapId": "cap-8ff695e2-112",
+      "ultimoCapNum": "112",
+      "totalCaps": 113,
+      "atualizadoEm": "2026-07-02T06:13:07.380Z"
+    },
+    "obra-35d0cfff": {
+      "ultimoCapId": "cap-f83abfc9-208",
+      "ultimoCapNum": "208",
+      "totalCaps": 208,
+      "atualizadoEm": "2026-07-02T06:13:08.069Z"
+    },
+    "obra-da13df93": {
+      "ultimoCapId": "cap-869dafed-79",
+      "ultimoCapNum": "79",
+      "totalCaps": 79,
+      "atualizadoEm": "2026-07-02T06:13:08.750Z"
+    },
+    "obra-1d62a32f": {
+      "ultimoCapId": "cap-f21146c9-29",
+      "ultimoCapNum": "29",
+      "totalCaps": 29,
+      "atualizadoEm": "2026-07-02T06:13:09.448Z"
+    },
+    "obra-dd2021fa": {
+      "ultimoCapId": "cap-d2e90fe6-408",
+      "ultimoCapNum": "408",
+      "totalCaps": 408,
+      "atualizadoEm": "2026-07-02T06:13:10.141Z"
+    },
+    "obra-3958076f": {
+      "ultimoCapId": "cap-bd20c030-31",
+      "ultimoCapNum": "31",
+      "totalCaps": 31,
+      "atualizadoEm": "2026-07-02T06:13:10.837Z"
+    },
+    "obra-0fc6490d": {
+      "ultimoCapId": "cap-3f386470-29",
+      "ultimoCapNum": "29",
+      "totalCaps": 29,
+      "atualizadoEm": "2026-07-02T06:13:11.532Z"
+    },
+    "obra-0f20295f": {
+      "ultimoCapId": "cap-08977cde-241",
+      "ultimoCapNum": "241",
+      "totalCaps": 253,
+      "atualizadoEm": "2026-07-02T06:13:12.237Z"
+    },
+    "obra-bed97db2": {
+      "ultimoCapId": "cap-2f970a55-148",
+      "ultimoCapNum": "148",
+      "totalCaps": 148,
+      "atualizadoEm": "2026-07-02T06:13:12.931Z"
+    },
+    "obra-1e430268": {
+      "ultimoCapId": "cap-546180ab-127",
+      "ultimoCapNum": "127",
+      "totalCaps": 127,
+      "atualizadoEm": "2026-07-02T06:13:13.614Z"
+    },
+    "obra-df1daa03": {
+      "ultimoCapId": "cap-564766a0-875",
+      "ultimoCapNum": "875",
+      "totalCaps": 879,
+      "atualizadoEm": "2026-07-02T06:13:14.331Z"
+    },
+    "obra-2e64bf7c": {
+      "ultimoCapId": "cap-c7720c6d-319",
+      "ultimoCapNum": "319",
+      "totalCaps": 319,
+      "atualizadoEm": "2026-07-02T06:13:15.035Z"
+    },
+    "obra-107261fb": {
+      "ultimoCapId": "cap-21bce6d9-88",
+      "ultimoCapNum": "88",
+      "totalCaps": 88,
+      "atualizadoEm": "2026-07-02T06:13:15.731Z"
+    },
+    "obra-9f1b4f92": {
+      "ultimoCapId": "cap-90c1f189-41",
+      "ultimoCapNum": "41",
+      "totalCaps": 41,
+      "atualizadoEm": "2026-07-02T06:13:16.409Z"
+    },
+    "obra-f71d1b34": {
+      "ultimoCapId": "cap-5c9360aa-95",
+      "ultimoCapNum": "95",
+      "totalCaps": 95,
+      "atualizadoEm": "2026-07-02T06:13:17.086Z"
+    },
+    "obra-a5bf530a": {
+      "ultimoCapId": "cap-f5e98459-613",
+      "ultimoCapNum": "613",
+      "totalCaps": 613,
+      "atualizadoEm": "2026-07-02T06:13:17.808Z"
+    },
+    "obra-a09285c4": {
+      "ultimoCapId": "cap-411af5c6-99",
+      "ultimoCapNum": "99",
+      "totalCaps": 104,
+      "atualizadoEm": "2026-07-02T06:13:18.492Z"
+    },
+    "obra-a831559c": {
+      "ultimoCapId": "cap-e4e000ef-131",
+      "ultimoCapNum": "131",
+      "totalCaps": 131,
+      "atualizadoEm": "2026-07-02T06:13:19.186Z"
+    },
+    "obra-795ae3ae": {
+      "ultimoCapId": "cap-fc573644-62",
+      "ultimoCapNum": "62",
+      "totalCaps": 62,
+      "atualizadoEm": "2026-07-02T06:13:19.868Z"
+    },
+    "obra-ad72b202": {
+      "ultimoCapId": "cap-86d6ad3a-143",
+      "ultimoCapNum": "143",
+      "totalCaps": 143,
+      "atualizadoEm": "2026-07-02T06:13:20.566Z"
+    },
+    "obra-db4bc6d8": {
+      "ultimoCapId": "cap-f732fefd-95",
+      "ultimoCapNum": "95",
+      "totalCaps": 95,
+      "atualizadoEm": "2026-07-02T06:13:21.255Z"
+    },
+    "obra-e76ec350": {
+      "ultimoCapId": "cap-499a9012-175",
+      "ultimoCapNum": "175",
+      "totalCaps": 175,
+      "atualizadoEm": "2026-07-02T06:13:21.951Z"
+    },
+    "obra-695ec683": {
+      "ultimoCapId": "cap-ce1709eb-17",
+      "ultimoCapNum": "17",
+      "totalCaps": 17,
+      "atualizadoEm": "2026-07-02T06:13:22.635Z"
+    },
+    "obra-4cada7bb": {
+      "ultimoCapId": "cap-c449c3bc-116",
+      "ultimoCapNum": "116",
+      "totalCaps": 116,
+      "atualizadoEm": "2026-07-02T06:13:23.315Z"
+    },
+    "obra-ab7c613b": {
+      "ultimoCapId": "cap-c8fe5b4d-26",
+      "ultimoCapNum": "26",
+      "totalCaps": 27,
+      "atualizadoEm": "2026-07-02T06:13:24.012Z"
+    },
+    "obra-492515c9": {
+      "ultimoCapId": "cap-894f0f44-55",
+      "ultimoCapNum": "55",
+      "totalCaps": 55,
+      "atualizadoEm": "2026-07-02T06:13:24.689Z"
+    },
+    "obra-faa00757": {
+      "ultimoCapId": "cap-dc84f919-66",
+      "ultimoCapNum": "66",
+      "totalCaps": 66,
+      "atualizadoEm": "2026-07-02T06:13:25.365Z"
+    },
+    "obra-48838675": {
+      "ultimoCapId": "cap-f3d6f79f-169",
+      "ultimoCapNum": "169",
+      "totalCaps": 175,
+      "atualizadoEm": "2026-07-02T06:13:26.049Z"
+    },
+    "obra-829c42c0": {
+      "ultimoCapId": "cap-103a402f-101",
+      "ultimoCapNum": "101",
+      "totalCaps": 101,
+      "atualizadoEm": "2026-07-02T06:13:26.737Z"
+    },
+    "obra-24d77989": {
+      "ultimoCapId": "cap-80fba990-89",
+      "ultimoCapNum": "89",
+      "totalCaps": 90,
+      "atualizadoEm": "2026-07-02T06:13:27.425Z"
+    },
+    "obra-5084cbe9": {
+      "ultimoCapId": "cap-9635893a-106",
+      "ultimoCapNum": "106",
+      "totalCaps": 107,
+      "atualizadoEm": "2026-07-02T06:13:28.114Z"
+    },
+    "obra-9444fee7": {
+      "ultimoCapId": "cap-f7a93958-41",
+      "ultimoCapNum": "41",
+      "totalCaps": 41,
+      "atualizadoEm": "2026-07-02T06:13:28.826Z"
+    },
+    "obra-284dd25a": {
+      "ultimoCapId": "cap-ee25c86e-142",
+      "ultimoCapNum": "142",
+      "totalCaps": 142,
+      "atualizadoEm": "2026-07-02T06:13:29.504Z"
+    },
+    "obra-8a82bc89": {
+      "ultimoCapId": "cap-c13a860d-108",
+      "ultimoCapNum": "108",
+      "totalCaps": 108,
+      "atualizadoEm": "2026-07-02T06:13:30.193Z"
+    },
+    "obra-b58b5a3f": {
+      "ultimoCapId": "cap-72e63f6c-60",
+      "ultimoCapNum": "60",
+      "totalCaps": 60,
+      "atualizadoEm": "2026-07-02T06:13:30.869Z"
+    },
+    "obra-22824a65": {
+      "ultimoCapId": "cap-18a0b8f4-31",
+      "ultimoCapNum": "31",
+      "totalCaps": 31,
+      "atualizadoEm": "2026-07-02T06:13:31.558Z"
+    },
+    "obra-ba7a6cf5": {
+      "ultimoCapId": "cap-6401e6e3-60",
+      "ultimoCapNum": "60",
+      "totalCaps": 60,
+      "atualizadoEm": "2026-07-02T04:52:19.095Z"
+    },
+    "obra-1712506a": {
+      "ultimoCapId": "cap-c0550123-253",
+      "ultimoCapNum": "253",
+      "totalCaps": 253,
+      "atualizadoEm": "2026-07-02T04:52:19.773Z"
+    },
+    "obra-31abe988": {
+      "ultimoCapId": "cap-4bb0da25-100",
+      "ultimoCapNum": "100",
+      "totalCaps": 100,
+      "atualizadoEm": "2026-07-02T04:52:20.431Z"
+    },
+    "obra-d9f7d304": {
+      "ultimoCapId": "cap-45237fd1-58",
+      "ultimoCapNum": "58",
+      "totalCaps": 58,
+      "atualizadoEm": "2026-07-02T04:52:21.093Z"
+    },
+    "obra-2c19571c": {
+      "ultimoCapId": "cap-497e2d0d-311",
+      "ultimoCapNum": "311",
+      "totalCaps": 312,
+      "atualizadoEm": "2026-07-02T04:52:21.747Z"
+    },
+    "obra-14eedd62": {
+      "ultimoCapId": "cap-b7ca75a7-182",
+      "ultimoCapNum": "182",
+      "totalCaps": 199,
+      "atualizadoEm": "2026-07-02T04:52:22.415Z"
+    },
+    "obra-59e4d3b7": {
+      "ultimoCapId": "cap-f67a9069-34",
+      "ultimoCapNum": "34",
+      "totalCaps": 34,
+      "atualizadoEm": "2026-07-02T04:52:23.098Z"
+    },
+    "obra-6dcb56ca": {
+      "ultimoCapId": "cap-fe493a80-285",
+      "ultimoCapNum": "285",
+      "totalCaps": 285,
+      "atualizadoEm": "2026-07-02T04:52:23.776Z"
+    },
+    "obra-f249bd0f": {
+      "ultimoCapId": "cap-ab7fd5c3-31",
+      "ultimoCapNum": "31",
+      "totalCaps": 31,
+      "atualizadoEm": "2026-07-02T04:52:24.456Z"
+    },
+    "obra-d1eef406": {
+      "ultimoCapId": "cap-fc2be5a1-264",
+      "ultimoCapNum": "264",
+      "totalCaps": 264,
+      "atualizadoEm": "2026-07-02T04:52:25.114Z"
+    },
+    "obra-fcd9fa7a": {
+      "ultimoCapId": "cap-79d51601-104",
+      "ultimoCapNum": "104",
+      "totalCaps": 104,
+      "atualizadoEm": "2026-07-02T04:52:25.781Z"
+    },
+    "obra-7de7743d": {
+      "ultimoCapId": "cap-efd4bf27-27",
+      "ultimoCapNum": "27",
+      "totalCaps": 27,
+      "atualizadoEm": "2026-07-02T04:52:26.444Z"
+    },
+    "obra-30b3ada6": {
+      "ultimoCapId": "cap-bd17c1a2-333",
+      "ultimoCapNum": "333",
+      "totalCaps": 333,
+      "atualizadoEm": "2026-07-02T04:52:27.112Z"
+    },
+    "obra-288b1867": {
+      "ultimoCapId": "cap-90fafcbe-265",
+      "ultimoCapNum": "265",
+      "totalCaps": 266,
+      "atualizadoEm": "2026-07-02T04:52:27.787Z"
+    },
+    "obra-bb334ef5": {
+      "ultimoCapId": "cap-6434f6d8-18",
+      "ultimoCapNum": "18",
+      "totalCaps": 18,
+      "atualizadoEm": "2026-07-02T04:52:28.449Z"
+    },
+    "obra-f286b166": {
+      "ultimoCapId": "cap-047f0f0f-212",
+      "ultimoCapNum": "212",
+      "totalCaps": 212,
+      "atualizadoEm": "2026-07-02T04:52:29.126Z"
+    },
+    "obra-140aa8ea": {
+      "ultimoCapId": "cap-367ee71d-162",
+      "ultimoCapNum": "162",
+      "totalCaps": 162,
+      "atualizadoEm": "2026-07-02T04:52:29.827Z"
+    },
+    "obra-de9dd7bf": {
+      "ultimoCapId": "cap-cdf121cb-15",
+      "ultimoCapNum": "15",
+      "totalCaps": 16,
+      "atualizadoEm": "2026-07-02T04:52:30.500Z"
+    },
+    "obra-a07d8800": {
+      "ultimoCapId": "cap-d42f6266-85",
+      "ultimoCapNum": "85",
+      "totalCaps": 86,
+      "atualizadoEm": "2026-07-02T04:52:31.189Z"
+    },
+    "obra-957730bd": {
+      "ultimoCapId": "cap-a8cfc9f9-29",
+      "ultimoCapNum": "29",
+      "totalCaps": 29,
+      "atualizadoEm": "2026-07-02T04:52:31.857Z"
+    },
+    "obra-2e09a76e": {
+      "ultimoCapId": "cap-269727fb-167",
+      "ultimoCapNum": "167",
+      "totalCaps": 176,
+      "atualizadoEm": "2026-07-02T04:52:32.525Z"
+    },
+    "obra-5e4680c7": {
+      "ultimoCapId": "cap-48a5c30e-30",
+      "ultimoCapNum": "30",
+      "totalCaps": 30,
+      "atualizadoEm": "2026-07-02T04:52:33.193Z"
+    },
+    "obra-913f8083": {
+      "ultimoCapId": "cap-e44d578a-171",
+      "ultimoCapNum": "171",
+      "totalCaps": 171,
+      "atualizadoEm": "2026-07-02T04:52:33.872Z"
+    },
+    "obra-9c33fd2a": {
+      "ultimoCapId": "cap-6f2ffcbd-40",
+      "ultimoCapNum": "40",
+      "totalCaps": 40,
+      "atualizadoEm": "2026-07-02T04:52:34.535Z"
+    },
+    "obra-b49e65b6": {
+      "ultimoCapId": "cap-16e82f85-84",
+      "ultimoCapNum": "84",
+      "totalCaps": 84,
+      "atualizadoEm": "2026-07-02T04:52:35.198Z"
+    },
+    "obra-4542cb30": {
+      "ultimoCapId": "cap-0c14e547-159",
+      "ultimoCapNum": "159",
+      "totalCaps": 159,
+      "atualizadoEm": "2026-07-02T04:52:35.874Z"
+    },
+    "obra-74a545a6": {
+      "ultimoCapId": "cap-cb37f605-26",
+      "ultimoCapNum": "26",
+      "totalCaps": 26,
+      "atualizadoEm": "2026-07-02T04:52:36.569Z"
+    },
+    "obra-6c6a73e9": {
+      "ultimoCapId": "cap-83f1b432-40",
+      "ultimoCapNum": "40",
+      "totalCaps": 40,
+      "atualizadoEm": "2026-07-02T04:52:37.239Z"
+    },
+    "obra-c124dc14": {
+      "ultimoCapId": "cap-8093e926-24",
+      "ultimoCapNum": "24",
+      "totalCaps": 25,
+      "atualizadoEm": "2026-07-02T04:52:37.903Z"
+    },
+    "obra-85c9c2d0": {
+      "ultimoCapId": "cap-abaa8682-22",
+      "ultimoCapNum": "22",
+      "totalCaps": 22,
+      "atualizadoEm": "2026-07-02T04:52:38.572Z"
+    },
+    "obra-67bbced1": {
+      "ultimoCapId": "cap-d36b9268-132",
+      "ultimoCapNum": "132",
+      "totalCaps": 133,
+      "atualizadoEm": "2026-07-02T04:52:39.233Z"
+    },
+    "obra-0b501bc1": {
+      "ultimoCapId": "cap-29a60b30-38",
+      "ultimoCapNum": "38",
+      "totalCaps": 38,
+      "atualizadoEm": "2026-07-02T04:52:39.902Z"
+    },
+    "obra-f22d8f75": {
+      "ultimoCapId": "cap-91ecf7e8-15",
+      "ultimoCapNum": "15",
+      "totalCaps": 15,
+      "atualizadoEm": "2026-07-02T04:52:40.574Z"
+    },
+    "obra-3544dd30": {
+      "ultimoCapId": "cap-80554b53-227",
+      "ultimoCapNum": "227",
+      "totalCaps": 227,
+      "atualizadoEm": "2026-07-02T04:52:41.246Z"
+    },
+    "obra-cdcaef6f": {
+      "ultimoCapId": "cap-03ffce70-122",
+      "ultimoCapNum": "122",
+      "totalCaps": 122,
+      "atualizadoEm": "2026-07-02T04:52:41.923Z"
+    },
+    "obra-bfdb6982": {
+      "ultimoCapId": "cap-4ac14861-178",
+      "ultimoCapNum": "178",
+      "totalCaps": 179,
+      "atualizadoEm": "2026-07-02T04:52:42.602Z"
+    },
+    "obra-99599f35": {
+      "ultimoCapId": "cap-dca5ab4f-328",
+      "ultimoCapNum": "328",
+      "totalCaps": 329,
+      "atualizadoEm": "2026-07-02T04:52:43.253Z"
+    },
+    "obra-f456c551": {
+      "ultimoCapId": "cap-0d5a7dd3-87",
+      "ultimoCapNum": "87",
+      "totalCaps": 88,
+      "atualizadoEm": "2026-07-02T04:52:43.903Z"
+    },
+    "obra-9ddc5f63": {
+      "ultimoCapId": "cap-617f71c8-341",
+      "ultimoCapNum": "341",
+      "totalCaps": 341,
+      "atualizadoEm": "2026-07-02T04:52:44.581Z"
+    },
+    "obra-523ded51": {
+      "ultimoCapId": "cap-e649f263-26",
+      "ultimoCapNum": "26",
+      "totalCaps": 26,
+      "atualizadoEm": "2026-07-02T04:52:45.251Z"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: AkiraScan API
+  version: 1.0.0
+  description: Contrato entre frontend (web), API (Node/TS) e sync worker (Python).
+
+paths:
+  /api/manga/{mangaId}:
+    get:
+      summary: Detalhes de um mangá
+      parameters:
+        - name: mangaId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Mangá encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MangaResponse"
+        "404":
+          description: Não encontrado
+
+  /api/biblioteca:
+    get:
+      summary: Catálogo completo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BibliotecaResponse"
+
+  /api/biblioteca/{mangaId}/{capituloId}:
+    get:
+      summary: Páginas de um capítulo
+      parameters:
+        - name: mangaId
+          in: path
+          required: true
+          schema: { type: string }
+        - name: capituloId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PaginasResponse"
+
+  /api/sync:
+    post:
+      summary: Dispara sync ToonLivre (Python preferencial)
+      responses:
+        "200":
+          description: Sync concluído
+
+components:
+  schemas:
+    Capitulo:
+      type: object
+      required: [id, numero]
+      properties:
+        id: { type: string }
+        numero: { type: number }
+        titulo: { type: string, nullable: true }
+        paginas: { type: integer }
+        publicadoEm: { type: string, format: date-time }
+        novo: { type: boolean }
+
+    Manga:
+      type: object
+      required: [id, titulo, capitulos]
+      properties:
+        id: { type: string }
+        titulo: { type: string }
+        sinopse: { type: string }
+        autor: { type: string }
+        artista: { type: string }
+        generos: { type: array, items: { type: string } }
+        status: { type: string }
+        capa: { type: string }
+        banner: { type: string }
+        popularidade: { type: number }
+        capitulos: { type: array, items: { $ref: "#/components/schemas/Capitulo" } }
+        atualizadoEm: { type: string }
+        origem: { type: string }
+
+    MangaResponse:
+      type: object
+      properties:
+        manga: { $ref: "#/components/schemas/Manga" }
+
+    BibliotecaResponse:
+      type: object
+      properties:
+        mangas:
+          type: array
+          items: { $ref: "#/components/schemas/Manga" }
+
+    PaginasResponse:
+      type: object
+      properties:
+        manga: { type: string }
+        capitulo: { type: string }
+        pages:
+          type: array
+          items:
+            type: object
+            properties:
+              index: { type: integer }
+              url: { type: string }
+        demo: { type: boolean }

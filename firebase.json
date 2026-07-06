@@ -1,0 +1,56 @@
+{
+  "hosting": {
+    "public": "deploy-firebase",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/data/catalogo*.json",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=120, stale-while-revalidate=600" }
+        ]
+      },
+      {
+        "source": "/backup/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+        ]
+      },
+      {
+        "source": "/biblioteca/**",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=86400" }
+        ]
+      },
+      {
+        "source": "**/*.@(webp|jpg|jpeg|png|gif|svg|woff2)",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=604800, immutable" }
+        ]
+      },
+      {
+        "source": "/sw.js",
+        "headers": [
+          { "key": "Cache-Control", "value": "no-cache" }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/backup/**",
+        "destination": "/data/toonlivre-backup/**"
+      },
+      {
+        "source": "/biblioteca/**",
+        "destination": "/Biblioteca_Mangas/**"
+      }
+    ]
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}

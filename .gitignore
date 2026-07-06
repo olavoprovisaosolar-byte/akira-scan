@@ -1,0 +1,21 @@
+.netlify/
+node_modules/
+api/dist/
+.env
+config/toonlivre.env
+.playwright-browsers/
+deploy-netlify/
+deploy-github/
+deploy-firebase/
+deploy-snapshot/
+logs/
+
+# Backup local (Terabox é a fonte das páginas)
+data/toonlivre-backup/
+Biblioteca_Mangas/
+
+# State operacional (regenerado pelos scripts)
+data/terabox/upload-state.json
+
+# Backups de catálogo
+data/catalogo.json.bak*

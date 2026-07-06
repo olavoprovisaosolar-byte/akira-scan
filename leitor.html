@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/leitor.css">
+</head>
+<body class="leitor-app">
+    <div class="leitor-progresso" id="barra-progresso"></div>
+    <header class="leitor-barra">
+        <button type="button" class="btn-leitor-voltar" id="btn-voltar">← Voltar</button>
+        <span class="titulo" id="titulo-cap">A carregar...</span>
+        <span class="leitor-contador" id="contador-paginas"></span>
+    </header>
+
+    <div id="area-leitor"></div>
+    <nav class="leitor-nav-caps escondido" id="nav-caps">
+        <button type="button" id="btn-cap-anterior" title="Capítulo anterior">◀</button>
+        <button type="button" id="btn-cap-proximo" title="Próximo capítulo">▶</button>
+    </nav>
+
+    <script type="module">
+        import { registerServiceWorker } from "./js/sw-register.js";
+        import { startPerformanceMonitor } from "./js/core/performance-monitor.js";
+        import { initLeitorPage } from "./js/pages/leitor-page.js";
+
+        registerServiceWorker();
+        startPerformanceMonitor();
+
+        initLeitorPage({
+            area: document.getElementById("area-leitor"),
+            tituloCap: document.getElementById("titulo-cap"),
+            contador: document.getElementById("contador-paginas"),
+            barra: document.getElementById("barra-progresso"),
+            navCaps: document.getElementById("nav-caps"),
+            btnVoltar: document.getElementById("btn-voltar")
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build catalog + Terabox index
+        run: |
+          node scripts/build-catalog-index.mjs
+          node scripts/build-terabox-chapters-index.mjs
+        env:
+          TERABOX_NDUS: ${{ secrets.TERABOX_NDUS }}
+
+      - name: Prepare GitHub Pages package
+        run: node scripts/prepare-github-deploy.mjs
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: deploy-github
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

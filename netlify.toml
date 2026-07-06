@@ -1,0 +1,59 @@
+[build]
+  command = "npm run build && node scripts/build-catalog-index.mjs"
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  included_files = [
+    "data/catalogo.json",
+    "data/catalogo-index.json",
+    "data/toonlivre-backup/mangas/*/meta.json",
+    "data/toonlivre-backup/mangas/*/chapters/*/meta.json",
+    "js/mangas-destaque.js",
+    "js/services/chapter-label.js"
+  ]
+
+[[redirects]]
+  from = "/api/biblioteca/*"
+  to = "/.netlify/functions/biblioteca/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/biblioteca/*"
+  to = "/Biblioteca_Mangas/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/backup/*"
+  to = "/data/toonlivre-backup/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/catalogo/*"
+  to = "/.netlify/functions/catalogo/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/v1/proxy/*"
+  to = "/.netlify/functions/manga-proxy/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/manga/*"
+  to = "/.netlify/functions/biblioteca/:splat"
+  status = 200
+
+[[headers]]
+  for = "/data/catalogo*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=120, stale-while-revalidate=600"
+
+[[headers]]
+  for = "/biblioteca/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/backup/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

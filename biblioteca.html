@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biblioteca completa de mangás no AkiraScan.">
+    <title>Biblioteca — AkiraScan</title>
+    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+    <div id="aviso-servidor"></div>
+
+    <div class="akira-layout">
+        <div id="sidebar-slot"></div>
+        <main class="akira-main">
+            <div class="secao-header">
+                <h1 style="margin:0;font-size:1.5rem">Biblioteca</h1>
+                <span id="total-label" class="msg-vazia" style="padding:0;margin:0"></span>
+            </div>
+            <div class="grid-mangas" id="grid-catalogo"></div>
+            <button type="button" id="btn-mais" class="btn-akira btn-akira-ghost escondido" style="margin:24px auto;display:block">Carregar mais</button>
+            <p id="status-catalogo" class="msg-vazia"></p>
+        </main>
+    </div>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { createBibliotecaController } from "./js/pages/biblioteca-page.js";
+
+        const params = new URLSearchParams(location.search);
+        const busca = params.get("q") || "";
+
+        document.getElementById("header-slot").innerHTML = renderHeader({ buscaValor: busca === "favoritos" ? "" : busca });
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+
+        const ctrl = createBibliotecaController({
+            grid: document.getElementById("grid-catalogo"),
+            sidebar: document.getElementById("sidebar-slot"),
+            totalLabel: document.getElementById("total-label"),
+            btnMais: document.getElementById("btn-mais"),
+            statusEl: document.getElementById("status-catalogo"),
+            params
+        });
+
+        await ctrl.carregar(true);
+    </script>
+</body>
+</html>
