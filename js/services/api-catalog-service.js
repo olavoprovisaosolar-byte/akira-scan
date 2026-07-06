@@ -172,7 +172,13 @@ export async function obterMangaApi(mangaId) {
         manga = await carregarMangaDoCatalogoCompleto(mangaId);
     }
     if (!manga) throw new Error("Mangá não encontrado.");
-    return manga;
+    try {
+        const { enriquecerMangaComRemoto } = await import("./manga-chapters-link.js");
+        return await enriquecerMangaComRemoto(manga);
+    } catch (e) {
+        console.warn("[Catalogo] enriquecer remoto:", e.message);
+        return manga;
+    }
 }
 
 export async function listarMangasApi(opts = {}) {
@@ -254,6 +260,19 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         console.warn("[Catalogo] capítulo remoto:", e.message);
     }
 
+    if (isStaticHost()) {
+        try {
+            const { capRemotoInfo } = await import("./cloud-chapters-service.js");
+            const info = await capRemotoInfo(mangaId, capId);
+            if (info?.done) {
+                throw new Error("Capítulo ainda não disponível online. Aguarde a próxima atualização do site.");
+            }
+        } catch (e) {
+            if (e.message?.includes("não disponível")) throw e;
+        }
+        return paginasDemo(mangaId, capId);
+    }
+
     if (!isStaticHost() && (manga.origem === "toonlivre" || /^obra-/i.test(mangaId))) {
         try {
             const { obterPaginasCapitulo } = await import("../catalogo-remoto.js");
@@ -272,10 +291,6 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         bladetoons: "bladetoons"
     };
     const preferredSource = sourceMap[manga.origem] || "auto";
-
-    if (isStaticHost()) {
-        return paginasDemo(mangaId, capId);
-    }
 
     try {
         const controller = new AbortController();

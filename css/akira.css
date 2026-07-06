@@ -1554,7 +1554,14 @@ img { max-width: 100%; display: block; }
     right: auto;
     left: 8px;
     background: rgba(56, 189, 248, 0.22);
-    color: #7dd3fc;
+}
+
+.chapter-badge-soon {
+    right: auto;
+    left: 8px;
+    background: rgba(250, 204, 21, 0.18);
+    color: #fde68a;
+    font-size: 0.75rem;
 }
 
 .chapter-action {

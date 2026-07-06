@@ -28,6 +28,8 @@
     "deploy:github": "node scripts/prepare-github-deploy.mjs",
     "terabox:build-index": "node scripts/build-terabox-chapters-index.mjs",
     "terabox:build-index:dlinks": "node scripts/build-terabox-chapters-index.mjs --dlinks --limit=100",
+    "cloud:link-caps": "node scripts/build-terabox-chapters-index.mjs --refresh-dlinks --dlinks --only-purged --limit=250",
+    "cloud:link-all": "node scripts/build-terabox-chapters-index.mjs --refresh-dlinks --dlinks --only-purged",
     "prepare:firebase": "node scripts/prepare-firebase-deploy.mjs",
     "deploy:firebase": "node scripts/deploy-firebase.mjs",
     "optimize:webp": "node scripts/convert-images-webp.mjs",

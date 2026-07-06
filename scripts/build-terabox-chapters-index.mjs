@@ -16,6 +16,8 @@ const CACHE_FILE = path.join(ROOT, "data", "terabox", "mangas-cache.json");
 const OUT_FILE = path.join(ROOT, "data", "terabox", "chapters-index.json");
 
 const WITH_DLINKS = process.argv.includes("--dlinks");
+const REFRESH_DLINKS = process.argv.includes("--refresh-dlinks");
+const ONLY_PURGED = process.argv.includes("--only-purged");
 const LIMIT = Number(process.argv.find((a) => a.startsWith("--limit="))?.split("=")[1] || 0);
 const PAGE_EXT = /\.(webp|jpg|jpeg|png)$/i;
 
@@ -85,6 +87,11 @@ async function main() {
         : { criarCliente: async () => null, sleep: async () => {} };
     const state = lerJson(STATE_FILE, { caps: {} });
     const cache = lerJson(CACHE_FILE, { itens: [] });
+    const existing = REFRESH_DLINKS ? lerJson(OUT_FILE, { caps: {} }) : { caps: {} };
+    const sourceCaps = REFRESH_DLINKS && Object.keys(existing.caps || {}).length
+        ? existing.caps
+        : null;
+
     const caps = {};
     const porManga = {};
     let dlinkCount = 0;
@@ -92,10 +99,20 @@ async function main() {
     let client = null;
     if (WITH_DLINKS) {
         client = await criarCliente();
-        console.log("Buscando dlinks Terabox (pode demorar)...");
+        console.log("Buscando links de leitura (pode demorar)...");
     }
 
-    for (const [key, entry] of Object.entries(state.caps || {})) {
+    const entries = sourceCaps
+        ? Object.entries(sourceCaps).map(([key, rec]) => [key, {
+            remote: rec.remote,
+            done: rec.done,
+            uploaded: rec.uploaded,
+            total: rec.total,
+            localPurged: rec.localPurged
+        }])
+        : Object.entries(state.caps || {});
+
+    for (const [key, entry] of entries) {
         const [mangaId, capId] = key.split("/");
         if (!mangaId || !capId || !entry?.remote) continue;
 
@@ -103,7 +120,8 @@ async function main() {
         const uploaded = entry.uploaded || 0;
         if (!done && uploaded < 1) continue;
 
-        const numero = numeroDoRemote(entry.remote);
+        const prev = sourceCaps?.[key] || {};
+        const numero = prev.numero || numeroDoRemote(entry.remote);
         const rec = {
             mangaId,
             capId,
@@ -113,20 +131,27 @@ async function main() {
             uploaded: entry.uploaded || 0,
             total: entry.total || 0,
             localPurged: !!entry.localPurged,
-            shareUrl: sharePorManga(cache, mangaId)
+            shareUrl: prev.shareUrl || sharePorManga(cache, mangaId)
         };
 
-        if (WITH_DLINKS && client && done && (!LIMIT || dlinkCount < LIMIT)) {
+        const querDlink = WITH_DLINKS && client && done
+            && (!ONLY_PURGED || entry.localPurged)
+            && (!LIMIT || dlinkCount < LIMIT);
+
+        if (querDlink) {
             try {
                 const paths = await listarPaginasRemotas(client, entry.remote);
                 if (paths.length) {
                     rec.pages = await dlinksParaPaths(client, paths);
                     if (rec.pages.length) dlinkCount++;
                 }
-                await sleep(300);
+                await sleep(250);
             } catch (e) {
                 rec.dlinkErro = unwrapErrorMessage(e) || e.message;
             }
+        } else if (prev.pages?.length) {
+            rec.pages = prev.pages;
+            if (rec.pages.length) dlinkCount++;
         }
 
         caps[key] = rec;

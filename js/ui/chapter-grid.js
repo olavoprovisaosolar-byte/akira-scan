@@ -18,9 +18,13 @@ export function renderChapterGrid(manga, { onSelect } = {}) {
     <div class="chapter-grid" role="list">
         ${caps.map((cap) => {
             const num = parseChapterNumber(cap);
-            const valido = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
+            const baseValid = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
+            const valido = baseValid && cap.legivel !== false;
             const href = valido ? linkLeitor(manga.id, num, cap.id) : "#";
             const badge = cap.novo ? `<span class="chapter-badge">Novo</span>` : "";
+            const indisponivel = baseValid && !valido
+                ? `<span class="chapter-badge chapter-badge-soon" title="Em breve">⏳</span>`
+                : "";
             return `
             <a href="${href}"
                class="chapter-card${valido ? "" : " chapter-card-disabled"}"
@@ -31,7 +35,7 @@ export function renderChapterGrid(manga, { onSelect } = {}) {
                ${valido ? "" : 'aria-disabled="true" tabindex="-1"'}
                data-valid="${valido}">
                 <span class="chapter-num">Cap. ${escHtml(String(num))}</span>
-                ${badge}
+                ${badge}${indisponivel}
                 <span class="chapter-action btn-akira btn-akira-sm btn-akira-primary">Ler</span>
             </a>`;
         }).join("")}
