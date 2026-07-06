@@ -48,7 +48,9 @@ function copyDirFiltered(src, dest, filter) {
 function repoBasePath() {
     const env = process.env.GITHUB_PAGES_BASE?.trim();
     if (env) return env.endsWith("/") ? env : `${env}/`;
-    const repo = process.env.GITHUB_REPOSITORY?.split("/")[1];
+    const repo = process.env.GITHUB_REPOSITORY?.split("/")[1] || "";
+    // Repositório user/org pages (*.github.io) → site na raiz do domínio
+    if (/^[\w-]+\.github\.io$/i.test(repo)) return "/";
     if (repo) return `/${repo}/`;
     return "/";
 }
@@ -56,6 +58,7 @@ function repoBasePath() {
 function injectBaseHref(htmlPath, basePath) {
     let html = fs.readFileSync(htmlPath, "utf8");
     if (html.includes("<base ")) return;
+    if (basePath === "/") return;
     html = html.replace("<head>", `<head>\n    <base href="${basePath}">`);
     fs.writeFileSync(htmlPath, html, "utf8");
 }

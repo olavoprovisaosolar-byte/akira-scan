@@ -4,6 +4,8 @@
 function detectBasePath() {
     if (typeof location === "undefined") return "/";
     if (!location.hostname.endsWith("github.io")) return "/";
+    // user/org pages: akira-scan.github.io (sem subpasta)
+    if (/^[\w-]+\.github\.io$/i.test(location.hostname)) return "/";
     const seg = location.pathname.split("/").filter(Boolean)[0];
     if (!seg || seg.endsWith(".html")) return "/";
     return `/${seg}/`;

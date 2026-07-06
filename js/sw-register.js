@@ -3,6 +3,9 @@ const CACHE_VERSION = "v13";
 
 function swUrl() {
     if (typeof location === "undefined") return `/sw.js?${CACHE_VERSION}`;
+    if (/^[\w-]+\.github\.io$/i.test(location.hostname)) {
+        return `/sw.js?${CACHE_VERSION}`;
+    }
     const onGitHub = location.hostname.endsWith("github.io");
     const seg = location.pathname.split("/").filter(Boolean)[0];
     const base = onGitHub && seg && !seg.endsWith(".html") ? `/${seg}/` : "/";
