@@ -149,6 +149,8 @@ function main() {
         spawnSync(process.execPath, [path.join(__dirname, "build-terabox-chapters-index.mjs")], {
             cwd: ROOT, stdio: "inherit"
         });
+    } else if (fs.existsSync(path.join(ROOT, "data", "terabox", "chapters-index.json"))) {
+        console.log("  Índice Terabox: usando chapters-index.json existente");
     }
 
     rmrf(OUT);

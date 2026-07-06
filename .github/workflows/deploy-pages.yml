@@ -30,7 +30,11 @@ jobs:
       - name: Build catalog + Terabox index
         run: |
           node scripts/build-catalog-index.mjs
-          node scripts/build-terabox-chapters-index.mjs
+          if [ -f data/terabox/chapters-index.json ]; then
+            echo "Usando chapters-index.json do repositório"
+          else
+            node scripts/build-terabox-chapters-index.mjs || true
+          fi
         env:
           TERABOX_NDUS: ${{ secrets.TERABOX_NDUS }}
 

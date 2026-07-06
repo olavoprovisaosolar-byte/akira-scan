@@ -8,8 +8,6 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { criarCliente, sleep } from "./terabox/client.mjs";
-import { unwrapErrorMessage } from "terabox-api/helper.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -79,6 +77,12 @@ async function dlinksParaPaths(client, paths) {
 }
 
 async function main() {
+    const { unwrapErrorMessage } = WITH_DLINKS
+        ? await import("terabox-api/helper.js")
+        : { unwrapErrorMessage: (e) => e?.message || String(e) };
+    const { criarCliente, sleep } = WITH_DLINKS
+        ? await import("./terabox/client.mjs")
+        : { criarCliente: async () => null, sleep: async () => {} };
     const state = lerJson(STATE_FILE, { caps: {} });
     const cache = lerJson(CACHE_FILE, { itens: [] });
     const caps = {};
