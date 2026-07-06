@@ -123,17 +123,8 @@ function copyBackupCovers() {
 }
 
 function writeSiteConfig(basePath) {
-    const cfg = `/** Gerado por prepare-github-deploy.mjs — não editar */
-export const SITE_CONFIG = {
-    host: "github-pages",
-    basePath: ${JSON.stringify(basePath)},
-    staticOnly: true,
-    teraboxIndex: "/data/terabox/chapters-index.json"
-};
-`;
-    fs.mkdirSync(path.join(OUT, "js"), { recursive: true });
-    fs.writeFileSync(path.join(OUT, "js", "site-config.js"), cfg, "utf8");
-    fs.writeFileSync(path.join(ROOT, "js", "site-config.js"), cfg, "utf8");
+    /* site-config.js auto-detecta GitHub Pages em runtime — não sobrescrever no repo local */
+    void basePath;
 }
 
 function main() {

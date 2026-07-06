@@ -1,9 +1,10 @@
 /**
  * Catálogo Terabox — caps enviados ao cloud (data/terabox/chapters-index.json).
  */
+import { assetUrl } from "../site-config.js";
 import { isRealChapterPageSet } from "./chapter-label.js";
 
-const INDEX_URL = "/data/terabox/chapters-index.json";
+const INDEX_URL = () => assetUrl("/data/terabox/chapters-index.json");
 const CACHE_MS = 120000;
 
 let cacheIndex = null;
@@ -18,7 +19,7 @@ async function carregarIndice(force = false) {
 
     inflight = (async () => {
         try {
-            const res = await fetch(`${INDEX_URL}?v=${Date.now().toString(36)}`, { cache: "no-store" });
+            const res = await fetch(`${INDEX_URL()}?v=${Date.now().toString(36)}`, { cache: "no-store" });
             if (!res.ok) return null;
             cacheIndex = await res.json();
             cacheTs = Date.now();
@@ -63,7 +64,7 @@ export async function obterPaginasTerabox(mangaId, capId) {
     }
 
     if (info.done && !info.localPurged) {
-        const base = `/backup/mangas/${encodeURIComponent(mangaId)}/chapters/${encodeURIComponent(capId)}/pages`;
+        const base = assetUrl(`backup/mangas/${encodeURIComponent(mangaId)}/chapters/${encodeURIComponent(capId)}/pages`);
         const total = info.total || info.uploaded || 0;
         if (total > 0) {
             const pages = [];

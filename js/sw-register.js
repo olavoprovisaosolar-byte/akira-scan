@@ -1,5 +1,5 @@
 /** Registo do Service Worker — invalida caches antigos ao mudar versão. */
-const CACHE_VERSION = "v11";
+const CACHE_VERSION = "v12";
 
 async function limparCachesAkira() {
     if (!("caches" in window)) return;

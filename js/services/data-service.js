@@ -14,6 +14,7 @@ import {
     rankingSemanal,
     todosGeneros
 } from "./api-catalog-service.js";
+import { isStaticHost } from "../site-config.js";
 import { linkLeitor, linkManhwa, linkBiblioteca } from "../core/router.js";
 import { mergeCatalogo } from "../mangas-destaque.js";
 
@@ -65,7 +66,7 @@ async function resolverCatalogo(force = false) {
         console.warn("DataService API:", error.message);
     }
 
-    const fs = await loadFirestoreModule();
+    const fs = isStaticHost() ? null : await loadFirestoreModule();
     if (fs?.firestoreDisponivel?.()) {
         try {
             const count = await withTimeout(
@@ -129,7 +130,7 @@ export async function obterManga(mangaId) {
         console.warn("DataService API manga:", apiErr.message);
     }
 
-    const fs = await loadFirestoreModule();
+    const fs = isStaticHost() ? null : await loadFirestoreModule();
     if (fs?.firestoreDisponivel?.()) {
         try {
             const doc = await withTimeout(

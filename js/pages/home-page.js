@@ -71,11 +71,18 @@ export async function initHomePage() {
         });
         if (catalogo.length) markCatalogLoaded(true);
         renderProviderBanner("aviso-servidor", { catalogCount: catalogo.length });
-        mountHeroPlanet("hero-planet-slot").catch((e) => {
+
+        const deferHero = () => mountHeroPlanet("hero-planet-slot").catch((e) => {
             console.warn("HomePage hero:", e.message);
         });
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(deferHero, { timeout: 2500 });
+        } else {
+            setTimeout(deferHero, 800);
+        }
     } catch (error) {
         console.error("HomePage init:", error);
+        mountHeroPlanet("hero-planet-slot").catch(() => {});
     }
 
     try {

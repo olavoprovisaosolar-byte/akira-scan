@@ -1,6 +1,7 @@
 /**
  * Camada API — catálogo local + seed (`data/catalogo.json`).
  */
+import { assetUrl, isStaticHost } from "../site-config.js";
 import {
     bibliotecaDisponivel,
     listarMangasBiblioteca,
@@ -31,7 +32,7 @@ async function carregarMangaDoCatalogoCompleto(mangaId) {
     if (!inflightCatalogoFull) {
         inflightCatalogoFull = (async () => {
             try {
-                const res = await fetchWithTimeout("/data/catalogo.json", 90000);
+                const res = await fetchWithTimeout(assetUrl("/data/catalogo.json"), 90000);
                 if (!res.ok) return [];
                 const data = await res.json();
                 cacheCatalogoFull = data.mangas || [];
@@ -69,11 +70,16 @@ function fetchWithTimeout(url, ms = FETCH_TIMEOUT_MS) {
 
 async function carregarCatalogoSeed() {
     const bust = `v=${Date.now().toString(36)}`;
-    const urls = [
-        `/data/catalogo-index.json?${bust}`,
-        `/data/catalogo.json?${bust}`,
-        `/api/biblioteca?${bust}`
-    ];
+    const urls = isStaticHost()
+        ? [
+            `${assetUrl("/data/catalogo-index.json")}?${bust}`,
+            `${assetUrl("/data/catalogo.json")}?${bust}`
+        ]
+        : [
+            `${assetUrl("/data/catalogo-index.json")}?${bust}`,
+            `${assetUrl("/data/catalogo.json")}?${bust}`,
+            `${assetUrl("/api/biblioteca")}?${bust}`
+        ];
 
     for (const url of urls) {
         try {
@@ -104,7 +110,7 @@ async function listaDaApi() {
         if (seed.length) return seed;
 
         try {
-            if (await bibliotecaDisponivel()) {
+            if (!isStaticHost() && await bibliotecaDisponivel()) {
                 const lista = await listarMangasBiblioteca();
                 if (lista.length) return lista;
             }
@@ -135,24 +141,26 @@ export async function obterCatalogoApi(force = false) {
 }
 
 export async function obterMangaApi(mangaId) {
-    try {
-        const res = await fetchWithTimeout(`/api/manga/${encodeURIComponent(mangaId)}`, 15000);
-        if (res.ok) {
-            const data = await res.json();
-            if (data.manga) return data.manga;
+    if (!isStaticHost()) {
+        try {
+            const res = await fetchWithTimeout(`/api/manga/${encodeURIComponent(mangaId)}`, 15000);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.manga) return data.manga;
+            }
+        } catch (e) {
+            console.warn("[Catalogo] API manga:", e.message);
         }
-    } catch (e) {
-        console.warn("[Catalogo] API manga:", e.message);
-    }
 
-    try {
-        const res = await fetchWithTimeout(`/api/biblioteca/${encodeURIComponent(mangaId)}`, 15000);
-        if (res.ok) {
-            const data = await res.json();
-            if (data.manga?.capitulos?.length) return data.manga;
+        try {
+            const res = await fetchWithTimeout(`/api/biblioteca/${encodeURIComponent(mangaId)}`, 15000);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.manga?.capitulos?.length) return data.manga;
+            }
+        } catch (e) {
+            console.warn("[Catalogo] biblioteca manga:", e.message);
         }
-    } catch (e) {
-        console.warn("[Catalogo] biblioteca manga:", e.message);
     }
 
     let manga = (await obterCatalogoApi()).find((m) => m.id === mangaId);
@@ -218,7 +226,7 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
     }
     if (!capId) throw new Error("Capítulo não encontrado.");
 
-    if (await bibliotecaDisponivel()) {
+    if (!isStaticHost() && await bibliotecaDisponivel()) {
         try {
             const params = new URLSearchParams({ n: String(numeroCap) });
             const res = await fetch(
@@ -246,7 +254,7 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         console.warn("[Catalogo] Terabox capítulo:", e.message);
     }
 
-    if (manga.origem === "toonlivre" || /^obra-/i.test(mangaId)) {
+    if (!isStaticHost() && (manga.origem === "toonlivre" || /^obra-/i.test(mangaId))) {
         try {
             const { obterPaginasCapitulo } = await import("../catalogo-remoto.js");
             const paginas = await obterPaginasCapitulo(mangaId, capId, numeroCap);
@@ -264,6 +272,10 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         bladetoons: "bladetoons"
     };
     const preferredSource = sourceMap[manga.origem] || "auto";
+
+    if (isStaticHost()) {
+        return paginasDemo(mangaId, capId);
+    }
 
     try {
         const controller = new AbortController();

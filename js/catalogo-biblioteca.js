@@ -1,6 +1,8 @@
 /**
  * Catálogo da pasta Biblioteca_Mangas (armazenamento local).
  */
+import { isStaticHost } from "./site-config.js";
+
 const API = "/api/biblioteca";
 const API_TIMEOUT_MS = 45000;
 
@@ -18,6 +20,7 @@ async function fetchJson(url) {
 }
 
 export async function bibliotecaDisponivel() {
+    if (isStaticHost()) return false;
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 8000);
     try {

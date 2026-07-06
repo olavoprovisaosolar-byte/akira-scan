@@ -434,6 +434,8 @@ img { max-width: 100%; display: block; }
     background: var(--akira-bg-card);
     border-radius: var(--akira-radius);
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 280px 420px;
     border: 1px solid var(--akira-border);
     transition:
         transform var(--akira-transition),

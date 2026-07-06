@@ -1,6 +1,7 @@
 /**
  * cover-utils — capa por mangá, cadeia de fallback CDN/backup/local.
  */
+import { assetUrl } from "../site-config.js";
 
 const PLACEHOLDER_RE = /placehold\.co\/.*text=\?|^$|placeholder|no-?image|default-cover/i;
 
@@ -45,10 +46,10 @@ export function buildCoverFallbacks(manga) {
 
     if (id) {
         for (const ext of ["webp", "jpg", "jpeg", "png"]) {
-            add(`/backup/mangas/${id}/cover.${ext}`);
-            add(`/data/toonlivre-backup/mangas/${id}/cover.${ext}`);
-            add(`/biblioteca/${id}/capa.${ext}`);
-            add(`/biblioteca/${id}/cover.${ext}`);
+            add(assetUrl(`backup/mangas/${id}/cover.${ext}`));
+            add(assetUrl(`data/toonlivre-backup/mangas/${id}/cover.${ext}`));
+            add(assetUrl(`biblioteca/${id}/capa.${ext}`));
+            add(assetUrl(`biblioteca/${id}/cover.${ext}`));
         }
     }
 

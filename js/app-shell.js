@@ -5,6 +5,7 @@ import { avisoSeArquivoLocal } from "./servidor.js";
 import { initTema, alternarTema, temaAtual } from "./theme.js";
 import { BRAND, renderLogo } from "./brand.js";
 import { registerServiceWorker } from "./sw-register.js";
+import { injectHeadOptimizations } from "./head-optimizations.js";
 import { linkManhwa } from "./core/router.js";
 import { coverImgTagAttrs, installCoverFallbackHandler } from "./services/cover-utils.js";
 
@@ -53,6 +54,7 @@ export function renderFooter() {
 }
 
 export async function initShell() {
+    injectHeadOptimizations();
     installCoverFallbackHandler();
     initTema();
     atualizarIconeTema();

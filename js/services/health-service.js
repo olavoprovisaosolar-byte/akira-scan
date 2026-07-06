@@ -1,6 +1,7 @@
 /**
  * HealthCheck — monitora provedores; aviso só se o catálogo também falhar.
  */
+import { isStaticHost } from "./site-config.js";
 let lastStatus = { ok: true, providers: {}, ingestion: null };
 let catalogDisponivel = false;
 
@@ -42,7 +43,7 @@ export function renderProviderBanner(slotId = "aviso-servidor", opts = {}) {
     if (!slot) return;
 
     const count = opts.catalogCount ?? (catalogDisponivel ? 1 : 0);
-    if (count > 0 || catalogDisponivel) {
+    if (count > 0 || catalogDisponivel || isStaticHost()) {
         slot.innerHTML = "";
         slot.classList.remove("aviso-ativo");
         return;

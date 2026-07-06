@@ -1,8 +1,8 @@
 /**
- * Service Worker — estático cache + API network-first (evita dados stale).
+ * Service Worker — cache estático + catálogo stale-while-revalidate.
  */
-const CACHE_STATIC = "akirascan-static-v14";
-const CACHE_API = "akirascan-api-v14";
+const CACHE_STATIC = "akirascan-static-v15";
+const CACHE_DATA = "akirascan-data-v15";
 
 const STATIC_ASSETS = [
     "/",
@@ -10,10 +10,15 @@ const STATIC_ASSETS = [
     "/biblioteca.html",
     "/manhwa.html",
     "/leitor.html",
-    "/perfil.html",
     "/css/akira.css",
     "/css/leitor.css",
-    "/js/brand.js"
+    "/js/brand.js",
+    "/js/site-config.js"
+];
+
+const DATA_ASSETS = [
+    "/data/catalogo-index.json",
+    "/data/terabox/chapters-index.json"
 ];
 
 self.addEventListener("message", (event) => {
@@ -37,7 +42,7 @@ self.addEventListener("activate", (event) => {
         caches.keys().then((keys) =>
             Promise.all(
                 keys
-                    .filter((k) => k.startsWith("akirascan-") && k !== CACHE_STATIC && k !== CACHE_API)
+                    .filter((k) => k.startsWith("akirascan-") && k !== CACHE_STATIC && k !== CACHE_DATA)
                     .map((k) => caches.delete(k))
             )
         ).then(() => self.clients.claim())
@@ -49,25 +54,8 @@ self.addEventListener("fetch", (event) => {
     if (url.origin !== location.origin) return;
     if (event.request.method !== "GET") return;
 
-    const isApi =
-        url.pathname.startsWith("/api/biblioteca/")
-        || url.pathname.startsWith("/api/manga/")
-        || url.pathname.startsWith("/api/v1/proxy/")
-        || url.pathname.startsWith("/api/catalogo/");
-
-    const skipCache =
-        url.pathname === "/data/catalogo.json"
-        || url.pathname === "/data/catalogo-index.json"
-        || url.pathname === "/data/terabox/chapters-index.json"
-        || url.pathname === "/api/biblioteca";
-
-    if (skipCache) {
-        event.respondWith(fetch(event.request));
-        return;
-    }
-
-    if (isApi) {
-        event.respondWith(networkFirstApi(event.request));
+    if (DATA_ASSETS.some((p) => url.pathname.endsWith(p.replace(/^\//, "")) || url.pathname === p)) {
+        event.respondWith(staleWhileRevalidate(event.request, CACHE_DATA));
         return;
     }
 
@@ -76,10 +64,21 @@ self.addEventListener("fetch", (event) => {
         || url.pathname.endsWith(".html")
         || url.pathname.endsWith(".css")
         || url.pathname.startsWith("/img/")
+        || url.pathname.includes("/cover.")
     ) {
         event.respondWith(networkFirstStatic(event.request));
     }
 });
+
+async function staleWhileRevalidate(request, cacheName) {
+    const cache = await caches.open(cacheName);
+    const cached = await cache.match(request);
+    const network = fetch(request).then((res) => {
+        if (res.ok) cache.put(request, res.clone());
+        return res;
+    }).catch(() => null);
+    return cached || network || new Response("{}", { status: 503 });
+}
 
 async function networkFirstStatic(request) {
     try {
@@ -96,23 +95,5 @@ async function networkFirstStatic(request) {
             return caches.match("/index.html");
         }
         throw new Error("offline");
-    }
-}
-
-async function networkFirstApi(request) {
-    try {
-        const res = await fetch(request);
-        if (res.ok) {
-            const cache = await caches.open(CACHE_API);
-            cache.put(request, res.clone());
-        }
-        return res;
-    } catch {
-        const cached = await caches.match(request);
-        if (cached) return cached;
-        return new Response(JSON.stringify({ error: "Offline — dados indisponíveis." }), {
-            status: 503,
-            headers: { "Content-Type": "application/json" }
-        });
     }
 }
