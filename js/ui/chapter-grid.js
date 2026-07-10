@@ -7,13 +7,13 @@ import { parseChapterNumber } from "../services/chapter-label.js";
 
 export function contarCapsLegiveis(manga) {
     const caps = manga?.capitulos || [];
-    const legiveis = caps.filter((c) => c.legivel !== false && c.id).length;
+    const legiveis = caps.filter((c) => c.legivel === true && c.id).length;
     return { total: caps.length, legiveis };
 }
 
 export function primeiroCapLegivel(manga) {
     const caps = [...(manga?.capitulos || [])]
-        .filter((c) => c.id && c.legivel !== false)
+        .filter((c) => c.id && c.legivel === true)
         .sort((a, b) => parseChapterNumber(a) - parseChapterNumber(b));
     return caps[0] || null;
 }
@@ -21,7 +21,8 @@ export function primeiroCapLegivel(manga) {
 function capValido(cap) {
     const num = parseChapterNumber(cap);
     const baseValid = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
-    return { num, baseValid, valido: baseValid && cap.legivel !== false };
+    // Só abre se legivel === true (undefined no Pages = ainda não sincronizado)
+    return { num, baseValid, valido: baseValid && cap.legivel === true };
 }
 
 export function renderChapterGrid(manga, { filter = "all" } = {}) {

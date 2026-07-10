@@ -537,6 +537,20 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 4px 12px rgba(168, 85, 247, 0.45);
 }
 
+.manga-card-sync {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    z-index: 3;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(6, 6, 8, 0.78);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    color: #6ee7b7;
+}
+
 .manga-card-info {
     padding: var(--space-sm) var(--space-sm) 14px;
 }
@@ -1709,7 +1723,7 @@ img { max-width: 100%; display: block; }
 
 .chapter-card-disabled {
     opacity: 0.45;
-    pointer-events: none;
+    cursor: not-allowed;
 }
 
 .chapter-num {

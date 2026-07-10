@@ -137,8 +137,8 @@ export class LeitorController {
 
     _setupNavCaps(mangaId, capId, capsOrdenados) {
         this.navCaps?.classList.remove("escondido");
-        const legiveis = capsOrdenados.filter((c) => c.legivel !== false);
-        const lista = legiveis.length ? legiveis : capsOrdenados;
+        const legiveis = capsOrdenados.filter((c) => c.legivel === true);
+        const lista = legiveis.length ? legiveis : capsOrdenados.filter((c) => c.legivel !== false);
         const idx = lista.findIndex((c) => c.id === capId);
         const btnAnt = document.getElementById("btn-cap-anterior");
         const btnProx = document.getElementById("btn-cap-proximo");

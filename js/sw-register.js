@@ -1,5 +1,5 @@
 /** Registo do Service Worker — invalida caches antigos ao mudar versão. */
-const CACHE_VERSION = "v22";
+const CACHE_VERSION = "v23";
 
 function swUrl() {
     if (typeof location === "undefined") return `/sw.js?${CACHE_VERSION}`;

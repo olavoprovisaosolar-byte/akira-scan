@@ -1,7 +1,7 @@
 /**
  * Liga capítulos do catálogo ao índice remoto (cloud).
  */
-import { capsRemotosManga } from "./cloud-chapters-service.js";
+import { capsRemotosManga, mangaTemCapsRemotos } from "./cloud-chapters-service.js";
 import { parseChapterNumber } from "./chapter-label.js";
 import { cloudApiDisponivel, isStaticHost } from "../site-config.js";
 
@@ -30,8 +30,7 @@ export async function enriquecerMangaComRemoto(manga) {
     if (!manga?.id) return manga;
 
     const remotos = await capsRemotosManga(manga.id);
-    if (!remotos.length) return manga;
-
+    const staticHost = isStaticHost();
     const remotoMap = new Map(remotos.map((r) => [r.capId, r]));
     const caps = [...(manga.capitulos || [])];
     const byId = new Map(caps.map((c) => [c.id, c]));
@@ -46,7 +45,17 @@ export async function enriquecerMangaComRemoto(manga) {
         });
     }
 
-    const staticHost = isStaticHost();
+    // Sem índice remoto: no Pages marca tudo como não legível (evita links mortos).
+    if (!remotos.length) {
+        if (!staticHost) return manga;
+        return {
+            ...manga,
+            capitulos: caps.map((c) => ({ ...c, legivel: false })),
+            totalCapitulos: Math.max(manga.totalCapitulos || 0, caps.length),
+            syncProntos: 0
+        };
+    }
+
     const enriched = caps.map((c) => {
         const r = remotoMap.get(c.id);
         if (r) {
@@ -56,10 +65,26 @@ export async function enriquecerMangaComRemoto(manga) {
     });
 
     enriched.sort((a, b) => parseChapterNumber(b) - parseChapterNumber(a));
+    const syncProntos = enriched.filter((c) => c.legivel === true).length;
 
     return {
         ...manga,
         capitulos: enriched,
-        totalCapitulos: Math.max(manga.totalCapitulos || 0, enriched.length)
+        totalCapitulos: Math.max(manga.totalCapitulos || 0, enriched.length),
+        syncProntos
     };
 }
+
+/** Resumo rápido de sync a partir do índice (sem enriquecer lista completa). */
+export async function syncResumoManga(mangaId) {
+    try {
+        const remotos = await capsRemotosManga(mangaId);
+        if (!remotos.length) return { total: 0, prontos: 0 };
+        const prontos = remotos.filter(capLegivel).length;
+        return { total: remotos.length, prontos };
+    } catch {
+        return { total: 0, prontos: 0 };
+    }
+}
+
+export { mangaTemCapsRemotos };

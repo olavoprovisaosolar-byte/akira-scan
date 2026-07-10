@@ -34,6 +34,11 @@ async function carregarIndice(force = false) {
     return inflight;
 }
 
+/** Alias público para anexar syncProntos no catálogo. */
+export async function carregarIndiceSync(force = false) {
+    return carregarIndice(force);
+}
+
 export async function capRemotoInfo(mangaId, capId) {
     const idx = await carregarIndice();
     if (!idx?.caps) return null;

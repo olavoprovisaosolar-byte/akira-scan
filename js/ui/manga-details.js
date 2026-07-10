@@ -68,7 +68,7 @@ export class MangaDetails {
 
         const accent = `hsl(${corDoManga(safe.id)}, 72%, 52%)`;
         const { total, legiveis } = contarCapsLegiveis(safe);
-        const lerCap = primeiroCapLegivel(safe) || safe.capitulos?.[0];
+        const lerCap = primeiroCapLegivel(safe);
         const lerHref = lerCap
             ? linkLeitor(safe.id, parseChapterNumber(lerCap), lerCap.id)
             : "#";

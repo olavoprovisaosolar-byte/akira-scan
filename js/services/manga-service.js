@@ -203,7 +203,11 @@ export const MangaService = {
             if (req.isStale()) return null;
 
             const normalized = normalizeManga(data, mangaId);
-            const manga = toLegacyManga(normalized);
+            let manga = toLegacyManga(normalized);
+            try {
+                const { enriquecerMangaComRemoto } = await import("./manga-chapters-link.js");
+                manga = await enriquecerMangaComRemoto(manga);
+            } catch { /* mantém manga sem flags */ }
             assertManga(manga, mangaId);
             mangaStore.set(manga);
             await this.saveForOffline(manga);

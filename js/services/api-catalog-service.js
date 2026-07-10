@@ -106,25 +106,35 @@ async function listaDaApi() {
 
     inflightLista = (async () => {
         const seed = await carregarCatalogoSeed();
-        if (seed.length) return seed;
-
-        try {
+        if (!seed.length) {
             if (!isStaticHost() && await bibliotecaDisponivel()) {
-                const lista = await listarMangasBiblioteca();
-                if (lista.length) return lista;
+                try {
+                    return await listarMangasBiblioteca();
+                } catch (e) {
+                    console.warn("[Catalogo] biblioteca lista:", e.message);
+                }
             }
-        } catch (e) {
-            console.warn("[Catalogo] biblioteca API:", e.message);
+            return [];
         }
+        try {
+            const { carregarIndiceSync } = await import("./cloud-chapters-service.js");
+            const idx = await carregarIndiceSync();
+            const por = idx?.porManga || {};
+            return seed.map((m) => {
+                const info = por[m.id];
+                if (!info) return m;
+                return {
+                    ...m,
+                    syncProntos: info.doneCaps || 0,
+                    totalCapitulos: Math.max(m.totalCapitulos || 0, info.totalCaps || 0)
+                };
+            });
+        } catch {
+            return seed;
+        }
+    })().finally(() => { inflightLista = null; });
 
-        return [];
-    })();
-
-    try {
-        return await inflightLista;
-    } finally {
-        inflightLista = null;
-    }
+    return inflightLista;
 }
 
 export async function obterCatalogoApi(force = false) {

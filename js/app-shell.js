@@ -248,11 +248,17 @@ export function renderMangaCard(manga, { badge = "" } = {}) {
     const accent = manga.accent || `hsl(${hashHue(manga.id)}, 72%, 52%)`;
     const id = escHtml(manga.id);
     const img = coverImgTagAttrs(manga, { loading: "lazy" });
+    const prontos = Number(manga.syncProntos);
+    const total = Number(manga.totalCapitulos || manga.capitulos?.length || 0);
+    const syncBadge = Number.isFinite(prontos) && total > 0
+        ? `<span class="manga-card-sync">${prontos}/${total}</span>`
+        : "";
     return `
     <a href="${linkManhwa(manga.id)}" class="manga-card" style="--card-accent:${accent}" data-manga-id="${id}">
         <div class="manga-card-capa">
             <img ${img.html}>
             ${badge ? `<span class="manga-card-badge">${escHtml(badge)}</span>` : ""}
+            ${syncBadge}
         </div>
         <div class="manga-card-info">
             <h3>${escHtml(manga.titulo)}</h3>

@@ -13,7 +13,7 @@ async function resolveImageSrc(url) {
     if (!isCloudPageUrl(src)) return src;
     if (blobUrlCache.has(src)) return blobUrlCache.get(src);
 
-    const res = await fetch(src, { cache: "force-cache", mode: "cors" });
+    const res = await fetch(src, { cache: "no-store", mode: "cors" });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = await res.arrayBuffer();
     const upstream = String(res.headers.get("content-type") || "").toLowerCase();
@@ -56,6 +56,9 @@ export class LeitorVertical {
         leitor.className = "meu-leitor-manga-css";
 
         this.paginas.forEach((pag, index) => {
+            const wrap = document.createElement("div");
+            wrap.className = "pagina-wrap";
+
             const img = document.createElement("img");
             img.className = "pagina-manga";
             img.alt = `Página ${index + 1}`;
@@ -65,26 +68,48 @@ export class LeitorVertical {
             img.dataset.src = pag.url;
             img.referrerPolicy = "no-referrer";
 
-            img.addEventListener("load", () => img.classList.add("carregada"));
+            const retryBtn = document.createElement("button");
+            retryBtn.type = "button";
+            retryBtn.className = "pagina-retry escondido";
+            retryBtn.textContent = "Tocar para tentar de novo";
+            retryBtn.addEventListener("click", () => {
+                img.classList.remove("erro");
+                retryBtn.classList.add("escondido");
+                delete img.dataset.retry;
+                delete img.dataset.ready;
+                delete img.dataset.loading;
+                blobUrlCache.delete(pag.url);
+                this._aplicarSrc(img);
+            });
+
+            img.addEventListener("load", () => {
+                img.classList.add("carregada");
+                img.classList.remove("erro");
+                retryBtn.classList.add("escondido");
+            });
             img.addEventListener("error", () => {
                 if (img.dataset.retry === "1") {
                     img.classList.add("erro");
+                    retryBtn.classList.remove("escondido");
                     return;
                 }
                 img.dataset.retry = "1";
                 const src = img.dataset.src || "";
-                if (/\.webp(\?|$)/i.test(src)) {
+                if (/\.webp(\?|$)/i.test(src) && !isCloudPageUrl(src)) {
                     img.src = src.replace(/\.webp(\?|$)/i, ".jpg$1");
                     return;
                 }
-                if (/\.jpg(\?|$)/i.test(src)) {
+                if (/\.jpg(\?|$)/i.test(src) && !isCloudPageUrl(src)) {
                     img.src = src.replace(/\.jpg(\?|$)/i, ".webp$1");
                     return;
                 }
                 img.classList.add("erro");
+                retryBtn.classList.remove("escondido");
             });
 
-            leitor.appendChild(img);
+            wrap.appendChild(img);
+            wrap.appendChild(retryBtn);
+            leitor.appendChild(wrap);
         });
 
         this.container.appendChild(leitor);

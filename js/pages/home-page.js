@@ -204,9 +204,10 @@ function renderContinuar() {
             { id: h.mangaId, titulo: h.titulo, capa: h.capa },
             { loading: "lazy" }
         );
+        // Continuar → detalhes (evita abrir cap ainda não sincronizado no Pages)
         return `
-        <a href="${linkLeitor(h.mangaId, capNum, h.chapterId)}" class="card-continuar"
-           data-manga-id="${escHtml(h.mangaId)}">
+        <a href="${linkManhwa(h.mangaId)}" class="card-continuar"
+           data-manga-id="${escHtml(h.mangaId)}" data-resume-cap="${escHtml(String(capNum))}">
             <img ${img.html}>
             <div class="card-continuar-body">
                 <h3>${escHtml(h.titulo)}</h3>
@@ -224,13 +225,18 @@ async function renderRecentes(catalogoPre = null) {
                 { id: r.mangaId, titulo: r.titulo, capa: r.capa },
                 { loading: "lazy" }
             );
+            const capNum = numeroCapituloLabel(r.capitulo);
+            const pronto = r.capitulo?.legivel === true;
+            const href = pronto
+                ? linkLeitor(r.mangaId, capNum, r.capitulo.id)
+                : linkManhwa(r.mangaId);
             return `
-            <a href="${linkLeitor(r.mangaId, numeroCapituloLabel(r.capitulo), r.capitulo.id)}"
+            <a href="${href}"
                class="item-cap-recente" data-manga-id="${escHtml(r.mangaId)}">
                 <img ${img.html}>
                 <div class="item-cap-recente-info">
                     <strong>${escHtml(r.titulo)}</strong>
-                    <span>Capítulo ${numeroCapituloLabel(r.capitulo)}</span>
+                    <span>Capítulo ${capNum}${pronto ? "" : " · a sincronizar"}</span>
                 </div>
             </a>`;
         }).join("")
