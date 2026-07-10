@@ -204,12 +204,17 @@ img { max-width: 100%; display: block; }
     gap: 8px;
 }
 
+.akira-nav-head {
+    display: none;
+}
+
 .akira-nav a {
     padding: 8px 14px;
     border-radius: var(--akira-radius-sm);
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--akira-muted);
+    text-decoration: none;
     transition: color var(--akira-transition), background var(--akira-transition);
 }
 
@@ -234,6 +239,10 @@ img { max-width: 100%; display: block; }
     min-width: 44px;
     min-height: 44px;
     border-radius: var(--akira-radius-sm);
+}
+
+.nav-backdrop {
+    display: none;
 }
 
 .akira-filters-mobile {
@@ -859,41 +868,96 @@ img { max-width: 100%; display: block; }
         white-space: nowrap;
     }
     .akira-nav {
-        display: none;
+        display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
         position: fixed;
         top: 0;
         right: 0;
         bottom: 0;
-        width: min(280px, 85vw);
-        background: var(--akira-bg-elevated);
-        padding: calc(var(--akira-header-h) + env(safe-area-inset-top) + 16px) 16px max(24px, env(safe-area-inset-bottom));
+        width: min(300px, 86vw);
+        max-width: 100%;
+        background: #121218;
+        color: #f4f4f5;
+        padding: max(12px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
         border-left: 1px solid var(--akira-border);
-        z-index: 250;
-        transform: translateX(100%);
-        transition: transform var(--akira-transition);
-        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+        z-index: 320;
+        transform: translateX(110%);
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.55);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        pointer-events: none;
+        visibility: hidden;
+    }
+    .akira-nav-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--akira-border);
+    }
+    .akira-nav-title {
+        font-weight: 800;
+        font-size: 1rem;
+        color: #fff;
+    }
+    .akira-nav-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: none;
+        border-radius: var(--akira-radius-sm);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-family: inherit;
     }
     .akira-nav a {
-        min-height: 44px;
+        min-height: 48px;
         display: flex;
         align-items: center;
         padding: 12px 14px;
+        font-size: 1rem;
+        color: #e4e4e7;
+        border-radius: var(--akira-radius-sm);
+    }
+    .akira-nav a.ativo {
+        color: var(--akira-purple-light);
+        background: rgba(168, 85, 247, 0.16);
     }
     .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
     .akira-nav.aberto {
-        display: flex;
         transform: translateX(0);
+        pointer-events: auto;
+        visibility: visible;
     }
     .nav-backdrop {
+        display: block;
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.55);
-        z-index: 240;
-        backdrop-filter: blur(2px);
+        background: rgba(0, 0, 0, 0.62);
+        z-index: 310;
+        /* sem blur — no telemóvel o blur deixava a tela “embaçada” e escondia o menu */
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
-    body.nav-aberta { overflow: hidden; }
+    .nav-backdrop.escondido {
+        display: none !important;
+    }
+    body.nav-aberta {
+        overflow: hidden;
+        touch-action: none;
+    }
+    body.nav-aberta .akira-header {
+        z-index: 300;
+    }
     .manga-hero-content {
         flex-direction: column;
         align-items: flex-start;
@@ -1302,8 +1366,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 900px) {
     .btn-theme-toggle { order: 3; }
     .menu-toggle { order: 4; }
-    .akira-nav { order: 5; }
 }
+
 
 /* ── Estados loading/erro ── */
 .akira-state {
@@ -2186,9 +2250,7 @@ body.auth-page {
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
-    body.nav-aberta .akira-nav {
-        max-height: 100dvh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+    .akira-nav.aberto {
+        width: min(320px, 70vw);
     }
 }

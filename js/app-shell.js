@@ -35,12 +35,17 @@ export function renderHeader({ busca = true, buscaValor = "" } = {}) {
             <div class="akira-search-suggestions escondido" id="akira-search-suggestions" role="listbox"></div>
         </form>` : ""}
         <button class="btn-theme-toggle" id="btn-theme" type="button" aria-label="Alternar tema" title="Tema claro/escuro">🌙</button>
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Menu">☰</button>
-        <nav class="akira-nav" id="akira-nav">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="akira-nav" aria-expanded="false">☰</button>
+        <nav class="akira-nav" id="akira-nav" aria-label="Menu principal">
+            <div class="akira-nav-head">
+                <span class="akira-nav-title">Menu</span>
+                <button type="button" class="akira-nav-close" id="nav-close" aria-label="Fechar menu">✕</button>
+            </div>
             <a href="index.html" class="${paginaAtiva("index.html").trim()}">Início</a>
             <a href="biblioteca.html" class="${paginaAtiva("biblioteca.html").trim()}">Biblioteca</a>
             <a href="biblioteca.html?q=favoritos">Favoritos</a>
             <a href="perfil.html" class="${paginaAtiva("perfil.html").trim()}">Perfil</a>
+            <a href="login.html" class="${paginaAtiva("login.html").trim()}">Entrar</a>
         </nav>
     </header>`;
 }
@@ -87,6 +92,8 @@ function atualizarIconeTema() {
 function initMobileNav(toggle, nav) {
     if (!toggle || !nav) return;
 
+    const header = toggle.closest(".akira-header") || document.querySelector(".akira-header");
+
     let backdrop = document.getElementById("nav-backdrop");
     if (!backdrop) {
         backdrop = document.createElement("div");
@@ -96,29 +103,58 @@ function initMobileNav(toggle, nav) {
         document.body.appendChild(backdrop);
     }
 
+    const isMobile = () => window.matchMedia("(max-width: 900px)").matches;
+
+    const placeNav = () => {
+        if (!header) return;
+        if (isMobile()) {
+            // Fora do header: evita stacking context (backdrop cobria os links)
+            if (nav.parentElement !== document.body) {
+                document.body.appendChild(nav);
+            }
+        } else if (nav.parentElement !== header) {
+            header.appendChild(nav);
+        }
+    };
+
     const fechar = () => {
         nav.classList.remove("aberto");
         backdrop.classList.add("escondido");
+        backdrop.setAttribute("aria-hidden", "true");
         toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menu");
         document.body.classList.remove("nav-aberta");
     };
 
     const abrir = () => {
+        placeNav();
         nav.classList.add("aberto");
         backdrop.classList.remove("escondido");
+        backdrop.setAttribute("aria-hidden", "false");
         toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Fechar menu");
         document.body.classList.add("nav-aberta");
+        document.getElementById("nav-close")?.focus({ preventScroll: true });
     };
 
-    toggle.addEventListener("click", () => {
+    placeNav();
+
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
         nav.classList.contains("aberto") ? fechar() : abrir();
     });
 
+    document.getElementById("nav-close")?.addEventListener("click", fechar);
     backdrop.addEventListener("click", fechar);
     nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", fechar));
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") fechar();
+    });
+
+    window.addEventListener("resize", () => {
+        placeNav();
+        if (!isMobile()) fechar();
     });
 }
 
