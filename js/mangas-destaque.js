@@ -11,7 +11,7 @@ export const MANGAS_DESTAQUE = [
     { id: "demon-slayer", titulo: "Demon Slayer", sinopse: "Tanjiro percorre o Japão para curar a irmã.", autor: "Koyoharu Gotouge", artista: "Koyoharu Gotouge", generos: ["Ação", "Fantasia"], status: "Completo", popularidade: 91, capa: "https://cdn.myanimelist.net/images/manga/3/179023.jpg" },
     { id: "tower-of-god", titulo: "Tower of God", sinopse: "Bam sobe a Torre misteriosa.", autor: "SIU", artista: "SIU", generos: ["Ação", "Fantasia"], status: "Em lançamento", popularidade: 88, capa: "https://cdn.myanimelist.net/images/manga/2/189339.jpg" },
     { id: "omniscient-reader", titulo: "Omniscient Reader", sinopse: "O único leitor de um webnovel vê o apocalipse tornar-se realidade.", autor: "sing N song", artista: "Sleepy-C", generos: ["Ação", "Fantasia"], status: "Em lançamento", popularidade: 90, capa: "https://cdn.myanimelist.net/images/manga/3/249307.jpg" },
-    { id: "the-beginning-after-the-end", titulo: "The Beginning After The End", sinopse: "Um rei reencarna num mundo mágico.", autor: "TurtleMe", artista: "Fuyumaki", generos: ["Fantasia", "Ação"], status: "Em lançamento", popularidade: 89, capa: "https://cdn.myanimelist.net/images/manga/3/227675.jpg" },
+    { id: "obra-0f20295f", titulo: "O Começo Depois do Fim", sinopse: "Um rei reencarna num mundo mágico com uma segunda chance.", autor: "TurtleMe", artista: "Eginhardt", generos: ["Fantasia", "Ação", "Reencarnação"], status: "Em lançamento", popularidade: 96, capa: "https://cdn.myanimelist.net/images/manga/3/227675.jpg" },
     { id: "naruto", titulo: "Naruto", sinopse: "Naruto sonha em tornar-se Hokage.", autor: "Masashi Kishimoto", artista: "Masashi Kishimoto", generos: ["Ação", "Aventura"], status: "Completo", popularidade: 87, capa: "https://cdn.myanimelist.net/images/manga/2/253146.jpg" },
     { id: "one-piece", titulo: "One Piece", sinopse: "Luffy procura o tesouro One Piece.", autor: "Eiichiro Oda", artista: "Eiichiro Oda", generos: ["Ação", "Aventura"], status: "Em lançamento", popularidade: 99, capa: "https://cdn.myanimelist.net/images/manga/3/55551.jpg" },
     { id: "attack-on-titan", titulo: "Attack on Titan", sinopse: "Humanidade contra titãs devoradores.", autor: "Hajime Isayama", artista: "Hajime Isayama", generos: ["Ação", "Drama"], status: "Completo", popularidade: 86, capa: "https://cdn.myanimelist.net/images/manga/2/37846.jpg" },
@@ -110,11 +110,25 @@ export function mergeCatalogo(local = [], remoto = null) {
         const base = map.get(m.id) || {};
         const capaEscolhida = escolherCapa(m, base);
         const bannerEscolhido = isLocalPath(m.banner) ? m.banner : (capaEscolhida || base.banner);
+        const tituloLocalFraco = !m.titulo
+            || /^obra[\s-]/i.test(m.titulo)
+            || m.titulo === m.id;
+        const sinopseLocalFraca = !m.sinopse || m.sinopse.includes("biblioteca local");
+        // Unir caps do catálogo + pasta local (evita perder lista completa do backup).
+        const byId = new Map();
+        for (const c of (base.capitulos || [])) byId.set(c.id, { ...c });
+        for (const c of (m.capitulos || [])) {
+            const prev = byId.get(c.id);
+            byId.set(c.id, prev ? { ...prev, ...c, id: c.id } : { ...c });
+        }
+        const capitulos = byId.size
+            ? [...byId.values()].sort((a, b) => parseChapterNumber(b) - parseChapterNumber(a))
+            : (base.capitulos || m.capitulos);
         const merged = enriquecerDestaque({
             ...base,
             ...m,
-            titulo: m.titulo || base.titulo,
-            sinopse: m.sinopse && !m.sinopse.includes("biblioteca local") ? m.sinopse : (base.sinopse || m.sinopse),
+            titulo: tituloLocalFraco ? (base.titulo || m.titulo) : (m.titulo || base.titulo),
+            sinopse: sinopseLocalFraca ? (base.sinopse || m.sinopse) : m.sinopse,
             autor: m.autor || base.autor,
             artista: m.artista || base.artista,
             generos: m.generos?.length ? m.generos : base.generos,
@@ -122,13 +136,16 @@ export function mergeCatalogo(local = [], remoto = null) {
             popularidade: m.popularidade ?? base.popularidade ?? 50,
             capa: capaEscolhida,
             banner: bannerEscolhido,
-            capitulos: m.capitulos?.length >= (base.capitulos?.length || 0) ? m.capitulos : (base.capitulos?.length ? base.capitulos : m.capitulos)
+            capitulos
         });
         const img = normalizarImagens({
             capa: capaEscolhida,
             banner: merged.banner || capaEscolhida
         });
-        map.set(m.id, { ...merged, ...img, origem: m.origem || base.origem });
+        const origem = base.origem && base.origem !== "biblioteca"
+            ? base.origem
+            : (m.origem || base.origem);
+        map.set(m.id, { ...merged, ...img, origem });
     }
     return [...map.values()].sort((a, b) => a.titulo.localeCompare(b.titulo));
 }

@@ -160,11 +160,17 @@ async function initBuscaInteligente() {
             return;
         }
         const hits = catalogo
-            .filter((m) =>
-                m.titulo.toLowerCase().includes(t) ||
-                (m.autor || "").toLowerCase().includes(t) ||
-                (m.generos || []).some((g) => g.toLowerCase().includes(t))
-            )
+            .filter((m) => {
+                const titulo = (m.titulo || "").toLowerCase();
+                const alt = (m.alternativeTitle || m.tituloAlternativo || "").toLowerCase();
+                const autor = (m.autor || "").toLowerCase();
+                const id = (m.id || "").toLowerCase();
+                return titulo.includes(t)
+                    || alt.includes(t)
+                    || autor.includes(t)
+                    || id.includes(t)
+                    || (m.generos || []).some((g) => String(g).toLowerCase().includes(t));
+            })
             .slice(0, 8);
 
         if (!hits.length) {

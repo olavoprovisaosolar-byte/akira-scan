@@ -91,7 +91,12 @@ export async function initHomePage() {
         }
         const lista = catalogo.filter((m) => m?.id && m?.titulo);
 
-        const destaquesHero = ordenar(lista, "popular").slice(0, 5);
+        const pinIds = ["obra-0f20295f"];
+        const pinned = pinIds.map((id) => lista.find((m) => m.id === id)).filter(Boolean);
+        const destaquesHero = [
+            ...pinned,
+            ...ordenar(lista, "popular").filter((m) => !pinIds.includes(m.id))
+        ].slice(0, 5);
         initCarousel("hero-carousel", destaquesHero);
 
         renderContinuar();

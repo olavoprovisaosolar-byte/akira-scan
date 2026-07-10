@@ -7,11 +7,18 @@
   included_files = [
     "data/catalogo.json",
     "data/catalogo-index.json",
+    "data/cloud/chapters-index.json",
+    "data/terabox/chapters-index.json",
     "data/toonlivre-backup/mangas/*/meta.json",
     "data/toonlivre-backup/mangas/*/chapters/*/meta.json",
     "js/mangas-destaque.js",
     "js/services/chapter-label.js"
   ]
+
+[[redirects]]
+  from = "/api/cloud/*"
+  to = "/.netlify/functions/cloud-chapters/:splat"
+  status = 200
 
 [[redirects]]
   from = "/api/biblioteca/*"

@@ -1556,12 +1556,45 @@ img { max-width: 100%; display: block; }
     background: rgba(56, 189, 248, 0.22);
 }
 
+.chapter-badge-ready {
+    right: auto;
+    left: 8px;
+    background: rgba(52, 211, 153, 0.2);
+    color: #6ee7b7;
+}
+
 .chapter-badge-soon {
     right: auto;
     left: 8px;
     background: rgba(250, 204, 21, 0.18);
     color: #fde68a;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+}
+
+.chapter-sync-hint {
+    margin: 0 0 var(--space-md);
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--akira-radius-sm);
+    border: 1px solid color-mix(in srgb, var(--akira-purple) 28%, transparent);
+    background: color-mix(in srgb, var(--akira-purple) 8%, transparent);
+    color: var(--akira-muted);
+    font-size: 0.88rem;
+}
+
+.chapter-sync-hint.is-alert {
+    border-color: color-mix(in srgb, #fbbf24 45%, transparent);
+    background: rgba(250, 204, 21, 0.1);
+    color: #fde68a;
+}
+
+.meta-tag-ready {
+    border-color: color-mix(in srgb, #34d399 40%, transparent);
+    color: #6ee7b7;
+}
+
+.btn-ler-primeiro.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
 }
 
 .chapter-action {

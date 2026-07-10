@@ -3,14 +3,18 @@
  */
 import { capsRemotosManga } from "./cloud-chapters-service.js";
 import { parseChapterNumber } from "./chapter-label.js";
-import { isStaticHost } from "../site-config.js";
+import { cloudApiDisponivel, isStaticHost } from "../site-config.js";
 
-/** Capítulo pronto para leitura no site estático. */
+/** Capítulo pronto para leitura (cloud / backup / API). */
 export function capLegivel(remoto) {
-    if (!remoto?.done) return false;
-    if (remoto.pages?.length) return true;
+    if (!remoto) return !isStaticHost();
+    if (!remoto.done) {
+        // Em servidor local ainda dá para ler via backup/proxy enquanto o upload corre.
+        return !isStaticHost();
+    }
     if (!remoto.localPurged) return true;
-    return false;
+    if (cloudApiDisponivel() && remoto.remote) return true;
+    return !!(remoto.pages?.length);
 }
 
 export async function capsLegiveisIds(mangaId) {

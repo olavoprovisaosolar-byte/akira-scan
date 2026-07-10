@@ -1,7 +1,7 @@
 /**
  * Capítulos em armazenamento remoto (data/cloud/chapters-index.json).
  */
-import { assetUrl } from "../site-config.js";
+import { assetUrl, cloudApiDisponivel, cloudApiUrl, isStaticHost } from "../site-config.js";
 import { isRealChapterPageSet } from "./chapter-label.js";
 
 const INDEX_URL = () => assetUrl("data/cloud/chapters-index.json");
@@ -55,6 +55,27 @@ export async function obterPaginasRemotas(mangaId, capId) {
     const info = await capRemotoInfo(mangaId, capId);
     if (!info) return null;
 
+    if (info.done && cloudApiDisponivel() && (isStaticHost() || info.localPurged)) {
+        try {
+            const res = await fetch(
+                cloudApiUrl("api/cloud/pages", { m: mangaId, ch: capId }),
+                { cache: "no-store" }
+            );
+            if (res.ok) {
+                const data = await res.json();
+                if (isRealChapterPageSet(data.pages)) {
+                    return data.pages.map((p, i) => ({
+                        index: p.index ?? i,
+                        url: p.url,
+                        origem: "remoto"
+                    }));
+                }
+            }
+        } catch (e) {
+            console.warn("[Cloud] API páginas:", e.message);
+        }
+    }
+
     if (info.pages?.length && isRealChapterPageSet(info.pages)) {
         return info.pages.map((p, i) => ({
             index: p.index ?? i,
@@ -84,10 +105,10 @@ export async function obterShareRemoto(mangaId, capId) {
     return info?.shareUrl || null;
 }
 
-/** Caps prontos para leitura (com páginas ou backup local). */
+/** Caps prontos para leitura (com API, páginas em cache ou backup local). */
 export async function capsLegiveisManga(mangaId) {
     const caps = await capsRemotosManga(mangaId);
-    return caps.filter((c) => c.done && (c.pages?.length || !c.localPurged));
+    return caps.filter((c) => c.done && (cloudApiDisponivel() ? !!c.remote : (c.pages?.length || !c.localPurged)));
 }
 
 export function invalidarCacheRemoto() {

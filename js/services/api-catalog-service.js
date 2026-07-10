@@ -1,7 +1,7 @@
 /**
  * Camada API — catálogo local + seed (`data/catalogo.json`).
  */
-import { assetUrl, isStaticHost } from "../site-config.js";
+import { assetUrl, isStaticHost, cloudApiDisponivel } from "../site-config.js";
 import {
     bibliotecaDisponivel,
     listarMangasBiblioteca,
@@ -140,13 +140,24 @@ export async function obterCatalogoApi(force = false) {
     return cacheLista;
 }
 
+async function enriquecerSePossivel(manga) {
+    if (!manga) return manga;
+    try {
+        const { enriquecerMangaComRemoto } = await import("./manga-chapters-link.js");
+        return await enriquecerMangaComRemoto(manga);
+    } catch (e) {
+        console.warn("[Catalogo] enriquecer remoto:", e.message);
+        return manga;
+    }
+}
+
 export async function obterMangaApi(mangaId) {
     if (!isStaticHost()) {
         try {
             const res = await fetchWithTimeout(`/api/manga/${encodeURIComponent(mangaId)}`, 15000);
             if (res.ok) {
                 const data = await res.json();
-                if (data.manga) return data.manga;
+                if (data.manga) return enriquecerSePossivel(data.manga);
             }
         } catch (e) {
             console.warn("[Catalogo] API manga:", e.message);
@@ -156,7 +167,7 @@ export async function obterMangaApi(mangaId) {
             const res = await fetchWithTimeout(`/api/biblioteca/${encodeURIComponent(mangaId)}`, 15000);
             if (res.ok) {
                 const data = await res.json();
-                if (data.manga?.capitulos?.length) return data.manga;
+                if (data.manga?.capitulos?.length) return enriquecerSePossivel(data.manga);
             }
         } catch (e) {
             console.warn("[Catalogo] biblioteca manga:", e.message);
@@ -172,13 +183,7 @@ export async function obterMangaApi(mangaId) {
         manga = await carregarMangaDoCatalogoCompleto(mangaId);
     }
     if (!manga) throw new Error("Mangá não encontrado.");
-    try {
-        const { enriquecerMangaComRemoto } = await import("./manga-chapters-link.js");
-        return await enriquecerMangaComRemoto(manga);
-    } catch (e) {
-        console.warn("[Catalogo] enriquecer remoto:", e.message);
-        return manga;
-    }
+    return enriquecerSePossivel(manga);
 }
 
 export async function listarMangasApi(opts = {}) {
@@ -197,11 +202,17 @@ export async function listarMangasApi(opts = {}) {
     if (termo === "favoritos" && Array.isArray(favoritos)) {
         lista = lista.filter((m) => favoritos.includes(m.id));
     } else if (termo) {
-        lista = lista.filter((m) =>
-            m.titulo.toLowerCase().includes(termo) ||
-            (m.autor || "").toLowerCase().includes(termo) ||
-            (m.generos || []).some((g) => g.toLowerCase().includes(termo))
-        );
+        lista = lista.filter((m) => {
+            const titulo = (m.titulo || "").toLowerCase();
+            const alt = (m.alternativeTitle || m.tituloAlternativo || "").toLowerCase();
+            const autor = (m.autor || "").toLowerCase();
+            const id = (m.id || "").toLowerCase();
+            return titulo.includes(termo)
+                || alt.includes(termo)
+                || autor.includes(termo)
+                || id.includes(termo)
+                || (m.generos || []).some((g) => String(g).toLowerCase().includes(termo));
+        });
     }
 
     if (genero) {
@@ -264,11 +275,11 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         try {
             const { capRemotoInfo } = await import("./cloud-chapters-service.js");
             const info = await capRemotoInfo(mangaId, capId);
-            if (info?.done) {
-                throw new Error("Capítulo ainda não disponível online. Aguarde a próxima atualização do site.");
+            if (info?.done && !cloudApiDisponivel()) {
+                throw new Error("Capítulo em sincronização. Configure a API de leitura.");
             }
         } catch (e) {
-            if (e.message?.includes("não disponível")) throw e;
+            if (e.message?.includes("sincronização") || e.message?.includes("Configure")) throw e;
         }
         return paginasDemo(mangaId, capId);
     }

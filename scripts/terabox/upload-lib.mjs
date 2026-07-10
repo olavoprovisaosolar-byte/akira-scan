@@ -47,29 +47,43 @@ export async function uploadArquivo(client, localPath, remoteDir, remoteName) {
     return { ok: true, rapid: false, path: `${remoteDir}/${data.file}` };
 }
 
-export async function uploadPasta(client, localDir, remoteDir, delayMs, { onFile, concurrency = 4 } = {}) {
+export async function uploadPasta(client, localDir, remoteDir, delayMs, { onFile, concurrency = 4, retries = 1 } = {}) {
     const files = listarPaginasLocais(localDir);
     const resultados = new Array(files.length);
-    let next = 0;
 
-    async function worker() {
-        while (next < files.length) {
-            const idx = next++;
-            const f = files[idx];
-            const localPath = path.join(localDir, f);
-            if (onFile) onFile(f);
-            try {
-                const r = await uploadArquivo(client, localPath, remoteDir, f);
-                resultados[idx] = { file: f, ok: true, ...r };
-            } catch (e) {
-                resultados[idx] = { file: f, ok: false, erro: unwrapErrorMessage(e) || e.message };
+    async function runBatch(indices) {
+        let next = 0;
+        async function worker() {
+            while (next < indices.length) {
+                const pos = next++;
+                const idx = indices[pos];
+                const f = files[idx];
+                const localPath = path.join(localDir, f);
+                if (onFile) onFile(f);
+                try {
+                    const r = await uploadArquivo(client, localPath, remoteDir, f);
+                    resultados[idx] = { file: f, ok: true, ...r };
+                } catch (e) {
+                    resultados[idx] = { file: f, ok: false, erro: unwrapErrorMessage(e) || e.message };
+                }
+                if (delayMs > 0 && concurrency === 1) await sleep(delayMs);
             }
-            if (delayMs > 0 && concurrency === 1) await sleep(delayMs);
         }
+        const workers = Math.min(Math.max(1, concurrency), indices.length || 1);
+        await Promise.all(Array.from({ length: workers }, () => worker()));
     }
 
-    const workers = Math.min(Math.max(1, concurrency), files.length);
-    await Promise.all(Array.from({ length: workers }, () => worker()));
+    await runBatch(files.map((_, i) => i));
+
+    for (let attempt = 0; attempt < retries; attempt++) {
+        const failed = resultados
+            .map((r, i) => (!r?.ok ? i : -1))
+            .filter((i) => i >= 0);
+        if (!failed.length) break;
+        await sleep(Math.max(delayMs, 800));
+        await runBatch(failed);
+    }
+
     if (delayMs > 0 && concurrency > 1) await sleep(Math.min(delayMs, 500));
     return resultados.filter(Boolean);
 }

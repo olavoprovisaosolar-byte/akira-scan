@@ -223,6 +223,7 @@ function servirTeraboxCache(res) {
     }
 }
 
+const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
 
     if (url.pathname === "/api/sync") {
@@ -284,6 +285,41 @@ function servirTeraboxCache(res) {
         } catch (e) {
             return corsJson(res, { error: e.message }, 500);
         }
+    }
+
+    if (url.pathname === "/api/cloud/pages") {
+        try {
+            const { paginasComUrlsEstaveis } = await import("./cloud/cloud-resolver.mjs");
+            const origin = `http://127.0.0.1:${PORT}`;
+            const pages = await paginasComUrlsEstaveis(
+                url.searchParams.get("m"),
+                url.searchParams.get("ch"),
+                origin
+            );
+            return corsJson(res, { pages });
+        } catch (e) {
+            return corsJson(res, { error: e.message }, 502);
+        }
+    }
+
+    if (url.pathname === "/api/cloud/page") {
+        try {
+            const { buscarPaginaRemota } = await import("./cloud/cloud-resolver.mjs");
+            const { contentType, buffer } = await buscarPaginaRemota(
+                url.searchParams.get("m"),
+                url.searchParams.get("ch"),
+                url.searchParams.get("n")
+            );
+            res.writeHead(200, {
+                "Content-Type": contentType,
+                "Access-Control-Allow-Origin": "*",
+                "Cache-Control": "public, max-age=86400"
+            });
+            res.end(Buffer.from(buffer));
+        } catch (e) {
+            corsJson(res, { error: e.message }, 502);
+        }
+        return;
     }
 
     if (url.pathname.startsWith("/api/biblioteca")) {

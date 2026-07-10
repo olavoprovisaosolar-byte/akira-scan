@@ -5,6 +5,7 @@
  * Uso:
  *   node scripts/terabox/upload-all.mjs
  *   node scripts/terabox/upload-all.mjs --fresh
+ *   node scripts/terabox/upload-all.mjs --manga=obra-0f20295f
  */
 import fs from "fs";
 import path from "path";
@@ -26,6 +27,7 @@ const STATE_FILE = path.join(ROOT, "data", "terabox", "upload-state.json");
 const LOG_FILE = path.join(ROOT, "logs", "terabox-upload.log");
 
 const FRESH = process.argv.includes("--fresh");
+const MANGA_FILTER = process.argv.find((a) => a.startsWith("--manga="))?.split("=")[1] || "";
 const DELETE_AFTER = process.env.TERABOX_DELETE_AFTER !== "0";
 const delayMs = Number(process.env.TERABOX_UPLOAD_DELAY_MS || process.env.TERABOX_DELAY_MS || 300);
 const fileConcurrency = Math.max(1, Number(process.env.TERABOX_FILE_CONCURRENCY || 5));
@@ -62,6 +64,7 @@ function filaCaps() {
     if (!fs.existsSync(MANGAS_DIR)) return fila;
 
     for (const mangaId of fs.readdirSync(MANGAS_DIR)) {
+        if (MANGA_FILTER && mangaId !== MANGA_FILTER) continue;
         const mangaDir = path.join(MANGAS_DIR, mangaId);
         const capsDir = path.join(mangaDir, "chapters");
         if (!fs.existsSync(capsDir)) continue;
@@ -94,7 +97,7 @@ async function main() {
     const state = lerState();
     const fila = filaCaps();
 
-    log(`=== Upload Terabox — ${fila.length} caps | ${fileConcurrency} págs × ${chapterConcurrency} caps paralelos ===`);
+    log(`=== Upload Terabox — ${fila.length} caps${MANGA_FILTER ? ` | manga=${MANGA_FILTER}` : ""} | ${fileConcurrency} págs × ${chapterConcurrency} caps paralelos ===`);
 
     const clients = await Promise.all(
         Array.from({ length: chapterConcurrency }, () => criarCliente())
@@ -136,21 +139,24 @@ async function main() {
         try {
             const resultados = await uploadPasta(client, item.pagesDir, capRemote, delayMs, {
                 concurrency: fileConcurrency,
+                retries: 2,
                 onFile: QUIET ? undefined : (f) => log(`  ↑ ${f}`)
             });
             const ok = resultados.filter((r) => r.ok).length;
+            const falhas = resultados.filter((r) => !r.ok);
 
             state.stats.files += ok;
-            state.stats.ok += ok > 0 ? 1 : 0;
+            state.stats.ok += ok === item.total ? 1 : 0;
             state.stats.fail += ok < item.total ? 1 : 0;
             state.caps[key] = {
                 done: ok === item.total,
                 uploaded: ok,
                 total: item.total,
                 remote: capRemote,
-                at: new Date().toISOString()
+                at: new Date().toISOString(),
+                ...(falhas.length ? { erros: falhas.slice(0, 3).map((f) => f.erro || f.file) } : {})
             };
-            log(`  ✓ ${ok}/${item.total} arquivos`);
+            log(`  ${ok === item.total ? "✓" : "△"} ${ok}/${item.total} arquivos`);
 
             if (DELETE_AFTER && ok === item.total) {
                 const freed = apagarPaginasLocais(item.pagesDir, BIBLIOTECA, item.mangaId, item.capId);

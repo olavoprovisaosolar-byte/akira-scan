@@ -333,12 +333,13 @@ function espelharParaBiblioteca(mangaId, capId, srcPagesDir) {
 async function baixarCapitulo(mangaId, cap, dirs, state, pw) {
     const { legacyPagesDir, obraCapDir, capId } = dirs;
     const entry = state.mangas[mangaId]?.chapters?.[capId];
+    const locais = paginasExistentes(legacyPagesDir);
 
     if (capEnviadoTerabox(mangaId, capId)) {
         if (!state.mangas[mangaId].chapters) state.mangas[mangaId].chapters = {};
         state.mangas[mangaId].chapters[capId] = {
             done: true,
-            pages: entry?.pages || 0,
+            pages: entry?.pages || locais.length || 0,
             terabox: true,
             skippedLocal: true
         };
@@ -346,16 +347,18 @@ async function baixarCapitulo(mangaId, cap, dirs, state, pw) {
         return true;
     }
 
-    if (entry?.done && paginasExistentes(legacyPagesDir).length > 0) {
+    if (locais.length > 0) {
+        if (!state.mangas[mangaId].chapters) state.mangas[mangaId].chapters = {};
+        state.mangas[mangaId].chapters[capId] = {
+            done: true,
+            pages: locais.length
+        };
         state.stats.capitulosOk++;
-        state.stats.paginasOk += entry.pages || paginasExistentes(legacyPagesDir).length;
+        state.stats.paginasOk += locais.length;
         return true;
     }
 
-    if (entry?.done && !paginasExistentes(legacyPagesDir).length) {
-        /* já baixado antes; local apagado — não repetir se está no Terabox */
-        return capEnviadoTerabox(mangaId, capId);
-    }
+    // Marcado done sem ficheiros locais: se não está no Terabox, tenta baixar de novo.
 
     let pageUrls = null;
     if (USE_PW && pw) {

@@ -5,6 +5,19 @@ import { escHtml } from "../app-shell.js";
 import { linkLeitor } from "../core/router.js";
 import { parseChapterNumber } from "../services/chapter-label.js";
 
+export function contarCapsLegiveis(manga) {
+    const caps = manga?.capitulos || [];
+    const legiveis = caps.filter((c) => c.legivel !== false && c.id).length;
+    return { total: caps.length, legiveis };
+}
+
+export function primeiroCapLegivel(manga) {
+    const caps = [...(manga?.capitulos || [])]
+        .filter((c) => c.id && c.legivel !== false)
+        .sort((a, b) => parseChapterNumber(a) - parseChapterNumber(b));
+    return caps[0] || null;
+}
+
 export function renderChapterGrid(manga, { onSelect } = {}) {
     const caps = [...(manga.capitulos || [])].sort(
         (a, b) => parseChapterNumber(b) - parseChapterNumber(a)
@@ -22,9 +35,11 @@ export function renderChapterGrid(manga, { onSelect } = {}) {
             const valido = baseValid && cap.legivel !== false;
             const href = valido ? linkLeitor(manga.id, num, cap.id) : "#";
             const badge = cap.novo ? `<span class="chapter-badge">Novo</span>` : "";
-            const indisponivel = baseValid && !valido
-                ? `<span class="chapter-badge chapter-badge-soon" title="Em breve">⏳</span>`
-                : "";
+            const statusBadge = !baseValid
+                ? ""
+                : valido
+                    ? `<span class="chapter-badge chapter-badge-ready" title="Pronto para ler">Ler</span>`
+                    : `<span class="chapter-badge chapter-badge-soon" title="A sincronizar">Em breve</span>`;
             return `
             <a href="${href}"
                class="chapter-card${valido ? "" : " chapter-card-disabled"}"
@@ -35,8 +50,8 @@ export function renderChapterGrid(manga, { onSelect } = {}) {
                ${valido ? "" : 'aria-disabled="true" tabindex="-1"'}
                data-valid="${valido}">
                 <span class="chapter-num">Cap. ${escHtml(String(num))}</span>
-                ${badge}${indisponivel}
-                <span class="chapter-action btn-akira btn-akira-sm btn-akira-primary">Ler</span>
+                ${badge}${statusBadge}
+                <span class="chapter-action btn-akira btn-akira-sm ${valido ? "btn-akira-primary" : "btn-akira-ghost"}">${valido ? "Abrir" : "Aguarde"}</span>
             </a>`;
         }).join("")}
     </div>`;
@@ -47,7 +62,7 @@ export function bindChapterGrid(container, manga, { onInvalid } = {}) {
         el.addEventListener("click", (e) => {
             if (el.dataset.valid !== "true") {
                 e.preventDefault();
-                onInvalid?.("Capítulo inválido ou indisponível.");
+                onInvalid?.("Este capítulo ainda está a sincronizar. Tente outro ou aguarde o upload.");
                 return;
             }
             const num = Number(el.dataset.capNum);

@@ -149,7 +149,7 @@ async function main() {
             } catch (e) {
                 rec.dlinkErro = unwrapErrorMessage(e) || e.message;
             }
-        } else if (prev.pages?.length) {
+        } else if (prev.pages?.length && process.argv.includes("--keep-dlinks")) {
             rec.pages = prev.pages;
             if (rec.pages.length) dlinkCount++;
         }
