@@ -4,11 +4,15 @@
 function detectBasePath() {
     if (typeof location === "undefined") return "/";
     if (!location.hostname.endsWith("github.io")) return "/";
-    // user/org pages: akira-scan.github.io (sem subpasta)
-    if (/^[\w-]+\.github\.io$/i.test(location.hostname)) return "/";
-    const seg = location.pathname.split("/").filter(Boolean)[0];
-    if (!seg || seg.endsWith(".html")) return "/";
-    return `/${seg}/`;
+    // Org/user pages na raiz: akira-scan.github.io (sem subpasta)
+    if (/^akira-scan\.github\.io$/i.test(location.hostname)) return "/";
+    if (/^[\w-]+\.github\.io$/i.test(location.hostname)) {
+        const seg = location.pathname.split("/").filter(Boolean)[0];
+        // project pages: usuario.github.io/akira-scan/
+        if (seg && !seg.endsWith(".html")) return `/${seg}/`;
+        return "/";
+    }
+    return "/";
 }
 
 const onGitHub = typeof location !== "undefined" && location.hostname.endsWith("github.io");
