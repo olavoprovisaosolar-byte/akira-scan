@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — AkiraScan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Login â€” AkiraScan</title>
     <link rel="icon" type="image/png" href="img/akirascan-logo.png">
     <link rel="stylesheet" href="css/akira.css">
     <style>
@@ -198,7 +198,7 @@
             </div>
             <div class="input-group">
                 <label for="auth-senha">SENHA</label>
-                <input type="password" id="auth-senha" placeholder="Mínimo 6 caracteres" required minlength="6">
+                <input type="password" id="auth-senha" placeholder="MÃ­nimo 6 caracteres" required minlength="6">
             </div>
             <div class="input-group escondido" id="grupo-confirmar">
                 <label for="auth-confirmar">CONFIRMAR SENHA</label>
@@ -216,12 +216,12 @@
             Continuar com Google
         </button>
 
-        <button type="button" class="btn-demo" id="btn-demo">⚡ Entrar na conta Demo (já criada)</button>
+        <button type="button" class="btn-demo" id="btn-demo">âš¡ Entrar na conta Demo (jÃ¡ criada)</button>
         <p class="credenciais-demo" id="credenciais-demo"></p>
 
-        <a href="index.html" class="voltar">← Voltar ao início</a>
+        <a href="index.html" class="voltar">â† Voltar ao inÃ­cio</a>
         <br>
-        <a href="configurar-firebase.html" class="voltar" style="margin-top:8px;">⚙ Configurar Firebase</a>
+        <a href="configurar-firebase.html" class="voltar" style="margin-top:8px;">âš™ Configurar Firebase</a>
     </div>
 
     <script type="module">
@@ -295,7 +295,7 @@
         // Completa login Google se voltou de redirect
         const retornoGoogle = await processarRetornoGoogle();
         if (retornoGoogle.ok) {
-            mostrarMsg("Login Google concluído! A redirecionar...", "sucesso");
+            mostrarMsg("Login Google concluÃ­do! A redirecionar...", "sucesso");
         } else if (retornoGoogle.mensagem) {
             mostrarMsg(retornoGoogle.mensagem, "erro");
         }
@@ -309,7 +309,7 @@
             btnDemo.classList.remove("escondido");
         } else {
             credenciaisDemo.innerHTML =
-                `Conta demo: <strong>${CONTA_DEMO.email}</strong> · Senha: <strong>${CONTA_DEMO.senha}</strong>`;
+                `Conta demo: <strong>${CONTA_DEMO.email}</strong> Â· Senha: <strong>${CONTA_DEMO.senha}</strong>`;
             mostrarMsg("Modo local: conta demo a entrar automaticamente...", "info");
         }
 
@@ -329,7 +329,7 @@
             }
 
             if (modo === "registar" && senha !== confirmar) {
-                mostrarMsg("As senhas não coincidem.", "erro");
+                mostrarMsg("As senhas nÃ£o coincidem.", "erro");
                 return;
             }
 

@@ -38,6 +38,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 body {
@@ -48,7 +49,11 @@ body {
     line-height: 1.6;
     letter-spacing: -0.01em;
     min-height: 100vh;
+    min-height: 100dvh;
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
 }
 
 body.akira-app {
@@ -132,6 +137,9 @@ img { max-width: 100%; display: block; }
     align-items: center;
     gap: 16px;
     padding: 0 20px;
+    padding-top: env(safe-area-inset-top);
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
 }
 
 .akira-logo {
@@ -158,6 +166,7 @@ img { max-width: 100%; display: block; }
 
 .akira-search {
     flex: 1;
+    min-width: 0;
     max-width: 480px;
     position: relative;
 }
@@ -222,6 +231,13 @@ img { max-width: 100%; display: block; }
     font-size: 1.4rem;
     cursor: pointer;
     padding: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: var(--akira-radius-sm);
+}
+
+.akira-filters-mobile {
+    display: none;
 }
 
 /* ── Sidebar (desktop biblioteca) ── */
@@ -603,7 +619,6 @@ img { max-width: 100%; display: block; }
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-}
 
 .progress-bar-mini {
     height: 4px;
@@ -821,6 +836,28 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 900px) {
     .akira-sidebar { display: none; }
+    .akira-layout {
+        flex-direction: column;
+        padding: 16px 14px 72px;
+        gap: 16px;
+    }
+    .akira-filters-mobile {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 2px 2px 8px;
+        margin: 0 -2px;
+    }
+    .akira-filters-mobile::-webkit-scrollbar { display: none; }
+    .akira-filters-mobile .genre-chip {
+        flex: 0 0 auto;
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        white-space: nowrap;
+    }
     .akira-nav {
         display: none;
         flex-direction: column;
@@ -830,14 +867,21 @@ img { max-width: 100%; display: block; }
         bottom: 0;
         width: min(280px, 85vw);
         background: var(--akira-bg-elevated);
-        padding: calc(var(--akira-header-h) + 16px) 16px 24px;
+        padding: calc(var(--akira-header-h) + env(safe-area-inset-top) + 16px) 16px max(24px, env(safe-area-inset-bottom));
         border-left: 1px solid var(--akira-border);
         z-index: 250;
         transform: translateX(100%);
         transition: transform var(--akira-transition);
         box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
+        overflow-y: auto;
     }
-    .menu-toggle { display: block; }
+    .akira-nav a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 12px 14px;
+    }
+    .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
     .akira-nav.aberto {
         display: flex;
         transform: translateX(0);
@@ -856,12 +900,84 @@ img { max-width: 100%; display: block; }
         padding: 24px 16px;
     }
     .manga-hero-capa { width: 110px; }
+    .manga-hero-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .manga-hero-actions .btn-akira {
+        flex: 1 1 auto;
+        min-height: 44px;
+        justify-content: center;
+        text-align: center;
+    }
+    .chapter-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    .hero-carousel {
+        min-height: clamp(220px, 52vw, 340px);
+    }
+    .hero-carousel-btn {
+        width: 36px;
+        height: 36px;
+        opacity: 0.85;
+    }
+    .hero-dot {
+        width: 10px;
+        height: 10px;
+        padding: 10px;
+        box-sizing: content-box;
+        background-clip: content-box;
+    }
+}
+
+@media (max-width: 600px) {
+    :root { --akira-header-h: 56px; }
+    .akira-header {
+        gap: 8px;
+        height: calc(var(--akira-header-h) + env(safe-area-inset-top));
+        padding-left: max(10px, env(safe-area-inset-left));
+        padding-right: max(10px, env(safe-area-inset-right));
+        padding-top: env(safe-area-inset-top);
+    }
+    body.akira-app {
+        padding-top: calc(var(--akira-header-h) + env(safe-area-inset-top));
+    }
+    .akira-logo-img {
+        height: 32px;
+        max-width: 96px;
+    }
+    .akira-search { max-width: none; }
+    .akira-search input {
+        font-size: 16px; /* evita zoom iOS */
+        min-height: 40px;
+        padding: 8px 12px 8px 36px;
+    }
+    .akira-search-icon { left: 12px; }
+    .btn-theme-toggle {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+    }
 }
 
 @media (max-width: 480px) {
     .akira-search { max-width: none; }
-    .hero-akira { padding: 32px 0 40px; }
+    .hero-akira { padding: 24px 0 32px; }
     .grid-mangas { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .chapter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .chapter-card {
+        min-height: 84px;
+        padding: 10px 12px;
+    }
+    .chapter-action { font-size: 0.78rem; }
+    .hero-carousel-btn { display: none; }
+    .container { padding-left: 14px; padding-right: 14px; }
+    .secao-header h1,
+    .secao-header h2 { font-size: 1.2rem; }
+    .manga-hero-capa { width: 96px; }
 }
 
 /* ── Tema claro ── */

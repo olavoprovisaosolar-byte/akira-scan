@@ -231,10 +231,13 @@ function hashHue(id = "") {
     return h % 360;
 }
 
-export function renderSidebarGeneros(generos, ativo = "") {
+export function renderSidebarGeneros(generos, ativo = "", sort = "az") {
     const chips = generos.map((g) =>
         `<a href="biblioteca.html?genero=${encodeURIComponent(g)}" class="genre-chip${ativo === g ? " ativo" : ""}">${escHtml(g)}</a>`
     ).join("");
+    const sortPopular = sort === "popular" ? " ativo" : "";
+    const sortRecentes = sort === "recentes" ? " ativo" : "";
+    const sortAz = sort === "az" || !sort ? " ativo" : "";
     return `
     <aside class="akira-sidebar">
         <div class="sidebar-block">
@@ -244,12 +247,18 @@ export function renderSidebarGeneros(generos, ativo = "") {
         <div class="sidebar-block">
             <h3>Explorar</h3>
             <div class="genre-list">
-                <a href="biblioteca.html?sort=popular" class="genre-chip">Populares</a>
-                <a href="biblioteca.html?sort=recentes" class="genre-chip">Recentes</a>
-                <a href="biblioteca.html?sort=az" class="genre-chip">A–Z</a>
+                <a href="biblioteca.html?sort=popular" class="genre-chip${sortPopular}">Populares</a>
+                <a href="biblioteca.html?sort=recentes" class="genre-chip${sortRecentes}">Recentes</a>
+                <a href="biblioteca.html?sort=az" class="genre-chip${sortAz}">A–Z</a>
             </div>
         </div>
-    </aside>`;
+    </aside>
+    <div class="akira-filters-mobile" aria-label="Filtros">
+        <a href="biblioteca.html?sort=popular" class="genre-chip${sortPopular}">Populares</a>
+        <a href="biblioteca.html?sort=recentes" class="genre-chip${sortRecentes}">Recentes</a>
+        <a href="biblioteca.html?sort=az" class="genre-chip${sortAz}">A–Z</a>
+        ${chips}
+    </div>`;
 }
 
 export function renderRankingItem(manga) {

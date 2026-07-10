@@ -1,9 +1,12 @@
-/* AkiraScan — Leitor premium */
+/* AkiraScan — Leitor premium (mobile-first) */
 .leitor-app {
     min-height: 100vh;
+    min-height: 100dvh;
     background: #060608;
     color: #fff;
-    padding-top: 52px;
+    padding-top: calc(52px + env(safe-area-inset-top));
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-x: clip;
 }
 
 .leitor-barra {
@@ -11,20 +14,22 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 52px;
+    height: calc(52px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
     background: rgba(6, 6, 8, 0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(157, 0, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
-    gap: 12px;
+    gap: 10px;
     z-index: 100;
+    box-sizing: border-box;
 }
 
 .leitor-barra .titulo {
     flex: 1;
+    min-width: 0;
     text-align: center;
     font-size: 0.85rem;
     font-weight: 600;
@@ -53,18 +58,24 @@
     cursor: pointer;
     font-family: inherit;
     flex-shrink: 0;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 10px;
+    border-radius: 8px;
 }
 
 .leitor-contador {
     font-size: 0.75rem;
     color: #9ca3af;
     flex-shrink: 0;
+    min-width: 3.5ch;
+    text-align: right;
 }
 
 .meu-leitor-manga-css {
     max-width: 800px;
     margin: 0 auto;
-    padding: 8px 0 48px;
+    padding: 8px 0 calc(88px + env(safe-area-inset-bottom));
 }
 
 .meu-leitor-manga-css .pagina-manga {
@@ -82,7 +93,7 @@
 .leitor-estado {
     max-width: 400px;
     margin: 80px auto;
-    padding: 32px;
+    padding: 32px 20px;
     text-align: center;
     color: #9ca3af;
 }
@@ -92,6 +103,7 @@
 .btn-retry {
     margin-top: 16px;
     padding: 12px 24px;
+    min-height: 44px;
     background: var(--akira-purple, #9d00ff);
     color: #fff;
     border: none;
@@ -115,7 +127,7 @@
 
 .leitor-nav-caps {
     position: fixed;
-    bottom: 20px;
+    bottom: max(16px, env(safe-area-inset-bottom));
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -125,6 +137,7 @@
     border-radius: 999px;
     border: 1px solid rgba(157, 0, 255, 0.3);
     z-index: 90;
+    max-width: calc(100vw - 24px);
 }
 
 .leitor-nav-caps button {
@@ -133,8 +146,31 @@
     color: #fff;
     font-size: 1.2rem;
     cursor: pointer;
-    padding: 4px 12px;
+    padding: 8px 14px;
+    min-width: 44px;
+    min-height: 44px;
     font-family: inherit;
+    border-radius: 999px;
 }
 
 .leitor-nav-caps button:disabled { opacity: 0.3; cursor: default; }
+
+@media (max-width: 480px) {
+    .btn-leitor-voltar {
+        font-size: 0;
+        width: 44px;
+        padding: 0;
+    }
+    .btn-leitor-voltar::before {
+        content: "←";
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+    .leitor-barra .titulo {
+        font-size: 0.78rem;
+    }
+    .meu-leitor-manga-css {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

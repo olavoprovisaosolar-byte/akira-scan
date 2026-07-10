@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil — AkiraScan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Perfil â€” AkiraScan</title>
     <link rel="icon" type="image/png" href="img/akirascan-logo.png">
     <link rel="stylesheet" href="css/akira.css">
 </head>
@@ -34,7 +34,7 @@
             <div class="grid-mangas" id="lista-favoritos"></div>
         </section>
 
-        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histórico</button>
+        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histÃ³rico</button>
     </main>
 
     <div id="footer-slot"></div>
@@ -73,11 +73,11 @@
                     </div>
                 </a>`;
             }).join("")
-            : '<p class="msg-vazia">Nenhum histórico ainda.</p>';
+            : '<p class="msg-vazia">Nenhum histÃ³rico ainda.</p>';
 
         const elFav = document.getElementById("lista-favoritos");
         if (!favoritos.length) {
-            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas páginas dos mangás.</p>';
+            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas pÃ¡ginas dos mangÃ¡s.</p>';
         } else {
             for (const id of favoritos) {
                 try {
@@ -88,7 +88,7 @@
         }
 
         document.getElementById("btn-limpar").addEventListener("click", () => {
-            if (confirm("Limpar todo o histórico de leitura?")) {
+            if (confirm("Limpar todo o histÃ³rico de leitura?")) {
                 limparHistorico();
                 location.reload();
             }

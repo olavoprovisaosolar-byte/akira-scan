@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Configurar Firebase - AkiraScan</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -132,47 +132,47 @@
 <body>
     <div class="wrap">
         <h1>Configurar <span>Firebase</span></h1>
-        <p class="sub">Guia passo a passo — plano gratuito (Spark). Google Login também é grátis.</p>
+        <p class="sub">Guia passo a passo â€” plano gratuito (Spark). Google Login tambÃ©m Ã© grÃ¡tis.</p>
 
-        <div id="status-badge" class="status off">Firebase: não configurado</div>
+        <div id="status-badge" class="status off">Firebase: nÃ£o configurado</div>
 
         <div class="passo">
-            <h2>PASSO 1 — CRIAR PROJETO</h2>
+            <h2>PASSO 1 â€” CRIAR PROJETO</h2>
             <p>Abre o Firebase Console e cria um projeto gratuito:</p>
             <ul>
                 <li>Vai a <a href="https://console.firebase.google.com/" target="_blank">console.firebase.google.com</a></li>
-                <li>Clica <strong>Criar projeto</strong> → nome: <code>AkiraScan</code></li>
+                <li>Clica <strong>Criar projeto</strong> â†’ nome: <code>AkiraScan</code></li>
                 <li>Desativa o Google Analytics (opcional, para ser mais simples)</li>
                 <li>Clica <strong>Criar projeto</strong></li>
             </ul>
         </div>
 
         <div class="passo">
-            <h2>PASSO 2 — REGISTAR O SITE WEB</h2>
+            <h2>PASSO 2 â€” REGISTAR O SITE WEB</h2>
             <ul>
-                <li>No projeto, clica no ícone <strong>&lt;/&gt;</strong> (Web)</li>
-                <li>Apelido: <code>AkiraScan Web</code> → Registar app</li>
+                <li>No projeto, clica no Ã­cone <strong>&lt;/&gt;</strong> (Web)</li>
+                <li>Apelido: <code>AkiraScan Web</code> â†’ Registar app</li>
                 <li>Copia o bloco <code>firebaseConfig</code> que aparece</li>
-                <li>Clica <strong>Continuar</strong> (não precisas do SDK npm)</li>
+                <li>Clica <strong>Continuar</strong> (nÃ£o precisas do SDK npm)</li>
             </ul>
         </div>
 
         <div class="passo">
-            <h2>PASSO 3 — ATIVAR AUTENTICAÇÃO</h2>
+            <h2>PASSO 3 â€” ATIVAR AUTENTICAÃ‡ÃƒO</h2>
             <ul>
-                <li>Menu <strong>Authentication</strong> → <strong>Começar</strong></li>
+                <li>Menu <strong>Authentication</strong> â†’ <strong>ComeÃ§ar</strong></li>
                 <li>Ativa <strong>E-mail/Senha</strong></li>
-                <li>Ativa <strong>Google</strong> → escolhe e-mail de suporte → Guardar</li>
-                <li>Em <strong>Settings → Authorized domains</strong>, confirma que <code>localhost</code> está na lista</li>
+                <li>Ativa <strong>Google</strong> â†’ escolhe e-mail de suporte â†’ Guardar</li>
+                <li>Em <strong>Settings â†’ Authorized domains</strong>, confirma que <code>localhost</code> estÃ¡ na lista</li>
             </ul>
         </div>
 
         <div class="passo">
-            <h2>PASSO 4 — CRIAR FIRESTORE</h2>
+            <h2>PASSO 4 â€” CRIAR FIRESTORE</h2>
             <ul>
-                <li>Menu <strong>Firestore Database</strong> → <strong>Criar base de dados</strong></li>
-                <li>Escolhe localização (ex: <code>europe-west1</code>)</li>
-                <li>Modo: <strong>Começar em modo de teste</strong> (para desenvolvimento)</li>
+                <li>Menu <strong>Firestore Database</strong> â†’ <strong>Criar base de dados</strong></li>
+                <li>Escolhe localizaÃ§Ã£o (ex: <code>europe-west1</code>)</li>
+                <li>Modo: <strong>ComeÃ§ar em modo de teste</strong> (para desenvolvimento)</li>
                 <li>Depois, em <strong>Regras</strong>, cola isto:</li>
             </ul>
             <pre class="regras" id="regras-firestore">rules_version = '2';
@@ -187,7 +187,7 @@ service cloud.firestore {
         </div>
 
         <div class="form-box">
-            <h2>Colar configuração do Firebase</h2>
+            <h2>Colar configuraÃ§Ã£o do Firebase</h2>
             <p style="color:#a0a0a0;font-size:0.85rem;margin-bottom:16px;">
                 Cola o JSON completo do Firebase ou preenche campo a campo.
             </p>
@@ -223,7 +223,7 @@ service cloud.firestore {
             </div>
 
             <div class="botoes">
-                <button type="button" class="btn-roxo" id="btn-guardar">Guardar e testar ligação</button>
+                <button type="button" class="btn-roxo" id="btn-guardar">Guardar e testar ligaÃ§Ã£o</button>
                 <button type="button" class="btn-outline" id="btn-parse-json">Extrair do JSON</button>
                 <button type="button" class="btn-cinza" id="btn-limpar">Limpar</button>
             </div>
@@ -231,12 +231,12 @@ service cloud.firestore {
         </div>
 
         <div class="passo">
-            <h2>PASSO 5 — TESTAR</h2>
+            <h2>PASSO 5 â€” TESTAR</h2>
             <p>Depois de guardar, vai ao login e testa e-mail ou Google:</p>
-            <a href="login.html" class="btn-link btn-roxo">Ir para Login →</a>
+            <a href="login.html" class="btn-link btn-roxo">Ir para Login â†’</a>
         </div>
 
-        <a href="index.html" class="voltar">← Voltar ao início</a>
+        <a href="index.html" class="voltar">â† Voltar ao inÃ­cio</a>
     </div>
 
     <script type="module">
@@ -256,11 +256,11 @@ service cloud.firestore {
 
         function atualizarStatus() {
             if (firebaseConfigurado()) {
-                statusBadge.textContent = "Firebase: configurado ✓";
+                statusBadge.textContent = "Firebase: configurado âœ“";
                 statusBadge.className = "status on";
                 preencherFormulario(obterConfigFirebase());
             } else {
-                statusBadge.textContent = "Firebase: não configurado";
+                statusBadge.textContent = "Firebase: nÃ£o configurado";
                 statusBadge.className = "status off";
             }
         }
@@ -292,7 +292,7 @@ service cloud.firestore {
             } catch {
                 const match = limpo.match(/\{[\s\S]*\}/);
                 if (match) return JSON.parse(match[0]);
-                throw new Error("JSON inválido. Copia o bloco firebaseConfig completo.");
+                throw new Error("JSON invÃ¡lido. Copia o bloco firebaseConfig completo.");
             }
         }
 
@@ -308,14 +308,14 @@ service cloud.firestore {
 
         document.getElementById("btn-copiar-regras").addEventListener("click", () => {
             navigator.clipboard.writeText(document.getElementById("regras-firestore").textContent);
-            mostrarMsg("Regras copiadas! Cola no Firebase → Firestore → Regras.", "ok");
+            mostrarMsg("Regras copiadas! Cola no Firebase â†’ Firestore â†’ Regras.", "ok");
         });
 
         document.getElementById("btn-limpar").addEventListener("click", () => {
             localStorage.removeItem("akirascan_firebase_config");
             campos.forEach((c) => { document.getElementById(`cfg-${c}`).value = ""; });
             document.getElementById("json-bloco").value = "";
-            mostrarMsg("Configuração limpa. Recarrega a página.", "info");
+            mostrarMsg("ConfiguraÃ§Ã£o limpa. Recarrega a pÃ¡gina.", "info");
             setTimeout(() => location.reload(), 800);
         });
 
@@ -328,7 +328,7 @@ service cloud.firestore {
             }
 
             guardarConfigFirebase(config);
-            mostrarMsg("A testar ligação ao Firebase...", "info");
+            mostrarMsg("A testar ligaÃ§Ã£o ao Firebase...", "info");
 
             try {
                 const app = initializeApp(config, "teste-akirascan");

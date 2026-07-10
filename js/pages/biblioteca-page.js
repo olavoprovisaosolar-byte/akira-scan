@@ -52,7 +52,7 @@ export function createBibliotecaController({ grid, sidebar, totalLabel, btnMais,
                 grid.insertAdjacentHTML("beforeend", mangas.map((m) => renderMangaCard(m)).join(""));
             }
 
-            sidebar.innerHTML = renderSidebarGeneros(generos, genero);
+            sidebar.innerHTML = renderSidebarGeneros(generos, genero, sort);
             totalLabel.textContent = `${total} títulos`;
             statusEl.textContent = "";
             temMais = hasNext;

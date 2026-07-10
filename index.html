@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AkiraScan — leia mangás online com interface premium, favoritos, histórico e catálogo Firestore.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="AkiraScan â€” leia mangÃ¡s online com interface premium, favoritos, histÃ³rico e catÃ¡logo Firestore.">
     <meta name="theme-color" content="#060608">
     <meta name="application-name" content="AkiraScan">
     <meta property="og:site_name" content="AkiraScan">
@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" href="img/akirascan-logo.png">
     <link rel="apple-touch-icon" href="img/akirascan-logo.png">
     <meta property="og:image" content="img/akirascan-logo.png">
-    <title>AkiraScan — Leia Mangás Online</title>
+    <title>AkiraScan â€” Leia MangÃ¡s Online</title>
     <link rel="stylesheet" href="css/akira.css">
     <link rel="preload" href="data/catalogo-index.json" as="fetch" crossorigin>
 </head>
@@ -26,17 +26,17 @@
             <div class="hero-carousel" id="hero-carousel" aria-label="Destaques">
                 <div class="hero-carousel-track" id="hero-track"></div>
                 <div class="hero-carousel-dots" id="hero-dots"></div>
-                <button type="button" class="hero-carousel-btn prev" id="hero-prev" aria-label="Anterior">‹</button>
-                <button type="button" class="hero-carousel-btn next" id="hero-next" aria-label="Próximo">›</button>
+                <button type="button" class="hero-carousel-btn prev" id="hero-prev" aria-label="Anterior">â€¹</button>
+                <button type="button" class="hero-carousel-btn next" id="hero-next" aria-label="PrÃ³ximo">â€º</button>
             </div>
         </section>
 
         <!-- Zona Categorias / Listagens -->
-        <section id="categories-section" aria-label="Categorias e catálogo">
+        <section id="categories-section" aria-label="Categorias e catÃ¡logo">
             <section class="secao-akira" id="continuar">
-                <div class="secao-header"><h2>▶ Continuar lendo</h2></div>
+                <div class="secao-header"><h2>â–¶ Continuar lendo</h2></div>
                 <div class="row-continuar" id="sec-continuar">
-                    <p class="msg-vazia">Ainda não leste nenhum capítulo.</p>
+                    <p class="msg-vazia">Ainda nÃ£o leste nenhum capÃ­tulo.</p>
                 </div>
             </section>
 
@@ -44,7 +44,7 @@
 
             <section class="secao-akira">
                 <div class="secao-header">
-                    <h2>🆕 Recém-lançados</h2>
+                    <h2>ðŸ†• RecÃ©m-lanÃ§ados</h2>
                     <a href="biblioteca.html?sort=recentes">Ver todos</a>
                 </div>
                 <div class="lista-caps-recentes" id="sec-recentes"></div>
@@ -53,14 +53,14 @@
             <div class="home-grid-duo">
                 <section class="secao-akira">
                     <div class="secao-header">
-                        <h2>🏆 Ranking semanal</h2>
+                        <h2>ðŸ† Ranking semanal</h2>
                         <a href="biblioteca.html?sort=popular">Ver ranking</a>
                     </div>
                     <div class="ranking-list" id="sec-ranking"></div>
                 </section>
                 <section class="secao-akira">
                     <div class="secao-header">
-                        <h2>✨ Novidades</h2>
+                        <h2>âœ¨ Novidades</h2>
                         <a href="biblioteca.html?sort=recentes">Ver mais</a>
                     </div>
                     <div class="grid-mangas grid-mangas-compact" id="sec-novidades"></div>
@@ -69,26 +69,26 @@
 
             <section class="secao-akira">
                 <div class="secao-header">
-                    <h2>🔥 Populares</h2>
+                    <h2>ðŸ”¥ Populares</h2>
                     <a href="biblioteca.html?sort=popular">Ver todos</a>
                 </div>
                 <div class="grid-mangas" id="sec-populares"></div>
             </section>
 
             <section class="secao-akira">
-                <div class="secao-header"><h2>🏷️ Gêneros</h2></div>
+                <div class="secao-header"><h2>ðŸ·ï¸ GÃªneros</h2></div>
                 <div class="genre-list" id="sec-generos"></div>
             </section>
         </section>
 
-        <!-- Zona Detalhes (sinopse + banner + capítulos) -->
-        <section id="details-section" hidden aria-label="Detalhes do mangá">
+        <!-- Zona Detalhes (sinopse + banner + capÃ­tulos) -->
+        <section id="details-section" hidden aria-label="Detalhes do mangÃ¡">
             <div id="details-root"></div>
         </section>
 
-        <!-- Zona Leitor (placeholder — leitura em leitor.html) -->
+        <!-- Zona Leitor (placeholder â€” leitura em leitor.html) -->
         <section id="reader-section" hidden aria-label="Leitor">
-            <p class="msg-vazia">A redirecionar para o leitor…</p>
+            <p class="msg-vazia">A redirecionar para o leitorâ€¦</p>
         </section>
     </main>
 
