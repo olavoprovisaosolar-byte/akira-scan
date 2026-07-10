@@ -1,6 +1,32 @@
 /**
  * Leitor vertical — <div class="meu-leitor-manga-css"><img class="pagina-manga" /></div>
  */
+const blobUrlCache = new Map();
+
+function isCloudPageUrl(url) {
+    return /\/api\/cloud\/page(\?|$)/i.test(String(url || ""));
+}
+
+async function resolveImageSrc(url) {
+    const src = String(url || "");
+    if (!src) return "";
+    if (!isCloudPageUrl(src)) return src;
+    if (blobUrlCache.has(src)) return blobUrlCache.get(src);
+
+    const res = await fetch(src, { cache: "force-cache", mode: "cors" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = await res.arrayBuffer();
+    const upstream = String(res.headers.get("content-type") || "").toLowerCase();
+    const type = upstream.startsWith("image/")
+        ? upstream
+        : (buf.byteLength >= 12 && new TextDecoder().decode(new Uint8Array(buf, 8, 4)) === "WEBP"
+            ? "image/webp"
+            : "image/jpeg");
+    const objectUrl = URL.createObjectURL(new Blob([buf], { type }));
+    blobUrlCache.set(src, objectUrl);
+    return objectUrl;
+}
+
 export class LeitorVertical {
     constructor(container, opcoes = {}) {
         this.container = container;
@@ -9,10 +35,12 @@ export class LeitorVertical {
         this.barraProgresso = opcoes.barraProgresso;
         this._observer = null;
         this._paginaAtual = 0;
+        this._alive = true;
     }
 
     render() {
         this.destruir();
+        this._alive = true;
         this.container.innerHTML = "";
 
         if (!this.paginas.length) {
@@ -35,20 +63,26 @@ export class LeitorVertical {
             img.loading = index < 2 ? "eager" : "lazy";
             img.dataset.index = String(index);
             img.dataset.src = pag.url;
-
             img.referrerPolicy = "no-referrer";
+
             img.addEventListener("load", () => img.classList.add("carregada"));
-    img.addEventListener("error", () => {
-        img.classList.add("erro");
-        const src = img.dataset.src || img.src || "";
-        if (/\.webp(\?|$)/i.test(src)) {
-            img.src = src.replace(/\.webp(\?|$)/i, ".jpg$1");
-            return;
-        }
-        if (/\.jpg(\?|$)/i.test(src)) {
-            img.src = src.replace(/\.jpg(\?|$)/i, ".webp$1");
-        }
-    });
+            img.addEventListener("error", () => {
+                if (img.dataset.retry === "1") {
+                    img.classList.add("erro");
+                    return;
+                }
+                img.dataset.retry = "1";
+                const src = img.dataset.src || "";
+                if (/\.webp(\?|$)/i.test(src)) {
+                    img.src = src.replace(/\.webp(\?|$)/i, ".jpg$1");
+                    return;
+                }
+                if (/\.jpg(\?|$)/i.test(src)) {
+                    img.src = src.replace(/\.jpg(\?|$)/i, ".webp$1");
+                    return;
+                }
+                img.classList.add("erro");
+            });
 
             leitor.appendChild(img);
         });
@@ -56,6 +90,25 @@ export class LeitorVertical {
         this.container.appendChild(leitor);
         this._iniciarObserver(leitor);
         this._carregarVisiveis(leitor);
+    }
+
+    async _aplicarSrc(img) {
+        if (!this._alive || !img || img.dataset.loading === "1" || img.dataset.ready === "1") return;
+        const raw = img.dataset.src || "";
+        if (!raw) return;
+        img.dataset.loading = "1";
+        try {
+            const src = await resolveImageSrc(raw);
+            if (!this._alive) return;
+            img.src = src;
+            img.dataset.ready = "1";
+        } catch {
+            if (!this._alive) return;
+            img.src = raw;
+            img.dataset.ready = "1";
+        } finally {
+            img.dataset.loading = "0";
+        }
     }
 
     _iniciarObserver(leitor) {
@@ -67,9 +120,7 @@ export class LeitorVertical {
                     const img = entry.target;
                     if (!entry.isIntersecting) return;
 
-                    if (img.dataset.src && !img.src) {
-                        img.src = img.dataset.src;
-                    }
+                    this._aplicarSrc(img);
 
                     const index = Number(img.dataset.index);
                     if (!Number.isNaN(index) && index !== this._paginaAtual) {
@@ -91,7 +142,7 @@ export class LeitorVertical {
         leitor.querySelectorAll(".pagina-manga").forEach((img) => {
             const rect = img.getBoundingClientRect();
             if (rect.top < window.innerHeight + 200 && rect.bottom > -200) {
-                if (img.dataset.src && !img.src) img.src = img.dataset.src;
+                this._aplicarSrc(img);
             }
         });
     }
@@ -103,6 +154,7 @@ export class LeitorVertical {
     }
 
     destruir() {
+        this._alive = false;
         this._observer?.disconnect();
         this._observer = null;
     }

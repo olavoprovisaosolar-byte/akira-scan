@@ -9,7 +9,6 @@ import {
 } from "../catalogo-biblioteca.js";
 import {
     mergeCatalogo,
-    paginasDemo,
     todosGeneros,
     capsRecentes,
     ordenar,
@@ -275,13 +274,19 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         try {
             const { capRemotoInfo } = await import("./cloud-chapters-service.js");
             const info = await capRemotoInfo(mangaId, capId);
+            if (info?.done && cloudApiDisponivel()) {
+                throw new Error("Não foi possível carregar as páginas deste capítulo. Tenta novamente.");
+            }
             if (info?.done && !cloudApiDisponivel()) {
                 throw new Error("Capítulo em sincronização. Configure a API de leitura.");
             }
+            if (!info?.done) {
+                throw new Error("Este capítulo ainda não está disponível online.");
+            }
         } catch (e) {
-            if (e.message?.includes("sincronização") || e.message?.includes("Configure")) throw e;
+            if (e.message && !e.message.includes("Cannot")) throw e;
         }
-        return paginasDemo(mangaId, capId);
+        throw new Error("Capítulo sem páginas disponíveis.");
     }
 
     if (!isStaticHost() && (manga.origem === "toonlivre" || /^obra-/i.test(mangaId))) {
@@ -321,7 +326,7 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         console.warn("[Catalogo] Proxy capítulo:", e.message);
     }
 
-    return paginasDemo(mangaId, capId);
+    throw new Error("Capítulo sem páginas disponíveis.");
 }
 
 export function invalidarCacheApi() {

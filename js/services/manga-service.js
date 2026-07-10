@@ -115,24 +115,29 @@ async function fetchCapituloRemote(mangaId, numeroCap, chapterId, source = "auto
     try {
         const proxy = await fetchCapituloFromProxy(mangaId, chapterId, numeroCap, source);
         if (isRealChapterPageSet(proxy.pages)) return proxy.pages;
-        console.warn("[MangaService] Proxy páginas inválidas, usando demo.");
+        console.warn("[MangaService] Proxy páginas inválidas.");
     } catch (proxyErr) {
         console.warn("[MangaService] Proxy capítulo:", proxyErr.message);
     }
 
-    const { paginasDemo } = await import("../mangas-destaque.js");
-    return paginasDemo(mangaId, chapterId);
+    throw new Error("Capítulo ainda não disponível para leitura online.");
 }
 
 const _chapterLoader = createChapterLoader({
-    getOffline: (mangaId, chapterId) => OfflineStore.getCapitulo(mangaId, chapterId),
+    getOffline: async (mangaId, chapterId) => {
+        const pages = await OfflineStore.getCapitulo(mangaId, chapterId);
+        return isRealChapterPageSet(pages) ? pages : null;
+    },
     fetchRemote: (mangaId, numeroCap, chapterId, opts = {}) => {
         const src = opts.source === "auto" && opts.manga
             ? resolveSource(opts.manga)
             : (opts.source || "auto");
         return fetchCapituloRemote(mangaId, numeroCap, chapterId, src);
     },
-    saveOffline: (mangaId, chapterId, pages) => OfflineStore.saveCapitulo(mangaId, chapterId, pages)
+    saveOffline: async (mangaId, chapterId, pages) => {
+        if (!isRealChapterPageSet(pages)) return false;
+        return OfflineStore.saveCapitulo(mangaId, chapterId, pages);
+    }
 });
 
 async function fetchFromApi(mangaId) {

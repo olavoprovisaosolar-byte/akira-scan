@@ -19,7 +19,19 @@
     "node_modules/dotenv/**"
   ]
 
-# Rotas /api/cloud/* vêm de netlify/functions/cloud-chapters.mjs (config.path)
+# Rotas /api/cloud/* → função cloud-chapters
+
+[[redirects]]
+  from = "/api/cloud/*"
+  to = "/.netlify/functions/cloud-chapters"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cloud"
+  to = "/.netlify/functions/cloud-chapters"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/api/biblioteca/*"
