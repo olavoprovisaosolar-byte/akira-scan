@@ -12,6 +12,17 @@ const ROOT = path.join(__dirname, "..", "..");
 
 dotenv.config({ path: path.join(ROOT, ".env") });
 
+function envGet(key) {
+    try {
+        if (typeof Netlify !== "undefined" && Netlify.env?.get) {
+            const v = Netlify.env.get(key);
+            if (v != null && String(v).trim() !== "") return String(v);
+        }
+    } catch { /* fora do runtime Netlify */ }
+    const v = process.env[key];
+    return v == null ? "" : String(v);
+}
+
 export class TeraboxBlockedError extends Error {
     constructor(message) {
         super(message);
@@ -21,10 +32,10 @@ export class TeraboxBlockedError extends Error {
 }
 
 export function extrairNdus() {
-    const ndus = process.env.TERABOX_NDUS?.trim();
+    const ndus = envGet("TERABOX_NDUS").trim();
     if (ndus) return ndus;
 
-    const cookie = process.env.TERABOX_COOKIE?.trim();
+    const cookie = envGet("TERABOX_COOKIE").trim();
     if (!cookie) return null;
 
     const match = cookie.match(/(?:^|;\s*)ndus=([^;]+)/i);
@@ -33,10 +44,10 @@ export function extrairNdus() {
 
 export function lerConfig() {
     return {
-        remoteDir: process.env.TERABOX_REMOTE_DIR || "/meus_mangas",
-        delayMs: Number(process.env.TERABOX_DELAY_MS || 3000),
-        createShares: process.env.TERABOX_CREATE_SHARES === "1",
-        recursive: process.env.TERABOX_RECURSIVE === "1"
+        remoteDir: envGet("TERABOX_REMOTE_DIR") || "/meus_mangas",
+        delayMs: Number(envGet("TERABOX_DELAY_MS") || 3000),
+        createShares: envGet("TERABOX_CREATE_SHARES") === "1",
+        recursive: envGet("TERABOX_RECURSIVE") === "1"
     };
 }
 

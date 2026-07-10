@@ -11,14 +11,15 @@
     "data/terabox/chapters-index.json",
     "data/toonlivre-backup/mangas/*/meta.json",
     "data/toonlivre-backup/mangas/*/chapters/*/meta.json",
+    "scripts/cloud/**",
+    "scripts/terabox/client.mjs",
     "js/mangas-destaque.js",
-    "js/services/chapter-label.js"
+    "js/services/chapter-label.js",
+    "node_modules/terabox-api/**",
+    "node_modules/dotenv/**"
   ]
 
-[[redirects]]
-  from = "/api/cloud/*"
-  to = "/.netlify/functions/cloud-chapters/:splat"
-  status = 200
+# Rotas /api/cloud/* vêm de netlify/functions/cloud-chapters.mjs (config.path)
 
 [[redirects]]
   from = "/api/biblioteca/*"

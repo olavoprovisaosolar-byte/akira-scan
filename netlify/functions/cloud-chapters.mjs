@@ -1,11 +1,24 @@
 import {
     paginasComUrlsEstaveis,
-    buscarPaginaRemota
+    buscarPaginaRemota,
+    capInfo
 } from "../../scripts/cloud/cloud-resolver.mjs";
+
+function envGet(key) {
+    try {
+        if (typeof Netlify !== "undefined" && Netlify.env?.get) {
+            const v = Netlify.env.get(key);
+            if (v != null && v !== "") return v;
+        }
+    } catch { /* local / sem Netlify */ }
+    return process.env[key];
+}
 
 function corsHeaders(extra = {}) {
     return {
         "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
         ...extra
     };
 }
@@ -18,7 +31,7 @@ function json(data, status = 200) {
 }
 
 function apiOrigin(req) {
-    return process.env.URL || process.env.DEPLOY_URL || `https://${req.headers.get("host")}`;
+    return envGet("URL") || envGet("DEPLOY_URL") || `https://${req.headers.get("host")}`;
 }
 
 export default async (req) => {
@@ -30,14 +43,25 @@ export default async (req) => {
     }
 
     const url = new URL(req.url);
-    const pathname = url.pathname.replace(/\/$/, "");
+    const pathname = url.pathname.replace(/\/$/, "") || "/";
     const isPage = pathname.endsWith("/page") || pathname.includes("/cloud/page");
     const isPages = pathname.endsWith("/pages") || pathname.includes("/cloud/pages");
+    const isStatus = pathname.endsWith("/status") || pathname.includes("/cloud/status");
 
-    const mangaId = url.searchParams.get("m")?.trim();
-    const capId = url.searchParams.get("ch")?.trim();
+    const mangaId = (url.searchParams.get("m") || url.searchParams.get("mangaId") || "").trim();
+    const capId = (url.searchParams.get("ch") || url.searchParams.get("capId") || "").trim();
 
     try {
+        if (isStatus || pathname === "/api/cloud") {
+            const info = mangaId && capId ? capInfo(mangaId, capId) : null;
+            return json({
+                ok: true,
+                service: "cloud-chapters",
+                hasTerabox: Boolean(envGet("TERABOX_NDUS") || envGet("TERABOX_COOKIE")),
+                cap: info ? { done: info.done, remote: Boolean(info.remote), purged: Boolean(info.localPurged) } : null
+            });
+        }
+
         if (isPage) {
             const n = url.searchParams.get("n");
             if (!mangaId || !capId || !n) {
@@ -53,16 +77,20 @@ export default async (req) => {
             });
         }
 
-        if (isPages || (!isPage && mangaId && capId)) {
+        if (isPages || (mangaId && capId)) {
             if (!mangaId || !capId) {
                 return json({ error: "Parâmetros m e ch obrigatórios." }, 400);
             }
             const pages = await paginasComUrlsEstaveis(mangaId, capId, apiOrigin(req));
-            return json({ pages });
+            return json({ pages, mangaId, capId, total: pages.length });
         }
 
-        return json({ error: "Rota inválida." }, 404);
+        return json({ error: "Rota inválida. Use /api/cloud/pages?m=&ch= ou /api/cloud/status." }, 404);
     } catch (e) {
         return json({ error: e.message || "Erro ao carregar capítulo." }, 502);
     }
+};
+
+export const config = {
+    path: ["/api/cloud", "/api/cloud/pages", "/api/cloud/page", "/api/cloud/status"]
 };
