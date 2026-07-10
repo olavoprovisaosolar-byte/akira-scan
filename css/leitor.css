@@ -155,6 +155,35 @@
 
 .leitor-nav-caps button:disabled { opacity: 0.3; cursor: default; }
 
+/* Tablet e telemóvel largo */
+@media (max-width: 768px) {
+    .leitor-barra {
+        gap: 8px;
+    }
+    .leitor-barra .titulo {
+        font-size: 0.8rem;
+        padding: 0 4px;
+    }
+    .leitor-contador {
+        font-size: 0.7rem;
+        min-width: 3ch;
+    }
+    .meu-leitor-manga-css {
+        max-width: 100%;
+        padding-bottom: calc(96px + env(safe-area-inset-bottom));
+    }
+    .leitor-nav-caps {
+        bottom: max(12px, env(safe-area-inset-bottom));
+        gap: 6px;
+        padding: 6px 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+    .leitor-nav-caps button {
+        min-width: 48px;
+        min-height: 48px;
+    }
+}
+
 @media (max-width: 480px) {
     .btn-leitor-voltar {
         font-size: 0;
@@ -172,5 +201,17 @@
     .meu-leitor-manga-css {
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .leitor-barra .titulo {
+        font-size: 0.75rem;
+    }
+    .meu-leitor-manga-css {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+    .leitor-nav-caps {
+        bottom: max(8px, env(safe-area-inset-bottom));
     }
 }

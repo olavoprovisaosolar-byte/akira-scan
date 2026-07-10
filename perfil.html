@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Perfil â€” AkiraScan</title>
-    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
+    <title>Perfil — AkiraScan</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="css/akira.css">
 </head>
 <body class="akira-app">
@@ -34,7 +34,7 @@
             <div class="grid-mangas" id="lista-favoritos"></div>
         </section>
 
-        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histÃ³rico</button>
+        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histórico</button>
     </main>
 
     <div id="footer-slot"></div>
@@ -73,11 +73,11 @@
                     </div>
                 </a>`;
             }).join("")
-            : '<p class="msg-vazia">Nenhum histÃ³rico ainda.</p>';
+            : '<p class="msg-vazia">Nenhum histórico ainda.</p>';
 
         const elFav = document.getElementById("lista-favoritos");
         if (!favoritos.length) {
-            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas pÃ¡ginas dos mangÃ¡s.</p>';
+            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas páginas dos mangás.</p>';
         } else {
             for (const id of favoritos) {
                 try {
@@ -88,7 +88,7 @@
         }
 
         document.getElementById("btn-limpar").addEventListener("click", () => {
-            if (confirm("Limpar todo o histÃ³rico de leitura?")) {
+            if (confirm("Limpar todo o histórico de leitura?")) {
                 limparHistorico();
                 location.reload();
             }
