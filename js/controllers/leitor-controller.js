@@ -66,8 +66,15 @@ export class LeitorController {
                 throw new Error("Mangá sem capítulos no catálogo.");
             }
 
-            this._manga = manga;
-            const capsOrdenados = [...manga.capitulos].sort(
+            // Garante flags legivel para navegação entre caps prontos
+            let mangaEnriquecido = manga;
+            try {
+                const { enriquecerMangaComRemoto } = await import("../services/manga-chapters-link.js");
+                mangaEnriquecido = await enriquecerMangaComRemoto(manga);
+            } catch { /* usa manga original */ }
+
+            this._manga = mangaEnriquecido;
+            const capsOrdenados = [...mangaEnriquecido.capitulos].sort(
                 (a, b) => numeroCapituloLabel(a) - numeroCapituloLabel(b)
             );
 
@@ -130,7 +137,9 @@ export class LeitorController {
 
     _setupNavCaps(mangaId, capId, capsOrdenados) {
         this.navCaps?.classList.remove("escondido");
-        const idx = capsOrdenados.findIndex((c) => c.id === capId);
+        const legiveis = capsOrdenados.filter((c) => c.legivel !== false);
+        const lista = legiveis.length ? legiveis : capsOrdenados;
+        const idx = lista.findIndex((c) => c.id === capId);
         const btnAnt = document.getElementById("btn-cap-anterior");
         const btnProx = document.getElementById("btn-cap-proximo");
 
@@ -138,16 +147,16 @@ export class LeitorController {
             btnAnt.disabled = idx <= 0;
             btnAnt.onclick = () => {
                 if (idx > 0) {
-                    const c = capsOrdenados[idx - 1];
+                    const c = lista[idx - 1];
                     location.href = linkLeitor(mangaId, numeroCapituloLabel(c), c.id);
                 }
             };
         }
         if (btnProx) {
-            btnProx.disabled = idx < 0 || idx >= capsOrdenados.length - 1;
+            btnProx.disabled = idx < 0 || idx >= lista.length - 1;
             btnProx.onclick = () => {
-                if (idx >= 0 && idx < capsOrdenados.length - 1) {
-                    const c = capsOrdenados[idx + 1];
+                if (idx >= 0 && idx < lista.length - 1) {
+                    const c = lista[idx + 1];
                     location.href = linkLeitor(mangaId, numeroCapituloLabel(c), c.id);
                 }
             };

@@ -1767,6 +1767,72 @@ img { max-width: 100%; display: block; }
     color: #fde68a;
 }
 
+.chapter-sync-hint.is-ok {
+    border-color: color-mix(in srgb, #34d399 40%, transparent);
+    background: rgba(52, 211, 153, 0.08);
+    color: #6ee7b7;
+}
+
+.chapter-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 0 0 var(--space-md);
+}
+
+.chapter-progress {
+    position: relative;
+    height: 1.75rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.chapter-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #7c3aed, #34d399);
+    transition: width 0.35s ease;
+}
+
+.chapter-progress-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #e8e8ec;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.chapter-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.chapter-filter {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--akira-muted);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 40px;
+}
+
+.chapter-filter.is-active {
+    border-color: color-mix(in srgb, var(--akira-purple) 55%, transparent);
+    background: color-mix(in srgb, var(--akira-purple) 18%, transparent);
+    color: #f3e8ff;
+}
+
 .meta-tag-ready {
     border-color: color-mix(in srgb, #34d399 40%, transparent);
     color: #6ee7b7;

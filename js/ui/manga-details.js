@@ -6,7 +6,14 @@ import { linkLeitor, linkBiblioteca } from "../core/router.js";
 import { parseChapterNumber } from "../services/chapter-label.js";
 import { sanitizeMangaForRender, renderUnavailableMessage } from "../services/data-validator.js";
 import { applyCoverToImg } from "../services/cover-utils.js";
-import { renderChapterGrid, bindChapterGrid, contarCapsLegiveis, primeiroCapLegivel } from "./chapter-grid.js";
+import {
+    renderChapterGrid,
+    bindChapterGrid,
+    bindChapterToolbar,
+    renderChapterToolbar,
+    contarCapsLegiveis,
+    primeiroCapLegivel
+} from "./chapter-grid.js";
 import { corDoManga } from "../banner-manga.js";
 
 export class MangaDetails {
@@ -66,12 +73,23 @@ export class MangaDetails {
             ? linkLeitor(safe.id, parseChapterNumber(lerCap), lerCap.id)
             : "#";
         const syncHint = total > 0 && legiveis < total
-            ? `<p class="chapter-sync-hint">${legiveis} de ${total} capítulos prontos para ler — os restantes estão a sincronizar.</p>`
-            : "";
+            ? `<p class="chapter-sync-hint">A sincronização continua em segundo plano. Filtra por <strong>Prontos</strong> para ver só o que já abre.</p>`
+            : legiveis > 0
+                ? `<p class="chapter-sync-hint is-ok">Todos os capítulos listados estão prontos para ler.</p>`
+                : "";
 
         const article = document.createElement("article");
         article.className = "manga-details";
         article.dataset.mangaId = safe.id;
+
+        const onInvalid = (msg) => {
+            const hint = article.querySelector(".chapter-sync-hint");
+            if (hint) {
+                hint.textContent = msg;
+                hint.classList.add("is-alert");
+                hint.classList.remove("is-ok");
+            }
+        };
 
         article.innerHTML = `
         <div class="manga-hero manga-details-hero" style="--banner-accent:${accent}">
@@ -95,7 +113,7 @@ export class MangaDetails {
                         <a href="${lerHref}" class="btn-akira btn-akira-primary btn-ler-primeiro${lerCap ? "" : " is-disabled"}"
                            data-manga-id="${escHtml(safe.id)}" ${lerCap ? "" : 'aria-disabled="true"'}>▶ Ler</a>
                         <button type="button" id="btn-fav-details" class="btn-akira btn-akira-ghost">
-                            ${favorito ? "💖 Favorito" : "🤍 Favoritar"}
+                            ${favorito ? "♥ Favorito" : "♡ Favoritar"}
                         </button>
                         <a href="${linkBiblioteca()}" class="btn-akira btn-akira-ghost">← Voltar</a>
                     </div>
@@ -110,22 +128,16 @@ export class MangaDetails {
             <div class="secao-header">
                 <h2 id="caps-titulo">Capítulos <span class="chapter-count">(${legiveis}/${total})</span></h2>
             </div>
+            ${renderChapterToolbar(safe)}
             ${syncHint}
             <div class="chapter-grid-host"></div>
         </section>`;
 
         const gridHost = article.querySelector(".chapter-grid-host");
         if (gridHost) {
-            gridHost.innerHTML = renderChapterGrid(safe);
-            bindChapterGrid(gridHost, safe, {
-                onInvalid: (msg) => {
-                    const hint = article.querySelector(".chapter-sync-hint");
-                    if (hint) {
-                        hint.textContent = msg;
-                        hint.classList.add("is-alert");
-                    }
-                }
-            });
+            gridHost.innerHTML = renderChapterGrid(safe, { filter: "all" });
+            bindChapterGrid(gridHost, safe, { onInvalid });
+            bindChapterToolbar(article, safe, { onInvalid });
         }
 
         this.container.appendChild(article);
