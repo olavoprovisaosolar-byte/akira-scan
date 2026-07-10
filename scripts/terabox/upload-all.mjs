@@ -139,7 +139,7 @@ async function main() {
         try {
             const resultados = await uploadPasta(client, item.pagesDir, capRemote, delayMs, {
                 concurrency: fileConcurrency,
-                retries: 2,
+                retries: 3,
                 onFile: QUIET ? undefined : (f) => log(`  ↑ ${f}`)
             });
             const ok = resultados.filter((r) => r.ok).length;

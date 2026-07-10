@@ -13,6 +13,7 @@ export function listarPaginasLocais(pagesDir) {
 export async function uploadArquivo(client, localPath, remoteDir, remoteName) {
     const stat = fs.statSync(localPath);
     if (!stat.isFile()) throw new Error(`Não é arquivo: ${localPath}`);
+    if (stat.size <= 0) throw new Error(`Arquivo vazio: ${localPath}`);
 
     const hash = await hashFile(localPath);
     const data = {
@@ -23,9 +24,18 @@ export async function uploadArquivo(client, localPath, remoteDir, remoteName) {
         uploaded: hash.chunks.map(() => false)
     };
 
-    const rapid = await withTeraboxRetry(() => client.rapidUpload(data));
-    if (rapid?.errno === 0 || rapid?.info?.length || rapid?.path) {
-        return { ok: true, rapid: true, path: `${remoteDir}/${data.file}` };
+    // rapidUpload falha em ficheiros pequenos — nesse caso cai para upload por chunks
+    const MIN_RAPID_BYTES = 256 * 1024;
+    if (stat.size >= MIN_RAPID_BYTES) {
+        try {
+            const rapid = await withTeraboxRetry(() => client.rapidUpload(data));
+            if (rapid?.errno === 0 || rapid?.info?.length || rapid?.path) {
+                return { ok: true, rapid: true, path: `${remoteDir}/${data.file}` };
+            }
+        } catch (e) {
+            const msg = String(unwrapErrorMessage(e) || e.message || "");
+            if (!/file size too small|too small/i.test(msg)) throw e;
+        }
     }
 
     const pre = await withTeraboxRetry(() => client.precreateFile({ ...data, upload_id: "" }));
