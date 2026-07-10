@@ -87,8 +87,26 @@ async function main() {
         : { criarCliente: async () => null, sleep: async () => {} };
     const state = lerJson(STATE_FILE, { caps: {} });
     const cache = lerJson(CACHE_FILE, { itens: [] });
-    const existing = REFRESH_DLINKS ? lerJson(OUT_FILE, { caps: {} }) : { caps: {} };
-    const sourceCaps = REFRESH_DLINKS && Object.keys(existing.caps || {}).length
+    const existingFile = lerJson(OUT_FILE, { caps: {} });
+    const cloudFile = lerJson(path.join(ROOT, "data", "cloud", "chapters-index.json"), { caps: {} });
+    const existing = Object.keys(existingFile.caps || {}).length
+        ? existingFile
+        : cloudFile;
+    const hasState = Object.keys(state.caps || {}).length > 0;
+    const hasExisting = Object.keys(existing.caps || {}).length > 0;
+
+    // CI / máquina sem upload-state: preservar índice já commitado.
+    if (!hasState && hasExisting && !REFRESH_DLINKS) {
+        const cloudOut = path.join(ROOT, "data", "cloud", "chapters-index.json");
+        fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+        fs.mkdirSync(path.dirname(cloudOut), { recursive: true });
+        fs.writeFileSync(OUT_FILE, JSON.stringify(existing), "utf8");
+        fs.copyFileSync(OUT_FILE, cloudOut);
+        console.log(`Índice remoto preservado: ${Object.keys(existing.caps).length} caps (sem upload-state)`);
+        return;
+    }
+
+    const sourceCaps = (REFRESH_DLINKS || !hasState) && hasExisting
         ? existing.caps
         : null;
 

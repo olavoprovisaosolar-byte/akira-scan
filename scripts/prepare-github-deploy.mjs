@@ -96,12 +96,30 @@ function copyData() {
         if (fs.existsSync(src)) copyFile(src, path.join(dataOut, f));
     }
 
-    const tbDir = path.join(ROOT, "data", "terabox");
     const cloudOut = path.join(dataOut, "cloud");
     mkdirp(cloudOut);
-    const chaptersSrc = path.join(tbDir, "chapters-index.json");
-    if (fs.existsSync(chaptersSrc)) {
-        copyFile(chaptersSrc, path.join(cloudOut, "chapters-index.json"));
+    const candidates = [
+        path.join(ROOT, "data", "cloud", "chapters-index.json"),
+        path.join(ROOT, "data", "terabox", "chapters-index.json")
+    ];
+    let best = null;
+    let bestTotal = -1;
+    for (const src of candidates) {
+        if (!fs.existsSync(src)) continue;
+        try {
+            const data = JSON.parse(fs.readFileSync(src, "utf8"));
+            const total = Object.keys(data.caps || {}).length || data.total || 0;
+            if (total > bestTotal) {
+                best = src;
+                bestTotal = total;
+            }
+        } catch { /* ignore */ }
+    }
+    if (best) {
+        copyFile(best, path.join(cloudOut, "chapters-index.json"));
+        console.log(`  Cloud index: ${bestTotal} caps ← ${path.relative(ROOT, best)}`);
+    } else {
+        console.warn("  Aviso: chapters-index.json ausente");
     }
 }
 
