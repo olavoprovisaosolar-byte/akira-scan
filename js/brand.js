@@ -5,8 +5,8 @@ export const BRAND = {
     tagline: "Leia. Descubra. Viva histórias.",
     logo: "img/akirascan-logo.png",
     logoAlt: "AkiraScan — Leia, descubra, viva histórias",
-    /** Logo PNG oficial (wordmark no header/footer/hero). */
-    useTextLogo: false
+    /** Logo PNG oficial ausente no Pages — wordmark tipográfico até haver img/. */
+    useTextLogo: true
 };
 
 /** Wordmark tipográfico — fallback se a imagem não carregar */

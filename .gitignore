@@ -10,8 +10,14 @@ deploy-firebase/
 deploy-snapshot/
 logs/
 
-# Backup local (Terabox é a fonte das páginas)
-data/toonlivre-backup/
+# Backup local (Terabox é a fonte das páginas) — capas cover.* vão pro Pages
+data/toonlivre-backup/**
+!data/toonlivre-backup/mangas/
+!data/toonlivre-backup/mangas/*/
+!data/toonlivre-backup/mangas/*/cover.webp
+!data/toonlivre-backup/mangas/*/cover.jpg
+!data/toonlivre-backup/mangas/*/cover.jpeg
+!data/toonlivre-backup/mangas/*/cover.png
 Biblioteca_Mangas/
 
 # State operacional (regenerado pelos scripts)
