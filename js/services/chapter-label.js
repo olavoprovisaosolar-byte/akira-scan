@@ -79,6 +79,7 @@ export function isValidChapterPageSet(pages = []) {
         return (
             low.includes("placehold.co")
             || /\.(webp|jpg|jpeg|png|gif)(\?|$)/i.test(low)
+            || /\/api\/cloud\/page(\?|$)/i.test(low)
             || u.startsWith("/biblioteca/")
             || u.startsWith("/backup/")
         );

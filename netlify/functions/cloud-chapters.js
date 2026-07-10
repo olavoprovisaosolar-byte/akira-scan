@@ -153,10 +153,14 @@ exports.handler = async (event) => {
             const img = await fetch(dlink, { redirect: "follow" });
             if (!img.ok) return json(502, { error: `Falha ao carregar imagem (${img.status}).` });
             const buf = Buffer.from(await img.arrayBuffer());
+            const upstreamType = String(img.headers.get("content-type") || "").toLowerCase();
+            const contentType = upstreamType.startsWith("image/")
+                ? upstreamType
+                : "image/webp";
             return {
                 statusCode: 200,
                 headers: cors({
-                    "Content-Type": img.headers.get("content-type") || "image/webp",
+                    "Content-Type": contentType,
                     "Cache-Control": "public, max-age=86400, immutable"
                 }),
                 isBase64Encoded: true,
