@@ -15,7 +15,6 @@ import {
 import { renderMangaCard, renderRankingItem, escHtml } from "../app-shell.js";
 import { coverImgTagAttrs } from "../services/cover-utils.js";
 import { mountHeroPlanet } from "../ui/hero-planet.js";
-import { initCarousel } from "../carousel.js";
 import { obterContinuarLista, ehFavorito, alternarFavorito } from "../storage.js";
 import { normalizarNumeroProgresso } from "../services/chapter-label.js";
 import { mountLoading } from "../ui/states.js";
@@ -82,14 +81,9 @@ export async function initHomePage() {
         if (catalogo.length) markCatalogLoaded(true);
         renderProviderBanner("aviso-servidor", { catalogCount: catalogo.length });
 
-        const deferHero = () => mountHeroPlanet("hero-planet-slot").catch((e) => {
+        mountHeroPlanet("hero-planet-slot", { catalogo }).catch((e) => {
             console.warn("HomePage hero:", e.message);
         });
-        if ("requestIdleCallback" in window) {
-            requestIdleCallback(deferHero, { timeout: 2500 });
-        } else {
-            setTimeout(deferHero, 800);
-        }
     } catch (error) {
         console.error("HomePage init:", error);
         mountHeroPlanet("hero-planet-slot").catch(() => {});
@@ -100,14 +94,6 @@ export async function initHomePage() {
             throw new Error("Catálogo vazio — verifique a ligação ao servidor.");
         }
         const lista = catalogo.filter((m) => m?.id && m?.titulo);
-
-        const pinIds = ["obra-0f20295f"];
-        const pinned = pinIds.map((id) => lista.find((m) => m.id === id)).filter(Boolean);
-        const destaquesHero = [
-            ...pinned,
-            ...ordenar(lista, "popular").filter((m) => !pinIds.includes(m.id))
-        ].slice(0, 5);
-        initCarousel("hero-carousel", destaquesHero);
 
         renderContinuar();
         await renderRecentes(lista);

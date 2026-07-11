@@ -9,7 +9,8 @@ const CONFIG_PADRAO = {
     storageBucket: "akirascan.firebasestorage.app",
     messagingSenderId: "770267184753",
     appId: "1:770267184753:web:e018855052365f79c865d0",
-    measurementId: "G-CYWSTE6LM2"
+    measurementId: "G-CYWSTE6LM2",
+    databaseURL: "https://akirascan-default-rtdb.firebaseio.com"
 };
 
 const CHAVE_LOCAL = "akirascan_firebase_config";
