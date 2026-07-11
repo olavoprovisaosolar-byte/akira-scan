@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const CONFIG_PADRAO = {
     apiKey: "AIzaSyCgcStwtNbm3qtlyJvivZRcFOf_uCDaT7U",
@@ -23,12 +24,20 @@ function configValida(config) {
         config.projectId !== "O_TEU_PROJETO";
 }
 
+function normalizarConfig(config) {
+    const cfg = { ...config };
+    if (!cfg.databaseURL && cfg.projectId) {
+        cfg.databaseURL = `https://${cfg.projectId}-default-rtdb.firebaseio.com`;
+    }
+    return cfg;
+}
+
 export function obterConfigFirebase() {
     try {
         const salvo = localStorage.getItem(CHAVE_LOCAL);
         if (salvo) {
             const parsed = JSON.parse(salvo);
-            if (configValida(parsed)) return parsed;
+            if (configValida(parsed)) return normalizarConfig(parsed);
         }
     } catch {
         // ignora JSON inválido
@@ -37,7 +46,7 @@ export function obterConfigFirebase() {
 }
 
 export function guardarConfigFirebase(config) {
-    localStorage.setItem(CHAVE_LOCAL, JSON.stringify(config));
+    localStorage.setItem(CHAVE_LOCAL, JSON.stringify(normalizarConfig(config)));
 }
 
 export function firebaseConfigurado() {
@@ -49,6 +58,7 @@ const firebaseConfig = obterConfigFirebase();
 let app = null;
 let auth = null;
 let db = null;
+let rtdb = null;
 let firebasePronto = false;
 
 if (firebaseConfigurado()) {
@@ -56,6 +66,7 @@ if (firebaseConfigurado()) {
         app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         db = getFirestore(app);
+        rtdb = getDatabase(app);
         firebasePronto = true;
     } catch (error) {
         console.error("Erro ao iniciar Firebase:", error);
@@ -66,4 +77,8 @@ export function firebaseAtivo() {
     return firebasePronto && auth !== null;
 }
 
-export { auth, db, firebaseConfig };
+export function rtdbAtivo() {
+    return firebasePronto && rtdb !== null;
+}
+
+export { auth, db, rtdb, app, firebaseConfig };

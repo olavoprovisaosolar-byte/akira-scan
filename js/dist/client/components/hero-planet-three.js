@@ -184,6 +184,7 @@ export async function initPlanetCanvas(canvas, container) {
 
     const tick = () => {
         raf = requestAnimationFrame(tick);
+        if (document.hidden) return;
         const elapsed = performance.now() - startTime;
         const buildT = easeOut(Math.min(elapsed / assembleMs, 1));
 

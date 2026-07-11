@@ -14,7 +14,7 @@ import {
 } from "../services/data-service.js";
 import { renderMangaCard, renderRankingItem, escHtml } from "../app-shell.js";
 import { coverImgTagAttrs } from "../services/cover-utils.js";
-import { mountHeroPlanet } from "../ui/hero-planet.js";
+import { mountHeroPlanet, destroyHeroPlanet } from "../ui/hero-planet.js";
 import { obterContinuarLista, ehFavorito, alternarFavorito } from "../storage.js";
 import { normalizarNumeroProgresso } from "../services/chapter-label.js";
 import { mountLoading } from "../ui/states.js";
@@ -51,6 +51,8 @@ export async function initHomePage() {
     const route = parseRoute();
 
     if (route.view === "details") {
+        showView("details");
+        destroyHeroPlanet();
         if (!route.mangaId) {
             showDetailsError("ID do mangá ausente na URL.", () => { location.href = "biblioteca.html"; });
             return;
@@ -127,6 +129,8 @@ function ensureDetailsView() {
 }
 
 function showDetailsError(message, onRetry) {
+    showView("details");
+    destroyHeroPlanet();
     const view = ensureDetailsView();
     if (!view) return;
     document.title = "Erro — AkiraScan";

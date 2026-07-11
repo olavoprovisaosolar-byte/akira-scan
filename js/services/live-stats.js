@@ -1,38 +1,31 @@
 /**
  * Estatísticas em tempo real — Firebase Realtime Database + fallback local.
  */
-import { obterConfigFirebase, firebaseConfigurado } from "../firebase-config.js";
+import { rtdb, rtdbAtivo } from "../firebase-config.js";
+import { assetUrl } from "../site-config.js";
 
 const RTDB_PATH = "live";
-let rtdb = null;
-let rtdbReady = false;
+const VISITA_SESSAO = "akirascan_visita_sessao";
+let cloudTotalCache = null;
 
-async function initRtdb() {
-    if (rtdbReady) return rtdb;
-    rtdbReady = true;
-    if (!firebaseConfigurado()) return null;
-
+async function obterTotalCapitulosCloud() {
+    if (cloudTotalCache != null) return cloudTotalCache;
     try {
-        const { initializeApp, getApps } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js");
-        const { getDatabase, ref, onValue } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js");
-        const cfg = obterConfigFirebase();
-        const databaseURL = cfg.databaseURL
-            || `https://${cfg.projectId}-default-rtdb.firebaseio.com`;
-
-        const app = getApps().length
-            ? getApps()[0]
-            : initializeApp({ ...cfg, databaseURL });
-
-        rtdb = { db: getDatabase(app), ref, onValue };
-        return rtdb;
-    } catch (err) {
-        console.warn("[LiveStats] Firebase RTDB indisponível:", err.message);
+        const res = await fetch(assetUrl("data/cloud/chapters-index.json"), { cache: "force-cache" });
+        if (!res.ok) return null;
+        const data = await res.json();
+        cloudTotalCache = data.total || Object.keys(data.caps || {}).length || null;
+        return cloudTotalCache;
+    } catch {
         return null;
     }
 }
 
-function lerVisitasLocais() {
+function registrarVisitaSessao() {
     try {
+        if (sessionStorage.getItem(VISITA_SESSAO)) return;
+        sessionStorage.setItem(VISITA_SESSAO, "1");
+
         const hoje = new Date().toISOString().slice(0, 10);
         const raw = localStorage.getItem("akirascan_visitas");
         const data = raw ? JSON.parse(raw) : { dia: hoje, total: 0 };
@@ -42,28 +35,42 @@ function lerVisitasLocais() {
         }
         data.total += 1;
         localStorage.setItem("akirascan_visitas", JSON.stringify(data));
-        return data.total;
+    } catch { /* ignore */ }
+}
+
+function lerVisitasHoje() {
+    try {
+        const hoje = new Date().toISOString().slice(0, 10);
+        const raw = localStorage.getItem("akirascan_visitas");
+        const data = raw ? JSON.parse(raw) : { dia: hoje, total: 0 };
+        if (data.dia !== hoje) return 0;
+        return data.total || 0;
     } catch {
-        return 1;
+        return 0;
     }
 }
 
 function contarCapitulos(catalogo) {
-    return catalogo.reduce((acc, m) => acc + (m.capitulos?.length || m.totalCapitulos || 0), 0);
+    const fromCatalog = catalogo.reduce(
+        (acc, m) => acc + (m.capitulos?.length || m.totalCapitulos || 0),
+        0
+    );
+    return fromCatalog || cloudTotalCache || 7636;
 }
 
-export function calcularStatsLocais(catalogo = []) {
+export function calcularStatsLocais(catalogo = [], extras = {}) {
     const mangas = catalogo.length || 433;
-    const capitulos = contarCapitulos(catalogo) || 7636;
-    const visitas = lerVisitasLocais();
+    const capitulos = extras.chapters ?? contarCapitulos(catalogo);
+    const visitas = lerVisitasHoje();
     const baseOnline = 900 + Math.floor(mangas * 2.5);
+    const jitter = extras.jitter ?? 0;
 
     const popular = [...catalogo]
         .sort((a, b) => (b.popularidade || 0) - (a.popularidade || 0))[0];
 
     return {
-        usersOnline: baseOnline + Math.floor(Math.random() * 120),
-        activeReaders: Math.floor(baseOnline * 0.72),
+        usersOnline: baseOnline + jitter,
+        activeReaders: Math.floor((baseOnline + jitter) * 0.72),
         countries: 38 + Math.floor(mangas / 40),
         mangas,
         chapters: capitulos,
@@ -91,47 +98,60 @@ function normalizarStatsRemotas(data, fallback) {
 }
 
 export async function observarStatsLive(callback, catalogo = []) {
-    const fallback = calcularStatsLocais(catalogo);
-    callback(fallback);
+    registrarVisitaSessao();
+    await obterTotalCapitulosCloud();
+
+    let baseStats = calcularStatsLocais(catalogo);
+    callback(baseStats);
 
     let intervalId = null;
+    let pulseOn = false;
+
     const startFallbackPulse = () => {
+        if (pulseOn) return;
+        pulseOn = true;
         intervalId = setInterval(() => {
-            const next = calcularStatsLocais(catalogo);
-            callback({
-                ...next,
-                usersOnline: fallback.usersOnline + Math.floor(Math.random() * 40 - 20),
-                activeReaders: fallback.activeReaders + Math.floor(Math.random() * 30 - 15)
-            });
+            const jitter = Math.floor(Math.random() * 40 - 20);
+            const stats = calcularStatsLocais(catalogo, { jitter });
+            callback(stats);
         }, 9000);
     };
 
-    const fb = await initRtdb();
-    if (!fb) {
+    const stopFallbackPulse = () => {
+        pulseOn = false;
+        if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+    };
+
+    if (!rtdbAtivo()) {
         startFallbackPulse();
-        return () => clearInterval(intervalId);
+        return stopFallbackPulse;
     }
 
     try {
-        const liveRef = fb.ref(fb.db, RTDB_PATH);
-        const unsub = fb.onValue(liveRef, (snap) => {
+        const { ref, onValue } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js");
+        const liveRef = ref(rtdb, RTDB_PATH);
+        const unsub = onValue(liveRef, (snap) => {
             if (!snap.exists()) {
                 startFallbackPulse();
                 return;
             }
-            if (intervalId) clearInterval(intervalId);
-            callback(normalizarStatsRemotas(snap.val(), fallback));
+            stopFallbackPulse();
+            baseStats = calcularStatsLocais(catalogo);
+            callback(normalizarStatsRemotas(snap.val(), baseStats));
         }, () => {
             console.warn("[LiveStats] Erro ao ler RTDB, usando fallback.");
             startFallbackPulse();
         });
         return () => {
             unsub();
-            clearInterval(intervalId);
+            stopFallbackPulse();
         };
     } catch (err) {
         console.warn("[LiveStats]", err.message);
         startFallbackPulse();
-        return () => clearInterval(intervalId);
+        return stopFallbackPulse;
     }
 }

@@ -1671,6 +1671,8 @@ img { max-width: 100%; display: block; }
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: auto;
+    touch-action: none;
 }
 
 .hero-hud-canvas {
@@ -1745,6 +1747,26 @@ img { max-width: 100%; display: block; }
 
 .hero-hud-booting .hero-hud-globe-glow {
     animation-duration: 1.2s;
+}
+
+.hero-hud-reduced .hero-hud-panel,
+.hero-hud-reduced .hero-hud-actions {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-hud-scanner,
+    .hero-hud-particles,
+    .hero-hud-globe-glow,
+    .hero-hud-status-dot {
+        animation: none !important;
+    }
+
+    .hero-hud-panel {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @media (max-width: 960px) {

@@ -8,6 +8,7 @@ import { escHtml } from "../app-shell.js";
 let sceneHandle = null;
 let statsUnsub = null;
 let animTimers = [];
+const counterGens = new WeakMap();
 
 function supportsWebGL() {
     try {
@@ -33,12 +34,13 @@ function statRow(icon, label, value, key) {
         <span class="hero-hud-stat-icon" aria-hidden="true">${icon}</span>
         <div class="hero-hud-stat-body">
             <span class="hero-hud-stat-label">${escHtml(label)}</span>
-            <strong class="hero-hud-stat-value" data-value="${value}">0</strong>
+            <strong class="hero-hud-stat-value" data-value="">0</strong>
         </div>
     </div>`;
 }
 
 function renderHudShell(mode) {
+    const reduced = prefersReducedMotion();
     const globeInner = mode === "webgl"
         ? `<div class="hero-hud-globe-wrap" id="hero-hud-globe">
                <canvas class="hero-hud-canvas" id="hero-webgl-canvas" aria-hidden="true"></canvas>
@@ -55,7 +57,7 @@ function renderHudShell(mode) {
            </div>`;
 
     return `
-    <section class="hero-hud hero-hud-init" aria-label="AkiraScan Intelligence">
+    <section class="hero-hud${reduced ? " hero-hud-reduced" : " hero-hud-init"}" aria-label="AkiraScan Intelligence">
         <div class="hero-hud-bg" aria-hidden="true">
             <div class="hero-hud-grid"></div>
             <div class="hero-hud-particles"></div>
@@ -63,7 +65,7 @@ function renderHudShell(mode) {
                 <span></span><span></span><span></span><span></span>
             </div>
         </div>
-        <div class="hero-hud-scanner" aria-hidden="true"></div>
+        ${reduced ? "" : '<div class="hero-hud-scanner" aria-hidden="true"></div>'}
 
         <header class="hero-hud-header">
             <p class="hero-hud-kicker">Sistema Akira</p>
@@ -113,9 +115,12 @@ function renderHudShell(mode) {
 function animateCounter(el, target, duration = 1600) {
     const end = Number(target) || 0;
     const isRating = el.closest('[data-stat="rating"]');
+    const gen = (counterGens.get(el) || 0) + 1;
+    counterGens.set(el, gen);
     const start = performance.now();
 
     const step = (now) => {
+        if (counterGens.get(el) !== gen) return;
         const t = Math.min((now - start) / duration, 1);
         const eased = 1 - Math.pow(1 - t, 3);
         const current = end * eased;
@@ -141,16 +146,22 @@ function updateStatsPanel(root, stats) {
     for (const [key, value] of Object.entries(map)) {
         const row = root.querySelector(`[data-stat="${key}"] .hero-hud-stat-value`);
         if (!row) continue;
-        const prev = Number(row.dataset.value) || 0;
-        if (prev === value) continue;
-        row.dataset.value = value;
-        animateCounter(row, value, 1200);
+        const prev = row.dataset.value;
+        const next = String(value);
+        if (prev === next) continue;
+        row.dataset.value = next;
+        if (prefersReducedMotion()) {
+            row.textContent = key === "rating" ? Number(value).toFixed(1) : fmtNum(value);
+        } else {
+            animateCounter(row, value, 1200);
+        }
     }
 
     const topEl = root.querySelector('[data-stat="topManga"] .hero-hud-stat-text');
-    if (topEl && stats.topManga) {
+    if (topEl && stats.topManga && topEl.dataset.value !== stats.topManga) {
         topEl.textContent = stats.topManga;
         topEl.dataset.value = stats.topManga;
+        topEl.title = stats.topManga;
     }
 }
 
@@ -158,10 +169,12 @@ function runInitSequence(root) {
     animTimers.forEach(clearTimeout);
     animTimers = [];
 
-    animTimers.push(setTimeout(() => {
-        root.classList.add("hero-hud-booting");
-    }, 100));
+    if (prefersReducedMotion()) {
+        root.classList.add("hero-hud-ready");
+        return;
+    }
 
+    animTimers.push(setTimeout(() => root.classList.add("hero-hud-booting"), 100));
     animTimers.push(setTimeout(() => {
         root.classList.remove("hero-hud-init");
         root.classList.add("hero-hud-ready");
@@ -172,12 +185,7 @@ export async function mountHeroPlanet(slotId = "hero-planet-slot", opts = {}) {
     const slot = document.getElementById(slotId);
     if (!slot) return;
 
-    sceneHandle?.destroy?.();
-    sceneHandle = null;
-    statsUnsub?.();
-    statsUnsub = null;
-    animTimers.forEach(clearTimeout);
-    animTimers = [];
+    destroyHeroPlanet();
 
     const useWebGL = supportsWebGL() && !prefersReducedMotion();
     slot.innerHTML = renderHudShell(useWebGL ? "webgl" : "css");
@@ -186,9 +194,10 @@ export async function mountHeroPlanet(slotId = "hero-planet-slot", opts = {}) {
 
     runInitSequence(hud);
 
-    statsUnsub = await observarStatsLive((stats) => {
+    const unsub = await observarStatsLive((stats) => {
         updateStatsPanel(hud, stats);
     }, opts.catalogo || []);
+    statsUnsub = typeof unsub === "function" ? unsub : null;
 
     if (!useWebGL) return;
 
@@ -204,7 +213,6 @@ export async function mountHeroPlanet(slotId = "hero-planet-slot", opts = {}) {
         }
     } catch (err) {
         console.warn("[HeroHUD] WebGL falhou:", err.message);
-        const center = hud.querySelector(".hero-hud-center");
         const globe = hud.querySelector("#hero-hud-globe");
         if (globe) {
             globe.outerHTML = `
@@ -220,7 +228,7 @@ export async function mountHeroPlanet(slotId = "hero-planet-slot", opts = {}) {
 export function destroyHeroPlanet() {
     sceneHandle?.destroy?.();
     sceneHandle = null;
-    statsUnsub?.();
+    if (typeof statsUnsub === "function") statsUnsub();
     statsUnsub = null;
     animTimers.forEach(clearTimeout);
     animTimers = [];
