@@ -30,7 +30,7 @@ export function lerSessaoLocal() {
     }
 }
 
-function definirSessao(user) {
+export function definirSessao(user) {
     if (user) {
         localStorage.setItem(SESSION_KEY, JSON.stringify(user));
     } else {

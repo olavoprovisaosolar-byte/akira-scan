@@ -6,6 +6,7 @@ import { initTema, alternarTema, temaAtual } from "./theme.js";
 import { BRAND, renderLogo, injectBrandMeta } from "./brand.js";
 import { registerServiceWorker } from "./sw-register.js";
 import { injectHeadOptimizations } from "./head-optimizations.js";
+import { sincronizarComNuvem } from "./storage.js";
 import { linkManhwa } from "./core/router.js";
 import { coverImgTagAttrs, installCoverFallbackHandler } from "./services/cover-utils.js";
 
@@ -76,6 +77,8 @@ export async function initShell() {
     registerServiceWorker();
 
     await initBuscaInteligente();
+
+    sincronizarComNuvem().catch(() => {});
 
     const aviso = avisoSeArquivoLocal();
     if (aviso) {

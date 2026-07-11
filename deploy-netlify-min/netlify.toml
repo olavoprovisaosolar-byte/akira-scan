@@ -1,0 +1,35 @@
+[build]
+  publish = "."
+  command = "echo skip"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["terabox-api"]
+  included_files = [
+    "data/cloud/chapters-index.json",
+    "data/terabox/chapters-index.json",
+    "node_modules/terabox-api/**"
+  ]
+
+[[redirects]]
+  from = "/api/user/*"
+  to = "/.netlify/functions/user-api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/user"
+  to = "/.netlify/functions/user-api"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/cloud"
+  to = "/.netlify/functions/cloud-chapters"
+  status = 200
+
+[[redirects]]
+  from = "/api/cloud/*"
+  to = "/.netlify/functions/cloud-chapters"
+  status = 200

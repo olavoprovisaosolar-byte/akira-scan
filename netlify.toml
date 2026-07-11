@@ -19,6 +19,18 @@
     "node_modules/dotenv/**"
   ]
 
+[[redirects]]
+  from = "/api/user/*"
+  to = "/.netlify/functions/user-api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/user"
+  to = "/.netlify/functions/user-api"
+  status = 200
+  force = true
+
 # Rotas /api/cloud/* → função cloud-chapters
 
 [[redirects]]

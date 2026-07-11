@@ -2156,6 +2156,14 @@ body.auth-page {
 
 .auth-demo:hover { background: rgba(168, 85, 247, 0.1); }
 
+.auth-info {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    color: var(--akira-muted);
+    text-align: center;
+    line-height: 1.45;
+}
+
 .auth-divisor {
     display: flex;
     align-items: center;

@@ -1,0 +1,9 @@
+{
+  "name": "akirascan-netlify-min",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^10.0.0",
+    "terabox-api": "^2.9.2"
+  }
+}

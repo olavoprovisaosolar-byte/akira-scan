@@ -1,5 +1,5 @@
 /**
- * Deploy lean Netlify package (cloud API only).
+ * Deploy lean Netlify package (cloud API + user sync).
  * Loads NETLIFY_AUTH_TOKEN from .env without printing secrets.
  */
 import fs from "fs";
@@ -22,19 +22,39 @@ if (!token) {
     process.exit(2);
 }
 
-// Sync function + index into package
-fs.copyFileSync(
-    path.join(ROOT, "netlify/functions/cloud-chapters.js"),
-    path.join(PKG, "netlify/functions/cloud-chapters.js")
-);
+function copiar(rel) {
+    const src = path.join(ROOT, rel);
+    const dest = path.join(PKG, rel);
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(src, dest);
+}
+
+// Sync functions + index into package
+copiar("netlify/functions/cloud-chapters.js");
+copiar("netlify/functions/user-api.mjs");
+copiar("netlify/functions/lib/user-crypto.mjs");
+copiar("netlify/functions/lib/user-store.mjs");
+
 const idxSrc = path.join(ROOT, "data/cloud/chapters-index.json");
 if (fs.existsSync(idxSrc)) {
     fs.mkdirSync(path.join(PKG, "data/cloud"), { recursive: true });
     fs.copyFileSync(idxSrc, path.join(PKG, "data/cloud/chapters-index.json"));
 }
 
+console.log("Installing deploy-netlify-min dependencies…");
+const install = spawnSync("npm", ["install", "--omit=dev"], {
+    cwd: PKG,
+    encoding: "utf8",
+    shell: true,
+    timeout: 120000
+});
+if (install.status !== 0) {
+    console.error(install.stderr?.slice(-800) || "npm install failed");
+    process.exit(install.status ?? 1);
+}
+
 const env = { ...process.env, NETLIFY_AUTH_TOKEN: token, NETLIFY_SITE_ID: siteId };
-console.log("Deploying cloud API to Netlify site", siteId, "…");
+console.log("Deploying cloud + user API to Netlify site", siteId, "…");
 const r = spawnSync(
     "npx",
     ["--yes", "netlify-cli", "deploy", "--prod", "--dir=.", "--functions=netlify/functions", `--site=${siteId}`],
