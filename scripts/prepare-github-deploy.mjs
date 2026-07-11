@@ -70,6 +70,8 @@ function copyStaticSite(basePath) {
         if (name === "data") continue;
         if (name === "Biblioteca_Mangas") continue;
         if (name === "terabox.html") continue;
+        if (name === "configurar-firebase.html") continue;
+        if (name === "dev") continue;
         if (name.startsWith(".")) continue;
 
         const stat = fs.statSync(src);

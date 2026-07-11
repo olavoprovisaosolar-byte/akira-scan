@@ -41,11 +41,9 @@
             Continuar com Google
         </button>
 
-        <button type="button" class="auth-demo" id="btn-demo">Entrar na conta Demo (já criada)</button>
-        <p class="auth-credenciais" id="credenciais-demo"></p>
+        <button type="button" class="auth-demo escondido" id="btn-demo">Experimentar</button>
 
         <a href="index.html" class="auth-voltar">← Voltar ao início</a>
-        <a href="configurar-firebase.html" class="auth-voltar">Configurar Firebase</a>
     </div>
 
     <script type="module">
@@ -70,7 +68,6 @@
         const msgEl = document.getElementById("msg");
         const btnGoogle = document.getElementById("btn-google");
         const btnDemo = document.getElementById("btn-demo");
-        const credenciaisDemo = document.getElementById("credenciais-demo");
 
         async function ativarContaDemo(mostrarSucesso) {
             const resultado = await prepararContaDemo();
@@ -124,16 +121,12 @@
         }
 
         if (usaFirebase()) {
-            mostrarMsg("Firebase ligado ao projeto AkiraScan! Usa e-mail ou Google.", "sucesso");
             btnDemo.classList.add("escondido");
-            credenciaisDemo.classList.add("escondido");
         } else if (firebaseConfigurado()) {
-            mostrarMsg("Firebase configurado mas com erro. Tenta recarregar ou verifica o Firestore.", "erro");
+            mostrarMsg("Não foi possível ligar ao servidor. Tenta novamente mais tarde.", "erro");
             btnDemo.classList.remove("escondido");
         } else {
-            credenciaisDemo.innerHTML =
-                `Conta demo: <strong>${CONTA_DEMO.email}</strong> · Senha: <strong>${CONTA_DEMO.senha}</strong>`;
-            mostrarMsg("Modo local: conta demo a entrar automaticamente...", "info");
+            btnDemo.classList.remove("escondido");
         }
 
         btnDemo.addEventListener("click", () => ativarContaDemo(true));
@@ -198,10 +191,6 @@
                 window.location.href = "biblioteca.html";
             }
         });
-
-        if (!usaFirebase()) {
-            await ativarContaDemo(false);
-        }
     </script>
 </body>
 </html>
