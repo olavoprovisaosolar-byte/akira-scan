@@ -48,6 +48,7 @@
     "terabox:link-existing:dry": "node scripts/terabox/link-existing.mjs --dry-run",
     "verify:terabox": "node scripts/verify-terabox-link.mjs",
     "verify:terabox:live": "node scripts/verify-terabox-link.mjs --live --sample=12",
+    "test:hero": "node scripts/test-hero-hud.mjs",
     "typecheck": "npm run build && tsc -p tsconfig.json --noEmit && tsc -p api/tsconfig.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
