@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <section class="secao-akira">
+        <section class="secao-akira" id="sec-continuar-perfil">
             <div class="secao-header"><h2>Continuar lendo</h2></div>
             <div class="row-continuar" id="lista-continuar"></div>
         </section>
@@ -42,7 +42,8 @@
     <script type="module">
         import { renderHeader, renderFooter, renderMangaCard, initShell, escHtml } from "./js/app-shell.js";
         import { obterContinuarLista, obterFavoritos, limparHistorico } from "./js/storage.js";
-        import { obterManga, linkLeitor } from "./js/services/data-service.js";
+        import { obterManga } from "./js/services/data-service.js";
+        import { linkManhwa } from "./js/core/router.js";
         import { normalizarNumeroProgresso } from "./js/services/chapter-label.js";
         import { coverImgTagAttrs } from "./js/services/cover-utils.js";
 
@@ -55,7 +56,13 @@
         document.getElementById("stat-lendo").textContent = continuar.length;
         document.getElementById("stat-fav").textContent = favoritos.length;
 
+        const secContinuar = document.getElementById("sec-continuar-perfil");
         const elCont = document.getElementById("lista-continuar");
+        if (!continuar.length) {
+            secContinuar?.classList.add("escondido");
+        } else {
+            secContinuar?.classList.remove("escondido");
+        }
         elCont.innerHTML = continuar.length
             ? continuar.map((h) => {
                 const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);
@@ -64,8 +71,8 @@
                     { loading: "lazy" }
                 );
                 return `
-                <a href="${linkLeitor(h.mangaId, capNum, h.chapterId)}" class="card-continuar"
-                   data-manga-id="${escHtml(h.mangaId)}">
+                <a href="${linkManhwa(h.mangaId)}" class="card-continuar"
+                   data-manga-id="${escHtml(h.mangaId)}" data-resume-cap="${escHtml(String(capNum))}">
                     <img ${img.html}>
                     <div class="card-continuar-body">
                         <h3>${escHtml(h.titulo)}</h3>

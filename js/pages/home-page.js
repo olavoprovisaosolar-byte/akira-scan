@@ -33,6 +33,7 @@ import { MANGA_CATEGORIES } from "../services/manga-schema.js";
 import { normalizeManga, isCompleteManga, toLegacyManga } from "../services/data-normalizer.js";
 import { capsRecentes, rankingSemanal } from "../mangas-destaque.js";
 import { MangaDetails } from "../ui/manga-details.js";
+import { enriquecerMangaComRemoto } from "../services/manga-chapters-link.js";
 
 let detailsView = null;
 
@@ -50,8 +51,17 @@ export async function initHomePage() {
 
     const route = parseRoute();
 
-    if (route.view === "details" && route.mangaId) {
-        await initDetailsView(route.mangaId);
+    if (route.view === "details") {
+        if (!route.mangaId) {
+            showDetailsError("ID do mangá ausente na URL.", () => { location.href = "biblioteca.html"; });
+            return;
+        }
+        const check = validateMangaId(route.mangaId);
+        if (!check.ok) {
+            showDetailsError(check.error, () => { location.href = "biblioteca.html"; });
+            return;
+        }
+        await initDetailsView(check.mangaId);
         return;
     }
 
@@ -122,36 +132,54 @@ export async function initHomePage() {
     }
 }
 
-async function initDetailsView(mangaId) {
-    const check = validateMangaId(mangaId);
-    if (!check.ok) {
-        showView("home");
-        return;
-    }
-
+function ensureDetailsView() {
     showView("details");
-
     const root = document.getElementById("details-root");
-    if (!root) return;
-
+    if (!root) return null;
     if (!detailsView) detailsView = new MangaDetails(root);
-    detailsView.showLoading();
+    return detailsView;
+}
+
+function showDetailsError(message, onRetry) {
+    const view = ensureDetailsView();
+    if (!view) return;
+    document.title = "Erro — AkiraScan";
+    view.stopSyncPoll();
+    view.showError(message, onRetry);
+}
+
+async function initDetailsView(mangaId) {
+    const view = ensureDetailsView();
+    if (!view) return;
+
+    view.stopSyncPoll();
+    view.showLoading();
     document.title = "A carregar… — AkiraScan";
 
     try {
-        const raw = await obterManga(check.mangaId);
+        const raw = await obterManga(mangaId);
         if (!raw) throw new Error("Mangá não encontrado.");
 
-        const normalized = normalizeManga(raw, check.mangaId);
-        const manga = toLegacyManga(normalized);
+        const normalized = normalizeManga(raw, mangaId);
+        let manga = toLegacyManga(normalized);
+        try {
+            manga = await enriquecerMangaComRemoto(manga);
+        } catch (e) {
+            console.warn("HomePage enrich:", e.message);
+        }
 
         document.title = `${manga.titulo} — AkiraScan`;
-        detailsView.render(manga, {
+        view.render(manga, {
             favorito: ehFavorito(manga.id),
             onFavorito: () => alternarFavorito(manga.id)
         });
+        view.startSyncPoll(manga.id, async () => {
+            const fresh = await obterManga(mangaId);
+            const legacy = toLegacyManga(normalizeManga(fresh, mangaId));
+            return await enriquecerMangaComRemoto(legacy);
+        });
     } catch (err) {
-        detailsView.showError(err.message || "Erro ao carregar.", () => initDetailsView(mangaId));
+        view.showError(err.message || "Erro ao carregar.", () => initDetailsView(mangaId));
     }
 }
 
@@ -195,8 +223,13 @@ function renderCategoryGrids(catalogo) {
 
 function renderContinuar() {
     const el = document.getElementById("sec-continuar");
+    const section = document.getElementById("continuar");
     const continuar = obterContinuarLista();
-    if (!continuar.length) return;
+    if (!continuar.length) {
+        section?.classList.add("escondido");
+        return;
+    }
+    section?.classList.remove("escondido");
 
     el.innerHTML = continuar.map((h) => {
         const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);

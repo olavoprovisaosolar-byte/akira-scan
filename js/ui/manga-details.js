@@ -22,6 +22,92 @@ export class MangaDetails {
      */
     constructor(container) {
         this.container = container;
+        this._syncPoll = null;
+        this._lastProntos = -1;
+        this._onInvalid = null;
+    }
+
+    stopSyncPoll() {
+        if (this._syncPoll) {
+            clearInterval(this._syncPoll);
+            this._syncPoll = null;
+        }
+    }
+
+    /**
+     * Atualiza progresso de sync enquanto o upload corre em background.
+     * @param {string} mangaId
+     * @param {() => Promise<object>} reloadManga
+     */
+    startSyncPoll(mangaId, reloadManga) {
+        this.stopSyncPoll();
+        const article = this.container.querySelector(".manga-details");
+        if (!article || article.dataset.mangaId !== mangaId) return;
+
+        const tick = async () => {
+            if (document.hidden) return;
+            try {
+                const manga = await reloadManga();
+                const { total, legiveis } = contarCapsLegiveis(manga);
+                if (legiveis <= this._lastProntos) return;
+                this._lastProntos = legiveis;
+                this.patchSync(manga);
+                if (total > 0 && legiveis >= total) this.stopSyncPoll();
+            } catch { /* ignore */ }
+        };
+
+        this._syncPoll = setInterval(tick, 30000);
+    }
+
+    patchSync(manga) {
+        const article = this.container.querySelector(".manga-details");
+        if (!article || article.dataset.mangaId !== manga.id) return;
+
+        const { total, legiveis } = contarCapsLegiveis(manga);
+        const pct = total > 0 ? Math.round((legiveis / total) * 100) : 0;
+        const lerCap = primeiroCapLegivel(manga);
+        const lerHref = lerCap
+            ? linkLeitor(manga.id, parseChapterNumber(lerCap), lerCap.id)
+            : "#";
+
+        article.querySelector(".meta-tag-ready").textContent = `${legiveis}/${total} legíveis`;
+        const countEl = article.querySelector(".chapter-count");
+        if (countEl) countEl.textContent = `(${legiveis}/${total})`;
+
+        const progress = article.querySelector(".chapter-progress");
+        if (progress) {
+            progress.setAttribute("aria-valuenow", String(pct));
+            const bar = progress.querySelector(".chapter-progress-bar");
+            const label = progress.querySelector(".chapter-progress-label");
+            if (bar) bar.style.width = `${pct}%`;
+            if (label) label.textContent = `${legiveis} de ${total} prontos (${pct}%)`;
+        }
+
+        const hint = article.querySelector(".chapter-sync-hint");
+        if (hint) {
+            if (total > 0 && legiveis < total) {
+                hint.innerHTML = `A sincronização continua em segundo plano. Filtra por <strong>Prontos</strong> para ver só o que já abre.`;
+                hint.classList.remove("is-ok", "is-alert");
+            } else if (legiveis > 0) {
+                hint.textContent = "Todos os capítulos listados estão prontos para ler.";
+                hint.classList.add("is-ok");
+                hint.classList.remove("is-alert");
+            }
+        }
+
+        const btnLer = article.querySelector(".btn-ler-primeiro");
+        if (btnLer) {
+            btnLer.href = lerHref;
+            btnLer.classList.toggle("is-disabled", !lerCap);
+            btnLer.toggleAttribute("aria-disabled", !lerCap);
+        }
+
+        const gridHost = article.querySelector(".chapter-grid-host");
+        const activeFilter = article.querySelector(".chapter-filter.is-active")?.dataset.filter || "all";
+        if (gridHost) {
+            gridHost.innerHTML = renderChapterGrid(manga, { filter: activeFilter });
+            bindChapterGrid(gridHost, manga, { onInvalid: this._onInvalid });
+        }
     }
 
     clear() {
@@ -90,6 +176,8 @@ export class MangaDetails {
                 hint.classList.remove("is-ok");
             }
         };
+        this._onInvalid = onInvalid;
+        this._lastProntos = legiveis;
 
         article.innerHTML = `
         <div class="manga-hero manga-details-hero" style="--banner-accent:${accent}">

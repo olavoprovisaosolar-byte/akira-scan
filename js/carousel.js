@@ -55,10 +55,13 @@ export function initCarousel(containerId, mangas = []) {
 
     function resetTimer() {
         clearInterval(timer);
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         timer = setInterval(next, 6000);
     }
 
-    resetTimer();
-    root.addEventListener("mouseenter", () => clearInterval(timer));
-    root.addEventListener("mouseleave", resetTimer);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        resetTimer();
+        root.addEventListener("mouseenter", () => clearInterval(timer));
+        root.addEventListener("mouseleave", resetTimer);
+    }
 }

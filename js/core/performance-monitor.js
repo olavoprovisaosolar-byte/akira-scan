@@ -23,6 +23,10 @@ function tick(now) {
 }
 
 export function startPerformanceMonitor() {
+    const debug = new URLSearchParams(location.search).has("debug")
+        || localStorage.getItem("akira-debug") === "1"
+        || /localhost|127\.0\.0\.1/.test(location.hostname);
+    if (!debug) return;
     if (document.getElementById("perf-monitor")) return;
     const el = document.createElement("div");
     el.id = "perf-monitor";

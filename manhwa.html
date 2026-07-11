@@ -3,27 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Mangá — AkiraScan</title>
-    <link rel="icon" type="image/png" href="img/akirascan-logo.png">
-    <link rel="stylesheet" href="css/akira.css">
-</head>
-<body class="akira-app">
-    <div id="header-slot"></div>
-
-    <main class="container container-narrow" style="padding-bottom:80px">
-        <div id="manga-conteudo"></div>
-    </main>
-
-    <div id="footer-slot"></div>
-
-    <script type="module">
-        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
-        import { initMangaPage } from "./js/pages/manga-page.js";
-
-        document.getElementById("header-slot").innerHTML = renderHeader({ busca: false });
-        document.getElementById("footer-slot").innerHTML = renderFooter();
-        await initShell();
-        await initMangaPage(document.getElementById("manga-conteudo"));
+    <title>Redirecionando… — AkiraScan</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
+    <script>
+        (function () {
+            const sp = new URLSearchParams(location.search);
+            const id = (sp.get("id") || sp.get("m") || "").trim();
+            const dest = new URL("index.html", location.href);
+            dest.searchParams.set("view", "details");
+            if (id) dest.searchParams.set("id", id);
+            location.replace(dest.pathname + dest.search + dest.hash);
+        })();
     </script>
+</head>
+<body>
+    <p style="font-family:system-ui,sans-serif;text-align:center;padding:48px;color:#888">A redirecionar…</p>
 </body>
 </html>

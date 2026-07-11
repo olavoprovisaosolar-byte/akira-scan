@@ -10,6 +10,7 @@ import { onPageRestore } from "../core/app-state.js";
 import { LeitorVertical } from "../leitor-vertical.js";
 import { salvarProgresso } from "../storage.js";
 import { mountLeitorLoading, mountLeitorError } from "../ui/states.js";
+import { escHtml } from "../app-shell.js";
 
 export class LeitorController {
     constructor({ area, tituloCap, contador, barra, navCaps, btnVoltar }) {
@@ -172,7 +173,7 @@ export class LeitorController {
         this.area.innerHTML = `
         <div class="leitor-estado">
             <h2>Erro</h2>
-            <p>${msg}</p>
+            <p>${escHtml(msg)}</p>
             <button class="btn-retry" type="button" id="leitor-retry">Tentar de novo</button>
         </div>`;
         this.area.querySelector("#leitor-retry")?.addEventListener("click", () => this.load());
