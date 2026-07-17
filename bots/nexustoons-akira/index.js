@@ -93,16 +93,22 @@ function loadMangaConfig() {
 }
 
 function resolveMangaList(config) {
-    const fromConfig = (config.mangas || [])
-        .filter((m) => m.enabled !== false)
-        .map((m) => ({
-            slug: m.nexusSlug || m.slug,
-            akiraId: m.akiraId || null,
-            title: m.title || null
-        }));
+    const all = (config.mangas || []).map((m) => ({
+        slug: m.nexusSlug || m.slug,
+        akiraId: m.akiraId || null,
+        title: m.title || null,
+        enabled: m.enabled !== false
+    }));
 
+    // --slug= força processar mesmo se enabled:false
+    if (SLUG_FILTER) {
+        const hit = all.find((m) => m.slug === SLUG_FILTER);
+        if (hit) return [hit];
+        return [{ slug: SLUG_FILTER, akiraId: null, title: null, enabled: true }];
+    }
+
+    const fromConfig = all.filter((m) => m.enabled);
     if (fromConfig.length) return fromConfig;
-    if (SLUG_FILTER) return [{ slug: SLUG_FILTER, akiraId: null }];
     return [];
 }
 

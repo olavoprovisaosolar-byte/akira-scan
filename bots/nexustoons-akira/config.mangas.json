@@ -70,13 +70,13 @@
       "nexusSlug": "o-necromante-de-ferro-e-sangue-retorna",
       "akiraId": "obra-b9a9a271",
       "title": "A Crônica da Guerra de Lodoss: A Rainha Necromante",
-      "enabled": false
+      "enabled": true
     },
     {
       "nexusSlug": "gye-baeksun-sem-emprego-e-sem-dinheiro",
       "akiraId": "obra-9010fd2c",
       "title": "A Desempregada Gye Baek-Sun",
-      "enabled": false
+      "enabled": true
     },
     {
       "nexusSlug": "a-espada-do-xama",

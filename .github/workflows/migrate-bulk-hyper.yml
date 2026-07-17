@@ -91,11 +91,13 @@ jobs:
           TELEGRA_SKIP: "0"
           HOSTING_ADAPTER: telegra
           NEXUSTOONS_HOSTING_ADAPTER: telegra
-          TELEGRA_STATIC_FALLBACK: "true"
-          TELEGRA_DELAY_MS: "600"
-          TELEGRA_RETRIES: "3"
-          STREAM_PAGE_CONCURRENCY: "2"
-          PAGE_DOWNLOAD_CONCURRENCY: "2"
+          TELEGRA_STATIC_FALLBACK: "false"
+          FREEIMAGE_SKIP: "0"
+          TELEGRA_DELAY_MS: "0"
+          TELEGRA_RETRIES: "2"
+          STREAM_PAGE_CONCURRENCY: "4"
+          STREAM_PAGE_MAX: "8"
+          PAGE_DOWNLOAD_CONCURRENCY: "8"
           NEXUSTOONS_PURGE_LOCAL: "1"
           CF_PAGES_PROJECT: akira-scan
           CF_PAGES_BRANCH: main

@@ -20,13 +20,13 @@ const MAX_BYTES = Number(process.env.TELEGRA_MAX_BYTES || 5 * 1024 * 1024);
 const BROWSER_UA = process.env.NEXUSTOONS_USER_AGENT
     || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
-/** Concorrência máxima 2 para manter RAM sob controle. */
+/** Concorrência de stream — hyper pode subir até 8 via env. */
 export const STREAM_PAGE_CONCURRENCY = Math.min(
-    2,
+    Math.max(1, Number(process.env.STREAM_PAGE_MAX || 8)),
     Math.max(1, Number(
         process.env.STREAM_PAGE_CONCURRENCY
         || process.env.PAGE_DOWNLOAD_CONCURRENCY
-        || 1
+        || 2
     ))
 );
 

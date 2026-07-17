@@ -33,9 +33,11 @@ function applyTelegraEnv() {
     process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "0";
     process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "telegra";
     process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "telegra";
-    process.env.TELEGRA_STATIC_FALLBACK = process.env.TELEGRA_STATIC_FALLBACK || "true";
-    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "600";
-    process.env.TELEGRA_RETRIES = process.env.TELEGRA_RETRIES || "3";
+    // Preferir Freeimage permanente quando Telegra cair — sem gravar cloud-static quebrado
+    process.env.TELEGRA_STATIC_FALLBACK = process.env.TELEGRA_STATIC_FALLBACK || "false";
+    process.env.FREEIMAGE_SKIP = process.env.FREEIMAGE_SKIP || "0";
+    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "0";
+    process.env.TELEGRA_RETRIES = process.env.TELEGRA_RETRIES || "2";
 }
 
 function applyTurboEnv() {
@@ -72,8 +74,11 @@ function applyHyperEnv() {
     process.env.NEXUSTOONS_DELAY_MS = process.env.NEXUSTOONS_DELAY_MS || "50";
     process.env.NEXUSTOONS_CHAPTER_DELAY_MS = process.env.NEXUSTOONS_CHAPTER_DELAY_MS || "0";
     process.env.NEXUSTOONS_PW_SETTLE_MS = process.env.NEXUSTOONS_PW_SETTLE_MS || "500";
-    process.env.PAGE_DOWNLOAD_CONCURRENCY = process.env.PAGE_DOWNLOAD_CONCURRENCY || "20";
-    process.env.NEXUSTOONS_PAGE_CONCURRENCY = process.env.NEXUSTOONS_PAGE_CONCURRENCY || "20";
+    process.env.PAGE_DOWNLOAD_CONCURRENCY = process.env.PAGE_DOWNLOAD_CONCURRENCY || "12";
+    process.env.NEXUSTOONS_PAGE_CONCURRENCY = process.env.NEXUSTOONS_PAGE_CONCURRENCY || "12";
+    process.env.STREAM_PAGE_CONCURRENCY = process.env.STREAM_PAGE_CONCURRENCY || "6";
+    process.env.STREAM_PAGE_MAX = process.env.STREAM_PAGE_MAX || "8";
+    process.env.TELEGRA_DELAY_MS = "0";
     process.env.NEXUSTOONS_STATE_SAVE_EVERY = process.env.NEXUSTOONS_STATE_SAVE_EVERY || "3";
     process.env.NEXUSTOONS_PURGE_LOCAL = process.env.NEXUSTOONS_PURGE_LOCAL || "1";
 }

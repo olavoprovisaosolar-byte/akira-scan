@@ -23,6 +23,9 @@ export async function getCaptureAdapter(name = process.env.NEXUSTOONS_CAPTURE_AD
     if (name === "playwright") {
         const mod = await import("./nexustoons-playwright.mjs");
         adapter = mod.createAdapter();
+    } else if (name === "toonlivre") {
+        const mod = await import("./toonlivre.mjs");
+        adapter = mod.createAdapter();
     } else {
         const mod = await import("./nexustoons.js");
         adapter = mod.createAdapter();

@@ -61,8 +61,13 @@ export function pagesUseRemoteApi(pages) {
  */
 export function canPurgeImmediately(hosting, pages) {
     if (!isPurgeEnabled()) return false;
-    if (hosting === "telegra" || hosting === "catbox" || hosting === "r2") return true;
+    if (hosting === "telegra" || hosting === "catbox" || hosting === "freeimage" || hosting === "r2") return true;
     if (pagesUseRemoteApi(pages)) return true;
+    // Só purge se TODAS as páginas forem remotas vivas (nunca cloud-static local)
+    const urls = (pages || []).map((p) => String(typeof p === "string" ? p : p?.url || ""));
+    if (urls.length && urls.every((u) =>
+        u.includes("telegra.ph") || u.includes("iili.io") || u.includes("catbox.moe") || u.includes("/api/cloud/page")
+    )) return true;
     return !pagesUseLocalStatic(pages);
 }
 

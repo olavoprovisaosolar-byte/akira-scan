@@ -21,15 +21,16 @@ function lerIndiceCloud() {
     }
 }
 
-/** Caps prontos — Telegra.ph, API R2 ou data/cloud/pages/ legado. */
+/** Caps prontos — só URLs remotas vivas (Telegra, Freeimage, Catbox, R2). */
 function capLegivelIndice(rec) {
     if (!rec?.done) return false;
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
         return u.includes("telegra.ph")
             || u.includes("catbox.moe")
-            || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
+            || u.includes("iili.io")
+            || u.includes("freeimage.host")
+            || u.includes("/api/cloud/page");
     }));
 }
 

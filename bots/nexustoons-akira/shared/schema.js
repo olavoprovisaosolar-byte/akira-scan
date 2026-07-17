@@ -102,14 +102,15 @@ export function isTelegraUrl(url) {
     return String(url || "").includes("telegra.ph");
 }
 
-/** URL legível no leitor: Telegra, catbox, API R2 ou páginas estáticas legadas. */
+/** URL legível no leitor: Telegra, Freeimage/iili, catbox, API R2. */
 export function isLegiblePageUrl(url) {
     const u = String(url || "");
     return u.includes("telegra.ph")
         || u.includes("catbox.moe")
-        || u.includes("/api/cloud/page")
-        || u.includes("/data/cloud/pages/")
-        || u.includes("akira-scan.pages.dev/data/cloud/pages/");
+        || u.includes("litter.catbox.moe")
+        || u.includes("iili.io")
+        || u.includes("freeimage.host")
+        || u.includes("/api/cloud/page");
 }
 
 export function chapterHasTelegraPages(ch) {

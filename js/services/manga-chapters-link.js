@@ -1,22 +1,27 @@
 /**
  * Liga capítulos do catálogo ao índice remoto (cloud).
- * Legibilidade baseada em páginas Telegra.ph no índice.
+ * Legibilidade: só URLs remotas vivas (Telegra / Freeimage / Catbox / R2).
  */
 import { capsRemotosManga, mangaTemCapsRemotos } from "./cloud-chapters-service.js";
 import { parseChapterNumber } from "./chapter-label.js";
 
-function temPaginasHospedadas(remoto) {
-    if (!remoto?.pages?.length) return false;
-    return remoto.pages.some((p) => {
-        const u = String(p.url || "");
-        return u.includes("telegra.ph")
-            || u.includes("catbox.moe")
-            || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
-    });
+function urlRemotaViva(url) {
+    const u = String(url || "");
+    return u.includes("telegra.ph")
+        || u.includes("catbox.moe")
+        || u.includes("litter.catbox.moe")
+        || u.includes("pixeldrain.com")
+        || u.includes("iili.io")
+        || u.includes("freeimage.host")
+        || u.includes("/api/cloud/page");
 }
 
-/** Capítulo pronto — exige pages[] com URLs reais no índice remoto. */
+function temPaginasHospedadas(remoto) {
+    if (!remoto?.pages?.length) return false;
+    return remoto.pages.some((p) => urlRemotaViva(p.url));
+}
+
+/** Capítulo pronto — só URLs remotas vivas (nunca cloud-static purged). */
 export function capLegivel(remoto) {
     if (!remoto?.done) return false;
     return temPaginasHospedadas(remoto);
@@ -28,47 +33,59 @@ export async function capsLegiveisIds(mangaId) {
 }
 
 /**
- * Enriquece mangá com capítulos remotos e flag `legivel` por capítulo.
- * @param {object} manga
+ * Enriquece mangá: lista completa do catálogo + flag legivel por cap remoto vivo.
+ * Caps só no índice remoto (ainda não no catálogo) também entram se legíveis.
  */
 export async function enriquecerMangaComRemoto(manga) {
     if (!manga?.id) return manga;
 
     const remotos = await capsRemotosManga(manga.id);
     const remotoMap = new Map(remotos.map((r) => [r.capId, r]));
-    const catalogById = new Map((manga.capitulos || []).map((c) => [c.id, c]));
-
-    // GOLD RULE: só caps com páginas válidas no índice remoto.
-    const legiveis = remotos.filter(capLegivel);
     const byNum = new Map();
 
-    for (const r of legiveis) {
+    for (const c of manga.capitulos || []) {
+        const num = parseChapterNumber(c);
+        if (!Number.isFinite(num) || num <= 0) continue;
+        const remoto = remotoMap.get(c.id)
+            || remotos.find((r) => String(r.numero) === String(num));
+        const legivel = remoto ? capLegivel(remoto) : false;
+        byNum.set(num, {
+            id: c.id,
+            numero: num,
+            titulo: c.titulo ?? remoto?.titulo ?? null,
+            publicadoEm: c.publicadoEm || remoto?.hostedAt || manga.atualizadoEm || new Date().toISOString(),
+            novo: c.novo ?? false,
+            origem: c.origem || remoto?.origem || "catalogo",
+            hosting: remoto?.hosting || c.hosting || null,
+            legivel
+        });
+    }
+
+    for (const r of remotos) {
+        if (!capLegivel(r)) continue;
         const num = parseChapterNumber({ id: r.capId, numero: r.numero });
         if (!Number.isFinite(num) || num <= 0) continue;
-
-        const catalogCap = catalogById.get(r.capId);
-        const entry = {
+        const prev = byNum.get(num);
+        if (prev?.legivel) continue;
+        byNum.set(num, {
             id: r.capId,
             numero: num,
-            titulo: catalogCap?.titulo ?? r.titulo ?? null,
-            publicadoEm: catalogCap?.publicadoEm || r.hostedAt || manga.atualizadoEm || new Date().toISOString(),
-            novo: catalogCap?.novo ?? false,
-            origem: catalogCap?.origem || r.origem || "nexustoons",
-            hosting: r.hosting || catalogCap?.hosting || "telegra",
+            titulo: r.titulo ?? prev?.titulo ?? null,
+            publicadoEm: prev?.publicadoEm || r.hostedAt || manga.atualizadoEm || new Date().toISOString(),
+            novo: prev?.novo ?? false,
+            origem: r.origem || "nexustoons",
+            hosting: r.hosting || "telegra",
             legivel: true
-        };
-
-        const prev = byNum.get(num);
-        if (!prev || entry.legivel) byNum.set(num, entry);
+        });
     }
 
     const enriched = [...byNum.values()].sort((a, b) => parseChapterNumber(b) - parseChapterNumber(a));
-    const syncProntos = enriched.length;
+    const syncProntos = enriched.filter((c) => c.legivel).length;
 
     return {
         ...manga,
         capitulos: enriched,
-        totalCapitulos: syncProntos,
+        totalCapitulos: enriched.length,
         syncProntos
     };
 }

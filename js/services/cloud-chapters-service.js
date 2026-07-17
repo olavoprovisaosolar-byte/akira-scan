@@ -77,18 +77,23 @@ function paginaLegivel(url) {
     const u = String(url || "");
     return u.includes("telegra.ph")
         || u.includes("catbox.moe")
-        || u.includes("/api/cloud/page")
-        || u.includes("/data/cloud/pages/");
+        || u.includes("litter.catbox.moe")
+        || u.includes("pixeldrain.com")
+        || u.includes("iili.io")
+        || u.includes("freeimage.host")
+        || u.includes("/api/cloud/page");
 }
 
 function paginasDiretasDoIndice(info) {
     if (!info?.pages?.length || !isRealChapterPageSet(info.pages)) return null;
+    // cloud-static purged = 404 no CDN — nunca servir no leitor
+    if (info.localPurged && !info.pages.some((p) => paginaLegivel(p.url))) return null;
     const hosted = info.pages.filter((p) => paginaLegivel(p.url));
     if (!hosted.length) return null;
     return hosted.map((p, i) => ({
         index: p.index ?? i,
         url: p.url,
-        origem: p.origem || (String(p.url).includes("telegra.ph") ? "telegra" : String(p.url).includes("catbox.moe") ? "catbox" : "remote")
+        origem: p.origem || (String(p.url).includes("telegra.ph") ? "telegra" : String(p.url).includes("catbox.moe") || String(p.url).includes("litter.catbox.moe") ? "catbox" : "remote")
     }));
 }
 

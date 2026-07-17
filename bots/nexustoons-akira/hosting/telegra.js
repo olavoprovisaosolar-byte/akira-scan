@@ -259,7 +259,30 @@ function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
 }
 
 async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, progressCtx = null) {
-    const useStaticSilent = telegraBlocked && STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId;
+    // Após 1º HTTP 400, pula Telegra e vai direto Freeimage (velocidade)
+    if (telegraBlocked || process.env.TELEGRA_SKIP === "1") {
+        if (process.env.FREEIMAGE_SKIP !== "1") {
+            try {
+                const { uploadImage: uploadFreeimage } = await import("./freeimage.js");
+                const ext = extFromUrl(filename, "jpg");
+                const prepared = await prepareUploadBuffer(buffer, ext);
+                const url = await uploadFreeimage(prepared.buffer, `page.${prepared.filenameExt}`);
+                return { url, origem: "freeimage" };
+            } catch (e) {
+                log.warn(`Freeimage falhou página ${pageIndex + 1}`, { err: e.message });
+                if (STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId) {
+                    const ext = extFromUrl(filename, "jpg");
+                    const prepared = await prepareUploadBuffer(buffer, ext);
+                    const url = saveStaticPage(prepared.buffer, prepared.filenameExt, staticOpts.mangaId, staticOpts.capId, pageIndex);
+                    return { url, origem: "cloud-static" };
+                }
+                throw e;
+            }
+        }
+    }
+
+    const useStaticSilent = telegraBlocked && STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId
+        && process.env.FREEIMAGE_SKIP === "1";
 
     if (useStaticSilent) {
         const ext = extFromUrl(filename, "jpg");
@@ -279,12 +302,27 @@ async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, p
             return { url, origem: "telegra" };
         } catch (e) {
             lastErr = e;
-            if (e.status === 400 || String(e.message).includes("HTTP 400")) {
-                log.warn(`Telegra HTTP 400 na página ${pageIndex + 1} — usando cloud-static`, { err: e.message });
+            if (e.status === 400 || String(e.message).includes("HTTP 400") || String(e.message).includes("UNKNOWN_METHOD")) {
+                telegraBlocked = true;
+                log.warn(`Telegra indisponível — Freeimage daqui pra frente`, { err: e.message });
                 break;
             }
             if (telegraBlocked) break;
             log.error(`Falha no upload da página ${pageIndex + 1} (tentativa ${attempt}/${RETRIES})`, { err: e.message });
+        }
+    }
+
+    // Freeimage (iili.io) — permanente, funciona quando Telegra/Catbox bloqueiam
+    if (process.env.FREEIMAGE_SKIP !== "1") {
+        try {
+            const { uploadImage: uploadFreeimage } = await import("./freeimage.js");
+            const ext = extFromUrl(filename, "jpg");
+            const prepared = await prepareUploadBuffer(buffer, ext);
+            const url = await uploadFreeimage(prepared.buffer, `page.${prepared.filenameExt}`);
+            return { url, origem: "freeimage" };
+        } catch (e) {
+            lastErr = e;
+            log.warn(`Freeimage falhou página ${pageIndex + 1}`, { err: e.message });
         }
     }
 
@@ -337,6 +375,8 @@ export async function uploadChapterPages(pages, opts = {}) {
                 }, { chapterNumber, page: index + 1, totalPages: total });
 
                 if (result.origem === "cloud-static") hostingMode = "cloud-static";
+                else if (result.origem === "freeimage" && hostingMode === "telegra") hostingMode = "freeimage";
+                else if (result.origem === "telegra") { /* keep telegra */ }
 
                 hosted.push({ index, url: result.url, origem: result.origem });
                 logPageProgress({

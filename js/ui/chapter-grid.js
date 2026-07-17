@@ -9,14 +9,18 @@ export function capsVisiveis(manga) {
     return (manga?.capitulos || []).filter((c) => c.id && c.legivel === true);
 }
 
+export function capsTodos(manga) {
+    return (manga?.capitulos || []).filter((c) => c.id && Number(parseChapterNumber(c)) > 0);
+}
+
 export function contarCapsLegiveis(manga) {
-    const legiveis = capsVisiveis(manga).length;
-    return { total: legiveis, legiveis };
+    const todos = capsTodos(manga);
+    const legiveis = todos.filter((c) => c.legivel === true).length;
+    return { total: todos.length, legiveis };
 }
 
 export function primeiroCapLegivel(manga) {
-    const caps = [...(manga?.capitulos || [])]
-        .filter((c) => c.id && c.legivel === true)
+    const caps = [...capsVisiveis(manga)]
         .sort((a, b) => parseChapterNumber(a) - parseChapterNumber(b));
     return caps[0] || null;
 }
@@ -24,12 +28,11 @@ export function primeiroCapLegivel(manga) {
 function capValido(cap) {
     const num = parseChapterNumber(cap);
     const baseValid = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
-    // Só abre se legivel === true (undefined no Pages = ainda não sincronizado)
     return { num, baseValid, valido: baseValid && cap.legivel === true };
 }
 
 export function renderChapterGrid(manga, { filter = "all" } = {}) {
-    let caps = capsVisiveis(manga).sort(
+    let caps = capsTodos(manga).sort(
         (a, b) => parseChapterNumber(b) - parseChapterNumber(a)
     );
 
@@ -44,7 +47,7 @@ export function renderChapterGrid(manga, { filter = "all" } = {}) {
 
     if (!caps.length) {
         const emptyMsg = filter === "ready"
-            ? "Nenhum capítulo pronto ainda — a sincronização continua em segundo plano."
+            ? "Nenhum capítulo pronto ainda — upload em andamento (Telegra/Freeimage)."
             : filter === "soon"
                 ? "Todos os capítulos listados já estão prontos."
                 : "Nenhum capítulo disponível.";

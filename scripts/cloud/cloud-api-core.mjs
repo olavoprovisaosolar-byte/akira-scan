@@ -68,16 +68,19 @@ export function isDirectRemotePageUrl(url) {
     const u = String(url || "");
     return u.includes("telegra.ph")
         || u.includes("catbox.moe")
-        || u.includes("files.catbox.moe");
+        || u.includes("files.catbox.moe")
+        || u.includes("litter.catbox.moe")
+        || u.includes("pixeldrain.com")
+        || u.includes("iili.io")
+        || u.includes("freeimage.host");
 }
 
 export function capLegivelRec(rec) {
     if (!rec?.done) return false;
+    // Só URLs remotas vivas — /data/cloud/pages/ purged = 404 no site
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
-        return isDirectRemotePageUrl(u)
-            || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
+        return isDirectRemotePageUrl(u) || u.includes("/api/cloud/page");
     }));
 }
 

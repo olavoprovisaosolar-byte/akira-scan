@@ -117,7 +117,14 @@ export function wantsTelegraPrimary() {
 }
 
 function hasTelegraPages(rec) {
-    return rec?.pages?.some((p) => String(p.url || "").includes("telegra.ph"));
+    return rec?.pages?.some((p) => {
+        const u = String(p.url || "");
+        return u.includes("telegra.ph")
+            || u.includes("iili.io")
+            || u.includes("freeimage.host")
+            || u.includes("catbox.moe")
+            || u.includes("litter.catbox.moe");
+    });
 }
 
 function hasHostedPages(rec) {
