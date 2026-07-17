@@ -1,0 +1,104 @@
+name: Migrate Bulk Hyper (Cloud)
+
+# Migração bulk hyper/ultra na nuvem — sem consumir RAM do PC local.
+# Retoma de data/nexustoons/state.json; commits periódicos de checkpoint.
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug NexusToons (vazio = todos os mangás pendentes)"
+        required: false
+        type: string
+      mode:
+        description: "Modo de velocidade"
+        required: true
+        type: choice
+        default: hyper
+        options:
+          - hyper
+          - ultra
+      deploy:
+        description: "Deploy Cloudflare Pages ao final"
+        required: true
+        type: boolean
+        default: true
+      sync_interval_minutes:
+        description: "Intervalo de commit checkpoint (minutos)"
+        required: false
+        default: "15"
+      manga_parallel:
+        description: "Mangás paralelos (hyper=3; use 2 se OOM no runner)"
+        required: false
+        default: "3"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: migrate-bulk-hyper
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Show checkpoint state
+        run: |
+          if [ -f data/nexustoons/state.json ]; then
+            COUNT=$(node -e "const s=require('./data/nexustoons/state.json'); console.log(Object.keys(s.processed||{}).length)")
+            echo "Caps já processados no state.json: $COUNT"
+          else
+            echo "state.json ausente — migração do zero"
+          fi
+
+      - name: Run cloud hyper migration
+        env:
+          SYNC_INTERVAL_MINUTES: ${{ inputs.sync_interval_minutes }}
+          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
+          NEXUSTOONS_USE_PLAYWRIGHT: "1"
+          TELEGRA_SKIP: "1"
+          HOSTING_ADAPTER: cloud-static
+          NEXUSTOONS_HOSTING_ADAPTER: cloud-static
+          CF_PAGES_PROJECT: akira-scan
+          CF_PAGES_BRANCH: main
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          ARGS=(--${{ inputs.mode }})
+          if [ -n "${{ inputs.slug }}" ]; then
+            ARGS+=(--slug="${{ inputs.slug }}")
+          else
+            ARGS+=(--all)
+          fi
+          if [ "${{ inputs.deploy }}" != "true" ]; then
+            ARGS+=(--no-deploy)
+          fi
+          node scripts/cloud-hyper-run.mjs "${ARGS[@]}"
+
+      - name: Upload migration log artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-log-${{ github.run_id }}
+          path: logs/migration-*.log
+          if-no-files-found: ignore
+          retention-days: 14
