@@ -12,6 +12,12 @@ import { validateChapter, normalizeHostedChapter, isLegiblePageUrl } from "../sh
 import { withExponentialBackoff } from "../shared/retry.js";
 import { validateAndPrepareImage } from "../shared/image-hygiene.js";
 import { logPageProgress } from "../shared/progress.js";
+import {
+    publishApiEnabled,
+    publishApiBaseUrl,
+    publishChapterPages
+} from "../../../scripts/cloud/publish-client.mjs";
+import { pageApiUrl } from "../../../scripts/cloud/cloud-api-core.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..", "..", "..");
@@ -85,6 +91,11 @@ async function downloadBuffer(url, referer) {
     });
 }
 
+function apiPageUrl(mangaId, capId, pageIndex) {
+    const base = publishApiBaseUrl(cfg.akiraScanBaseUrl);
+    return pageApiUrl(base, mangaId, capId, pageIndex + 1);
+}
+
 function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
     const dir = path.join(STATIC_PAGES_ROOT, mangaId, capId);
     fs.mkdirSync(dir, { recursive: true });
@@ -101,10 +112,12 @@ function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
 export async function uploadChapterPages(pages, opts = {}) {
     const referer = opts.referer || "https://nexustoons.com/";
     const sorted = [...pages].sort((a, b) => (a.index ?? 0) - (b.index ?? 0));
-    const hosted = [];
     const failedPages = [];
     const chapterNumber = opts.chapterNumber ?? "?";
     const total = sorted.length;
+    const useApi = publishApiEnabled();
+    const pageFiles = [];
+    const hosted = [];
 
     for (let batchStart = 0; batchStart < sorted.length; batchStart += PAGE_DOWNLOAD_CONCURRENCY) {
         const batch = sorted.slice(batchStart, batchStart + PAGE_DOWNLOAD_CONCURRENCY);
@@ -114,22 +127,31 @@ export async function uploadChapterPages(pages, opts = {}) {
             const ext = extFromUrl(p.url);
             const filename = `${String(index + 1).padStart(3, "0")}.${ext}`;
             const buffer = await downloadBuffer(p.url, referer);
-            return { p, index, filename, buffer };
+            return { p, index, filename, buffer, ext };
         }));
 
         for (const item of downloaded) {
-            const { index, filename, buffer, p } = item;
+            const { index, filename, buffer, p, ext } = item;
             try {
-                const ext = extFromUrl(filename, "jpg");
                 const prepared = await validateAndPrepareImage(buffer, ext);
-                const url = saveStaticPage(
-                    prepared.buffer,
-                    prepared.ext,
-                    opts.mangaId,
-                    opts.capId,
-                    index
-                );
-                hosted.push({ index, url, origem: "cloud-static" });
+                if (useApi) {
+                    pageFiles.push({
+                        index,
+                        ext: prepared.ext,
+                        buffer: prepared.buffer,
+                        filename: `${String(index + 1).padStart(3, "0")}.${prepared.ext}`
+                    });
+                    hosted.push({ index, url: apiPageUrl(opts.mangaId, opts.capId, index), origem: "r2-api" });
+                } else {
+                    const url = saveStaticPage(
+                        prepared.buffer,
+                        prepared.ext,
+                        opts.mangaId,
+                        opts.capId,
+                        index
+                    );
+                    hosted.push({ index, url, origem: "cloud-static" });
+                }
                 logPageProgress({
                     chapterNumber,
                     page: index + 1,
@@ -151,14 +173,48 @@ export async function uploadChapterPages(pages, opts = {}) {
             ok: false,
             pages: hosted,
             failedPages,
-            hostingMode: "cloud-static",
+            hostingMode: useApi ? "r2" : "cloud-static",
             error: failedPages.length
                 ? `Falha parcial: páginas ${failedPages.map((n) => n + 1).join(", ")}`
                 : `Capítulo incompleto: ${hosted.length}/${sorted.length} páginas`
         };
     }
 
-    return { ok: true, pages: hosted, failedPages: [], hostingMode: "cloud-static" };
+    if (useApi && pageFiles.length) {
+        try {
+            const baseUrl = publishApiBaseUrl(cfg.akiraScanBaseUrl);
+            const token = process.env.AKIRA_PUBLISH_TOKEN;
+            const published = await publishChapterPages({
+                baseUrl,
+                token,
+                chapter: {
+                    mangaId: opts.mangaId,
+                    capId: opts.capId,
+                    numero: opts.chapterNumber,
+                    titulo: opts.titulo || null,
+                    hosting: "r2"
+                },
+                pageFiles
+            });
+            return {
+                ok: true,
+                pages: published.pages || hosted,
+                failedPages: [],
+                hostingMode: "r2"
+            };
+        } catch (e) {
+            log.error("Falha ao publicar capítulo na API R2", { err: e.message });
+            return {
+                ok: false,
+                pages: hosted,
+                failedPages: [],
+                hostingMode: "r2",
+                error: e.message
+            };
+        }
+    }
+
+    return { ok: true, pages: hosted, failedPages: [], hostingMode: useApi ? "r2" : "cloud-static" };
 }
 
 /** @type {import('./adapter.js').HostingAdapter} */
@@ -180,14 +236,16 @@ export function createAdapter() {
             log.info("Hospedando capítulo (cloud-static direto)", {
                 capId: chapter.capId,
                 pages: total,
-                downloadConcurrency: PAGE_DOWNLOAD_CONCURRENCY
+                downloadConcurrency: PAGE_DOWNLOAD_CONCURRENCY,
+                apiPublish: publishApiEnabled()
             });
 
             const result = await uploadChapterPages(chapter.pages, {
                 referer,
                 mangaId: chapter.mangaId,
                 capId: chapter.capId,
-                chapterNumber: chapter.numero
+                chapterNumber: chapter.numero,
+                titulo: chapter.titulo
             });
 
             if (!result.ok) {
@@ -203,7 +261,7 @@ export function createAdapter() {
             const hosted = normalizeHostedChapter({
                 ...chapter,
                 pages: result.pages,
-                hosting: "cloud-static",
+                hosting: result.hostingMode || "cloud-static",
                 hostedAt: new Date().toISOString()
             });
 

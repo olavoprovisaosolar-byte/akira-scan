@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "akira-scan",
+  "compatibility_date": "2026-01-01",
+  "pages_build_output_dir": "./deploy-cloudflare",
+  "r2_buckets": [
+    {
+      "binding": "CHAPTERS",
+      "bucket_name": "akira-chapters"
+    }
+  ]
+}

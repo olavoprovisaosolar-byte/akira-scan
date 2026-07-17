@@ -83,6 +83,9 @@ jobs:
           CF_PAGES_PROJECT: akira-scan
           CF_PAGES_BRANCH: main
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          AKIRA_PUBLISH_TOKEN: ${{ secrets.AKIRA_PUBLISH_TOKEN }}
+          AKIRA_PUBLISH_BASE_URL: https://akira-scan.pages.dev
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
         run: |
           ARGS=(--${{ inputs.mode }})
           if [ -n "${{ inputs.slug }}" ]; then

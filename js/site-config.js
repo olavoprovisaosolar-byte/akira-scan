@@ -1,5 +1,5 @@
 /**
- * Config de hospedagem — detecta GitHub Pages vs servidor local.
+ * Config de hospedagem — GitHub Pages, Cloudflare Pages ou servidor local.
  */
 function detectBasePath() {
     if (typeof location === "undefined") return "/";
@@ -15,17 +15,30 @@ function detectBasePath() {
     return "/";
 }
 
-const onGitHub = typeof location !== "undefined" && location.hostname.endsWith("github.io");
+function isCloudflarePages() {
+    if (typeof window !== "undefined" && window.__AKIRA_HOST__ === "cloudflare-pages") return true;
+    if (typeof location === "undefined") return false;
+    return /\.pages\.dev$/i.test(location.hostname);
+}
 
-/** API de capítulos remotos (Netlify) — URLs estáveis, dlinks gerados no servidor. */
-export const CLOUD_API_BASE = (typeof window !== "undefined" && window.__AKIRA_CLOUD_API__)
-    || (typeof import.meta !== "undefined" && import.meta.env?.VITE_CLOUD_API)
-    || "https://akira-scan.netlify.app";
+function isStaticHostRuntime() {
+    if (typeof location === "undefined") return false;
+    return location.hostname.endsWith("github.io") || isCloudflarePages();
+}
+
+const onGitHub = typeof location !== "undefined" && location.hostname.endsWith("github.io");
+const onCloudflare = isCloudflarePages();
+
+const DEFAULT_NETLIFY_API = "https://akira-scan.netlify.app";
+
+/** API de utilizadores (Netlify Blobs) — permanece no Netlify até migração para KV/D1. */
+export const USER_API_BASE = (typeof window !== "undefined" && window.__AKIRA_USER_API__)
+    || (onCloudflare ? DEFAULT_NETLIFY_API : "");
 
 export const SITE_CONFIG = {
-    host: onGitHub ? "github-pages" : "local",
+    host: onCloudflare ? "cloudflare-pages" : (onGitHub ? "github-pages" : "local"),
     basePath: detectBasePath(),
-    staticOnly: onGitHub,
+    staticOnly: isStaticHostRuntime(),
     cloudIndex: "data/cloud/chapters-index.json"
 };
 
@@ -34,14 +47,21 @@ export function isStaticHost() {
 }
 
 export function cloudApiDisponivel() {
-    return Boolean(CLOUD_API_BASE);
+    if (typeof location === "undefined") return false;
+    return isCloudflarePages();
 }
 
 export function cloudApiUrl(caminho, params = {}) {
-    const base = (CLOUD_API_BASE || "").replace(/\/$/, "");
-    if (!base) return caminho;
     const p = String(caminho || "").replace(/^\//, "");
-    const url = new URL(`${base}/${p}`);
+    let base = "";
+    if (cloudApiDisponivel() && typeof location !== "undefined") {
+        base = location.origin.replace(/\/$/, "");
+    } else if (USER_API_BASE) {
+        base = USER_API_BASE.replace(/\/$/, "");
+    }
+    const url = base
+        ? new URL(`${base}/${p}`)
+        : new URL(`/${p}`, typeof location !== "undefined" ? location.origin : "http://localhost");
     for (const [k, v] of Object.entries(params)) {
         if (v != null && v !== "") url.searchParams.set(k, String(v));
     }

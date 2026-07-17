@@ -2,8 +2,8 @@
  * Purga arquivos locais de capítulos após hosting/upload confirmados.
  *
  * Regras:
- * - telegra / catbox: apaga data/cloud/pages/{mangaId}/{capId}/ logo após upload + checkpoint
- * - cloud-static: mantém até deploy Cloudflare OK (arquivos são a fonte até ir pro CDN)
+ * - telegra / catbox / r2-api: apaga data/cloud/pages/{mangaId}/{capId}/ logo após upload
+ * - cloud-static legado: mantém até deploy Cloudflare OK (sem AKIRA_PUBLISH_TOKEN)
  * - NEXUSTOONS_PURGE_LOCAL=0 desliga; default ligado em bulk/CI/hyper
  */
 import fs from "node:fs";
@@ -41,7 +41,16 @@ export function chapterPagesDir(mangaId, capId) {
 export function pagesUseLocalStatic(pages) {
     return (pages || []).some((p) => {
         const url = typeof p === "string" ? p : p?.url;
-        return String(url || "").includes("/data/cloud/pages/");
+        const u = String(url || "");
+        if (u.includes("/api/cloud/page")) return false;
+        return u.includes("/data/cloud/pages/");
+    });
+}
+
+export function pagesUseRemoteApi(pages) {
+    return (pages || []).some((p) => {
+        const url = typeof p === "string" ? p : p?.url;
+        return String(url || "").includes("/api/cloud/page");
     });
 }
 
@@ -52,17 +61,19 @@ export function pagesUseLocalStatic(pages) {
  */
 export function canPurgeImmediately(hosting, pages) {
     if (!isPurgeEnabled()) return false;
-    if (hosting === "telegra" || hosting === "catbox") return true;
+    if (hosting === "telegra" || hosting === "catbox" || hosting === "r2") return true;
+    if (pagesUseRemoteApi(pages)) return true;
     return !pagesUseLocalStatic(pages);
 }
 
 /**
- * cloud-static: páginas servidas localmente até deploy — enfileira purge pós-deploy.
+ * cloud-static legado: páginas servidas localmente até deploy — enfileira purge pós-deploy.
  * @param {string} hosting
  * @param {Array<{ url?: string }>} pages
  */
 export function needsPostDeployPurge(hosting, pages) {
     if (!isPurgeEnabled()) return false;
+    if (hosting === "r2" || pagesUseRemoteApi(pages)) return false;
     return hosting === "cloud-static" || pagesUseLocalStatic(pages);
 }
 

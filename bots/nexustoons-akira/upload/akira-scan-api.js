@@ -11,6 +11,11 @@ import { validateHostedChapter, chapterKey } from "../shared/schema.js";
 import { akiraMangaId, akiraCapId } from "../shared/ids.js";
 import { withFileLockSync } from "../shared/file-lock.mjs";
 import { pagesUseLocalStatic } from "../shared/page-purge.js";
+import {
+    publishApiEnabled,
+    publishApiBaseUrl,
+    syncChapterIndex
+} from "../../../scripts/cloud/publish-client.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..", "..", "..");
@@ -71,7 +76,10 @@ function capLegivelIndice(rec) {
     if (!rec?.done) return false;
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
-        return u.includes("telegra.ph") || u.includes("catbox.moe") || u.includes("/data/cloud/pages/");
+        return u.includes("telegra.ph")
+            || u.includes("catbox.moe")
+            || u.includes("/api/cloud/page")
+            || u.includes("/data/cloud/pages/");
     }));
 }
 
@@ -168,7 +176,7 @@ function upsertCloudIndex(idx, chapter, meta = {}) {
         hosting: chapter.hosting || "telegra",
         total: pages.length,
         uploaded: pages.length,
-        localPurged: !pagesUseLocalStatic(pages),
+        localPurged: !pagesUseLocalStatic(pages) || pages.some((p) => String(p.url || "").includes("/api/cloud/page")),
         pages: pages.map((p, i) => ({
             index: p.index ?? i,
             url: p.url,
@@ -199,6 +207,20 @@ function touchManifestMeta(manifest, mangaId, capId, pagesCount) {
     }
     manifest.updatedAt = new Date().toISOString();
     return manifest;
+}
+
+/**
+ * Sincroniza metadados do capítulo com índice R2 (Telegra ou após publish local).
+ */
+async function syncRemoteIndex(chapter, meta = {}) {
+    if (!publishApiEnabled()) return { ok: true, skipped: true };
+    const usesApiPages = chapter.pages?.some((p) => String(p.url || "").includes("/api/cloud/page"));
+    if (usesApiPages) return { ok: true, skipped: true, reason: "pages already published via API" };
+
+    const baseUrl = publishApiBaseUrl(cfg.akiraScanBaseUrl);
+    const token = process.env.AKIRA_PUBLISH_TOKEN;
+    await syncChapterIndex({ baseUrl, token, chapter, meta });
+    return { ok: true };
 }
 
 /**
@@ -234,7 +256,7 @@ function publishChapterTransactional(chapter, meta = {}) {
         }
 
         log.info("Índice cloud + catálogo atualizados (transacional)", { key: `${mangaId}/${capId}`, pages: pages.length });
-        return { ok: true };
+        return { ok: true, chapter, idxEntry: idx.caps[`${mangaId}/${capId}`] };
     } catch (e) {
         restoreSnapshots(snap);
         throw e;
@@ -360,7 +382,15 @@ export function createAdapter() {
                     }
                     deferredPending++;
                 } else {
-                    publishChapterTransactional(chapter, meta);
+                    const pub = publishChapterTransactional(chapter, meta);
+                    try {
+                        await syncRemoteIndex(
+                            { ...chapter, pages: pub.idxEntry?.pages || chapter.pages, hosting: chapter.hosting },
+                            meta
+                        );
+                    } catch (e) {
+                        log.warn("Sync índice remoto falhou (local OK)", { err: e.message, mangaId, capId });
+                    }
                 }
             } catch (e) {
                 log.error(`Resposta da API da Akira Scan: falha ao gravar índice — ${e.message}`, {
