@@ -79,6 +79,7 @@ jobs:
           TELEGRA_SKIP: "1"
           HOSTING_ADAPTER: cloud-static
           NEXUSTOONS_HOSTING_ADAPTER: cloud-static
+          NEXUSTOONS_PURGE_LOCAL: "1"
           CF_PAGES_PROJECT: akira-scan
           CF_PAGES_BRANCH: main
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
