@@ -2,12 +2,30 @@
  * Testes unitários — Telegra sequencial + validação de imagem (sem rede).
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
+
+const VALID_JPEG = Buffer.from(
+    "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEBAVFRUVFRUVFRUVFRUVFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0mICYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIABQAFAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAQIDBAUGBwj/xABAEAACAQIEAwUEBgYCAwAAAAAAAQIDEQQSITEFQVEGEyJhcYEUMkKRobHB0fAHFSNSYnKC4SNDkqLC8RUzQ1Oy/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECBAMFBv/EACQRAQEBAAICAgIDAQAAAAAAAAABAhEDIRIxBEETIlFhBRQj/9oADAMBAAIRAxEAPwD8wREQEREBERAREQEREBERAREQEREBERAREQf/Z",
+    "base64"
+);
+
+vi.mock("../shared/stream-page-processor.mjs", () => ({
+    STREAM_PAGE_CONCURRENCY: 1,
+    downloadProcessPage: async () => ({
+        buffer: VALID_JPEG,
+        ext: "jpg",
+        contentType: "image/jpeg",
+        cleanup: () => {}
+    }),
+    purgeTempFiles: () => {}
+}));
+
 vi.mock("../shared/image-hygiene.js", () => ({
     validateAndPrepareImage: async (buffer, ext = "jpg") => ({
         buffer,
         ext,
         contentType: ext === "png" ? "image/png" : "image/jpeg"
-    })
+    }),
+    basicMagicCheck: () => ({ ok: true })
 }));
 
 import {
@@ -19,11 +37,6 @@ import {
 } from "../shared/schema.js";
 import { validateImageBuffer, uploadChapterPages } from "./telegra.js";
 import { fromStructuredPayload, toStructuredPayload } from "../upload/akira-scan-api.js";
-
-const VALID_JPEG = Buffer.from(
-    "/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBUQEBAVFRUVFRUVFRUVFRUVFRUWFhUVFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0mICYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIABQAFAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAQIDBAUGBwj/xABAEAACAQIEAwUEBgYCAwAAAAAAAQIDEQQSITEFQVEGEyJhcYEUMkKRobHB0fAHFSNSYnKC4SNDkqLC8RUzQ1Oy/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECBAMFBv/EACQRAQEBAAICAgIDAQAAAAAAAAABAhEDIRIxBEETIlFhBRQj/9oADAMBAAIRAxEAPwD8wREQEREBERAREQEREBERAREQEREBERAREQf/Z",
-    "base64"
-);
 
 describe("validateImageBuffer", () => {
     it("rejeita buffer vazio ou muito pequeno", () => {
@@ -53,7 +66,6 @@ describe("uploadChapterPages sequencial", () => {
 
     it("preserva ordem 0, 1, 2 e falha capítulo se página intermediária falhar", async () => {
         const axios = await import("axios");
-        const getSpy = vi.spyOn(axios.default, "get").mockResolvedValue({ data: VALID_JPEG });
         const postSpy = vi.spyOn(axios.default, "post").mockImplementation(async (_url, form) => {
             const file = form?._streams?.find((s) => typeof s === "string" && s.includes("filename=\"002.jpg\""));
             if (file) throw new Error("upload falhou na página 2");
@@ -72,10 +84,8 @@ describe("uploadChapterPages sequencial", () => {
         expect(result.pages).toHaveLength(1);
         expect(result.pages[0].index).toBe(0);
         expect(result.failedPages).toEqual([1]);
-        expect(getSpy).toHaveBeenCalledTimes(3);
         expect(postSpy.mock.calls.length).toBeGreaterThanOrEqual(1);
 
-        getSpy.mockRestore();
         postSpy.mockRestore();
     });
 
@@ -84,9 +94,6 @@ describe("uploadChapterPages sequencial", () => {
         vi.resetModules();
         const { uploadChapterPages: uploadSkip } = await import("./telegra.js");
         const axios = await import("axios");
-        const getSpy = vi.spyOn(axios.default, "get").mockImplementation(async () => ({
-            data: VALID_JPEG
-        }));
         const postSpy = vi.spyOn(axios.default, "post");
 
         const pages = [
@@ -104,16 +111,12 @@ describe("uploadChapterPages sequencial", () => {
         expect(result.hostingMode).toBe("cloud-static");
         expect(postSpy).not.toHaveBeenCalled();
 
-        getSpy.mockRestore();
         postSpy.mockRestore();
         vi.unstubAllEnvs();
     });
 
     it("completa capítulo quando todas as páginas são válidas", async () => {
         const axios = await import("axios");
-        const getSpy = vi.spyOn(axios.default, "get").mockImplementation(async () => ({
-            data: VALID_JPEG
-        }));
 
         let uploadOrder = 0;
         const postSpy = vi.spyOn(axios.default, "post").mockImplementation(async () => {
@@ -137,7 +140,6 @@ describe("uploadChapterPages sequencial", () => {
         expect(result.pages.map((p) => p.index)).toEqual([0, 1, 2]);
         expect(postSpy).toHaveBeenCalledTimes(3);
 
-        getSpy.mockRestore();
         postSpy.mockRestore();
     });
 });

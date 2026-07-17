@@ -5,12 +5,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import axios from "axios";
 import { loadConfig } from "../shared/config.js";
 import { log } from "../shared/logger.js";
 import { validateChapter, normalizeHostedChapter, isLegiblePageUrl } from "../shared/schema.js";
-import { withExponentialBackoff } from "../shared/retry.js";
 import { validateAndPrepareImage } from "../shared/image-hygiene.js";
+import { downloadProcessPage, STREAM_PAGE_CONCURRENCY } from "../shared/stream-page-processor.mjs";
 import { logPageProgress } from "../shared/progress.js";
 import {
     publishApiEnabled,
@@ -24,17 +23,9 @@ const ROOT = path.join(__dirname, "..", "..", "..");
 const STATIC_PAGES_ROOT = path.join(ROOT, "data", "cloud", "pages");
 
 const cfg = loadConfig();
-const MAX_BYTES = Number(process.env.TELEGRA_MAX_BYTES || 5 * 1024 * 1024);
 const MIN_BYTES = Number(process.env.TELEGRA_MIN_BYTES || 100);
-const BROWSER_UA = process.env.NEXUSTOONS_USER_AGENT
-    || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
-const DEFAULT_PAGE_CONCURRENCY = process.env.NEXUSTOONS_BULK === "1" ? 6 : 3;
-const PAGE_DOWNLOAD_CONCURRENCY = Math.max(1, Number(
-    process.env.PAGE_DOWNLOAD_CONCURRENCY
-    || process.env.NEXUSTOONS_PAGE_CONCURRENCY
-    || DEFAULT_PAGE_CONCURRENCY
-));
+const PAGE_DOWNLOAD_CONCURRENCY = STREAM_PAGE_CONCURRENCY;
 
 function extFromUrl(url, fallback = "jpg") {
     const m = String(url).match(/\.(webp|avif|png|jpe?g|gif)(\?|$)/i);
@@ -49,8 +40,8 @@ export function validateImageBuffer(buffer) {
     if (buffer.byteLength < MIN_BYTES) {
         return { ok: false, error: `imagem corrompida (${buffer.byteLength} bytes < ${MIN_BYTES})` };
     }
-    if (buffer.byteLength > MAX_BYTES) {
-        return { ok: false, error: `arquivo ${buffer.byteLength} bytes excede limite (${MAX_BYTES})` };
+    if (buffer.byteLength > Number(process.env.TELEGRA_MAX_BYTES || 5 * 1024 * 1024)) {
+        return { ok: false, error: "arquivo excede limite" };
     }
     const isJpeg = buffer[0] === 0xff && buffer[1] === 0xd8;
     const isPng = buffer[0] === 0x89 && buffer[1] === 0x50;
@@ -61,34 +52,6 @@ export function validateImageBuffer(buffer) {
         return { ok: false, error: "magic bytes inválidos" };
     }
     return { ok: true };
-}
-
-async function downloadBuffer(url, referer) {
-    return withExponentialBackoff(async () => {
-        const res = await axios.get(url, {
-            responseType: "arraybuffer",
-            timeout: 60000,
-            maxContentLength: MAX_BYTES + 1024,
-            headers: {
-                "User-Agent": BROWSER_UA,
-                Referer: referer || "https://nexustoons.com/"
-            },
-            validateStatus: () => true
-        });
-        if (res.status >= 400) {
-            const err = new Error(`download HTTP ${res.status}`);
-            err.status = res.status;
-            throw err;
-        }
-        const buf = Buffer.from(res.data);
-        const check = validateImageBuffer(buf);
-        if (!check.ok) throw new Error(check.error);
-        return buf;
-    }, {
-        onRetry: (attempt, delayMs, e) => {
-            log.warn("Retry download (429/503)", { attempt, delayMs, err: e.message });
-        }
-    });
 }
 
 function apiPageUrl(mangaId, capId, pageIndex) {
@@ -122,18 +85,20 @@ export async function uploadChapterPages(pages, opts = {}) {
     for (let batchStart = 0; batchStart < sorted.length; batchStart += PAGE_DOWNLOAD_CONCURRENCY) {
         const batch = sorted.slice(batchStart, batchStart + PAGE_DOWNLOAD_CONCURRENCY);
 
-        const downloaded = await Promise.all(batch.map(async (p, batchIdx) => {
+        for (const p of batch) {
+            const batchIdx = batch.indexOf(p);
             const index = p.index ?? batchStart + batchIdx;
             const ext = extFromUrl(p.url);
             const filename = `${String(index + 1).padStart(3, "0")}.${ext}`;
-            const buffer = await downloadBuffer(p.url, referer);
-            return { p, index, filename, buffer, ext };
-        }));
 
-        for (const item of downloaded) {
-            const { index, filename, buffer, p, ext } = item;
+            let cleanup = () => {};
             try {
-                const prepared = await validateAndPrepareImage(buffer, ext);
+                const downloaded = await downloadProcessPage(p.url, { referer });
+                cleanup = downloaded.cleanup;
+                const buffer = downloaded.buffer;
+                const prepared = await validateAndPrepareImage(buffer, downloaded.ext || ext);
+                cleanup();
+                cleanup = () => {};
                 if (useApi) {
                     pageFiles.push({
                         index,
@@ -159,6 +124,7 @@ export async function uploadChapterPages(pages, opts = {}) {
                     fallback: true
                 });
             } catch (e) {
+                cleanup();
                 failedPages.push(index);
                 log.error(`Falha ao salvar página ${index + 1}`, { err: e.message, src: p.url?.slice(0, 80) });
                 break;

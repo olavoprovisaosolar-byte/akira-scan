@@ -5,11 +5,18 @@ const MIN_BYTES = Number(process.env.TELEGRA_MIN_BYTES || 100);
 const MAX_BYTES = Number(process.env.TELEGRA_MAX_BYTES || 5 * 1024 * 1024);
 
 let sharpPromise = null;
+let sharpCacheDisabled = false;
 
 async function getSharp() {
     if (sharpPromise === null) {
         sharpPromise = import("sharp")
-            .then((m) => m.default)
+            .then((m) => {
+                if (!sharpCacheDisabled) {
+                    m.default.cache(false);
+                    sharpCacheDisabled = true;
+                }
+                return m.default;
+            })
             .catch(() => null);
     }
     return sharpPromise;

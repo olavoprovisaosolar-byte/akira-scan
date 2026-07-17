@@ -19,6 +19,7 @@ import { log } from "../shared/logger.js";
 import { validateChapter, normalizeHostedChapter, isLegiblePageUrl } from "../shared/schema.js";
 import { withExponentialBackoff } from "../shared/retry.js";
 import { validateAndPrepareImage } from "../shared/image-hygiene.js";
+import { downloadProcessPage, mapPagesSequential, STREAM_PAGE_CONCURRENCY } from "../shared/stream-page-processor.mjs";
 import { logPageProgress } from "../shared/progress.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -42,12 +43,7 @@ const SKIP_TELEGRA = envTruthy("TELEGRA_SKIP");
 const BROWSER_UA = process.env.NEXUSTOONS_USER_AGENT
     || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
-const DEFAULT_PAGE_CONCURRENCY = process.env.NEXUSTOONS_BULK === "1" ? 6 : 3;
-const PAGE_DOWNLOAD_CONCURRENCY = Math.max(1, Number(
-    process.env.PAGE_DOWNLOAD_CONCURRENCY
-    || process.env.NEXUSTOONS_PAGE_CONCURRENCY
-    || DEFAULT_PAGE_CONCURRENCY
-));
+const PAGE_DOWNLOAD_CONCURRENCY = STREAM_PAGE_CONCURRENCY;
 
 function pageDelayMs() {
     if (SKIP_TELEGRA || telegraBlocked) return 0;
@@ -160,34 +156,6 @@ async function prepareUploadBuffer(buffer, ext) {
     };
 }
 
-async function downloadBuffer(url, referer) {
-    return withExponentialBackoff(async () => {
-        const res = await axios.get(url, {
-            responseType: "arraybuffer",
-            timeout: 60000,
-            maxContentLength: MAX_BYTES + 1024,
-            headers: {
-                "User-Agent": BROWSER_UA,
-                Referer: referer || "https://nexustoons.com/"
-            },
-            validateStatus: () => true
-        });
-        if (res.status >= 400) {
-            const err = new Error(`download HTTP ${res.status}`);
-            err.status = res.status;
-            throw err;
-        }
-        const buf = Buffer.from(res.data);
-        const check = validateImageBuffer(buf);
-        if (!check.ok) throw new Error(check.error);
-        return buf;
-    }, {
-        onRetry: (attempt, delayMs, e) => {
-            log.warn(`Retry download (429/503)`, { attempt, delayMs, err: e.message });
-        }
-    });
-}
-
 function parseTelegraUploadResponse(data, uploadUrl) {
     if (data?.ok === false && data?.error) {
         throw new Error(`Telegra API: ${data.error}`);
@@ -287,18 +255,6 @@ function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
     return `${base}/data/cloud/pages/${mangaId}/${capId}/${name}`;
 }
 
-async function tryCatboxUpload(buffer, filename) {
-    if (process.env.CATBOX_SKIP === "true") return null;
-    try {
-        const { uploadImage: catboxUpload } = await import("./catbox.js");
-        const url = await catboxUpload(buffer, filename);
-        return { url, origem: "catbox" };
-    } catch (e) {
-        log.warn(`Catbox fallback página falhou`, { err: e.message });
-        return null;
-    }
-}
-
 async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, progressCtx = null) {
     const useStaticSilent = telegraBlocked && STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId;
 
@@ -329,11 +285,6 @@ async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, p
         }
     }
 
-    const catboxResult = await tryCatboxUpload(buffer, filename);
-    if (catboxResult) {
-        return catboxResult;
-    }
-
     if (STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId) {
         markTelegraBlocked("auto-detect");
         const ext = extFromUrl(filename, "jpg");
@@ -362,17 +313,20 @@ export async function uploadChapterPages(pages, opts = {}) {
     for (let batchStart = 0; batchStart < sorted.length; batchStart += PAGE_DOWNLOAD_CONCURRENCY) {
         const batch = sorted.slice(batchStart, batchStart + PAGE_DOWNLOAD_CONCURRENCY);
 
-        const downloaded = await Promise.all(batch.map(async (p, batchIdx) => {
+        for (const p of batch) {
+            const batchIdx = batch.indexOf(p);
             const index = p.index ?? batchStart + batchIdx;
             const ext = extFromUrl(p.url);
             const filename = `${String(index + 1).padStart(3, "0")}.${ext}`;
-            const buffer = await downloadBuffer(p.url, referer);
-            return { p, index, filename, buffer };
-        }));
 
-        for (const item of downloaded) {
-            const { index, filename, buffer, p } = item;
+            let cleanup = () => {};
             try {
+                const downloaded = await downloadProcessPage(p.url, { referer });
+                cleanup = downloaded.cleanup;
+                const buffer = downloaded.buffer;
+                cleanup();
+                cleanup = () => {};
+
                 const delay = pageDelayMs();
                 if (delay > 0 && hosted.length > 0) await sleep(delay);
                 const result = await uploadWithRetry(buffer, filename, index, {
@@ -381,7 +335,6 @@ export async function uploadChapterPages(pages, opts = {}) {
                 }, { chapterNumber, page: index + 1, totalPages: total });
 
                 if (result.origem === "cloud-static") hostingMode = "cloud-static";
-                else if (result.origem === "catbox") hostingMode = "catbox";
 
                 hosted.push({ index, url: result.url, origem: result.origem });
                 logPageProgress({
@@ -391,6 +344,7 @@ export async function uploadChapterPages(pages, opts = {}) {
                     fallback: result.origem !== "telegra"
                 });
             } catch (e) {
+                cleanup();
                 failedPages.push(index);
                 log.error(`Falha no upload da página ${index + 1}`, { err: e.message, src: p.url?.slice(0, 80) });
                 break;

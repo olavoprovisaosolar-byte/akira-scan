@@ -50,10 +50,13 @@
     "migrate:bulk:all:lite": "node scripts/run-bulk-migration.mjs --all --background --lite",
     "migrate:handoff:cloud": "node scripts/handoff-migration-to-cloud.mjs",
     "migrate:cloud:hyper": "node scripts/cloud-hyper-run.mjs --all --hyper",
+    "cloud:setup-r2": "node scripts/cloud/setup-r2.mjs",
+    "cloud:migrate-pages": "node scripts/cloud/migrate-local-pages-to-r2.mjs",
     "map:nexustoons": "node scripts/map-catalog-to-nexustoons.mjs",
     "clean:ghost-chapters": "node scripts/clean-ghost-chapters.mjs",
     "bot:nexustoons:probe": "node bots/nexustoons-akira/capture/probe.mjs",
-    "bot:nexustoons:telegra-probe": "node bots/nexustoons-akira/hosting/telegra-probe.mjs"
+    "bot:nexustoons:telegra-probe": "node bots/nexustoons-akira/hosting/telegra-probe.mjs",
+    "bot:scrape:nexus": "node bots/nexustoons-akira/capture/nexus-scraper.mjs"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
