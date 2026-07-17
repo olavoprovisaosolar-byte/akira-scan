@@ -22,48 +22,48 @@
           "capId": "cap-31f4c51f-01",
           "captured": true,
           "dryRun": true,
-          "updatedAt": "2026-07-17T04:15:04.896Z",
+          "updatedAt": "2026-07-17T19:00:36.172Z",
           "hosted": true,
           "uploaded": true,
-          "hosting": "cloud-static",
+          "hosting": "freeimage",
           "pages": 24
         },
         "2": {
           "capId": "cap-e83d0d37-02",
           "captured": true,
           "dryRun": true,
-          "updatedAt": "2026-07-17T04:15:57.179Z",
+          "updatedAt": "2026-07-17T19:06:33.075Z",
           "hosted": true,
           "uploaded": true,
-          "hosting": "cloud-static",
+          "hosting": "freeimage",
           "pages": 22
         },
         "3": {
           "capId": "cap-24e50fc9-03",
           "captured": true,
           "dryRun": true,
-          "updatedAt": "2026-07-17T04:16:49.423Z",
+          "updatedAt": "2026-07-17T19:15:26.910Z",
           "hosted": true,
           "uploaded": true,
-          "hosting": "cloud-static",
+          "hosting": "freeimage",
           "pages": 23
         },
         "4": {
           "capId": "cap-76c0f5fd-04",
           "captured": true,
           "dryRun": true,
-          "updatedAt": "2026-07-17T03:58:38.443Z",
+          "updatedAt": "2026-07-17T19:23:56.939Z",
           "hosted": true,
           "error": "UNKNOWN: unknown error, open 'D:\\Users\\adm\\Downloads\\akiragithub\\data\\cloud\\chapters-index.json'",
-          "uploaded": false,
-          "hosting": "telegra",
+          "uploaded": true,
+          "hosting": "freeimage",
           "pages": 19
         }
       },
       "akiraId": "obra-9010fd2c",
       "nexusId": "16377",
       "title": "Gye Baeksun: Sem Emprego e Sem Dinheiro",
-      "lastChecked": "2026-07-17T04:27:18.183Z"
+      "lastChecked": "2026-07-17T18:52:03.022Z"
     },
     "1-segundo": {
       "chapters": {

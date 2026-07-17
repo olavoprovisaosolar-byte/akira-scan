@@ -63,7 +63,7 @@
     "migrate:remote:telegra": "node scripts/remote-telegra-worker.mjs",
     "migrate:toonlivre": "node scripts/migrate-toonlivre-stream.mjs",
     "migrate:toonlivre:hyper": "node scripts/migrate-toonlivre-stream.mjs --all --hyper --background",
-    "migrate:toonlivre:one": "node scripts/migrate-toonlivre-stream.mjs --hyper",
+    "migrate:toonlivre:one": "node scripts/migrate-toonlivre-stream.mjs --hyper"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

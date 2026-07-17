@@ -3,32 +3,36 @@
   "updatedAt": "2026-07-17T20:51:11.075Z",
   "processed": {
     "gye-baeksun-sem-emprego-e-sem-dinheiro/cap-76c0f5fd-04": {
-      "processedAt": "2026-07-17T04:00:47.635Z",
+      "processedAt": "2026-07-17T19:23:56.941Z",
       "chapterNumber": "4",
       "akiraMangaId": "obra-9010fd2c",
       "akiraCapId": "cap-76c0f5fd-04",
-      "nexusChapterId": 346880
+      "nexusChapterId": 346880,
+      "pagesCount": 19
     },
     "gye-baeksun-sem-emprego-e-sem-dinheiro/cap-31f4c51f-01": {
-      "processedAt": "2026-07-17T04:15:04.952Z",
+      "processedAt": "2026-07-17T19:00:36.188Z",
       "chapterNumber": "1",
       "akiraMangaId": "obra-9010fd2c",
       "akiraCapId": "cap-31f4c51f-01",
-      "nexusChapterId": 346870
+      "nexusChapterId": 346870,
+      "pagesCount": 24
     },
     "gye-baeksun-sem-emprego-e-sem-dinheiro/cap-e83d0d37-02": {
-      "processedAt": "2026-07-17T04:15:57.179Z",
+      "processedAt": "2026-07-17T19:06:33.082Z",
       "chapterNumber": "2",
       "akiraMangaId": "obra-9010fd2c",
       "akiraCapId": "cap-e83d0d37-02",
-      "nexusChapterId": 346873
+      "nexusChapterId": 346873,
+      "pagesCount": 22
     },
     "gye-baeksun-sem-emprego-e-sem-dinheiro/cap-24e50fc9-03": {
-      "processedAt": "2026-07-17T04:16:49.423Z",
+      "processedAt": "2026-07-17T19:15:26.910Z",
       "chapterNumber": "3",
       "akiraMangaId": "obra-9010fd2c",
       "akiraCapId": "cap-24e50fc9-03",
-      "nexusChapterId": 346877
+      "nexusChapterId": 346877,
+      "pagesCount": 23
     },
     "1-segundo/cap-f8acc534-00": {
       "processedAt": "2026-07-17T05:12:25.443Z",
