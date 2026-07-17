@@ -94,7 +94,9 @@ async function fetchLatestRun(env, workflowFile = WORKFLOW_BULK) {
             conclusion: run.conclusion,
             url: run.html_url,
             createdAt: run.created_at,
-            event: run.event
+            updatedAt: run.updated_at,
+            event: run.event,
+            runNumber: run.run_number
         };
     } catch {
         return null;
@@ -124,6 +126,75 @@ function countProcessedBySlug(state) {
         bySlug[slug] = (bySlug[slug] || 0) + 1;
     }
     return bySlug;
+}
+
+function countCapHosting(capsObj) {
+    let telegra = 0;
+    let catbox = 0;
+    let staticBroken = 0;
+    let legivelSite = 0;
+    let done = 0;
+    for (const rec of Object.values(capsObj || {})) {
+        if (!rec?.done) continue;
+        done++;
+        const urls = (rec.pages || []).map((p) => String(p.url || ""));
+        const hasTelegra = urls.some((u) => u.includes("telegra.ph"));
+        const hasCatbox = urls.some((u) => u.includes("catbox.moe") || u.includes("files.catbox.moe"));
+        if (hasTelegra) {
+            telegra++;
+            legivelSite++;
+        } else if (hasCatbox) {
+            catbox++;
+            legivelSite++;
+        } else if (rec.localPurged || urls.some((u) => u.includes("/data/cloud/pages/"))) {
+            staticBroken++;
+        }
+    }
+    return { telegra, catbox, staticBroken, legivelSite, done };
+}
+
+function recentProcessed(state, limit = 10) {
+    return Object.entries(state?.processed || {})
+        .map(([key, v]) => ({ key, ...v }))
+        .sort((a, b) => new Date(b.processedAt || 0) - new Date(a.processedAt || 0))
+        .slice(0, limit)
+        .map((e) => ({
+            slug: e.key.split("/")[0],
+            chapter: e.chapterNumber || "?",
+            at: e.processedAt,
+            mangaId: e.akiraMangaId || null
+        }));
+}
+
+function buildUploadProgress(cfg, indexData, stateData, workflow) {
+    const enabled = (cfg.mangas || []).filter((m) => m.enabled !== false);
+    const porManga = recomputePorManga(indexData?.caps || {});
+    const hosting = countCapHosting(indexData?.caps || {});
+    const stateTotal = Object.keys(stateData?.processed || {}).length;
+    const mangasWithCaps = Object.values(porManga).filter((m) => m.doneCaps > 0).length;
+    const enabledCount = enabled.length || 1;
+    const active = workflow?.status === "in_progress" || workflow?.status === "queued";
+
+    return {
+        active,
+        workflowStatus: workflow?.status || null,
+        workflowConclusion: workflow?.conclusion || null,
+        capsState: stateTotal,
+        capsTelegra: hosting.telegra,
+        capsCatbox: hosting.catbox,
+        capsLegivelSite: hosting.legivelSite,
+        capsStaticBroken: hosting.staticBroken,
+        capsIndexDone: hosting.done,
+        mangasEnabled: enabledCount,
+        mangasWithCaps,
+        percentMangas: Math.min(100, Math.round((mangasWithCaps / enabledCount) * 100)),
+        percentLegivel: hosting.done
+            ? Math.min(100, Math.round((hosting.legivelSite / hosting.done) * 100))
+            : 0,
+        recent: recentProcessed(stateData),
+        stateUpdatedAt: stateData?.updatedAt || null,
+        indexUpdatedAt: indexData?.atualizadoEm || null
+    };
 }
 
 function buildMangaStats(cfg, indexData, stateData) {
@@ -199,14 +270,19 @@ export async function onRequest(context) {
             if (capLegivelRec(rec)) legivelTotal++;
         }
 
+        const upload = buildUploadProgress(cfg, indexRaw?.json, stateRaw?.json, workflow);
+
         return json({
             ok: true,
             cloud: cloud.ok ? cloud.data : { error: cloud.error },
             workflow,
+            upload,
             stats: {
                 capsIndex: indexTotal,
                 capsState: stateTotal,
                 capsLegivel: legivelTotal,
+                capsLegivelSite: upload.capsLegivelSite,
+                capsTelegra: upload.capsTelegra,
                 mangasConfig: cfg.mangas?.length || 0,
                 mangasEnabled: enabled.length,
                 mangasNoIndex: Object.keys(porManga).length
@@ -214,7 +290,7 @@ export async function onRequest(context) {
             mangas: {
                 total: cfg.mangas?.length || 0,
                 enabled: enabled.length,
-                pending: Math.max(0, enabled.length - Object.keys(porManga).length)
+                pending: Math.max(0, enabled.length - upload.mangasWithCaps)
             },
             repo: REPO,
             updatedAt: cfg.updatedAt || indexRaw?.json?.atualizadoEm || null

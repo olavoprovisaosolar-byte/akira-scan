@@ -1,23 +1,23 @@
 {
-  "name": "Akira Worker",
-  "short_name": "Akira",
-  "description": "Gerenciador mobile — download NexusToons e upload Telegra na nuvem",
+  "name": "AkiraScan Worker",
+  "short_name": "AkiraScan",
+  "description": "Gerenciador mobile — upload NexusToons e Telegra na nuvem",
   "start_url": "/mobile/",
   "display": "standalone",
-  "background_color": "#0f0f14",
-  "theme_color": "#7c6cff",
+  "background_color": "#060608",
+  "theme_color": "#060608",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/mobile/icon-192.svg",
+      "src": "/img/akirascan-logo.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/mobile/icon-512.svg",
+      "src": "/img/akirascan-logo.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

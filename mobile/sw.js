@@ -1,5 +1,12 @@
-const CACHE = "akira-worker-v2";
-const SHELL = ["/mobile/", "/mobile/index.html", "/mobile/app.css", "/mobile/app.js", "/mobile/manifest.json"];
+const CACHE = "akira-worker-v3";
+const SHELL = [
+    "/mobile/",
+    "/mobile/index.html",
+    "/mobile/app.css",
+    "/mobile/app.js",
+    "/mobile/manifest.json",
+    "/img/akirascan-logo.png"
+];
 
 self.addEventListener("install", (e) => {
     e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

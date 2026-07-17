@@ -3,34 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#7c6cff">
+  <meta name="theme-color" content="#060608">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Akira Worker">
+  <meta name="apple-mobile-web-app-title" content="AkiraScan">
   <link rel="manifest" href="/mobile/manifest.json">
-  <link rel="icon" href="/mobile/icon-192.svg">
-  <link rel="apple-touch-icon" href="/mobile/icon-192.svg">
+  <link rel="icon" href="/img/akirascan-logo.png">
+  <link rel="apple-touch-icon" href="/img/akirascan-logo.png">
   <link rel="stylesheet" href="/mobile/app.css">
-  <title>Akira Worker</title>
+  <title>AkiraScan Worker</title>
 </head>
 <body>
   <div id="pin-screen">
-    <header>
-      <h1>⚡ Akira Worker</h1>
-      <p>App de gerenciamento — download & upload na nuvem</p>
+    <header class="brand brand-center">
+      <img src="/img/akirascan-logo.png" alt="AkiraScan" class="brand-logo brand-logo-lg" width="88" height="88">
+      <div>
+        <h1>AkiraScan Worker</h1>
+        <p>Gerencie upload e download na nuvem</p>
+      </div>
     </header>
     <div class="card" style="margin:1rem">
       <label for="pin-input">PIN de acesso</label>
       <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN do Cloudflare" autocomplete="off">
       <button class="btn btn-primary" id="btn-pin-save">Entrar</button>
       <p class="log" id="pin-msg" style="margin-top:0.75rem"></p>
-      <p class="log">Secret <code>MOBILE_TRIGGER_PIN</code> no Cloudflare Pages.</p>
     </div>
   </div>
 
   <div id="app" class="app hidden">
-    <header>
-      <h1>⚡ Akira Worker</h1>
-      <p>Download NexusToons → Telegra · na nuvem</p>
+    <header class="brand">
+      <img src="/img/akirascan-logo.png" alt="AkiraScan" class="brand-logo" width="48" height="48">
+      <div class="brand-text">
+        <h1>AkiraScan Worker</h1>
+        <p>NexusToons → Telegra · na nuvem</p>
+      </div>
+      <a class="brand-site" href="/" title="Abrir site">↗</a>
     </header>
 
     <nav class="tabs">
@@ -41,6 +47,36 @@
 
     <main>
       <section id="panel-home" class="panel active">
+        <div class="card upload-live" id="upload-card">
+          <div class="upload-header">
+            <span class="pulse-dot" id="upload-dot"></span>
+            <div>
+              <p class="upload-title" id="upload-title">Verificando upload…</p>
+              <p class="upload-sub" id="upload-sub">—</p>
+            </div>
+          </div>
+          <div class="progress-block">
+            <div class="progress-label-row">
+              <span>Mangás no índice</span>
+              <span id="pct-mangas">0%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="bar-mangas"></div></div>
+          </div>
+          <div class="progress-block">
+            <div class="progress-label-row">
+              <span>Caps legíveis (Telegra/Catbox)</span>
+              <span id="pct-legivel">0%</span>
+            </div>
+            <div class="progress-bar progress-bar-ok"><div class="progress-fill progress-fill-ok" id="bar-legivel"></div></div>
+          </div>
+          <div class="upload-stats">
+            <div><b id="up-state">—</b><small>Processados</small></div>
+            <div><b id="up-telegra">—</b><small>Telegra</small></div>
+            <div><b id="up-broken">—</b><small>Aguardando</small></div>
+          </div>
+          <div class="activity-feed" id="activity-feed"></div>
+        </div>
+
         <div class="card">
           <div class="stat-row">
             <div class="stat"><b id="stat-caps">—</b><small>Legíveis</small></div>
@@ -50,18 +86,14 @@
           </div>
         </div>
         <div class="card">
-          <p class="label" style="margin-bottom:0.5rem">Status cloud</p>
-          <p class="log" id="cloud-status">—</p>
-        </div>
-        <div class="card">
-          <p class="label" style="margin-bottom:0.5rem">Último job na nuvem</p>
+          <p class="label">Job na nuvem</p>
           <p class="log" id="wf-status">—</p>
         </div>
         <button class="btn btn-primary" id="btn-hyper">🚀 HYPER — máxima velocidade</button>
         <button class="btn btn-secondary" id="btn-ultra">▶ ULTRA — mais estável</button>
-        <button class="btn btn-secondary" id="btn-sync-new">🔄 Só caps novos (todos mangás)</button>
+        <button class="btn btn-secondary" id="btn-sync-new">🔄 Só caps novos</button>
         <a class="btn btn-secondary link" id="link-actions" href="https://github.com/olavoprovisaosolar-byte/akira-scan/actions/workflows/migrate-bulk-hyper.yml" target="_blank" rel="noopener">Ver logs GitHub</a>
-        <button class="btn btn-secondary" id="btn-refresh">↻ Atualizar</button>
+        <button class="btn btn-secondary" id="btn-refresh">↻ Atualizar agora</button>
         <p class="log" id="home-msg"></p>
       </section>
 
@@ -70,21 +102,21 @@
           <label for="search-manga">Buscar mangá</label>
           <input id="search-manga" type="search" placeholder="Nome ou slug…" autocomplete="off">
           <p class="log" id="manga-msg"></p>
-          <p class="log" style="margin-bottom:0.5rem">🔄 = cap novo · ↑ = todos caps pendentes</p>
+          <p class="log hint">🔄 = cap novo · ↑ = todos caps pendentes</p>
           <div class="manga-list" id="manga-list">Carregando…</div>
         </div>
       </section>
 
       <section id="panel-add" class="panel">
         <div class="card">
-          <h2 style="font-size:1rem;margin-bottom:0.75rem">Adicionar mangá NexusToons</h2>
+          <h2 class="card-title">Adicionar mangá NexusToons</h2>
           <form id="add-form">
             <label for="add-slug">Slug NexusToons *</label>
             <input id="add-slug" required placeholder="ex: gye-baeksun-sem-emprego-e-sem-dinheiro">
             <label for="add-title">Título (opcional)</label>
             <input id="add-title" placeholder="Nome exibido no Akira">
-            <label style="display:flex;align-items:center;gap:0.5rem;margin:0.75rem 0">
-              <input type="checkbox" id="add-import" checked style="width:auto;margin:0">
+            <label class="checkbox-row">
+              <input type="checkbox" id="add-import" checked>
               Iniciar importação de todos os caps após adicionar
             </label>
             <button type="submit" class="btn btn-primary">+ Adicionar e importar</button>
@@ -92,12 +124,13 @@
           <p class="log" id="add-msg"></p>
         </div>
         <div class="card">
-          <p class="log">O slug está na URL do NexusToons:<br><code>nexustoons.com/manga/SEU-SLUG</code></p>
+          <p class="log">Slug na URL: <code>nexustoons.com/manga/SEU-SLUG</code></p>
         </div>
       </section>
     </main>
   </div>
 
+  <div id="toast" class="toast hidden" role="status"></div>
   <script src="/mobile/app.js" type="module"></script>
 </body>
 </html>
