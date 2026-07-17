@@ -3,183 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0f0f14">
+  <meta name="theme-color" content="#7c6cff">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Akira Worker — Celular</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #0f0f14;
-      color: #e8e8ef;
-      min-height: 100dvh;
-      padding: 1rem;
-      padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
-    h1 { font-size: 1.25rem; margin-bottom: 0.25rem; }
-    .sub { color: #888; font-size: 0.85rem; margin-bottom: 1.25rem; }
-    .card {
-      background: #1a1a24;
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #2a2a38;
-    }
-    .stat { font-size: 1.5rem; font-weight: 700; color: #7c6cff; }
-    .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
-    button, .btn {
-      display: block;
-      width: 100%;
-      padding: 1rem;
-      border: none;
-      border-radius: 12px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-bottom: 0.75rem;
-      text-align: center;
-      text-decoration: none;
-    }
-    .btn-hyper {
-      background: linear-gradient(135deg, #7c6cff, #5b4fd4);
-      color: #fff;
-    }
-    .btn-hyper:active { opacity: 0.85; }
-    .btn-link {
-      background: #252532;
-      color: #ccc;
-    }
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 8px;
-      border: 1px solid #333;
-      background: #12121a;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      font-size: 1rem;
-    }
-    .log {
-      font-size: 0.8rem;
-      color: #aaa;
-      white-space: pre-wrap;
-      word-break: break-word;
-      max-height: 120px;
-      overflow-y: auto;
-    }
-    .ok { color: #4ade80; }
-    .err { color: #f87171; }
-    .hidden { display: none; }
-  </style>
+  <meta name="apple-mobile-web-app-title" content="Akira Worker">
+  <link rel="manifest" href="/mobile/manifest.json">
+  <link rel="icon" href="/mobile/icon-192.svg">
+  <link rel="apple-touch-icon" href="/mobile/icon-192.svg">
+  <link rel="stylesheet" href="/mobile/app.css">
+  <title>Akira Worker</title>
 </head>
 <body>
-  <h1>⚡ Akira Worker</h1>
-  <p class="sub">Velocidade máxima na nuvem — 0 RAM no celular</p>
-
-  <div id="pin-screen" class="card">
-    <p class="label">PIN de acesso</p>
-    <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN configurado no Cloudflare" autocomplete="off">
-    <button class="btn-hyper" id="pin-save">Entrar</button>
-    <p class="log">O PIN é o secret <code>MOBILE_TRIGGER_PIN</code> do Cloudflare Pages.</p>
+  <div id="pin-screen">
+    <header>
+      <h1>⚡ Akira Worker</h1>
+      <p>App de gerenciamento — download & upload na nuvem</p>
+    </header>
+    <div class="card" style="margin:1rem">
+      <label for="pin-input">PIN de acesso</label>
+      <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN do Cloudflare" autocomplete="off">
+      <button class="btn btn-primary" id="btn-pin-save">Entrar</button>
+      <p class="log" id="pin-msg" style="margin-top:0.75rem"></p>
+      <p class="log">Secret <code>MOBILE_TRIGGER_PIN</code> no Cloudflare Pages.</p>
+    </div>
   </div>
 
-  <div id="main-screen" class="hidden">
-    <div class="card">
-      <p class="label">Caps no índice</p>
-      <p class="stat" id="stat-total">—</p>
-      <p class="log" id="stat-detail">storage: —</p>
-    </div>
+  <div id="app" class="app hidden">
+    <header>
+      <h1>⚡ Akira Worker</h1>
+      <p>Download NexusToons → Telegra · na nuvem</p>
+    </header>
 
-    <div class="card">
-      <p class="label">Último workflow</p>
-      <p class="log" id="wf-status">—</p>
-    </div>
+    <nav class="tabs">
+      <button class="tab active" data-panel="panel-home">Início</button>
+      <button class="tab" data-panel="panel-mangas">Mangás</button>
+      <button class="tab" data-panel="panel-add">+ Novo</button>
+    </nav>
 
-    <button class="btn-hyper" id="btn-hyper">🚀 Iniciar HYPER (máxima velocidade)</button>
-    <button class="btn-link" id="btn-ultra">▶ Iniciar ULTRA (mais estável)</button>
-    <a class="btn btn-link" id="link-actions" href="https://github.com/olavoprovisaosolar-byte/akira-scan/actions/workflows/migrate-bulk-hyper.yml" target="_blank" rel="noopener">Ver logs no GitHub</a>
-    <button class="btn-link" id="btn-refresh">↻ Atualizar status</button>
-    <p class="log" id="msg"></p>
+    <main>
+      <section id="panel-home" class="panel active">
+        <div class="card">
+          <div class="stat-row">
+            <div class="stat"><b id="stat-caps">—</b><small>Legíveis</small></div>
+            <div class="stat"><b id="stat-mangas">—</b><small>Ativos</small></div>
+            <div class="stat"><b id="stat-pending">—</b><small>Pendentes</small></div>
+            <div class="stat"><b id="stat-state">—</b><small>State</small></div>
+          </div>
+        </div>
+        <div class="card">
+          <p class="label" style="margin-bottom:0.5rem">Status cloud</p>
+          <p class="log" id="cloud-status">—</p>
+        </div>
+        <div class="card">
+          <p class="label" style="margin-bottom:0.5rem">Último job na nuvem</p>
+          <p class="log" id="wf-status">—</p>
+        </div>
+        <button class="btn btn-primary" id="btn-hyper">🚀 HYPER — máxima velocidade</button>
+        <button class="btn btn-secondary" id="btn-ultra">▶ ULTRA — mais estável</button>
+        <button class="btn btn-secondary" id="btn-sync-new">🔄 Só caps novos (todos mangás)</button>
+        <a class="btn btn-secondary link" id="link-actions" href="https://github.com/olavoprovisaosolar-byte/akira-scan/actions/workflows/migrate-bulk-hyper.yml" target="_blank" rel="noopener">Ver logs GitHub</a>
+        <button class="btn btn-secondary" id="btn-refresh">↻ Atualizar</button>
+        <p class="log" id="home-msg"></p>
+      </section>
+
+      <section id="panel-mangas" class="panel">
+        <div class="card">
+          <label for="search-manga">Buscar mangá</label>
+          <input id="search-manga" type="search" placeholder="Nome ou slug…" autocomplete="off">
+          <p class="log" id="manga-msg"></p>
+          <p class="log" style="margin-bottom:0.5rem">🔄 = cap novo · ↑ = todos caps pendentes</p>
+          <div class="manga-list" id="manga-list">Carregando…</div>
+        </div>
+      </section>
+
+      <section id="panel-add" class="panel">
+        <div class="card">
+          <h2 style="font-size:1rem;margin-bottom:0.75rem">Adicionar mangá NexusToons</h2>
+          <form id="add-form">
+            <label for="add-slug">Slug NexusToons *</label>
+            <input id="add-slug" required placeholder="ex: gye-baeksun-sem-emprego-e-sem-dinheiro">
+            <label for="add-title">Título (opcional)</label>
+            <input id="add-title" placeholder="Nome exibido no Akira">
+            <label style="display:flex;align-items:center;gap:0.5rem;margin:0.75rem 0">
+              <input type="checkbox" id="add-import" checked style="width:auto;margin:0">
+              Iniciar importação de todos os caps após adicionar
+            </label>
+            <button type="submit" class="btn btn-primary">+ Adicionar e importar</button>
+          </form>
+          <p class="log" id="add-msg"></p>
+        </div>
+        <div class="card">
+          <p class="log">O slug está na URL do NexusToons:<br><code>nexustoons.com/manga/SEU-SLUG</code></p>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <script>
-    const PIN_KEY = "akira_mobile_pin";
-    const pinScreen = document.getElementById("pin-screen");
-    const mainScreen = document.getElementById("main-screen");
-    const pinInput = document.getElementById("pin-input");
-    const msg = document.getElementById("msg");
-
-    function getPin() {
-      return sessionStorage.getItem(PIN_KEY) || new URLSearchParams(location.search).get("pin") || "";
-    }
-
-    function showMain() {
-      pinScreen.classList.add("hidden");
-      mainScreen.classList.remove("hidden");
-      refresh();
-    }
-
-    document.getElementById("pin-save").onclick = () => {
-      const p = pinInput.value.trim();
-      if (!p) return;
-      sessionStorage.setItem(PIN_KEY, p);
-      showMain();
-    };
-
-    if (getPin()) showMain();
-    else if (new URLSearchParams(location.search).get("pin")) {
-      sessionStorage.setItem(PIN_KEY, getPin());
-      showMain();
-    }
-
-    async function refresh() {
-      msg.textContent = "Carregando…";
-      msg.className = "log";
-      try {
-        const r = await fetch("/api/mobile/status");
-        const d = await r.json();
-        const total = d.cloud?.total ?? "—";
-        document.getElementById("stat-total").textContent = total;
-        document.getElementById("stat-detail").textContent =
-          `storage: ${d.cloud?.storage ?? "?"} | R2: ${d.cloud?.hasR2 ?? "?"}`;
-        const wf = d.workflow;
-        document.getElementById("wf-status").textContent = wf
-          ? `${wf.status} ${wf.conclusion || ""} — ${wf.createdAt || ""}`
-          : "Nenhuma execução recente";
-        if (wf?.url) document.getElementById("link-actions").href = wf.url;
-        msg.textContent = "Status OK";
-        msg.className = "log ok";
-      } catch (e) {
-        msg.textContent = "Erro: " + e.message;
-        msg.className = "log err";
-      }
-    }
-
-    async function trigger(mode) {
-      const pin = getPin();
-      if (!pin) { pinScreen.classList.remove("hidden"); mainScreen.classList.add("hidden"); return; }
-      msg.textContent = "Disparando " + mode + "…";
-      msg.className = "log";
-      try {
-        const r = await fetch("/api/mobile/trigger", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Mobile-Pin": pin },
-          body: JSON.stringify({ mode, deploy: true, manga_parallel: mode === "hyper" ? "3" : "2" })
-        });
-        const d = await r.json();
-        if (!d.ok) throw new Error(d.error || "Falhou");
-        msg.textContent = "✓ " + d.message;
-        msg.className = "log ok";
-        setTimeout(refresh, 3000);
-      } catch (e) {
-        msg.textContent = "Erro: " + e.message;
-        msg.className = "log err";
-      }
-    }
-
-    document.getElementById("btn-hyper").onclick = () => trigger("hyper");
-    document.getElementById("btn-ultra").onclick = () => trigger("ultra");
-    document.getElementById("btn-refresh").onclick = refresh;
-  </script>
+  <script src="/mobile/app.js" type="module"></script>
 </body>
 </html>

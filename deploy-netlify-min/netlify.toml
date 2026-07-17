@@ -9,7 +9,10 @@
   included_files = [
     "data/cloud/chapters-index.json",
     "data/terabox/chapters-index.json",
-    "node_modules/terabox-api/**"
+    "scripts/cloud/**",
+    "scripts/terabox/client.mjs",
+    "node_modules/terabox-api/**",
+    "node_modules/dotenv/**"
   ]
 
 [[redirects]]

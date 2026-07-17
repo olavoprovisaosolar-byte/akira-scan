@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T04:52:59.433Z",
+  "updatedAt": "2026-07-17T15:24:37.738Z",
   "minScore": 0.8,
   "totalAkira": 433,
   "totalNexus": 13674,
@@ -2548,6 +2548,12 @@
       "nexusSlug": "vou-me-aposentar-depois-de-salvar-o-mundo",
       "akiraId": "obra-a2b8bd69",
       "title": "Vou Me Aposentar Depois de Salvar o Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "test-slug",
+      "akiraId": "obra-0b513df3",
+      "title": "Test Manga",
       "enabled": true
     }
   ]

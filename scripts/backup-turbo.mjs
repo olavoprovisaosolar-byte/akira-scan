@@ -1,6 +1,6 @@
 /**
  * Modo turbo — reinicia backup com env otimizado.
- * Pare o upload Terabox antes para liberar banda.
+ *   node scripts/backup-turbo.mjs --sync-new   # só caps novos (não PC, não Terabox)
  */
 import { spawn } from "child_process";
 import path from "path";

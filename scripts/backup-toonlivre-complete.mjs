@@ -39,7 +39,6 @@ import {
     obterToken,
     TOONLIVRE_BASE
 } from "../netlify/functions/toonlivre-client.mjs";
-import { capEnviadoTerabox } from "./terabox/upload-registry.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -64,6 +63,8 @@ const REPORT_FILE = path.join(BACKUP, "complete-report.json");
 const LOG_FILE = path.join(ROOT, "logs", "backup-complete.log");
 
 const FRESH = process.argv.includes("--fresh");
+const SYNC_NEW = process.argv.includes("--sync-new");
+const FORCE_META = SYNC_NEW || process.argv.includes("--refresh-meta");
 const RESUME = !FRESH;
 const LIMIT = Number(process.argv.find((a) => a.startsWith("--limit="))?.split("=")[1] || 0);
 const MANGA_FILTER = process.argv.find((a) => a.startsWith("--manga="))?.split("=")[1] || "";
@@ -335,18 +336,6 @@ async function baixarCapitulo(mangaId, cap, dirs, state, pw) {
     const entry = state.mangas[mangaId]?.chapters?.[capId];
     const locais = paginasExistentes(legacyPagesDir);
 
-    if (capEnviadoTerabox(mangaId, capId)) {
-        if (!state.mangas[mangaId].chapters) state.mangas[mangaId].chapters = {};
-        state.mangas[mangaId].chapters[capId] = {
-            done: true,
-            pages: entry?.pages || locais.length || 0,
-            terabox: true,
-            skippedLocal: true
-        };
-        state.stats.capitulosOk++;
-        return true;
-    }
-
     if (locais.length > 0) {
         if (!state.mangas[mangaId].chapters) state.mangas[mangaId].chapters = {};
         state.mangas[mangaId].chapters[capId] = {
@@ -358,7 +347,7 @@ async function baixarCapitulo(mangaId, cap, dirs, state, pw) {
         return true;
     }
 
-    // Marcado done sem ficheiros locais: se não está no Terabox, tenta baixar de novo.
+    // Marcado done sem ficheiros locais: tenta baixar de novo.
 
     let pageUrls = null;
     if (USE_PW && pw) {
@@ -459,7 +448,7 @@ async function backupObra(mangaId, state, pw) {
     let raw;
     const metaPath = path.join(mangaDir, "meta.json");
     try {
-        if (fs.existsSync(metaPath)) {
+        if (!FORCE_META && fs.existsSync(metaPath)) {
             raw = JSON.parse(fs.readFileSync(metaPath, "utf8"));
         } else {
             raw = await obterMangaPorSlug(mangaId);
@@ -489,6 +478,19 @@ async function backupObra(mangaId, state, pw) {
     }
 
     const caps = capsFromMeta(raw);
+    if (SYNC_NEW) {
+        const pendentes = caps.filter((c) => {
+            const pagesDir = path.join(mangaDir, "chapters", c.id, "pages");
+            if (paginasExistentes(pagesDir).length > 0) return false;
+            return !capEnviadoTerabox(mangaId, c.id);
+        });
+        if (!pendentes.length) {
+            log(`    ⏭ sem caps novos (${caps.length} já local/Terabox)`);
+            state.mangas[mangaId].done = true;
+            return;
+        }
+        log(`    ${pendentes.length} cap(s) novo(s) de ${caps.length}`);
+    }
     const prevTotal = state.mangas[mangaId]?.capsListed;
     if (!prevTotal) {
         state.stats.capitulosTotal += caps.length;
@@ -616,7 +618,9 @@ async function main() {
 
         let fila = state.mangaIds;
         if (MANGA_FILTER) fila = fila.filter((id) => id === MANGA_FILTER);
-        else if (!process.argv.includes("--all")) {
+        else if (SYNC_NEW) {
+            log(`  Modo sync-new: ${fila.length} obras (meta fresco, só caps ausentes)`);
+        } else if (!process.argv.includes("--all")) {
             const resumeFrom = state.mangaIndex || 0;
             fila = fila.slice(resumeFrom).filter((id) => !obraCompleta(id, state.mangas[id]));
             log(`  ${fila.length} obras pendentes (retomando após índice ${resumeFrom})`);

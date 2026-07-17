@@ -1,11 +1,15 @@
 /**
  * Cliente da API de utilizadores (Netlify Blobs).
  */
-import { cloudApiUrl } from "./site-config.js";
+import { cloudApiUrl, USER_API_BASE } from "./site-config.js";
 
 const SESSION_KEY = "akirascan_sessao";
 
 function baseUrl(acao) {
+    if (USER_API_BASE) {
+        const base = USER_API_BASE.replace(/\/$/, "");
+        return `${base}/api/user/${acao}`;
+    }
     return cloudApiUrl(`api/user/${acao}`);
 }
 

@@ -19,16 +19,13 @@ function json(statusCode, data) {
 }
 
 function envGet(key) {
+    try {
+        if (typeof Netlify !== "undefined" && Netlify.env?.get) {
+            const v = Netlify.env.get(key);
+            if (v != null && String(v).trim() !== "") return String(v);
+        }
+    } catch { /* fora do runtime Netlify */ }
     return process.env[key] || "";
-}
-
-function extrairNdus() {
-    const ndus = envGet("TERABOX_NDUS").trim();
-    if (ndus) return ndus;
-    const cookie = envGet("TERABOX_COOKIE").trim();
-    if (!cookie) return null;
-    const match = cookie.match(/(?:^|;\s*)ndus=([^;]+)/i);
-    return match?.[1] || null;
 }
 
 function lerIndice() {
@@ -66,22 +63,13 @@ function parseEvent(event) {
     };
 }
 
-async function criarCliente() {
-    const ndus = extrairNdus();
-    if (!ndus) throw new Error("TERABOX_NDUS não configurado no Netlify.");
-    const { TeraBoxApp } = await import("terabox-api");
-    const app = new TeraBoxApp(ndus, "ndus");
-    await app.checkLogin();
-    await app.updateAppData();
-    return app;
+function apiOrigin(host) {
+    return (envGet("URL") || envGet("DEPLOY_URL") || `https://${host}`).replace(/\/$/, "");
 }
 
-function ordenarPaginas(paths) {
-    return [...paths].sort((a, b) => {
-        const na = Number(String(a).match(/(\d+)/)?.[1] || 0);
-        const nb = Number(String(b).match(/(\d+)/)?.[1] || 0);
-        return na - nb || String(a).localeCompare(String(b));
-    });
+async function loadResolver() {
+    const modPath = path.join(__dirname, "..", "..", "scripts", "cloud", "cloud-resolver.mjs");
+    return import(`file://${modPath.replace(/\\/g, "/")}`);
 }
 
 exports.handler = async (event) => {
@@ -95,7 +83,6 @@ exports.handler = async (event) => {
 
         const { pathname, mangaId, capId, n, host } = parseEvent(event);
         const isStatus = pathname.endsWith("/status") || pathname === "/api/cloud" || pathname.endsWith("/cloud-chapters");
-        // /pages antes de /page — senão "pages" casa com "page"
         const isPages = pathname.endsWith("/pages") || /\/cloud\/pages$/.test(pathname);
         const isPage = pathname.endsWith("/page") || /\/cloud\/page$/.test(pathname);
 
@@ -131,50 +118,26 @@ exports.handler = async (event) => {
             });
         }
 
-        const client = await criarCliente();
-        const res = await client.getRemoteDir(info.remote);
-        const entries = res.list || res.info || res.entries || [];
-        const PAGE_EXT = /\.(webp|jpg|jpeg|png)$/i;
-        const paths = ordenarPaginas(
-            entries
-                .filter((e) => !(e.isdir === 1 || e.isdir === true))
-                .map((e) => e.path || `${info.remote}/${e.server_filename}`)
-                .filter((p) => PAGE_EXT.test(p))
-        );
+        const { paginasComUrlsEstaveis, buscarPaginaRemota } = await loadResolver();
+        const origin = apiOrigin(host);
 
         if (isPage) {
-            const pageNum = Number(n);
-            const filePath = paths[pageNum - 1];
-            if (!filePath) return json(404, { error: "Página não encontrada." });
-            const meta = await client.getFileMeta([filePath]);
-            const item = (meta?.info || meta?.list || [])[0];
-            const dlink = item?.dlink || item?.dlink_url;
-            if (!dlink) return json(502, { error: "Link de leitura indisponível." });
-            const img = await fetch(dlink, { redirect: "follow" });
-            if (!img.ok) return json(502, { error: `Falha ao carregar imagem (${img.status}).` });
-            const buf = Buffer.from(await img.arrayBuffer());
-            const upstreamType = String(img.headers.get("content-type") || "").toLowerCase();
-            const contentType = upstreamType.startsWith("image/")
-                ? upstreamType
-                : "image/webp";
+            const { contentType, buffer } = await buscarPaginaRemota(mangaId, capId, n);
+            const upstreamType = String(contentType || "").toLowerCase();
+            const resolvedType = upstreamType.startsWith("image/") ? upstreamType : "image/webp";
             return {
                 statusCode: 200,
                 headers: cors({
-                    "Content-Type": contentType,
+                    "Content-Type": resolvedType,
                     "Cache-Control": "public, max-age=86400, immutable"
                 }),
                 isBase64Encoded: true,
-                body: buf.toString("base64")
+                body: Buffer.from(buffer).toString("base64")
             };
         }
 
         if (isPages || (mangaId && capId)) {
-            const origin = (envGet("URL") || envGet("DEPLOY_URL") || `https://${host}`).replace(/\/$/, "");
-            const pages = paths.map((_, i) => ({
-                index: i,
-                url: `${origin}/api/cloud/page?m=${encodeURIComponent(mangaId)}&ch=${encodeURIComponent(capId)}&n=${i + 1}`,
-                origem: "remoto"
-            }));
+            const pages = await paginasComUrlsEstaveis(mangaId, capId, origin);
             return json(200, { pages, mangaId, capId, total: pages.length });
         }
 

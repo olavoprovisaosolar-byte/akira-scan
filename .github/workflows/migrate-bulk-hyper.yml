@@ -31,6 +31,14 @@ on:
         description: "Mangás paralelos (hyper=3; use 2 se OOM no runner)"
         required: false
         default: "3"
+      all_chapters:
+        description: "Importar todos os caps pendentes (não só o último)"
+        required: false
+        default: "false"
+      sync_only_new:
+        description: "Só caps novos — latest-only por mangá (rápido)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -75,6 +83,8 @@ jobs:
         env:
           SYNC_INTERVAL_MINUTES: ${{ inputs.sync_interval_minutes }}
           NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
+          NEXUSTOONS_ALL_CHAPTERS: ${{ inputs.all_chapters == 'true' && '1' || '0' }}
+          NEXUSTOONS_SYNC_ONLY_NEW: ${{ inputs.sync_only_new == 'true' && '1' || '0' }}
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
           TELEGRA_SKIP: "0"
           HOSTING_ADAPTER: telegra

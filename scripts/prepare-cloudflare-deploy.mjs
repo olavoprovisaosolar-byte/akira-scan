@@ -1,7 +1,6 @@
 /**
  * Prepara pacote estático para Cloudflare Pages.
- * Capítulos (imagens + índice) ficam fora do deploy — Catbox + API GitHub.
- * API /api/cloud/* fica em functions/ na raiz do repo (Pages Functions).
+ * Inclui índice de capítulos + páginas cloud-static; API /api/cloud/* como fallback.
  */
 import fs from "fs";
 import path from "path";
@@ -76,8 +75,31 @@ function copyData() {
         if (fs.existsSync(src)) copyFile(src, path.join(dataOut, f));
     }
 
-    // Capítulos e imagens ficam no Catbox; índice via API (GitHub raw) — não no pacote estático.
-    console.log("  Cloud: índice via /api/cloud/* (GitHub); imagens Catbox.moe");
+    const cloudOut = path.join(dataOut, "cloud");
+    mkdirp(cloudOut);
+    const cloudIdx = path.join(ROOT, "data", "cloud", "chapters-index.json");
+    if (fs.existsSync(cloudIdx)) {
+        copyFile(cloudIdx, path.join(cloudOut, "chapters-index.json"));
+        try {
+            const data = JSON.parse(fs.readFileSync(cloudIdx, "utf8"));
+            const total = Object.keys(data.caps || {}).length || data.total || 0;
+            console.log(`  Cloud index estático: ${total} caps`);
+        } catch { /* ignore */ }
+    } else {
+        console.warn("  Aviso: data/cloud/chapters-index.json ausente");
+    }
+
+    const pagesSrc = path.join(ROOT, "data", "cloud", "pages");
+    const pagesOut = path.join(cloudOut, "pages");
+    const skipPages = ["1", "true", "yes"].includes(String(process.env.AKIRA_SKIP_CLOUD_PAGES || "").toLowerCase());
+    if (!skipPages && fs.existsSync(pagesSrc)) {
+        console.log("  Copiando páginas cloud-static (data/cloud/pages)…");
+        copyDirFiltered(pagesSrc, pagesOut);
+    } else if (skipPages) {
+        console.log("  AKIRA_SKIP_CLOUD_PAGES=1 — páginas omitidas (já no CDN)");
+    }
+
+    console.log("  Cloud: índice estático + páginas locais; API /api/cloud/* como fallback");
 }
 
 function copyBackupCovers() {
@@ -103,6 +125,7 @@ function copyBackupCovers() {
 
 function writeCloudflareMeta() {
     fs.writeFileSync(path.join(OUT, "_redirects"), [
+        "/mobile  /mobile/  301",
         "/biblioteca/*  /data/toonlivre-backup/:splat  200",
         "/backup/*  /data/toonlivre-backup/:splat  200",
         "/*  /index.html  200"
@@ -112,8 +135,20 @@ function writeCloudflareMeta() {
         "/data/catalogo*.json",
         "  Cache-Control: public, max-age=120, stale-while-revalidate=600",
         "",
+        "/data/cloud/chapters-index.json",
+        "  Cache-Control: public, max-age=300, stale-while-revalidate=600",
+        "",
+        "/data/cloud/pages/*",
+        "  Cache-Control: public, max-age=86400, immutable",
+        "",
         "/data/toonlivre-backup/*",
-        "  Cache-Control: public, max-age=86400"
+        "  Cache-Control: public, max-age=86400",
+        "",
+        "/mobile/*",
+        "  Cache-Control: public, max-age=300, stale-while-revalidate=600",
+        "",
+        "/api/mobile/*",
+        "  Cache-Control: no-store"
     ].join("\n") + "\n", "utf8");
 
     fs.writeFileSync(path.join(OUT, "js", "host-env.js"), [

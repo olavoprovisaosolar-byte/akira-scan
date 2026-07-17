@@ -88,10 +88,10 @@ function copyCatalog() {
         const src = path.join(ROOT, "data", f);
         if (fs.existsSync(src)) copyFile(src, path.join(dataOut, f));
     }
-    const tbIdx = path.join(ROOT, "data", "terabox", "chapters-index.json");
-    if (fs.existsSync(tbIdx)) {
-        mkdirp(path.join(dataOut, "terabox"));
-        copyFile(tbIdx, path.join(dataOut, "terabox", "chapters-index.json"));
+    const cloudIdx = path.join(ROOT, "data", "cloud", "chapters-index.json");
+    if (fs.existsSync(cloudIdx)) {
+        mkdirp(path.join(dataOut, "cloud"));
+        copyFile(cloudIdx, path.join(dataOut, "cloud", "chapters-index.json"));
     }
 }
 
@@ -154,7 +154,7 @@ function main() {
     console.log("  Copiando site estático...");
     copyStaticSite();
     console.log("  Copiando catálogo...");
-    spawnSync(process.execPath, [path.join(__dirname, "build-terabox-chapters-index.mjs")], {
+    spawnSync(process.execPath, [path.join(__dirname, "build-catalog-index.mjs")], {
         cwd: ROOT, stdio: "inherit"
     });
     copyCatalog();

@@ -27,11 +27,9 @@ jobs:
 
       - run: npm ci
 
-      - name: Build catalog + remote chapter index
+      - name: Build catalog + cloud chapter index
         run: |
           node scripts/build-catalog-index.mjs
-          # Sem upload-state no CI: preserva data/*/chapters-index.json commitado
-          node scripts/build-terabox-chapters-index.mjs
 
       - name: Prepare GitHub Pages package
         run: node scripts/prepare-github-deploy.mjs

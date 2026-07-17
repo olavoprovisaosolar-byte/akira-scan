@@ -1,6 +1,6 @@
 /**
  * Prepara pacote estático para GitHub Pages (sem Netlify Functions).
- * Inclui catálogo, índice Terabox, capas backup — capítulos via Terabox/dlinks.
+ * Inclui catálogo, índice cloud, capas backup — capítulos via API Netlify.
  */
 import fs from "fs";
 import path from "path";
@@ -100,28 +100,16 @@ function copyData() {
 
     const cloudOut = path.join(dataOut, "cloud");
     mkdirp(cloudOut);
-    const candidates = [
-        path.join(ROOT, "data", "cloud", "chapters-index.json"),
-        path.join(ROOT, "data", "terabox", "chapters-index.json")
-    ];
-    let best = null;
-    let bestTotal = -1;
-    for (const src of candidates) {
-        if (!fs.existsSync(src)) continue;
+    const src = path.join(ROOT, "data", "cloud", "chapters-index.json");
+    if (fs.existsSync(src)) {
+        copyFile(src, path.join(cloudOut, "chapters-index.json"));
         try {
             const data = JSON.parse(fs.readFileSync(src, "utf8"));
             const total = Object.keys(data.caps || {}).length || data.total || 0;
-            if (total > bestTotal) {
-                best = src;
-                bestTotal = total;
-            }
+            console.log(`  Cloud index: ${total} caps`);
         } catch { /* ignore */ }
-    }
-    if (best) {
-        copyFile(best, path.join(cloudOut, "chapters-index.json"));
-        console.log(`  Cloud index: ${bestTotal} caps ← ${path.relative(ROOT, best)}`);
     } else {
-        console.warn("  Aviso: chapters-index.json ausente");
+        console.warn("  Aviso: data/cloud/chapters-index.json ausente");
     }
 }
 
@@ -156,17 +144,10 @@ function main() {
     const basePath = repoBasePath();
     console.log(`  Base path: ${basePath || "/"}`);
 
-    console.log("  Build catálogo + índice Terabox...");
+    console.log("  Build catálogo...");
     spawnSync(process.execPath, [path.join(__dirname, "build-catalog-index.mjs")], {
         cwd: ROOT, stdio: "inherit"
     });
-    if (fs.existsSync(path.join(ROOT, "data", "terabox", "upload-state.json"))) {
-        spawnSync(process.execPath, [path.join(__dirname, "build-terabox-chapters-index.mjs")], {
-            cwd: ROOT, stdio: "inherit"
-        });
-    } else if (fs.existsSync(path.join(ROOT, "data", "terabox", "chapters-index.json"))) {
-        console.log("  Índice Terabox: usando chapters-index.json existente");
-    }
 
     rmrf(OUT);
     mkdirp(OUT);
@@ -174,7 +155,7 @@ function main() {
     writeSiteConfig(basePath);
     console.log("  Copiando site estático...");
     copyStaticSite(basePath);
-    console.log("  Copiando catálogo + Terabox...");
+    console.log("  Copiando catálogo + índice cloud...");
     copyData();
     console.log("  Copiando capas backup...");
     copyBackupCovers();

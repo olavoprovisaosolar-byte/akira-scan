@@ -203,21 +203,13 @@ function servirBibliotecaEstatico(req, res, urlPath) {
     fs.createReadStream(filePath).pipe(res);
 }
 
-function servirTeraboxCache(res) {
-    const cachePath = path.join(ROOT, "data", "terabox", "mangas-cache.json");
-    if (!fs.existsSync(cachePath)) {
-        return corsJson(res, {
-            atualizadoEm: null,
-            origem: "terabox",
-            pasta: process.env.TERABOX_REMOTE_DIR || "/meus_mangas",
-            total: 0,
-            itens: [],
-            aviso: "Cache vazio. Execute: npm run terabox:sync"
-        });
+function servirCloudIndex(res) {
+    const idxPath = path.join(ROOT, "data", "cloud", "chapters-index.json");
+    if (!fs.existsSync(idxPath)) {
+        return corsJson(res, { caps: {}, porManga: {}, aviso: "Índice cloud ausente." });
     }
     try {
-        const data = JSON.parse(fs.readFileSync(cachePath, "utf8"));
-        return corsJson(res, data);
+        return corsJson(res, JSON.parse(fs.readFileSync(idxPath, "utf8")));
     } catch (e) {
         return corsJson(res, { error: e.message }, 500);
     }
@@ -270,56 +262,42 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    if (url.pathname === "/api/terabox/catalog" || url.pathname === "/data/terabox/mangas-cache.json") {
-        servirTeraboxCache(res);
+    if (url.pathname === "/data/cloud/chapters-index.json") {
+        servirCloudIndex(res);
         return;
     }
 
-    if (url.pathname === "/data/cloud/chapters-index.json" || url.pathname === "/data/terabox/chapters-index.json") {
-        const idxPath = path.join(ROOT, "data", "terabox", "chapters-index.json");
-        if (!fs.existsSync(idxPath)) {
-            return corsJson(res, { caps: {}, porManga: {}, aviso: "Execute: npm run terabox:build-index" });
-        }
-        try {
-            return corsJson(res, JSON.parse(fs.readFileSync(idxPath, "utf8")));
-        } catch (e) {
-            return corsJson(res, { error: e.message }, 500);
-        }
+    if (url.pathname === "/api/cloud/chapters-index" || url.pathname === "/api/cloud/index") {
+        servirCloudIndex(res);
+        return;
     }
 
-    if (url.pathname === "/api/cloud/pages") {
+    if (url.pathname === "/api/cloud/status" || url.pathname === "/api/cloud") {
         try {
-            const { paginasComUrlsEstaveis } = await import("./cloud/cloud-resolver.mjs");
-            const origin = `http://127.0.0.1:${PORT}`;
-            const pages = await paginasComUrlsEstaveis(
-                url.searchParams.get("m"),
-                url.searchParams.get("ch"),
-                origin
-            );
-            return corsJson(res, { pages });
+            const idxPath = path.join(ROOT, "data", "cloud", "chapters-index.json");
+            const idx = fs.existsSync(idxPath)
+                ? JSON.parse(fs.readFileSync(idxPath, "utf8"))
+                : { caps: {} };
+            const mangaId = url.searchParams.get("m") || "";
+            const capId = url.searchParams.get("ch") || "";
+            const info = mangaId && capId ? idx.caps?.[`${mangaId}/${capId}`] : null;
+            const legivel = !!(info?.pages?.some((p) => String(p.url || "").includes("telegra.ph")));
+            return corsJson(res, {
+                ok: true,
+                service: "cloud-chapters",
+                hosting: "telegra",
+                total: idx.total || Object.keys(idx.caps || {}).length,
+                cap: info ? { done: !!info.done, legivel, pages: info.pages?.length || 0 } : null
+            });
         } catch (e) {
             return corsJson(res, { error: e.message }, 502);
         }
     }
 
-    if (url.pathname === "/api/cloud/page") {
-        try {
-            const { buscarPaginaRemota } = await import("./cloud/cloud-resolver.mjs");
-            const { contentType, buffer } = await buscarPaginaRemota(
-                url.searchParams.get("m"),
-                url.searchParams.get("ch"),
-                url.searchParams.get("n")
-            );
-            res.writeHead(200, {
-                "Content-Type": contentType,
-                "Access-Control-Allow-Origin": "*",
-                "Cache-Control": "public, max-age=86400"
-            });
-            res.end(Buffer.from(buffer));
-        } catch (e) {
-            corsJson(res, { error: e.message }, 502);
-        }
-        return;
+    if (url.pathname === "/api/cloud/pages" || url.pathname === "/api/cloud/page") {
+        return corsJson(res, {
+            error: "Proxy Terabox descontinuado. Capítulos usam URLs Telegra.ph no índice estático."
+        }, 410);
     }
 
     if (url.pathname.startsWith("/api/biblioteca")) {

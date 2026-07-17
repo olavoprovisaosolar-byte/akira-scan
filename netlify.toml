@@ -8,15 +8,10 @@
     "data/catalogo.json",
     "data/catalogo-index.json",
     "data/cloud/chapters-index.json",
-    "data/terabox/chapters-index.json",
     "data/toonlivre-backup/mangas/*/meta.json",
     "data/toonlivre-backup/mangas/*/chapters/*/meta.json",
-    "scripts/cloud/**",
-    "scripts/terabox/client.mjs",
     "js/mangas-destaque.js",
-    "js/services/chapter-label.js",
-    "node_modules/terabox-api/**",
-    "node_modules/dotenv/**"
+    "js/services/chapter-label.js"
   ]
 
 [[redirects]]
@@ -31,7 +26,7 @@
   status = 200
   force = true
 
-# Rotas /api/cloud/* → função cloud-chapters
+# Rotas /api/cloud/* → status do índice (Telegra.ph — sem proxy Terabox)
 
 [[redirects]]
   from = "/api/cloud/*"

@@ -6,7 +6,9 @@ config/toonlivre.env
 .playwright-browsers/
 deploy-netlify/
 deploy-github/
+deploy-cloudflare/
 deploy-firebase/
+.dev.vars
 deploy-snapshot/
 logs/
 

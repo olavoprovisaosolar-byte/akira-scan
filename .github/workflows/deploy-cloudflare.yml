@@ -1,0 +1,49 @@
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mobile/**"
+      - "functions/**"
+      - "scripts/prepare-cloudflare-deploy.mjs"
+      - "scripts/deploy-cloudflare.mjs"
+      - "data/catalogo*.json"
+      - "js/**"
+      - "css/**"
+      - "*.html"
+  workflow_dispatch:
+    inputs:
+      auto_start_migration:
+        description: "Disparar migração hyper após deploy (opcional)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-cloudflare
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build + deploy (sem páginas locais — caps via API/Catbox/Telegra)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_PAGES_PROJECT: akira-scan
+          CF_PAGES_BRANCH: main
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+        run: npm run deploy:cloudflare

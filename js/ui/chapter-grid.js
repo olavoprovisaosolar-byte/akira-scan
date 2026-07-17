@@ -5,10 +5,13 @@ import { escHtml } from "../app-shell.js";
 import { linkLeitor } from "../core/router.js";
 import { parseChapterNumber } from "../services/chapter-label.js";
 
+export function capsVisiveis(manga) {
+    return (manga?.capitulos || []).filter((c) => c.id && c.legivel === true);
+}
+
 export function contarCapsLegiveis(manga) {
-    const caps = manga?.capitulos || [];
-    const legiveis = caps.filter((c) => c.legivel === true && c.id).length;
-    return { total: caps.length, legiveis };
+    const legiveis = capsVisiveis(manga).length;
+    return { total: legiveis, legiveis };
 }
 
 export function primeiroCapLegivel(manga) {
@@ -26,7 +29,7 @@ function capValido(cap) {
 }
 
 export function renderChapterGrid(manga, { filter = "all" } = {}) {
-    let caps = [...(manga.capitulos || [])].sort(
+    let caps = capsVisiveis(manga).sort(
         (a, b) => parseChapterNumber(b) - parseChapterNumber(a)
     );
 

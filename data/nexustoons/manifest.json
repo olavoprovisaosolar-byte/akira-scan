@@ -4559,9 +4559,10 @@
         },
         "80": {
           "capId": "cap-b297c941-80",
-          "captured": false,
-          "error": "maxContentLength size of 5243904 exceeded",
-          "updatedAt": "2026-07-17T11:26:12.809Z"
+          "captured": true,
+          "error": "Falha parcial: páginas 1",
+          "updatedAt": "2026-07-17T15:43:35.994Z",
+          "hosted": false
         },
         "81": {
           "capId": "cap-575f953d-81",
@@ -4684,7 +4685,7 @@
       "akiraId": "obra-f302fde3",
       "nexusId": "2",
       "title": "A Ascensão da Cobra Imortal",
-      "lastChecked": "2026-07-17T12:49:38.918Z"
+      "lastChecked": "2026-07-17T15:42:13.741Z"
     },
     "a-ascensao-do-espadachim-de-rank-baixo": {
       "chapters": {
@@ -4951,7 +4952,7 @@
       "akiraId": "obra-0ca641d6",
       "nexusId": "17744",
       "title": "A Ascensão do Imperador da Espada de Namgung",
-      "lastChecked": "2026-07-17T12:52:41.368Z"
+      "lastChecked": "2026-07-17T15:49:33.738Z"
     },
     "aventura-de-um-barbaro-em-um-mundo-de-fantasia": {
       "chapters": {
@@ -12224,7 +12225,7 @@
           "captured": true,
           "hosted": false,
           "error": "Falha parcial: páginas 22",
-          "updatedAt": "2026-07-17T11:36:22.157Z"
+          "updatedAt": "2026-07-17T16:06:56.188Z"
         },
         "55": {
           "capId": "cap-269d9f3e-55",
@@ -12419,7 +12420,7 @@
       "akiraId": "obra-7b2fba6f",
       "nexusId": "23",
       "title": "A Regressão do Promotor Mestre da Espada",
-      "lastChecked": "2026-07-17T11:33:33.246Z"
+      "lastChecked": "2026-07-17T16:01:55.645Z"
     },
     "a-serpente-negra": {
       "chapters": {

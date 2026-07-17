@@ -10,6 +10,37 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const FULL = path.join(ROOT, "data", "catalogo.json");
 const INDEX = path.join(ROOT, "data", "catalogo-index.json");
+const CLOUD_INDEX = path.join(ROOT, "data", "cloud", "chapters-index.json");
+
+function lerIndiceCloud() {
+    if (!fs.existsSync(CLOUD_INDEX)) return null;
+    try {
+        return JSON.parse(fs.readFileSync(CLOUD_INDEX, "utf8"));
+    } catch {
+        return null;
+    }
+}
+
+/** Caps prontos — Telegra.ph, API R2 ou data/cloud/pages/ legado. */
+function capLegivelIndice(rec) {
+    if (!rec?.done) return false;
+    return !!(rec.pages?.some((p) => {
+        const u = String(p.url || "");
+        return u.includes("telegra.ph")
+            || u.includes("catbox.moe")
+            || u.includes("/api/cloud/page")
+            || u.includes("/data/cloud/pages/");
+    }));
+}
+
+function prontosDoIndice(cloudIdx, mangaId) {
+    let n = 0;
+    for (const rec of Object.values(cloudIdx?.caps || {})) {
+        if (rec.mangaId === mangaId && capLegivelIndice(rec)) n++;
+    }
+    return n;
+}
+
 function coverExists(mangaId) {
     if (!mangaId) return null;
     for (const ext of ["webp", "jpg", "jpeg", "png"]) {
@@ -31,7 +62,6 @@ function fixMediaPath(p, mangaId = "") {
         out = out.replace(/^\//, "");
     }
 
-    // biblioteca/{id}/capa.* → backup cover.* (Pages não serve Biblioteca_Mangas)
     const bib = out.match(/^biblioteca\/([^/]+)\/(?:capa|cover)\.[a-z0-9]+$/i);
     if (bib) {
         const found = coverExists(bib[1]);
@@ -86,7 +116,6 @@ function slimManga(m) {
 
 const data = JSON.parse(fs.readFileSync(FULL, "utf8"));
 
-// Alinha capa/banner no catálogo completo para o Pages (sem /biblioteca/)
 let rewritten = 0;
 for (const m of data.mangas || []) {
     const capa = fixMediaPath(m.capa || m.coverUrl || "", m.id);
@@ -104,15 +133,30 @@ if (rewritten) {
     console.log(`Catálogo: ${rewritten} capas reescritas → backup cover.*`);
 }
 
-const mangas = (data.mangas || []).map(slimManga);
+const cloudIdx = lerIndiceCloud();
+
+const mangas = (data.mangas || []).map((m) => {
+    const slim = slimManga(m);
+    const syncProntos = prontosDoIndice(cloudIdx, m.id);
+    if (!syncProntos) return slim;
+    return {
+        ...slim,
+        syncProntos,
+        totalCapitulos: Math.max(syncProntos, slim.totalCapitulos || 0)
+    };
+});
 
 fs.writeFileSync(INDEX, JSON.stringify({
     fonte: "catalogo-index",
     atualizadoEm: new Date().toISOString(),
     total: mangas.length,
+    cloudIndexEm: cloudIdx?.atualizadoEm || null,
     mangas
 }), "utf8");
 
 const mb = (fs.statSync(INDEX).size / 1024 / 1024).toFixed(2);
 const withBackup = mangas.filter((m) => String(m.capa || "").includes("toonlivre-backup")).length;
+const comProntos = mangas.filter((m) => (m.syncProntos || 0) > 0).length;
+const totalProntos = mangas.reduce((n, m) => n + (m.syncProntos || 0), 0);
 console.log(`Índice: ${mangas.length} mangás → ${INDEX} (${mb} MB, capas backup: ${withBackup})`);
+console.log(`Linkados: ${comProntos} mangás com caps legíveis (${totalProntos} caps prontos no índice)`);

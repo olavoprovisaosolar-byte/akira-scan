@@ -1,12 +1,4 @@
 import { idleState, loadingState, readyState, errorState } from "../../shared/async-status.js";
-
-function isRealPages(pages) {
-    if (!Array.isArray(pages) || !pages.length) return false;
-    const urls = pages.map((p) => (typeof p === "string" ? p : p?.url || "")).filter(Boolean);
-    if (!urls.length) return false;
-    if (urls.every((u) => u.includes("placehold.co"))) return false;
-    return true;
-}
 export function createChapterLoader(deps) {
     let state = idleState();
     const listeners = new Set();
@@ -39,7 +31,7 @@ export function createChapterLoader(deps) {
                     pages = await deps.getOffline(mangaId, chapterId);
                 }
                 catch { /* continua */ }
-                if (pages?.length && isRealPages(pages)) {
+                if (pages?.length) {
                     if (token !== generation)
                         return null;
                     setState(readyState(pages));
@@ -52,13 +44,11 @@ export function createChapterLoader(deps) {
                 if (!Array.isArray(pages) || !pages.length) {
                     throw new Error("Capítulo sem páginas.");
                 }
-                if (isRealPages(pages)) {
-                    try {
-                        await deps.saveOffline(mangaId, chapterId, pages);
-                    }
-                    catch (e) {
-                        console.warn("[ChapterLoader] Falha ao persistir offline:", e.message);
-                    }
+                try {
+                    await deps.saveOffline(mangaId, chapterId, pages);
+                }
+                catch (e) {
+                    console.warn("[ChapterLoader] Falha ao persistir offline:", e.message);
                 }
                 setState(readyState(pages));
                 console.debug(`[ChapterLoader] ${fonte} — ${pages.length} páginas`);
@@ -69,7 +59,7 @@ export function createChapterLoader(deps) {
                     return null;
                 try {
                     const offline = await deps.getOffline(mangaId, chapterId);
-                    if (offline?.length && isRealPages(offline)) {
+                    if (offline?.length) {
                         setState(readyState(offline));
                         return offline;
                     }

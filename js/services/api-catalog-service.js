@@ -1,7 +1,7 @@
 /**
  * Camada API — catálogo local + seed (`data/catalogo.json`).
  */
-import { assetUrl, isStaticHost, cloudApiDisponivel } from "../site-config.js";
+import { assetUrl, isStaticHost } from "../site-config.js";
 import {
     bibliotecaDisponivel,
     listarMangasBiblioteca,
@@ -125,7 +125,7 @@ async function listaDaApi() {
                 if (!info) return m;
                 return {
                     ...m,
-                    syncProntos: info.doneCaps || 0,
+                    syncProntos: info.legibleCaps ?? info.doneCaps ?? 0,
                     totalCapitulos: Math.max(m.totalCapitulos || 0, info.totalCaps || 0)
                 };
             });
@@ -284,14 +284,15 @@ export async function obterPaginasLeituraApi(mangaId, numeroCap, chapterId = nul
         try {
             const { capRemotoInfo } = await import("./cloud-chapters-service.js");
             const info = await capRemotoInfo(mangaId, capId);
-            if (info?.done && cloudApiDisponivel()) {
+            const hasTelegra = info?.pages?.some((p) => String(p.url || "").includes("telegra.ph"));
+            if (hasTelegra) {
                 throw new Error("Não foi possível carregar as páginas deste capítulo. Tenta novamente.");
-            }
-            if (info?.done && !cloudApiDisponivel()) {
-                throw new Error("Capítulo em sincronização. Configure a API de leitura.");
             }
             if (!info?.done) {
                 throw new Error("Este capítulo ainda não está disponível online.");
+            }
+            if (info?.remote && !hasTelegra) {
+                throw new Error("Capítulo legado (Terabox). Requer migração para Telegra.ph.");
             }
         } catch (e) {
             if (e.message && !e.message.includes("Cannot")) throw e;

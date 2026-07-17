@@ -1,12 +1,18 @@
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const files = ["terabox.html"];
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.join(__dirname, "..");
+
+const files = fs.readdirSync(ROOT).filter((f) => f.endsWith(".html"));
 
 for (const p of files) {
-    const t = fs.readFileSync(p, "utf8");
+    const full = path.join(ROOT, p);
+    const t = fs.readFileSync(full, "utf8");
     const fixed = Buffer.from(t, "latin1").toString("utf8");
     if (/Ã.|â€/.test(t) && !/Ã.|â€/.test(fixed) && !fixed.includes("\uFFFD")) {
-        fs.writeFileSync(p, fixed, "utf8");
+        fs.writeFileSync(full, fixed, "utf8");
         console.log(`${p}: latin1 roundtrip ok`);
         continue;
     }
@@ -24,6 +30,6 @@ for (const p of files) {
         .replace(/Ã£/g, "ã")
         .replace(/Ãµ/g, "õ")
         .replace(/Ãª/g, "ê");
-    fs.writeFileSync(p, manual, "utf8");
+    fs.writeFileSync(full, manual, "utf8");
     console.log(`${p}: replacements applied`);
 }

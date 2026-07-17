@@ -1,7 +1,1064 @@
 {
-  "atualizadoEm": "2026-07-04T18:45:08.345Z",
+  "atualizadoEm": "2026-07-10T02:34:14.095Z",
   "origem": "terabox",
   "pasta": "/meus_mangas",
-  "total": 0,
-  "itens": []
+  "total": 132,
+  "itens": [
+    {
+      "nome": "100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989",
+      "caminho": "/meus_mangas/100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:40:22.000Z",
+      "link": null
+    },
+    {
+      "nome": "100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260705_214612",
+      "caminho": "/meus_mangas/100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260705_214612",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:46:12.000Z",
+      "link": null
+    },
+    {
+      "nome": "100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260705_235347",
+      "caminho": "/meus_mangas/100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260705_235347",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:53:47.000Z",
+      "link": null
+    },
+    {
+      "nome": "100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260706_174022",
+      "caminho": "/meus_mangas/100-Regressao-do-Jogador-de-Nivel-Maximo__obra-24d77989_20260706_174022",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:40:22.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:21:06.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_125709",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_125709",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T04:57:09.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_194712",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_194712",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:47:12.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_204939",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_204939",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:49:39.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_212642",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_212642",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:26:42.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_225458",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260705_225458",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T14:54:58.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_012218",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_012218",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:22:18.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_134813",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_134813",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T05:48:13.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_145948",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260706_145948",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T06:59:48.000Z",
+      "link": null
+    },
+    {
+      "nome": "A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260710_112105",
+      "caminho": "/meus_mangas/A-Ascensao-do-Imperador-da-Espada-de-Namgung__obra-0ca641d6_20260710_112105",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:21:05.000Z",
+      "link": null
+    },
+    {
+      "nome": "Acumulador-de-Caracteristicas__obra-107261fb",
+      "caminho": "/meus_mangas/Acumulador-de-Caracteristicas__obra-107261fb",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:05:39.000Z",
+      "link": null
+    },
+    {
+      "nome": "Acumulador-de-Caracteristicas__obra-107261fb_20260705_205415",
+      "caminho": "/meus_mangas/Acumulador-de-Caracteristicas__obra-107261fb_20260705_205415",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:54:15.000Z",
+      "link": null
+    },
+    {
+      "nome": "Acumulador-de-Caracteristicas__obra-107261fb_20260705_213457",
+      "caminho": "/meus_mangas/Acumulador-de-Caracteristicas__obra-107261fb_20260705_213457",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:34:57.000Z",
+      "link": null
+    },
+    {
+      "nome": "Acumulador-de-Caracteristicas__obra-107261fb_20260705_232758",
+      "caminho": "/meus_mangas/Acumulador-de-Caracteristicas__obra-107261fb_20260705_232758",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:27:58.000Z",
+      "link": null
+    },
+    {
+      "nome": "Acumulador-de-Caracteristicas__obra-107261fb_20260706_160538",
+      "caminho": "/meus_mangas/Acumulador-de-Caracteristicas__obra-107261fb_20260706_160538",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:05:38.000Z",
+      "link": null
+    },
+    {
+      "nome": "Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e",
+      "caminho": "/meus_mangas/Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:33:34.000Z",
+      "link": null
+    },
+    {
+      "nome": "Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_205604",
+      "caminho": "/meus_mangas/Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_205604",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:56:04.000Z",
+      "link": null
+    },
+    {
+      "nome": "Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_213819",
+      "caminho": "/meus_mangas/Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_213819",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:38:19.000Z",
+      "link": null
+    },
+    {
+      "nome": "Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_233523",
+      "caminho": "/meus_mangas/Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260705_233523",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:35:23.000Z",
+      "link": null
+    },
+    {
+      "nome": "Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260706_163333",
+      "caminho": "/meus_mangas/Aniquilacao-do-Caminho-Celestial__obra-1dfcb77e_20260706_163333",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:33:33.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:17:35.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_194524",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_194524",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:45:24.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_204917",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_204917",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:49:17.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_212559",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_212559",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:25:59.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_225114",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260705_225114",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T14:51:14.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_012035",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_012035",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:20:36.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_134108",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_134108",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T05:41:08.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_145323",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260706_145323",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T06:53:23.000Z",
+      "link": null
+    },
+    {
+      "nome": "Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260710_111734",
+      "caminho": "/meus_mangas/Comecando-com-13-Tracos-Ocultos__obra-08f86d2b_20260710_111734",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:17:34.000Z",
+      "link": null
+    },
+    {
+      "nome": "Coracao-Ferido__obra-449e3278",
+      "caminho": "/meus_mangas/Coracao-Ferido__obra-449e3278",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-04T19:50:58.000Z",
+      "link": null
+    },
+    {
+      "nome": "Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb",
+      "caminho": "/meus_mangas/Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:29:37.000Z",
+      "link": null
+    },
+    {
+      "nome": "Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_205545",
+      "caminho": "/meus_mangas/Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_205545",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:55:45.000Z",
+      "link": null
+    },
+    {
+      "nome": "Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_213746",
+      "caminho": "/meus_mangas/Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_213746",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:37:46.000Z",
+      "link": null
+    },
+    {
+      "nome": "Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_233353",
+      "caminho": "/meus_mangas/Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260705_233353",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:33:53.000Z",
+      "link": null
+    },
+    {
+      "nome": "Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260706_162937",
+      "caminho": "/meus_mangas/Dominacao-Absoluta-no-Nivel-0__obra-1df9bcbb_20260706_162937",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:29:37.000Z",
+      "link": null
+    },
+    {
+      "nome": "Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e",
+      "caminho": "/meus_mangas/Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T11:07:44.000Z",
+      "link": null
+    },
+    {
+      "nome": "Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260705_215623",
+      "caminho": "/meus_mangas/Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260705_215623",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:56:23.000Z",
+      "link": null
+    },
+    {
+      "nome": "Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260706_001725",
+      "caminho": "/meus_mangas/Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260706_001725",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:17:25.000Z",
+      "link": null
+    },
+    {
+      "nome": "Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260706_190744",
+      "caminho": "/meus_mangas/Este-Heroi-E-Um-Supremacista-Financeiro__obra-2e09a76e_20260706_190744",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T11:07:44.000Z",
+      "link": null
+    },
+    {
+      "nome": "Estrategia-Para-Fracos-Dominar-a-Torre__obra-304574bc",
+      "caminho": "/meus_mangas/Estrategia-Para-Fracos-Dominar-a-Torre__obra-304574bc",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:32:33.000Z",
+      "link": null
+    },
+    {
+      "nome": "Estrategia-Para-Fracos-Dominar-a-Torre__obra-304574bc_20260706_003232",
+      "caminho": "/meus_mangas/Estrategia-Para-Fracos-Dominar-a-Torre__obra-304574bc_20260706_003232",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:32:32.000Z",
+      "link": null
+    },
+    {
+      "nome": "Filhos-da-Runa__obra-54297388",
+      "caminho": "/meus_mangas/Filhos-da-Runa__obra-54297388",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-04T20:27:57.000Z",
+      "link": null
+    },
+    {
+      "nome": "Logando-10-000-Anos-No-Futuro__obra-30b3ada6",
+      "caminho": "/meus_mangas/Logando-10-000-Anos-No-Futuro__obra-30b3ada6",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:33:37.000Z",
+      "link": null
+    },
+    {
+      "nome": "Logando-10-000-Anos-No-Futuro__obra-30b3ada6_20260706_003336",
+      "caminho": "/meus_mangas/Logando-10-000-Anos-No-Futuro__obra-30b3ada6_20260706_003336",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:33:36.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Escolha__obra-35d0cfff",
+      "caminho": "/meus_mangas/Me-Escolha__obra-35d0cfff",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:02:04.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f",
+      "caminho": "/meus_mangas/Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:21:28.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_205511",
+      "caminho": "/meus_mangas/Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_205511",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:55:11.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_213640",
+      "caminho": "/meus_mangas/Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_213640",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:36:40.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_233144",
+      "caminho": "/meus_mangas/Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260705_233144",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:31:44.000Z",
+      "link": null
+    },
+    {
+      "nome": "Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260706_162127",
+      "caminho": "/meus_mangas/Me-Tornei-um-Mago-de-Fantasia-Medieval__obra-1d62a32f_20260706_162127",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:21:27.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:23:28.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_131631",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_131631",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T05:16:31.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_194822",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_194822",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:48:22.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_204954",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_204954",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:49:54.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_212709",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_212709",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:27:09.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_225654",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260705_225654",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T14:56:54.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_012321",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_012321",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:23:21.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_135247",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_135247",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T05:52:47.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_150400",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260706_150400",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T07:04:00.000Z",
+      "link": null
+    },
+    {
+      "nome": "Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260710_112327",
+      "caminho": "/meus_mangas/Mestre-do-Treinamento-Marcial__obra-0d2a313e_20260710_112327",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T03:23:27.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nanotecnologia-Marcial__obra-2e64bf7c",
+      "caminho": "/meus_mangas/Nanotecnologia-Marcial__obra-2e64bf7c",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:21:42.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nanotecnologia-Marcial__obra-2e64bf7c_20260705_215935",
+      "caminho": "/meus_mangas/Nanotecnologia-Marcial__obra-2e64bf7c_20260705_215935",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:59:35.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nanotecnologia-Marcial__obra-2e64bf7c_20260706_002142",
+      "caminho": "/meus_mangas/Nanotecnologia-Marcial__obra-2e64bf7c_20260706_002142",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:21:42.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nascido-Com-Sangue-Maldito__obra-2327cc36",
+      "caminho": "/meus_mangas/Nascido-Com-Sangue-Maldito__obra-2327cc36",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:18:04.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nascido-Com-Sangue-Maldito__obra-2327cc36_20260705_214351",
+      "caminho": "/meus_mangas/Nascido-Com-Sangue-Maldito__obra-2327cc36_20260705_214351",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:43:51.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nascido-Com-Sangue-Maldito__obra-2327cc36_20260705_234805",
+      "caminho": "/meus_mangas/Nascido-Com-Sangue-Maldito__obra-2327cc36_20260705_234805",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:48:05.000Z",
+      "link": null
+    },
+    {
+      "nome": "Nascido-Com-Sangue-Maldito__obra-2327cc36_20260706_171804",
+      "caminho": "/meus_mangas/Nascido-Com-Sangue-Maldito__obra-2327cc36_20260706_171804",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:18:04.000Z",
+      "link": null
+    },
+    {
+      "nome": "Novato-de-Nivel-Maximo__obra-288b1867",
+      "caminho": "/meus_mangas/Novato-de-Nivel-Maximo__obra-288b1867",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:56:48.000Z",
+      "link": null
+    },
+    {
+      "nome": "Novato-de-Nivel-Maximo__obra-288b1867_20260705_214802",
+      "caminho": "/meus_mangas/Novato-de-Nivel-Maximo__obra-288b1867_20260705_214802",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:48:02.000Z",
+      "link": null
+    },
+    {
+      "nome": "Novato-de-Nivel-Maximo__obra-288b1867_20260705_235749",
+      "caminho": "/meus_mangas/Novato-de-Nivel-Maximo__obra-288b1867_20260705_235749",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:57:49.000Z",
+      "link": null
+    },
+    {
+      "nome": "Novato-de-Nivel-Maximo__obra-288b1867_20260706_175647",
+      "caminho": "/meus_mangas/Novato-de-Nivel-Maximo__obra-288b1867_20260706_175647",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:56:47.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Advogado-que-Ve-Almas__obra-237d346d",
+      "caminho": "/meus_mangas/O-Advogado-que-Ve-Almas__obra-237d346d",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:36:42.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Advogado-que-Ve-Almas__obra-237d346d_20260705_214552",
+      "caminho": "/meus_mangas/O-Advogado-que-Ve-Almas__obra-237d346d_20260705_214552",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:45:52.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Advogado-que-Ve-Almas__obra-237d346d_20260705_235258",
+      "caminho": "/meus_mangas/O-Advogado-que-Ve-Almas__obra-237d346d_20260705_235258",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:52:58.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Advogado-que-Ve-Almas__obra-237d346d_20260706_173642",
+      "caminho": "/meus_mangas/O-Advogado-que-Ve-Almas__obra-237d346d_20260706_173642",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T09:36:42.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:50:33.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_163531",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_163531",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T08:35:31.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_195320",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_195320",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:53:20.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_205115",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_205115",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:51:15.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_212914",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_212914",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:29:14.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_231452",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260705_231452",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:14:52.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260706_012827",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260706_012827",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:28:27.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260706_152446",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260706_152446",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T07:24:46.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_100026",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_100026",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:00:26.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_100439",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_100439",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:04:39.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_103208",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_103208",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:32:08.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_104803",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_104803",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:48:03.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_105032",
+      "caminho": "/meus_mangas/O-Comeco-Depois-do-Fim__obra-0f20295f_20260710_105032",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:50:32.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T07:20:40.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_153233",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_153233",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T07:32:33.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_195216",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_195216",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:52:16.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_205059",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_205059",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:50:59.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_212845",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_212845",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:28:45.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_231159",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260705_231159",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:11:59.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_012730",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_012730",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:27:30.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_140926",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_140926",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T06:09:26.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_152039",
+      "caminho": "/meus_mangas/O-Culto-ao-Dinheiro__obra-0eeca2e9_20260706_152039",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T07:20:40.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Filho-mais-Novo-dos-Chaebol__obra-35b97b51",
+      "caminho": "/meus_mangas/O-Filho-mais-Novo-dos-Chaebol__obra-35b97b51",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:45:40.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d",
+      "caminho": "/meus_mangas/O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:03:00.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_205404",
+      "caminho": "/meus_mangas/O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_205404",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:54:04.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_213432",
+      "caminho": "/meus_mangas/O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_213432",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:34:32.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_232718",
+      "caminho": "/meus_mangas/O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260705_232718",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:27:18.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260706_160259",
+      "caminho": "/meus_mangas/O-Imperador-da-Espada-Reencarnou-em-um-Cla-de-Mestres-da-Esp__obra-0fc6490d_20260706_160259",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:02:59.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Rei-Demonio-Devastado-pelos-Herois__obra-3235cc84",
+      "caminho": "/meus_mangas/O-Rei-Demonio-Devastado-pelos-Herois__obra-3235cc84",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:42:11.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Rei-Demonio-Devastado-pelos-Herois__obra-3235cc84_20260706_004211",
+      "caminho": "/meus_mangas/O-Rei-Demonio-Devastado-pelos-Herois__obra-3235cc84_20260706_004211",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T16:42:11.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2",
+      "caminho": "/meus_mangas/O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:36:48.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_205613",
+      "caminho": "/meus_mangas/O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_205613",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:56:13.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_213840",
+      "caminho": "/meus_mangas/O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_213840",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:38:40.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_233605",
+      "caminho": "/meus_mangas/O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260705_233605",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:36:05.000Z",
+      "link": null
+    },
+    {
+      "nome": "O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260706_163647",
+      "caminho": "/meus_mangas/O-Retorno-do-Jogador-de-Classe-SSS__obra-2062ade2_20260706_163647",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:36:48.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:53:43.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_192752",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_192752",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T11:27:52.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_204647",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_204647",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:46:47.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_212159",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_212159",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:21:59.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_222410",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260705_222410",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T14:24:10.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260706_011039",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260706_011039",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T17:10:39.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260706_141450",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260706_141450",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T06:14:50.000Z",
+      "link": null
+    },
+    {
+      "nome": "Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260710_105343",
+      "caminho": "/meus_mangas/Regressando-Com-o-Poder-do-Rei__obra-000184c0_20260710_105343",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-10T02:53:43.000Z",
+      "link": null
+    },
+    {
+      "nome": "Reinicializacao-Carmesim__obra-1da7eb9e",
+      "caminho": "/meus_mangas/Reinicializacao-Carmesim__obra-1da7eb9e",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:24:07.000Z",
+      "link": null
+    },
+    {
+      "nome": "Reinicializacao-Carmesim__obra-1da7eb9e_20260705_205522",
+      "caminho": "/meus_mangas/Reinicializacao-Carmesim__obra-1da7eb9e_20260705_205522",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:55:22.000Z",
+      "link": null
+    },
+    {
+      "nome": "Reinicializacao-Carmesim__obra-1da7eb9e_20260705_213701",
+      "caminho": "/meus_mangas/Reinicializacao-Carmesim__obra-1da7eb9e_20260705_213701",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:37:01.000Z",
+      "link": null
+    },
+    {
+      "nome": "Reinicializacao-Carmesim__obra-1da7eb9e_20260705_233222",
+      "caminho": "/meus_mangas/Reinicializacao-Carmesim__obra-1da7eb9e_20260705_233222",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:32:22.000Z",
+      "link": null
+    },
+    {
+      "nome": "Reinicializacao-Carmesim__obra-1da7eb9e_20260706_162407",
+      "caminho": "/meus_mangas/Reinicializacao-Carmesim__obra-1da7eb9e_20260706_162407",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:24:07.000Z",
+      "link": null
+    },
+    {
+      "nome": "Transmissao-do-Deus-da-Espada__obra-17fb3840",
+      "caminho": "/meus_mangas/Transmissao-do-Deus-da-Espada__obra-17fb3840",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:18:41.000Z",
+      "link": null
+    },
+    {
+      "nome": "Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_205500",
+      "caminho": "/meus_mangas/Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_205500",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T12:55:00.000Z",
+      "link": null
+    },
+    {
+      "nome": "Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_213619",
+      "caminho": "/meus_mangas/Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_213619",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T13:36:19.000Z",
+      "link": null
+    },
+    {
+      "nome": "Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_233100",
+      "caminho": "/meus_mangas/Transmissao-do-Deus-da-Espada__obra-17fb3840_20260705_233100",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-05T15:31:00.000Z",
+      "link": null
+    },
+    {
+      "nome": "Transmissao-do-Deus-da-Espada__obra-17fb3840_20260706_161841",
+      "caminho": "/meus_mangas/Transmissao-do-Deus-da-Espada__obra-17fb3840_20260706_161841",
+      "tipo": "pasta",
+      "tamanho": 0,
+      "modificadoEm": "2026-07-06T08:18:41.000Z",
+      "link": null
+    }
+  ]
 }

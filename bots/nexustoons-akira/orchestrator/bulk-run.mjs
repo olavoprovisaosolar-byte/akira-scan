@@ -28,7 +28,17 @@ if (!slugArg && !ALL_MANGAS) {
     process.exit(1);
 }
 
-if (!rawArgs.includes("--all-chapters")) {
+const allChapters = process.env.NEXUSTOONS_ALL_CHAPTERS === "1"
+    || process.env.ALL_CHAPTERS === "true"
+    || rawArgs.includes("--all-chapters");
+const syncOnlyNew = process.env.NEXUSTOONS_SYNC_ONLY_NEW === "1"
+    || process.env.SYNC_ONLY_NEW === "true";
+
+if (allChapters && !rawArgs.includes("--all-chapters")) {
+    process.argv.push("--all-chapters");
+} else if (syncOnlyNew && !rawArgs.includes("--latest-only")) {
+    process.argv.push("--latest-only");
+} else if (!syncOnlyNew && !rawArgs.includes("--all-chapters") && !rawArgs.includes("--latest-only")) {
     process.argv.push("--all-chapters");
 }
 
