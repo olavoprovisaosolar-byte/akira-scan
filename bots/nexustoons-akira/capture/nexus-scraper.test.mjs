@@ -1,7 +1,7 @@
 /**
  * Testes unitários — nexus-scraper facade (sem rede).
  */
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
 vi.mock("./nexustoons.js", () => ({
     createAdapter: vi.fn(() => ({
@@ -28,7 +28,71 @@ vi.mock("./nexustoons.js", () => ({
     }))
 }));
 
-const { scrapeNexusToons } = await import("./nexus-scraper.mjs");
+vi.mock("../hosting/adapter.js", () => ({
+    getHostingAdapter: vi.fn(async () => ({
+        name: "catbox",
+        hostChapter: vi.fn(async (chapter) => ({
+            ok: true,
+            chapter: {
+                ...chapter,
+                hosting: "catbox",
+                pages: chapter.pages.map((p, i) => ({
+                    index: p.index ?? i,
+                    url: `https://files.catbox.moe/page-${i + 1}.jpg`,
+                    origem: "catbox"
+                })),
+                hostedAt: new Date().toISOString()
+            },
+            pagesHosted: chapter.pages.length,
+            pagesSkipped: 0
+        }))
+    })),
+    closeHostingAdapter: vi.fn(async () => {})
+}));
+
+vi.mock("../upload/adapter.js", () => ({
+    getUploadAdapter: vi.fn(async () => ({
+        name: "akira-scan",
+        uploadChapter: vi.fn(async (chapter) => ({
+            ok: true,
+            mangaId: chapter.mangaId,
+            capId: chapter.capId,
+            pagesSaved: chapter.pages.length
+        })),
+        finalize: vi.fn(async () => {})
+    })),
+    closeUploadAdapter: vi.fn(async () => {})
+}));
+
+vi.mock("../shared/manifest.js", () => ({
+    loadManifest: vi.fn(() => ({ mangas: {}, updatedAt: null })),
+    saveManifest: vi.fn(),
+    markChapter: vi.fn(),
+    upsertMangaEntry: vi.fn()
+}));
+
+vi.mock("../shared/state.js", () => ({
+    loadState: vi.fn(() => ({ processed: {} })),
+    saveState: vi.fn(),
+    saveStateImmediate: vi.fn(),
+    getChapterSkipReason: vi.fn(() => ({ skip: false })),
+    markProcessed: vi.fn(),
+    rollbackChapterPublication: vi.fn()
+}));
+
+vi.mock("../shared/page-purge.js", () => ({
+    purgeAfterUploadSuccess: vi.fn()
+}));
+
+vi.mock("node:child_process", () => ({
+    spawn: vi.fn(() => ({
+        on: vi.fn((event, cb) => {
+            if (event === "close") cb(0);
+        })
+    }))
+}));
+
+const { scrapeNexusToons, runNexusScraperPipeline } = await import("./nexus-scraper.mjs");
 
 describe("scrapeNexusToons", () => {
     beforeEach(() => {
@@ -89,5 +153,24 @@ describe("scrapeNexusToons — contrato de saída", () => {
             expect(ch).toHaveProperty("imageUrls");
             expect(Array.isArray(ch.imageUrls)).toBe(true);
         }
+    });
+});
+
+describe("runNexusScraperPipeline — catbox", () => {
+    beforeEach(() => {
+        vi.clearAllMocks();
+        vi.stubEnv("HOSTING_ADAPTER", "catbox");
+    });
+
+    it("usa hosting catbox e retorna stats", async () => {
+        const stats = await runNexusScraperPipeline("test-slug", {
+            chapterNumbers: ["1"],
+            dryRun: false
+        });
+
+        expect(stats.slug).toBe("test-slug");
+        expect(stats.captured).toBe(1);
+        expect(stats.hosted).toBe(1);
+        expect(stats.uploaded).toBe(1);
     });
 });

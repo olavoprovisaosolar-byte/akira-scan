@@ -4,6 +4,10 @@
  * Concorrência 1–2; purge imediato dos temps após uso.
  */
 import fs from "node:fs";
+
+import("sharp")
+    .then((m) => { m.default.cache(false); })
+    .catch(() => {});
 import os from "node:os";
 import path from "node:path";
 import { pipeline } from "node:stream/promises";

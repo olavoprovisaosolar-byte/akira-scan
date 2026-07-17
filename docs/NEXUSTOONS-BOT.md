@@ -1,6 +1,6 @@
 # Bot NexusToons → Akira Scan
 
-Pipeline modular para capturar capítulos do [NexusToons](https://nexustoons.com/) e publicar no [Akira Scan](https://akira-scan.pages.dev) via **Telegra.ph** + índice estático `data/cloud/chapters-index.json`.
+Pipeline modular para capturar capítulos do [NexusToons](https://nexustoons.com/) e publicar no [Akira Scan](https://akira-scan.pages.dev) via **Catbox.moe** + índice GitHub (`data/cloud/chapters-index.json` + API `PUT /api/cloud/index/chapter`).
 
 ## Arquitetura
 
@@ -15,7 +15,7 @@ bots/nexustoons-akira/
 │   └── stream-page-processor.mjs  # Download stream + sharp (<150 MB RAM)
 ├── config.json           # URLs base (override via env)
 ├── config.mangas.json    # Mangás monitorados
-├── hosting/              # Telegra.ph primário → cloud-static fallback
+├── hosting/              # Catbox primário (modo gratuito; Telegra legado opcional)
 ├── upload/               # JSON hospedado → catálogo + índice cloud
 ├── orchestrator/run.mjs  # Alias legado → index.js
 └── shared/
@@ -32,7 +32,7 @@ bots/nexustoons-akira/
 Facade unificada que combina `nexustoons.js` (catálogo) + `nexustoons-playwright.mjs` (páginas):
 
 ```bash
-# Pipeline completo: scrape → Telegra → cloud-static fallback → upload → state → ghost cleanup
+# Pipeline completo: scrape → Catbox → GitHub index sync → state → ghost cleanup
 npm run bot:scrape:nexus -- --slug=gye-baeksun-sem-emprego-e-sem-dinheiro
 
 # Só metadados + URLs (sem hosting)
@@ -53,19 +53,19 @@ Saída de `scrapeNexusToons(slug)`:
 }
 ```
 
-**RAM:** processamento stream com concorrência 1–2 (`STREAM_PAGE_CONCURRENCY`), `sharp.cache(false)`, purge imediato de temps — ~80–120 MB por capítulo típico.
+**RAM:** processamento stream com concorrência 1–2 (`STREAM_PAGE_CONCURRENCY`), `sharp.cache(false)` no topo de `stream-page-processor.mjs` e `image-hygiene.js`, purge imediato de temps — ~80–120 MB por capítulo típico.
 
-**Hosting:** Telegra.ph primário (`TELEGRA_SKIP=0`); fallback automático para `cloud-static` (`data/cloud/pages/`) em HTTP 400. Sem Catbox, sem GitHub para storage final.
+**Hosting (modo gratuito):** Catbox.moe primário (`HOSTING_ADAPTER=catbox`); sync remoto via `AKIRA_PUBLISH_TOKEN` → `PUT /api/cloud/index/chapter`. Sem R2, sem Telegra no caminho padrão. Telegra/cloud-static permanecem como adapters legados (`HOSTING_ADAPTER=telegra|cloud-static`).
 
 ## Fluxo
 
 ```
 1. Fetch caps recentes NexusToons
-2. Verificar state.json, chapters-index.json (Telegra) e catalogo.json → skip silencioso com `[INFO] skip`
+2. Verificar state.json, chapters-index.json e catalogo.json → skip silencioso com `[INFO] skip`
 3. Capture  → URLs CDN temporárias
-4. Hosting  → upload sequencial Telegra (página 1 → 2 → 3...)
-5. Upload   → formato estruturado JSON → catálogo + índice
-6. Registrar em state.json
+4. Hosting  → upload sequencial Catbox (stream → temp → sharp → upload)
+5. Upload   → índice local + sync GitHub API (AKIRA_PUBLISH_TOKEN)
+6. Registrar em state.json + clean-ghost-chapters
 ```
 
 ## Configuração
@@ -91,7 +91,11 @@ Override via env:
 | `TELEGRA_UPLOAD_URL` | Endpoint upload Telegra (padrão `https://telegra.ph/upload`; também tenta `https://graph.org/upload`) |
 | `TELEGRA_STATIC_FALLBACK` | `false` desativa fallback estático (padrão: ativo) |
 | `TELEGRA_SKIP` | `1` ou `true` — pula Telegra e grava direto em `data/cloud/pages/` |
-| `HOSTING_ADAPTER` | `cloud-static` — adapter direto (sem módulo Telegra); padrão `telegra` |
+| `HOSTING_ADAPTER` | `catbox` (padrão) — `telegra` ou `cloud-static` legado |
+| `NEXUSTOONS_HOSTING_ADAPTER` | Alias de `HOSTING_ADAPTER` |
+| `CATBOX_STATIC_FALLBACK` | `false` desativa fallback estático local (padrão produção gratuito) |
+| `AKIRA_PUBLISH_TOKEN` | Bearer para sync remoto `PUT /api/cloud/index/chapter` |
+| `AKIRA_PUBLISH_BASE_URL` | Base da API (ex.: `https://akira-scan.pages.dev`) |
 | `PAGE_DOWNLOAD_CONCURRENCY` | Alias de `NEXUSTOONS_PAGE_CONCURRENCY` para downloads paralelos |
 | `NEXUSTOONS_DEFER_CATALOG` | `1` — grava catálogo/índice ao final de cada mangá (state.json continua por cap) |
 | `NEXUSTOONS_OVERLAP_PIPELINE` | `1` — overlap captura N+1 durante hosting de cap N (mesmo mangá) |
@@ -240,7 +244,7 @@ O flag `--ultra` aplica automaticamente (sobre turbo):
 
 | Variável | Valor ultra |
 |----------|-------------|
-| `HOSTING_ADAPTER` | `cloud-static` (sem carregar módulo Telegra) |
+| `HOSTING_ADAPTER` | `catbox` |
 | `TELEGRA_SKIP` | `1` |
 | `NEXUSTOONS_DELAY_MS` | `100` |
 | `NEXUSTOONS_CHAPTER_DELAY_MS` | `300` |
@@ -394,7 +398,13 @@ Workflow: `.github/workflows/nexustoons-update-chapters.yml`
 
 Workflow: `.github/workflows/migrate-bulk-hyper.yml`
 
-Roda `migrate:bulk:all:hyper` nos servidores GitHub (~7 GB RAM dedicados), com checkpoint periódico em `state.json` + índices. **Retoma** de onde parou — caps já em `state.json` são ignorados.
+Roda `scripts/cloud-hyper-run.mjs` nos servidores GitHub (~7 GB RAM), com `HOSTING_ADAPTER=catbox`, `CATBOX_STATIC_FALLBACK=false` e `AKIRA_PUBLISH_TOKEN` para sync do índice. Checkpoint periódico em `state.json` + índices. **Retoma** de onde parou.
+
+Para um único mangá via facade:
+
+```bash
+npm run bot:scrape:nexus -- --slug=SLUG
+```
 
 **Handoff local → nuvem:**
 
@@ -421,6 +431,7 @@ git push
 | Secret | Uso |
 |--------|-----|
 | `CLOUDFLARE_API_TOKEN` | Deploy final Cloudflare Pages (opcional se `deploy=false`) |
+| `AKIRA_PUBLISH_TOKEN` | Sync índice remoto via API GitHub (modo gratuito) |
 
 **Parâmetros do workflow:**
 
@@ -441,6 +452,7 @@ git push
 ## Testes
 
 ```bash
+npm test -- bots/nexustoons-akira/hosting/catbox.test.mjs
 npm test -- bots/nexustoons-akira/hosting/telegra.test.mjs
 npm test -- bots/nexustoons-akira/shared/chapters.test.mjs
 npm test -- bots/nexustoons-akira/capture/nexus-scraper.test.mjs

@@ -80,6 +80,8 @@ jobs:
           HOSTING_ADAPTER: catbox
           NEXUSTOONS_HOSTING_ADAPTER: catbox
           CATBOX_STATIC_FALLBACK: "false"
+          STREAM_PAGE_CONCURRENCY: "2"
+          PAGE_DOWNLOAD_CONCURRENCY: "2"
           NEXUSTOONS_PURGE_LOCAL: "1"
           CF_PAGES_PROJECT: akira-scan
           CF_PAGES_BRANCH: main

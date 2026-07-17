@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Facade NexusToons — catálogo (OrionCrypto) + páginas (Playwright/Turnstile).
- * Pipeline: scrape → hosting (Telegra → cloud-static) → upload Akira → state sync → ghost cleanup.
+ * Pipeline: scrape → hosting (Catbox) → GitHub index sync → state sync → ghost cleanup.
  *
  * Uso:
  *   node bots/nexustoons-akira/capture/nexus-scraper.mjs --slug=SLUG
@@ -164,12 +164,15 @@ export async function runNexusScraperPipeline(slug, opts = {}) {
 
     if (!slug) throw new Error("slug obrigatório");
 
-    log.info("=== Nexus Scraper Pipeline ===", { slug, dryRun, telegraSkip: process.env.TELEGRA_SKIP });
+    const hostingName = process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "catbox";
+    log.info("=== Nexus Scraper Pipeline ===", { slug, dryRun, hosting: hostingName });
 
     const manifest = loadManifest();
     const state = loadState();
     const capture = createNexusAdapter();
-    const hosting = await getHostingAdapter("telegra");
+    const hosting = await getHostingAdapter();
     const upload = await getUploadAdapter();
 
     let captured = 0;
@@ -252,7 +255,7 @@ export async function runNexusScraperPipeline(slug, opts = {}) {
                     captured: true,
                     hosted: true,
                     uploaded: true,
-                    hosting: hostResult.chapter?.hosting || "telegra",
+                    hosting: hostResult.chapter?.hosting || hostingName,
                     pages: result.pagesSaved
                 });
                 markProcessed(state, slug, capId, {
@@ -266,7 +269,7 @@ export async function runNexusScraperPipeline(slug, opts = {}) {
                 purgeAfterUploadSuccess({
                     mangaId,
                     capId,
-                    hosting: hostResult.chapter?.hosting || "telegra",
+                    hosting: hostResult.chapter?.hosting || hostingName,
                     pages: hostResult.chapter?.pages || []
                 });
                 uploaded++;

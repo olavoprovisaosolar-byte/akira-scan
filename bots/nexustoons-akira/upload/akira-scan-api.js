@@ -1,5 +1,5 @@
 /**
- * Upload Akira Scan — catálogo + índice cloud com URLs Telegra.ph.
+ * Upload Akira Scan — catálogo + índice cloud com URLs Catbox (modo gratuito).
  * Escrita transacional: só persiste após 100% das páginas validadas.
  */
 import fs from "node:fs";
@@ -34,6 +34,22 @@ let deferredIdx = null;
 let deferredCatalogo = null;
 let deferredManifest = null;
 let deferredPending = 0;
+
+function resolveDefaultHosting(explicit) {
+    return explicit
+        || process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "catbox";
+}
+
+function inferPageOrigem(url, fallback) {
+    const u = String(url || "");
+    if (u.includes("catbox.moe")) return "catbox";
+    if (u.includes("telegra.ph")) return "telegra";
+    if (u.includes("/api/cloud/page")) return "r2";
+    if (u.includes("/data/cloud/pages/")) return "cloud-static";
+    return fallback || resolveDefaultHosting();
+}
 
 function ensureDeferredLoaded() {
     if (deferredIdx) return;
@@ -108,6 +124,8 @@ export function fromStructuredPayload(payload, meta = {}) {
     const numero = payload.chapter_number;
     const capId = payload.capId || akiraCapId(mangaId, numero);
 
+    const hosting = resolveDefaultHosting(payload.hosting);
+
     return {
         mangaId,
         capId,
@@ -116,9 +134,9 @@ export function fromStructuredPayload(payload, meta = {}) {
         pages: (payload.pages || []).map((url, index) => ({
             index,
             url: String(url),
-            origem: "telegra"
+            origem: inferPageOrigem(url, hosting)
         })),
-        hosting: "telegra",
+        hosting,
         hostedAt: new Date().toISOString(),
         sourceUrl: payload.source_url || null,
         mangaTitle: payload.manga_title || meta.title || null
@@ -150,7 +168,7 @@ function mergeCatalogoCap(catalogo, mangaId, capId, numero, tituloCap, mangaTitl
             publicadoEm: new Date().toISOString(),
             novo: true,
             origem: "nexustoons",
-            hosting: "telegra"
+            hosting: resolveDefaultHosting()
         });
     }
     caps.sort((a, b) => Number(b.numero) - Number(a.numero));
@@ -173,14 +191,14 @@ function upsertCloudIndex(idx, chapter, meta = {}) {
         tituloManga: meta.title || chapter.mangaTitle || null,
         done: true,
         origem: "nexustoons-bot",
-        hosting: chapter.hosting || "telegra",
+        hosting: chapter.hosting || resolveDefaultHosting(),
         total: pages.length,
         uploaded: pages.length,
         localPurged: !pagesUseLocalStatic(pages) || pages.some((p) => String(p.url || "").includes("/api/cloud/page")),
         pages: pages.map((p, i) => ({
             index: p.index ?? i,
             url: p.url,
-            origem: p.origem || "telegra"
+            origem: p.origem || inferPageOrigem(p.url, chapter.hosting)
         })),
         hostedAt: chapter.hostedAt || new Date().toISOString(),
         capturedAt: chapter.capturedAt || null,
@@ -194,13 +212,13 @@ function upsertCloudIndex(idx, chapter, meta = {}) {
     return idx;
 }
 
-function touchManifestMeta(manifest, mangaId, capId, pagesCount) {
+function touchManifestMeta(manifest, mangaId, capId, pagesCount, hosting) {
     if (!manifest) return manifest;
     for (const entry of Object.values(manifest.mangas || {})) {
         if (entry.akiraId !== mangaId) continue;
         for (const ch of Object.values(entry.chapters || {})) {
             if (ch.capId === capId) {
-                ch.hosting = "telegra";
+                ch.hosting = hosting || resolveDefaultHosting();
                 ch.pages = pagesCount;
             }
         }
@@ -251,7 +269,7 @@ function publishChapterTransactional(chapter, meta = {}) {
 
         let manifest = lerJson(MANIFEST_PATH, null);
         if (manifest) {
-            manifest = touchManifestMeta(manifest, mangaId, capId, pages.length);
+            manifest = touchManifestMeta(manifest, mangaId, capId, pages.length, chapter.hosting);
             guardarJson(MANIFEST_PATH, manifest);
         }
 
@@ -378,7 +396,7 @@ export function createAdapter() {
                         chapter.mangaTitle || meta.title
                     );
                     if (deferredManifest) {
-                        deferredManifest = touchManifestMeta(deferredManifest, mangaId, capId, pages.length);
+                        deferredManifest = touchManifestMeta(deferredManifest, mangaId, capId, pages.length, chapter.hosting);
                     }
                     deferredPending++;
                 } else {

@@ -1,6 +1,10 @@
 /**
  * Validação e normalização de imagens com sharp (integridade, tamanho mínimo, AVIF→JPEG).
  */
+import("sharp")
+    .then((m) => { m.default.cache(false); })
+    .catch(() => {});
+
 const MIN_BYTES = Number(process.env.TELEGRA_MIN_BYTES || 100);
 const MAX_BYTES = Number(process.env.TELEGRA_MAX_BYTES || 5 * 1024 * 1024);
 

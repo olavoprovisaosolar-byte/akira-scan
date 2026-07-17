@@ -17,9 +17,13 @@ import {
     isLegiblePageUrl
 } from "../shared/schema.js";
 import {
-    validateImageBuffer,
-    uploadChapterPages as telegraUploadChapterPages
+    validateImageBuffer
 } from "./telegra.js";
+import {
+    downloadProcessPage,
+    STREAM_PAGE_CONCURRENCY
+} from "../shared/stream-page-processor.mjs";
+import { logPageProgress } from "../shared/progress.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..", "..", "..");
@@ -30,6 +34,7 @@ const CATBOX_URL = process.env.CATBOX_UPLOAD_URL || "https://catbox.moe/user/api
 const UPLOAD_TIMEOUT_MS = Math.max(5000, Number(process.env.CATBOX_UPLOAD_TIMEOUT_MS || 60000));
 const PAGE_DELAY_MS = Math.max(0, Number(process.env.CATBOX_DELAY_MS || 800));
 const STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK !== "false";
+const PAGE_DOWNLOAD_CONCURRENCY = STREAM_PAGE_CONCURRENCY;
 const BROWSER_UA = process.env.NEXUSTOONS_USER_AGENT
     || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
@@ -104,22 +109,6 @@ export async function uploadImage(buffer, filename) {
     return body;
 }
 
-async function downloadBuffer(url, referer) {
-    const res = await axios.get(url, {
-        responseType: "arraybuffer",
-        timeout: 60000,
-        headers: {
-            "User-Agent": BROWSER_UA,
-            Referer: referer || "https://nexustoons.com/"
-        },
-        validateStatus: (s) => s < 400
-    });
-    const buf = Buffer.from(res.data);
-    const check = validateImageBuffer(buf);
-    if (!check.ok) throw new Error(check.error);
-    return buf;
-}
-
 async function uploadWithFallback(buffer, filename, pageIndex, staticOpts) {
     try {
         const url = await uploadImage(buffer, filename);
@@ -135,9 +124,9 @@ async function uploadWithFallback(buffer, filename, pageIndex, staticOpts) {
 }
 
 /**
- * Upload sequencial via catbox (fallback estático por página).
+ * Download stream (concorrência 1–2) + upload sequencial catbox.
  * @param {Array<{index: number, url: string}>} pages
- * @param {{ referer?: string, mangaId?: string, capId?: string }} [opts]
+ * @param {{ referer?: string, mangaId?: string, capId?: string, chapterNumber?: string|number }} [opts]
  */
 export async function uploadChapterPages(pages, opts = {}) {
     const referer = opts.referer || "https://nexustoons.com/";
@@ -145,31 +134,52 @@ export async function uploadChapterPages(pages, opts = {}) {
     const hosted = [];
     const failedPages = [];
     let hostingMode = "catbox";
+    const chapterNumber = opts.chapterNumber ?? "?";
+    const total = sorted.length;
 
-    for (let i = 0; i < sorted.length; i++) {
-        const p = sorted[i];
-        const index = p.index ?? i;
-        const ext = extFromUrl(p.url);
-        const filename = `${String(index + 1).padStart(3, "0")}.${ext}`;
+    for (let batchStart = 0; batchStart < sorted.length; batchStart += PAGE_DOWNLOAD_CONCURRENCY) {
+        const batch = sorted.slice(batchStart, batchStart + PAGE_DOWNLOAD_CONCURRENCY);
 
-        try {
-            const buffer = await downloadBuffer(p.url, referer);
-            if (PAGE_DELAY_MS > 0 && i > 0) await sleep(PAGE_DELAY_MS);
-            const result = await uploadWithFallback(buffer, filename, index, {
-                mangaId: opts.mangaId,
-                capId: opts.capId
-            });
-            if (result.origem === "cloud-static") hostingMode = "cloud-static";
-            hosted.push({ index, url: result.url, origem: result.origem });
-            log.tag("CATBOX", `Upload página ${index + 1}/${sorted.length}`, {
-                url: result.url.slice(0, 60),
-                origem: result.origem
-            });
-        } catch (e) {
-            failedPages.push(index);
-            log.error(`Falha página ${index + 1}`, { err: e.message });
-            break;
+        for (const p of batch) {
+            const batchIdx = batch.indexOf(p);
+            const index = p.index ?? batchStart + batchIdx;
+            const ext = extFromUrl(p.url);
+            const filename = `${String(index + 1).padStart(3, "0")}.${ext}`;
+
+            let cleanup = () => {};
+            try {
+                const downloaded = await downloadProcessPage(p.url, { referer });
+                cleanup = downloaded.cleanup;
+                const buffer = downloaded.buffer;
+                cleanup();
+                cleanup = () => {};
+
+                if (PAGE_DELAY_MS > 0 && hosted.length > 0) await sleep(PAGE_DELAY_MS);
+                const result = await uploadWithFallback(buffer, filename, index, {
+                    mangaId: opts.mangaId,
+                    capId: opts.capId
+                });
+                if (result.origem === "cloud-static") hostingMode = "cloud-static";
+                hosted.push({ index, url: result.url, origem: result.origem });
+                log.tag("CATBOX", `Upload página ${index + 1}/${sorted.length}`, {
+                    url: result.url.slice(0, 60),
+                    origem: result.origem
+                });
+                logPageProgress({
+                    chapterNumber,
+                    page: index + 1,
+                    totalPages: total,
+                    fallback: result.origem !== "catbox"
+                });
+            } catch (e) {
+                cleanup();
+                failedPages.push(index);
+                log.error(`Falha página ${index + 1}`, { err: e.message, src: p.url?.slice(0, 80) });
+                break;
+            }
         }
+
+        if (failedPages.length) break;
     }
 
     if (failedPages.length || hosted.length !== sorted.length) {
@@ -210,7 +220,8 @@ export function createAdapter() {
             const result = await uploadChapterPages(chapter.pages, {
                 referer,
                 mangaId: chapter.mangaId,
-                capId: chapter.capId
+                capId: chapter.capId,
+                chapterNumber: chapter.numero
             });
 
             if (!result.ok) {
@@ -251,6 +262,3 @@ export function createAdapter() {
         }
     };
 }
-
-/** Reutiliza pipeline Telegra com fallback estático (adapter telegra padrão). */
-export { telegraUploadChapterPages as uploadViaTelegra };
