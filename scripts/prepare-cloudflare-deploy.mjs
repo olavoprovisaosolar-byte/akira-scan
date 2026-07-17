@@ -1,6 +1,6 @@
 /**
  * Prepara pacote estático para Cloudflare Pages.
- * Capítulos (imagens + índice) ficam na API R2 — não no deploy estático.
+ * Capítulos (imagens + índice) ficam fora do deploy — Catbox + API GitHub.
  * API /api/cloud/* fica em functions/ na raiz do repo (Pages Functions).
  */
 import fs from "fs";
@@ -76,8 +76,8 @@ function copyData() {
         if (fs.existsSync(src)) copyFile(src, path.join(dataOut, f));
     }
 
-    // Capítulos e imagens ficam na API (R2) — não no pacote estático Pages.
-    console.log("  Cloud: índice + páginas servidos via /api/cloud/* (R2)");
+    // Capítulos e imagens ficam no Catbox; índice via API (GitHub raw) — não no pacote estático.
+    console.log("  Cloud: índice via /api/cloud/* (GitHub); imagens Catbox.moe");
 }
 
 function copyBackupCovers() {

@@ -1,7 +1,15 @@
 /**
- * API cloud-chapters — core worker-safe (R2 + índice).
- * Usado por Pages Functions e publish-client do bot.
+ * API cloud-chapters — core worker-safe.
+ * Índice: R2 (opcional) ou GitHub raw/API (modo gratuito).
+ * Imagens: URLs remotas (Catbox/Telegra) no índice; R2 só como fallback legado.
  */
+
+import {
+    githubIndexConfig,
+    indexStorageMode,
+    readIndexFromGitHub,
+    writeIndexToGitHub
+} from "./github-index-store.mjs";
 
 export const INDEX_KEY = "index/chapters-index.json";
 
@@ -56,12 +64,18 @@ export function chapterStorageKey(mangaId, capId) {
     return `${mangaId}/${capId}`;
 }
 
+export function isDirectRemotePageUrl(url) {
+    const u = String(url || "");
+    return u.includes("telegra.ph")
+        || u.includes("catbox.moe")
+        || u.includes("files.catbox.moe");
+}
+
 export function capLegivelRec(rec) {
     if (!rec?.done) return false;
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
-        return u.includes("telegra.ph")
-            || u.includes("catbox.moe")
+        return isDirectRemotePageUrl(u)
             || u.includes("/api/cloud/page")
             || u.includes("/data/cloud/pages/");
     }));
@@ -83,16 +97,35 @@ export function recomputePorManga(capsObj) {
     return porManga;
 }
 
-export async function readIndex(bucket) {
-    if (!bucket) return { caps: {}, porManga: {}, origem: "r2", total: 0 };
+export async function readIndexR2(bucket) {
+    if (!bucket) return null;
     const obj = await bucket.get(INDEX_KEY);
-    if (!obj) return { caps: {}, porManga: {}, origem: "r2", total: 0 };
+    if (!obj) return null;
     const data = await obj.json();
+    data.origem = data.origem || "r2";
     data.total = data.total || Object.keys(data.caps || {}).length;
     return data;
 }
 
-export async function writeIndex(bucket, data) {
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} [env] */
+export async function readIndex(bucket, env = {}) {
+    const r2 = await readIndexR2(bucket);
+    if (r2) return r2;
+
+    try {
+        return await readIndexFromGitHub(env);
+    } catch (e) {
+        return {
+            caps: {},
+            porManga: {},
+            origem: "github",
+            total: 0,
+            aviso: e?.message || "Falha ao ler índice GitHub."
+        };
+    }
+}
+
+export async function writeIndexR2(bucket, data) {
     data.atualizadoEm = new Date().toISOString();
     data.origem = data.origem || "r2-api";
     data.total = Object.keys(data.caps || {}).length;
@@ -103,10 +136,28 @@ export async function writeIndex(bucket, data) {
     return data;
 }
 
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} env @param {object} data */
+export async function writeIndex(bucket, env, data) {
+    data.atualizadoEm = new Date().toISOString();
+    data.total = Object.keys(data.caps || {}).length;
+    data.porManga = recomputePorManga(data.caps);
+
+    if (bucket) {
+        return writeIndexR2(bucket, data);
+    }
+
+    data.origem = data.origem || "github-api";
+    return writeIndexToGitHub(env, data);
+}
+
 export function upsertCapInIndex(idx, chapter, meta = {}) {
     const { mangaId, capId, numero, titulo, pages, hosting } = chapter;
     const key = chapterStorageKey(mangaId, capId);
-    const usesApiPages = (pages || []).some((p) => String(p.url || "").includes("/api/cloud/page"));
+    const pageList = pages || [];
+    const usesApiPages = pageList.some((p) => String(p.url || "").includes("/api/cloud/page"));
+    const usesCatbox = pageList.some((p) => isDirectRemotePageUrl(p.url) && String(p.url).includes("catbox"));
+    const resolvedHosting = hosting
+        || (usesApiPages ? "r2" : usesCatbox ? "catbox" : chapter.hosting || "telegra");
 
     idx.caps[key] = {
         mangaId,
@@ -116,14 +167,15 @@ export function upsertCapInIndex(idx, chapter, meta = {}) {
         tituloManga: meta.title || chapter.mangaTitle || null,
         done: true,
         origem: meta.origem || "nexustoons-bot",
-        hosting: hosting || (usesApiPages ? "r2" : chapter.hosting || "telegra"),
-        total: pages?.length || 0,
-        uploaded: pages?.length || 0,
-        localPurged: usesApiPages || !String(hosting || "").includes("cloud-static"),
-        pages: (pages || []).map((p, i) => ({
+        hosting: resolvedHosting,
+        total: pageList.length,
+        uploaded: pageList.length,
+        localPurged: usesApiPages || resolvedHosting === "catbox" || resolvedHosting === "telegra"
+            || !String(resolvedHosting).includes("cloud-static"),
+        pages: pageList.map((p, i) => ({
             index: p.index ?? i,
             url: p.url,
-            origem: p.origem || (usesApiPages ? "r2-api" : "telegra")
+            origem: p.origem || (usesApiPages ? "r2-api" : resolvedHosting)
         })),
         hostedAt: chapter.hostedAt || new Date().toISOString(),
         capturedAt: chapter.capturedAt || null,
@@ -163,6 +215,7 @@ export function checkPublishAuth(request, env) {
 }
 
 export async function findPageObject(bucket, mangaId, capId, pageNum) {
+    if (!bucket) return null;
     for (const ext of ["webp", "jpg", "jpeg", "png", "gif", "avif"]) {
         const key = pageR2Key(mangaId, capId, pageNum, ext);
         const obj = await bucket.get(key);
@@ -178,50 +231,76 @@ export function apiOriginFromRequest(request, env) {
     return `${url.protocol}//${url.host}`;
 }
 
-export async function handleGetIndex(bucket) {
-    const idx = await readIndex(bucket);
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} [env] */
+export async function handleGetIndex(bucket, env = {}) {
+    const idx = await readIndex(bucket, env);
     return jsonResponse(idx);
 }
 
-export async function handleGetPages(bucket, origin, mangaId, capId) {
-    const idx = await readIndex(bucket);
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} [env] */
+export async function handleGetPages(bucket, origin, mangaId, capId, env = {}) {
+    const idx = await readIndex(bucket, env);
     const info = idx.caps?.[chapterStorageKey(mangaId, capId)];
     if (!info?.done) {
         return jsonResponse({ error: "Capítulo não encontrado." }, 404);
     }
 
-    const apiPages = (info.pages || []).filter((p) => String(p.url || "").includes("/api/cloud/page"));
+    const pages = info.pages || [];
+    const directPages = pages.filter((p) => isDirectRemotePageUrl(p.url));
+    if (directPages.length && directPages.length === pages.length) {
+        return jsonResponse({ mangaId, capId, total: directPages.length, pages: directPages });
+    }
+
+    const apiPages = pages.filter((p) => String(p.url || "").includes("/api/cloud/page"));
     if (apiPages.length) {
         return jsonResponse({ mangaId, capId, total: apiPages.length, pages: apiPages });
     }
 
-    const total = info.total || info.uploaded || info.pages?.length || 0;
-    if (!total) {
-        return jsonResponse({ error: "Capítulo sem páginas." }, 404);
+    if (pages.length) {
+        return jsonResponse({ mangaId, capId, total: pages.length, pages });
     }
 
-    const pages = paginasApiUrls(origin, mangaId, capId, total);
-    return jsonResponse({ mangaId, capId, total: pages.length, pages });
+    if (bucket) {
+        const total = info.total || info.uploaded || 0;
+        if (total > 0) {
+            const generated = paginasApiUrls(origin, mangaId, capId, total);
+            return jsonResponse({ mangaId, capId, total: generated.length, pages: generated });
+        }
+    }
+
+    return jsonResponse({ error: "Capítulo sem páginas hospedadas." }, 404);
 }
 
-export async function handleGetPage(bucket, mangaId, capId, pageNumRaw) {
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} [env] */
+export async function handleGetPage(bucket, mangaId, capId, pageNumRaw, env = {}) {
     const pageNum = Number(pageNumRaw);
     if (!Number.isFinite(pageNum) || pageNum < 1) {
         return jsonResponse({ error: "Parâmetro n inválido." }, 400);
     }
 
-    const found = await findPageObject(bucket, mangaId, capId, pageNum);
-    if (!found) {
-        return jsonResponse({ error: "Página não encontrada." }, 404);
+    if (bucket) {
+        const found = await findPageObject(bucket, mangaId, capId, pageNum);
+        if (found) {
+            return new Response(found.obj.body, {
+                status: 200,
+                headers: corsHeaders({
+                    "Content-Type": found.obj.httpMetadata?.contentType || mimeFromExt(found.ext),
+                    "Cache-Control": "public, max-age=86400, immutable"
+                })
+            });
+        }
     }
 
-    return new Response(found.obj.body, {
-        status: 200,
-        headers: corsHeaders({
-            "Content-Type": found.obj.httpMetadata?.contentType || mimeFromExt(found.ext),
-            "Cache-Control": "public, max-age=86400, immutable"
-        })
-    });
+    const idx = await readIndex(bucket, env);
+    const info = idx.caps?.[chapterStorageKey(mangaId, capId)];
+    const page = info?.pages?.[pageNum - 1]
+        || info?.pages?.find((p) => (p.index ?? -1) + 1 === pageNum);
+    const url = page?.url ? String(page.url) : "";
+    if (url && isDirectRemotePageUrl(url)) {
+        return Response.redirect(url, 302);
+    }
+
+    return jsonResponse({ error: "Página não encontrada." }, 404);
 }
 
 export async function handlePublish(request, env, origin) {
@@ -230,7 +309,9 @@ export async function handlePublish(request, env, origin) {
 
     const bucket = env.CHAPTERS;
     if (!bucket) {
-        return jsonResponse({ error: "R2 CHAPTERS não configurado." }, 503);
+        return jsonResponse({
+            error: "Publish multipart requer R2. Use Catbox + PUT /api/cloud/index/chapter (modo gratuito)."
+        }, 503);
     }
 
     let meta;
@@ -268,7 +349,7 @@ export async function handlePublish(request, env, origin) {
             });
         }
 
-        const idx = await readIndex(bucket);
+        const idx = await readIndex(bucket, env);
         upsertCapInIndex(idx, {
             mangaId,
             capId,
@@ -281,7 +362,7 @@ export async function handlePublish(request, env, origin) {
             sourceUrl: meta.sourceUrl || null,
             mangaTitle: meta.mangaTitle || null
         }, meta);
-        await writeIndex(bucket, idx);
+        await writeIndex(bucket, env, idx);
 
         return jsonResponse({
             ok: true,
@@ -299,9 +380,12 @@ export async function handleIndexChapterPut(request, env) {
     const auth = checkPublishAuth(request, env);
     if (!auth.ok) return jsonResponse({ error: auth.error }, auth.status);
 
-    const bucket = env.CHAPTERS;
-    if (!bucket) {
-        return jsonResponse({ error: "R2 CHAPTERS não configurado." }, 503);
+    const bucket = env.CHAPTERS || null;
+    const mode = indexStorageMode(bucket, env);
+    if (mode === "none") {
+        return jsonResponse({
+            error: "Armazenamento de índice indisponível. Configure GITHUB_TOKEN (gratuito) ou R2 CHAPTERS."
+        }, 503);
     }
 
     try {
@@ -310,23 +394,34 @@ export async function handleIndexChapterPut(request, env) {
         if (!chapter?.mangaId || !chapter?.capId || !Array.isArray(chapter.pages)) {
             return jsonResponse({ error: "chapter inválido." }, 400);
         }
-        const idx = await readIndex(bucket);
+        const idx = await readIndex(bucket, env);
         upsertCapInIndex(idx, chapter, body.meta || chapter);
-        await writeIndex(bucket, idx);
-        return jsonResponse({ ok: true, mangaId: chapter.mangaId, capId: chapter.capId });
+        await writeIndex(bucket, env, idx);
+        return jsonResponse({
+            ok: true,
+            mangaId: chapter.mangaId,
+            capId: chapter.capId,
+            storage: mode
+        });
     } catch (e) {
         return jsonResponse({ error: e?.message || "Erro ao atualizar índice." }, 500);
     }
 }
 
-export async function handleStatus(bucket, mangaId, capId) {
-    const idx = await readIndex(bucket);
+/** @param {import("@cloudflare/workers-types").R2Bucket|null} bucket @param {Record<string, string|undefined>} [env] */
+export async function handleStatus(bucket, mangaId, capId, env = {}) {
+    const idx = await readIndex(bucket, env);
     const info = mangaId && capId ? idx.caps?.[chapterStorageKey(mangaId, capId)] : null;
+    const gh = githubIndexConfig(env);
     return jsonResponse({
         ok: true,
         service: "cloud-chapters",
         platform: "cloudflare-pages",
-        storage: "r2",
+        storage: indexStorageMode(bucket, env),
+        githubRepo: gh.repo,
+        githubBranch: gh.branch,
+        hasR2: Boolean(bucket),
+        hasGitHubToken: Boolean(gh.token),
         hasIndex: Boolean(Object.keys(idx.caps || {}).length),
         total: idx.total || Object.keys(idx.caps || {}).length,
         cap: info ? {

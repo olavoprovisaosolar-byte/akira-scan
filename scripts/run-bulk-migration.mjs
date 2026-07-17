@@ -44,8 +44,9 @@ function applyTurboEnv() {
 function applyUltraEnv() {
     applyTurboEnv();
     process.env.TELEGRA_SKIP = "1";
-    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "cloud-static";
-    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "cloud-static";
+    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "catbox";
+    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "catbox";
+    process.env.CATBOX_STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK || "false";
     process.env.NEXUSTOONS_DELAY_MS = process.env.NEXUSTOONS_DELAY_MS || "100";
     process.env.NEXUSTOONS_CHAPTER_DELAY_MS = process.env.NEXUSTOONS_CHAPTER_DELAY_MS || "300";
     process.env.NEXUSTOONS_PW_SETTLE_MS = process.env.NEXUSTOONS_PW_SETTLE_MS || "800";
@@ -74,8 +75,9 @@ function applyHyperEnv() {
 
 function applyLiteEnv() {
     process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "1";
-    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "cloud-static";
-    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "cloud-static";
+    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "catbox";
+    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "catbox";
+    process.env.CATBOX_STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK || "false";
     process.env.NEXUSTOONS_MANGA_PARALLEL = "1";
     process.env.NEXUSTOONS_CHAPTER_CONCURRENCY = "1";
     process.env.NEXUSTOONS_OVERLAP_PIPELINE = "0";
@@ -190,7 +192,7 @@ if (BACKGROUND) {
     } else if (HYPER) {
         console.log("Hyper: 3 mangás paralelos, 2 caps/concorrência, download 20, delays mínimos");
     } else if (ULTRA) {
-        console.log("Ultra: cloud-static direto, concurrency 12, overlap capture/hosting, catálogo defer por mangá");
+        console.log("Ultra: catbox + sync índice, concurrency 12, overlap capture/hosting, catálogo defer por mangá");
     } else if (TURBO) {
         console.log("Turbo: TELEGRA_SKIP=1, delays reduzidos, download concurrency 8");
     }

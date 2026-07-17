@@ -54,11 +54,11 @@ export async function onRequest(context) {
         }
 
         if (routes.isStatus || routes.isRoot) {
-            return handleStatus(bucket, mangaId, capId);
+            return handleStatus(bucket, mangaId, capId, env);
         }
 
         if (routes.isIndex) {
-            return handleGetIndex(bucket);
+            return handleGetIndex(bucket, env);
         }
 
         if (routes.isPage) {
@@ -66,20 +66,14 @@ export async function onRequest(context) {
             if (!mangaId || !capId || !n) {
                 return jsonResponse({ error: "Parâmetros m, ch, n obrigatórios." }, 400);
             }
-            if (!bucket) {
-                return jsonResponse({ error: "R2 CHAPTERS não configurado." }, 503);
-            }
-            return handleGetPage(bucket, mangaId, capId, n);
+            return handleGetPage(bucket, mangaId, capId, n, env);
         }
 
         if (routes.isPages || (mangaId && capId)) {
             if (!mangaId || !capId) {
                 return jsonResponse({ error: "Parâmetros m e ch obrigatórios." }, 400);
             }
-            if (!bucket) {
-                return jsonResponse({ error: "R2 CHAPTERS não configurado." }, 503);
-            }
-            return handleGetPages(bucket, origin, mangaId, capId);
+            return handleGetPages(bucket, origin, mangaId, capId, env);
         }
 
         return jsonResponse({

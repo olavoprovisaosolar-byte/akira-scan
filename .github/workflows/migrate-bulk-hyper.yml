@@ -77,8 +77,9 @@ jobs:
           NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
           TELEGRA_SKIP: "1"
-          HOSTING_ADAPTER: cloud-static
-          NEXUSTOONS_HOSTING_ADAPTER: cloud-static
+          HOSTING_ADAPTER: catbox
+          NEXUSTOONS_HOSTING_ADAPTER: catbox
+          CATBOX_STATIC_FALLBACK: "false"
           NEXUSTOONS_PURGE_LOCAL: "1"
           CF_PAGES_PROJECT: akira-scan
           CF_PAGES_BRANCH: main

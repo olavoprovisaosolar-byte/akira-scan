@@ -210,7 +210,7 @@ function touchManifestMeta(manifest, mangaId, capId, pagesCount) {
 }
 
 /**
- * Sincroniza metadados do capítulo com índice R2 (Telegra ou após publish local).
+ * Sincroniza metadados do capítulo com índice remoto (GitHub API ou R2).
  */
 async function syncRemoteIndex(chapter, meta = {}) {
     if (!publishApiEnabled()) return { ok: true, skipped: true };

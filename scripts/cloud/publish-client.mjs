@@ -1,5 +1,6 @@
 /**
- * Cliente HTTP para publicar capítulos na API Cloudflare (R2).
+ * Cliente HTTP para publicar capítulos na API Cloudflare.
+ * Modo gratuito: syncChapterIndex (PUT) com URLs Catbox — sem R2.
  */
 import fs from "node:fs";
 
@@ -78,7 +79,7 @@ export async function publishChapterPages(opts) {
     return data;
 }
 
-/** Sincroniza metadados do capítulo no índice R2 (Telegra/catbox sem arquivos). */
+/** Sincroniza metadados do capítulo no índice remoto (GitHub ou R2). */
 export async function syncChapterIndex(opts) {
     const { baseUrl, token, chapter, meta = {} } = opts;
     const res = await fetch(`${baseUrl}/api/cloud/index/chapter`, {
