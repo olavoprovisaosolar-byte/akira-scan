@@ -106,7 +106,9 @@ function loadCatalogo() {
 function hasHostedPages(rec) {
     return rec?.pages?.some((p) => {
         const u = String(p.url || "");
-        return u.includes("telegra.ph") || u.includes("/data/cloud/pages/");
+        return u.includes("telegra.ph")
+            || u.includes("/api/cloud/page")
+            || u.includes("/data/cloud/pages/");
     });
 }
 
