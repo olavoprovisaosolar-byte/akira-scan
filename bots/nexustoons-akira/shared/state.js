@@ -117,7 +117,6 @@ export function wantsTelegraPrimary() {
 }
 
 function hasTelegraPages(rec) {
-    if (rec?.hosting === "telegra") return true;
     return rec?.pages?.some((p) => String(p.url || "").includes("telegra.ph"));
 }
 
@@ -296,12 +295,13 @@ export function countProcessedForSlug(state, slug) {
     return Object.keys(state.processed || {}).filter((k) => k.startsWith(prefix)).length;
 }
 
-/** Mangá considerado completo quando todos os caps Nexus constam no state (ou Telegra no índice). */
+/** Mangá considerado completo quando todos os caps têm Telegra real (ou state em modo não-telegra). */
 export function isMangaFullyInState(state, slug, totalChapters, akiraMangaId = null) {
     const total = Number(totalChapters);
     if (!slug || !Number.isFinite(total) || total <= 0) return false;
 
-    if (wantsTelegraPrimary() && akiraMangaId) {
+    if (wantsTelegraPrimary()) {
+        if (!akiraMangaId) return false;
         const idx = loadCloudIndex();
         let telegraCaps = 0;
         for (const rec of Object.values(idx.caps || {})) {

@@ -1,10 +1,10 @@
 /**
- * Migração hyper/ultra na nuvem (GitHub Actions ou VPS) com checkpoint git periódico.
+ * Migração hyper/ultra na nuvem — loop contínuo até fila vazia ou tempo máximo.
  *
  * Uso:
  *   node scripts/cloud-hyper-run.mjs --all --hyper
- *   node scripts/cloud-hyper-run.mjs --slug=meu-manga --hyper
- *   SYNC_INTERVAL_MINUTES=20 node scripts/cloud-hyper-run.mjs --all --hyper --no-deploy
+ *   MIGRATE_LOOP=1 node scripts/cloud-hyper-run.mjs --all --hyper
+ *   SYNC_INTERVAL_MINUTES=120 node scripts/cloud-hyper-run.mjs --all --hyper --no-deploy
  */
 import { spawn } from "node:child_process";
 import fs from "node:fs";
@@ -14,9 +14,12 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const MIGRATION_SCRIPT = path.join(__dirname, "run-bulk-migration.mjs");
+const PENDING_SCRIPT = path.join(__dirname, "check-migrate-pending.mjs");
 
-const SYNC_INTERVAL_MS = Math.max(5, Number(process.env.SYNC_INTERVAL_MINUTES || 15)) * 60 * 1000;
+const SYNC_INTERVAL_MS = Math.max(10, Number(process.env.SYNC_INTERVAL_MINUTES || 120)) * 60 * 1000;
 const SKIP_GIT_SYNC = process.env.SKIP_GIT_SYNC === "1" || process.env.GITHUB_ACTIONS !== "true";
+const LOOP_ENABLED = process.env.MIGRATE_LOOP !== "0";
+const MAX_LOOP_MS = Number(process.env.MIGRATE_LOOP_MAX_MS || 5.4 * 60 * 60 * 1000);
 
 const CHECKPOINT_PATHS = [
     "data/nexustoons/state.json",
@@ -31,9 +34,9 @@ function log(msg) {
 }
 
 function gitSync(label) {
-    if (SKIP_GIT_SYNC) return;
+    if (SKIP_GIT_SYNC) return Promise.resolve();
     const existing = CHECKPOINT_PATHS.filter((p) => fs.existsSync(path.join(ROOT, p)));
-    if (!existing.length) return;
+    if (!existing.length) return Promise.resolve();
 
     const addList = existing.map((p) => `"${p}"`).join(" ");
     const ts = new Date().toISOString().slice(0, 16);
@@ -52,6 +55,11 @@ function gitSync(label) {
     });
 }
 
+function gitSyncBackground(label) {
+    if (SKIP_GIT_SYNC) return;
+    gitSync(label).catch((e) => log(`git sync (${label}): ${e.message}`));
+}
+
 async function runMigration(extraArgs) {
     const migArgs = [MIGRATION_SCRIPT, ...extraArgs, "--ci"];
     log(`Iniciando: node ${path.basename(MIGRATION_SCRIPT)} ${extraArgs.join(" ")} --ci`);
@@ -64,8 +72,29 @@ async function runMigration(extraArgs) {
         });
         child.on("error", reject);
         child.on("close", (code) => {
-            if (code !== 0) reject(new Error(`Migração falhou (código ${code})`));
-            else resolve();
+            if (code === 0) resolve("done");
+            else if (code === 2) resolve("empty");
+            else reject(new Error(`Migração falhou (código ${code})`));
+        });
+    });
+}
+
+async function hasPendingWork() {
+    return new Promise((resolve) => {
+        const child = spawn(process.execPath, [PENDING_SCRIPT], {
+            cwd: ROOT,
+            env: { ...process.env },
+            stdio: ["ignore", "pipe", "inherit"]
+        });
+        let out = "";
+        child.stdout?.on("data", (d) => { out += d; });
+        child.on("close", (code) => {
+            try {
+                const data = JSON.parse(out.trim().split("\n").pop() || "{}");
+                resolve({ pending: data.pending ?? 0, code });
+            } catch {
+                resolve({ pending: code === 0 ? 1 : 0, code });
+            }
         });
     });
 }
@@ -82,24 +111,50 @@ let syncTimer = null;
 let syncCount = 0;
 
 if (!SKIP_GIT_SYNC) {
-    syncTimer = setInterval(async () => {
+    syncTimer = setInterval(() => {
         syncCount++;
-        log(`Sync periódico #${syncCount}…`);
-        await gitSync(`periodic-${syncCount}`);
+        log(`Sync periódico #${syncCount} (background)…`);
+        gitSyncBackground(`periodic-${syncCount}`);
     }, SYNC_INTERVAL_MS);
 }
 
+const started = Date.now();
+let round = 0;
+let lastResult = "done";
+
 try {
-    await runMigration(migArgs);
-    log("Migração concluída.");
-    if (!SKIP_GIT_SYNC) {
-        await gitSync("final");
-    }
+    do {
+        round++;
+        log(`=== Rodada ${round} ===`);
+        lastResult = await runMigration(migArgs);
+
+        if (lastResult === "empty") {
+            log("Fila vazia nesta rodada.");
+            break;
+        }
+
+        if (!LOOP_ENABLED) break;
+
+        const { pending } = await hasPendingWork();
+        if (pending <= 0) {
+            log("Nenhum mangá pendente — concluído.");
+            break;
+        }
+
+        log(`${pending} mangá(s) ainda pendentes — próxima rodada…`);
+        await gitSync(`round-${round}`);
+
+        if (Date.now() - started >= MAX_LOOP_MS) {
+            log("Tempo máximo de loop atingido — checkpoint final.");
+            break;
+        }
+    } while (LOOP_ENABLED);
+
+    log(`Migração concluída após ${round} rodada(s).`);
+    await gitSync("final");
 } catch (e) {
     log(`Erro: ${e.message}`);
-    if (!SKIP_GIT_SYNC) {
-        await gitSync("error-recovery");
-    }
+    await gitSync("error-recovery");
     process.exit(1);
 } finally {
     if (syncTimer) clearInterval(syncTimer);

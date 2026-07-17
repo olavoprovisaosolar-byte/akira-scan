@@ -22,11 +22,11 @@ on:
         description: "Deploy Cloudflare Pages ao final"
         required: true
         type: boolean
-        default: true
+        default: false
       sync_interval_minutes:
-        description: "Intervalo de commit checkpoint (minutos)"
+        description: "Intervalo de commit checkpoint git (minutos, não pausa upload)"
         required: false
-        default: "15"
+        default: "120"
       manga_parallel:
         description: "Mangás paralelos (hyper=3; use 2 se OOM no runner)"
         required: false
@@ -82,6 +82,8 @@ jobs:
       - name: Run cloud hyper migration
         env:
           SYNC_INTERVAL_MINUTES: ${{ inputs.sync_interval_minutes }}
+          MIGRATE_LOOP: "1"
+          MIGRATE_LOOP_MAX_MS: "21000000"
           NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
           NEXUSTOONS_ALL_CHAPTERS: ${{ inputs.all_chapters == 'true' && '1' || '0' }}
           NEXUSTOONS_SYNC_ONLY_NEW: ${{ inputs.sync_only_new == 'true' && '1' || '0' }}
@@ -112,6 +114,25 @@ jobs:
             ARGS+=(--no-deploy)
           fi
           node scripts/cloud-hyper-run.mjs "${ARGS[@]}"
+
+      - name: Retrigger se ainda houver pendências
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if node scripts/check-migrate-pending.mjs; then
+            echo "Ainda há mangás pendentes — re-disparando workflow em 30s…"
+            sleep 30
+            gh workflow run migrate-bulk-hyper.yml \
+              --ref main \
+              -f mode=${{ inputs.mode }} \
+              -f deploy=false \
+              -f all_chapters=true \
+              -f sync_interval_minutes=${{ inputs.sync_interval_minutes }} \
+              -f manga_parallel=${{ inputs.manga_parallel }}
+          else
+            echo "Fila vazia — migração completa."
+          fi
 
       - name: Upload migration log artifact
         if: always()

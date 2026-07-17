@@ -300,7 +300,7 @@ const queue = await resolveWorkQueue((msg) => log(msg));
 
 if (!queue.length) {
     log("Nenhum mangá pendente para migrar.");
-    process.exit(0);
+    process.exit(2);
 }
 
 log(`=== Migração bulk: ${ALL_MANGAS ? `${queue.length} mangá(s) na fila` : SLUG}${LITE ? " [LITE]" : HYPER ? " [HYPER]" : ULTRA ? " [ULTRA]" : TURBO ? " [TURBO]" : ""} ===`);

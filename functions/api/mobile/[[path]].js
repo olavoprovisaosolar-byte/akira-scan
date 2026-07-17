@@ -336,7 +336,7 @@ export async function onRequest(context) {
             mode: body.mode === "ultra" ? "ultra" : "hyper",
             deploy: body.deploy === false ? "false" : "true",
             slug: String(body.slug || "").trim(),
-            sync_interval_minutes: String(body.sync_interval_minutes || "15"),
+            sync_interval_minutes: String(body.sync_interval_minutes || "120"),
             manga_parallel: String(body.manga_parallel || "3"),
             all_chapters: body.all_chapters ? "true" : "false",
             sync_only_new: body.sync_only_new ? "true" : "false"
