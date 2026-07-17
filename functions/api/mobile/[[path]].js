@@ -413,7 +413,7 @@ export async function onRequest(context) {
                 mode: "hyper",
                 deploy: "true",
                 slug: nexusSlug,
-                sync_interval_minutes: "15",
+                sync_interval_minutes: "120",
                 manga_parallel: "2",
                 all_chapters: "true",
                 sync_only_new: "false"
