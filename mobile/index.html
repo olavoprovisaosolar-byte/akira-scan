@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f0f14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Akira Worker — Celular</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0f0f14;
+      color: #e8e8ef;
+      min-height: 100dvh;
+      padding: 1rem;
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+    h1 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+    .sub { color: #888; font-size: 0.85rem; margin-bottom: 1.25rem; }
+    .card {
+      background: #1a1a24;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #2a2a38;
+    }
+    .stat { font-size: 1.5rem; font-weight: 700; color: #7c6cff; }
+    .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+    button, .btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn-hyper {
+      background: linear-gradient(135deg, #7c6cff, #5b4fd4);
+      color: #fff;
+    }
+    .btn-hyper:active { opacity: 0.85; }
+    .btn-link {
+      background: #252532;
+      color: #ccc;
+    }
+    input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #12121a;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+    .log {
+      font-size: 0.8rem;
+      color: #aaa;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .ok { color: #4ade80; }
+    .err { color: #f87171; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>⚡ Akira Worker</h1>
+  <p class="sub">Velocidade máxima na nuvem — 0 RAM no celular</p>
+
+  <div id="pin-screen" class="card">
+    <p class="label">PIN de acesso</p>
+    <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN configurado no Cloudflare" autocomplete="off">
+    <button class="btn-hyper" id="pin-save">Entrar</button>
+    <p class="log">O PIN é o secret <code>MOBILE_TRIGGER_PIN</code> do Cloudflare Pages.</p>
+  </div>
+
+  <div id="main-screen" class="hidden">
+    <div class="card">
+      <p class="label">Caps no índice</p>
+      <p class="stat" id="stat-total">—</p>
+      <p class="log" id="stat-detail">storage: —</p>
+    </div>
+
+    <div class="card">
+      <p class="label">Último workflow</p>
+      <p class="log" id="wf-status">—</p>
+    </div>
+
+    <button class="btn-hyper" id="btn-hyper">🚀 Iniciar HYPER (máxima velocidade)</button>
+    <button class="btn-link" id="btn-ultra">▶ Iniciar ULTRA (mais estável)</button>
+    <a class="btn btn-link" id="link-actions" href="https://github.com/olavoprovisaosolar-byte/akira-scan/actions/workflows/migrate-bulk-hyper.yml" target="_blank" rel="noopener">Ver logs no GitHub</a>
+    <button class="btn-link" id="btn-refresh">↻ Atualizar status</button>
+    <p class="log" id="msg"></p>
+  </div>
+
+  <script>
+    const PIN_KEY = "akira_mobile_pin";
+    const pinScreen = document.getElementById("pin-screen");
+    const mainScreen = document.getElementById("main-screen");
+    const pinInput = document.getElementById("pin-input");
+    const msg = document.getElementById("msg");
+
+    function getPin() {
+      return sessionStorage.getItem(PIN_KEY) || new URLSearchParams(location.search).get("pin") || "";
+    }
+
+    function showMain() {
+      pinScreen.classList.add("hidden");
+      mainScreen.classList.remove("hidden");
+      refresh();
+    }
+
+    document.getElementById("pin-save").onclick = () => {
+      const p = pinInput.value.trim();
+      if (!p) return;
+      sessionStorage.setItem(PIN_KEY, p);
+      showMain();
+    };
+
+    if (getPin()) showMain();
+    else if (new URLSearchParams(location.search).get("pin")) {
+      sessionStorage.setItem(PIN_KEY, getPin());
+      showMain();
+    }
+
+    async function refresh() {
+      msg.textContent = "Carregando…";
+      msg.className = "log";
+      try {
+        const r = await fetch("/api/mobile/status");
+        const d = await r.json();
+        const total = d.cloud?.total ?? "—";
+        document.getElementById("stat-total").textContent = total;
+        document.getElementById("stat-detail").textContent =
+          `storage: ${d.cloud?.storage ?? "?"} | R2: ${d.cloud?.hasR2 ?? "?"}`;
+        const wf = d.workflow;
+        document.getElementById("wf-status").textContent = wf
+          ? `${wf.status} ${wf.conclusion || ""} — ${wf.createdAt || ""}`
+          : "Nenhuma execução recente";
+        if (wf?.url) document.getElementById("link-actions").href = wf.url;
+        msg.textContent = "Status OK";
+        msg.className = "log ok";
+      } catch (e) {
+        msg.textContent = "Erro: " + e.message;
+        msg.className = "log err";
+      }
+    }
+
+    async function trigger(mode) {
+      const pin = getPin();
+      if (!pin) { pinScreen.classList.remove("hidden"); mainScreen.classList.add("hidden"); return; }
+      msg.textContent = "Disparando " + mode + "…";
+      msg.className = "log";
+      try {
+        const r = await fetch("/api/mobile/trigger", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-Mobile-Pin": pin },
+          body: JSON.stringify({ mode, deploy: true, manga_parallel: mode === "hyper" ? "3" : "2" })
+        });
+        const d = await r.json();
+        if (!d.ok) throw new Error(d.error || "Falhou");
+        msg.textContent = "✓ " + d.message;
+        msg.className = "log ok";
+        setTimeout(refresh, 3000);
+      } catch (e) {
+        msg.textContent = "Erro: " + e.message;
+        msg.className = "log err";
+      }
+    }
+
+    document.getElementById("btn-hyper").onclick = () => trigger("hyper");
+    document.getElementById("btn-ultra").onclick = () => trigger("ultra");
+    document.getElementById("btn-refresh").onclick = refresh;
+  </script>
+</body>
+</html>

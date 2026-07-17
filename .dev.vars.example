@@ -1,3 +1,5 @@
 # Variáveis locais para `npm run dev:cloudflare` (copie para .dev.vars — não commitar)
 AKIRA_PUBLISH_TOKEN=dev-token-local
 AKIRA_SCAN_BASE_URL=http://localhost:8788
+MOBILE_TRIGGER_PIN=123456
+GITHUB_TOKEN=

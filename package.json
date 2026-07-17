@@ -56,7 +56,13 @@
     "clean:ghost-chapters": "node scripts/clean-ghost-chapters.mjs",
     "bot:nexustoons:probe": "node bots/nexustoons-akira/capture/probe.mjs",
     "bot:nexustoons:telegra-probe": "node bots/nexustoons-akira/hosting/telegra-probe.mjs",
-    "bot:scrape:nexus": "node bots/nexustoons-akira/capture/nexus-scraper.mjs"
+    "bot:scrape:nexus": "node bots/nexustoons-akira/capture/nexus-scraper.mjs",
+    "migrate:remote:setup": "node scripts/remote-telegra-worker.mjs --setup",
+    "migrate:remote:pull": "node scripts/remote-worker-git.mjs pull",
+    "migrate:remote:push": "node scripts/remote-worker-git.mjs push",
+    "migrate:remote:telegra": "node scripts/remote-telegra-worker.mjs",
+    "migrate:remote:telegra:turbo": "node scripts/remote-telegra-worker.mjs --turbo",
+    "deploy:mobile-worker": "npm run prepare:cloudflare && npx wrangler pages deploy deploy-cloudflare --project-name=akira-scan --branch=main --commit-dirty=true"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
