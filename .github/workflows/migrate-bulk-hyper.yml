@@ -1,6 +1,6 @@
 name: Migrate Bulk Hyper (Cloud)
 
-# Migração bulk hyper/ultra na nuvem — sem consumir RAM do PC local.
+# Migração bulk hyper/ultra na nuvem — Telegra.ph primário, fallback cloud-static.
 # Retoma de data/nexustoons/state.json; commits periódicos de checkpoint.
 
 on:
@@ -76,10 +76,12 @@ jobs:
           SYNC_INTERVAL_MINUTES: ${{ inputs.sync_interval_minutes }}
           NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
-          TELEGRA_SKIP: "1"
-          HOSTING_ADAPTER: catbox
-          NEXUSTOONS_HOSTING_ADAPTER: catbox
-          CATBOX_STATIC_FALLBACK: "false"
+          TELEGRA_SKIP: "0"
+          HOSTING_ADAPTER: telegra
+          NEXUSTOONS_HOSTING_ADAPTER: telegra
+          TELEGRA_STATIC_FALLBACK: "true"
+          TELEGRA_DELAY_MS: "600"
+          TELEGRA_RETRIES: "3"
           STREAM_PAGE_CONCURRENCY: "2"
           PAGE_DOWNLOAD_CONCURRENCY: "2"
           NEXUSTOONS_PURGE_LOCAL: "1"

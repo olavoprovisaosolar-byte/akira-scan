@@ -50,11 +50,15 @@ function pageDelayMs() {
     return Math.max(0, Number(process.env.TELEGRA_DELAY_MS ?? 600));
 }
 
-/** Após HTTP 400 (ou TELEGRA_SKIP), Telegra está bloqueado — pula tentativas seguintes. */
+/** Após TELEGRA_SKIP explícito, Telegra está bloqueado globalmente. HTTP 400 usa fallback por página. */
 let telegraBlocked = SKIP_TELEGRA;
 let loggedStaticMode = false;
 
 function markTelegraBlocked(reason = "auto-detect") {
+    if (reason === "HTTP 400" || reason === "auto-detect") {
+        log.warn(`Telegra HTTP 400 — fallback cloud-static nesta página`, { reason });
+        return;
+    }
     if (telegraBlocked) return;
     telegraBlocked = true;
     if (!loggedStaticMode) {
@@ -224,7 +228,6 @@ export async function uploadImage(buffer, filename, uploadUrl = cfg.telegraUploa
                     const detail = typeof res.data === "string" ? res.data : JSON.stringify(res.data);
                     const err = new Error(`Telegra HTTP ${res.status}: ${String(detail).slice(0, 200)}`);
                     err.status = res.status;
-                    if (res.status === 400) markTelegraBlocked("HTTP 400");
                     throw err;
                 }
 
@@ -277,7 +280,7 @@ async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, p
         } catch (e) {
             lastErr = e;
             if (e.status === 400 || String(e.message).includes("HTTP 400")) {
-                markTelegraBlocked("HTTP 400");
+                log.warn(`Telegra HTTP 400 na página ${pageIndex + 1} — usando cloud-static`, { err: e.message });
                 break;
             }
             if (telegraBlocked) break;
@@ -286,7 +289,6 @@ async function uploadWithRetry(buffer, filename, pageIndex, staticOpts = null, p
     }
 
     if (STATIC_FALLBACK && staticOpts?.mangaId && staticOpts?.capId) {
-        markTelegraBlocked("auto-detect");
         const ext = extFromUrl(filename, "jpg");
         const prepared = await prepareUploadBuffer(buffer, ext);
         const url = saveStaticPage(prepared.buffer, prepared.filenameExt, staticOpts.mangaId, staticOpts.capId, pageIndex);

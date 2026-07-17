@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Facade NexusToons — catálogo (OrionCrypto) + páginas (Playwright/Turnstile).
- * Pipeline: scrape → hosting (Catbox) → GitHub index sync → state sync → ghost cleanup.
+ * Pipeline: scrape → hosting (Telegra → cloud-static fallback) → GitHub index sync → state sync → ghost cleanup.
  *
  * Uso:
  *   node bots/nexustoons-akira/capture/nexus-scraper.mjs --slug=SLUG
@@ -166,7 +166,7 @@ export async function runNexusScraperPipeline(slug, opts = {}) {
 
     const hostingName = process.env.HOSTING_ADAPTER
         || process.env.NEXUSTOONS_HOSTING_ADAPTER
-        || "catbox";
+        || "telegra";
     log.info("=== Nexus Scraper Pipeline ===", { slug, dryRun, hosting: hostingName });
 
     const manifest = loadManifest();

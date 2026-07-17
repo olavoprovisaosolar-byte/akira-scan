@@ -103,13 +103,37 @@ function loadCatalogo() {
     }
 }
 
+function envTruthy(name) {
+    const v = String(process.env[name] ?? "").trim().toLowerCase();
+    return v === "1" || v === "true" || v === "yes";
+}
+
+/** Modo migração Telegra: só pula caps já hospedados em telegra.ph. */
+export function wantsTelegraPrimary() {
+    const adapter = process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "telegra";
+    return adapter === "telegra" && !envTruthy("TELEGRA_SKIP");
+}
+
+function hasTelegraPages(rec) {
+    if (rec?.hosting === "telegra") return true;
+    return rec?.pages?.some((p) => String(p.url || "").includes("telegra.ph"));
+}
+
 function hasHostedPages(rec) {
     return rec?.pages?.some((p) => {
         const u = String(p.url || "");
         return u.includes("telegra.ph")
+            || u.includes("catbox.moe")
             || u.includes("/api/cloud/page")
             || u.includes("/data/cloud/pages/");
     });
+}
+
+function hasPublishablePages(rec) {
+    if (wantsTelegraPrimary()) return hasTelegraPages(rec);
+    return hasHostedPages(rec);
 }
 
 function isTelegraCatalogCap(cap) {
@@ -119,14 +143,14 @@ function isTelegraCatalogCap(cap) {
 function isInCloudIndex(idx, akiraMangaId, capId, chapterNumber) {
     const cloudKey = `${akiraMangaId}/${capId}`;
     const byKey = idx.caps?.[cloudKey];
-    if (byKey?.done && hasHostedPages(byKey)) {
-        return { source: "cloud-index", key: cloudKey };
+    if (byKey?.done && hasPublishablePages(byKey)) {
+        return { source: "cloud-index", key: cloudKey, rec: byKey };
     }
 
     for (const [key, rec] of Object.entries(idx.caps || {})) {
-        if (rec.mangaId !== akiraMangaId || !rec.done || !hasHostedPages(rec)) continue;
+        if (rec.mangaId !== akiraMangaId || !rec.done || !hasPublishablePages(rec)) continue;
         if (String(rec.numero) === String(chapterNumber)) {
-            return { source: "cloud-index", key };
+            return { source: "cloud-index", key, rec };
         }
     }
     return null;
@@ -148,9 +172,21 @@ function isInCatalogo(catalogo, akiraMangaId, chapterNumber) {
  * @returns {{ skip: boolean, reason?: string, source?: string }}
  */
 export function getChapterSkipReason(state, mangaSlug, capId, akiraMangaId, chapterNumber, expectedPages = null) {
+    const telegraMode = wantsTelegraPrimary();
+    const idx = loadCloudIndex();
+    const cloudHit = isInCloudIndex(idx, akiraMangaId, capId, chapterNumber);
+
+    if (cloudHit) {
+        const rec = cloudHit.rec;
+        if (expectedPages != null && rec?.total != null && Number(rec.total) !== Number(expectedPages)) {
+            return { skip: false, reason: "page-count-mismatch" };
+        }
+        return { skip: true, reason: cloudHit.key, source: cloudHit.source };
+    }
+
     const key = chapterStateKey(mangaSlug, capId);
     const stateEntry = state.processed[key];
-    if (stateEntry) {
+    if (stateEntry && !telegraMode) {
         if (expectedPages != null && stateEntry.pagesCount != null) {
             if (Number(stateEntry.pagesCount) === Number(expectedPages)) {
                 return { skip: true, reason: "state.json", source: "state" };
@@ -160,16 +196,12 @@ export function getChapterSkipReason(state, mangaSlug, capId, akiraMangaId, chap
         }
     }
 
-    const idx = loadCloudIndex();
-    const cloudHit = isInCloudIndex(idx, akiraMangaId, capId, chapterNumber);
-    if (cloudHit) {
-        return { skip: true, reason: cloudHit.key, source: cloudHit.source };
-    }
-
-    const catalogo = loadCatalogo();
-    const catalogHit = isInCatalogo(catalogo, akiraMangaId, chapterNumber);
-    if (catalogHit) {
-        return { skip: true, reason: catalogHit.capId, source: catalogHit.source };
+    if (!telegraMode) {
+        const catalogo = loadCatalogo();
+        const catalogHit = isInCatalogo(catalogo, akiraMangaId, chapterNumber);
+        if (catalogHit) {
+            return { skip: true, reason: catalogHit.capId, source: catalogHit.source };
+        }
     }
 
     return { skip: false };
@@ -241,7 +273,7 @@ function recomputePorManga(capsObj) {
         porManga[mangaId].totalCaps++;
         if (rec.done) porManga[mangaId].doneCaps++;
         if (rec.localPurged) porManga[mangaId].purgedCaps++;
-        if (hasHostedPages(rec)) porManga[mangaId].legibleCaps++;
+        if (hasPublishablePages(rec)) porManga[mangaId].legibleCaps++;
     }
     return porManga;
 }
@@ -264,9 +296,20 @@ export function countProcessedForSlug(state, slug) {
     return Object.keys(state.processed || {}).filter((k) => k.startsWith(prefix)).length;
 }
 
-/** Mangá considerado completo quando todos os caps Nexus constam no state. */
-export function isMangaFullyInState(state, slug, totalChapters) {
+/** Mangá considerado completo quando todos os caps Nexus constam no state (ou Telegra no índice). */
+export function isMangaFullyInState(state, slug, totalChapters, akiraMangaId = null) {
     const total = Number(totalChapters);
     if (!slug || !Number.isFinite(total) || total <= 0) return false;
+
+    if (wantsTelegraPrimary() && akiraMangaId) {
+        const idx = loadCloudIndex();
+        let telegraCaps = 0;
+        for (const rec of Object.values(idx.caps || {})) {
+            if (rec.mangaId !== akiraMangaId || !rec.done || !hasTelegraPages(rec)) continue;
+            telegraCaps++;
+        }
+        return telegraCaps >= total;
+    }
+
     return countProcessedForSlug(state, slug) >= total;
 }

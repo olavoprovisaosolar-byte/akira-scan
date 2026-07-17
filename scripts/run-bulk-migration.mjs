@@ -29,29 +29,34 @@ const ULTRA = args.includes("--ultra") && !LITE;
 const HYPER = args.includes("--hyper") && !LITE;
 const TURBO = (args.includes("--turbo") || ULTRA || HYPER) && !LITE;
 
+function applyTelegraEnv() {
+    process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "0";
+    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "telegra";
+    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "telegra";
+    process.env.TELEGRA_STATIC_FALLBACK = process.env.TELEGRA_STATIC_FALLBACK || "true";
+    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "600";
+    process.env.TELEGRA_RETRIES = process.env.TELEGRA_RETRIES || "3";
+}
+
 function applyTurboEnv() {
-    process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "1";
+    applyTelegraEnv();
     process.env.NEXUSTOONS_DELAY_MS = process.env.NEXUSTOONS_DELAY_MS || "200";
     process.env.NEXUSTOONS_CHAPTER_DELAY_MS = process.env.NEXUSTOONS_CHAPTER_DELAY_MS || "500";
     process.env.PAGE_DOWNLOAD_CONCURRENCY = process.env.PAGE_DOWNLOAD_CONCURRENCY || "8";
     process.env.NEXUSTOONS_PAGE_CONCURRENCY = process.env.NEXUSTOONS_PAGE_CONCURRENCY || "8";
-    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "0";
-    process.env.TELEGRA_RETRIES = process.env.TELEGRA_RETRIES || "1";
+    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "400";
     process.env.NEXUSTOONS_PW_SETTLE_MS = process.env.NEXUSTOONS_PW_SETTLE_MS || "1200";
     process.env.NEXUSTOONS_PURGE_LOCAL = process.env.NEXUSTOONS_PURGE_LOCAL || "1";
 }
 
 function applyUltraEnv() {
     applyTurboEnv();
-    process.env.TELEGRA_SKIP = "1";
-    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "catbox";
-    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "catbox";
-    process.env.CATBOX_STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK || "false";
     process.env.NEXUSTOONS_DELAY_MS = process.env.NEXUSTOONS_DELAY_MS || "100";
     process.env.NEXUSTOONS_CHAPTER_DELAY_MS = process.env.NEXUSTOONS_CHAPTER_DELAY_MS || "300";
     process.env.NEXUSTOONS_PW_SETTLE_MS = process.env.NEXUSTOONS_PW_SETTLE_MS || "800";
     process.env.PAGE_DOWNLOAD_CONCURRENCY = process.env.PAGE_DOWNLOAD_CONCURRENCY || "12";
     process.env.NEXUSTOONS_PAGE_CONCURRENCY = process.env.NEXUSTOONS_PAGE_CONCURRENCY || "12";
+    process.env.TELEGRA_DELAY_MS = process.env.TELEGRA_DELAY_MS || "300";
     process.env.NEXUSTOONS_DEFER_CATALOG = "1";
     process.env.NEXUSTOONS_OVERLAP_PIPELINE = "1";
     process.env.SHARP_SKIP_REENCODE = "1";
@@ -74,10 +79,7 @@ function applyHyperEnv() {
 }
 
 function applyLiteEnv() {
-    process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "1";
-    process.env.HOSTING_ADAPTER = process.env.HOSTING_ADAPTER || "catbox";
-    process.env.NEXUSTOONS_HOSTING_ADAPTER = process.env.NEXUSTOONS_HOSTING_ADAPTER || "catbox";
-    process.env.CATBOX_STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK || "false";
+    applyTelegraEnv();
     process.env.NEXUSTOONS_MANGA_PARALLEL = "1";
     process.env.NEXUSTOONS_CHAPTER_CONCURRENCY = "1";
     process.env.NEXUSTOONS_OVERLAP_PIPELINE = "0";
@@ -192,9 +194,9 @@ if (BACKGROUND) {
     } else if (HYPER) {
         console.log("Hyper: 3 mangás paralelos, 2 caps/concorrência, download 20, delays mínimos");
     } else if (ULTRA) {
-        console.log("Ultra: catbox + sync índice, concurrency 12, overlap capture/hosting, catálogo defer por mangá");
+        console.log("Ultra: Telegra + sync índice, concurrency 12, overlap capture/hosting, catálogo defer por mangá");
     } else if (TURBO) {
-        console.log("Turbo: TELEGRA_SKIP=1, delays reduzidos, download concurrency 8");
+        console.log("Turbo: Telegra primário, delays reduzidos, download concurrency 8");
     }
     process.exit(0);
 }
@@ -241,8 +243,8 @@ async function resolveWorkQueue(onProgress) {
             onProgress?.(`[AVISO] Slug inválido, ignorando: ${slug}`);
             continue;
         }
-        if (isMangaFullyInState(state, slug, chapters)) {
-            onProgress?.(`[SKIP] ${m.title || slug} — ${chapters} caps já no state`);
+        if (isMangaFullyInState(state, slug, chapters, m.akiraId || null)) {
+            onProgress?.(`[SKIP] ${m.title || slug} — ${chapters} caps já no Telegra`);
             continue;
         }
         queue.push(m);
@@ -302,6 +304,7 @@ if (!queue.length) {
 }
 
 log(`=== Migração bulk: ${ALL_MANGAS ? `${queue.length} mangá(s) na fila` : SLUG}${LITE ? " [LITE]" : HYPER ? " [HYPER]" : ULTRA ? " [ULTRA]" : TURBO ? " [TURBO]" : ""} ===`);
+log(`Hosting: ${process.env.HOSTING_ADAPTER || "telegra"} | TELEGRA_SKIP=${process.env.TELEGRA_SKIP || "0"} | fallback=${process.env.TELEGRA_STATIC_FALLBACK || "true"}`);
 if (LITE) {
     log(`Lite: MANGA_PARALLEL=${process.env.NEXUSTOONS_MANGA_PARALLEL}, CHAPTER_CONCURRENCY=${process.env.NEXUSTOONS_CHAPTER_CONCURRENCY}, PAGE_CONCURRENCY=${process.env.PAGE_DOWNLOAD_CONCURRENCY}, PW_LITE=1`);
 } else if (HYPER) {

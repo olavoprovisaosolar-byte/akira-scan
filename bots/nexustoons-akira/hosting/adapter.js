@@ -28,7 +28,7 @@ function resolveHostingAdapterName(name) {
     return name
         || process.env.HOSTING_ADAPTER
         || process.env.NEXUSTOONS_HOSTING_ADAPTER
-        || "catbox";
+        || "telegra";
 }
 
 export async function getHostingAdapter(name) {
