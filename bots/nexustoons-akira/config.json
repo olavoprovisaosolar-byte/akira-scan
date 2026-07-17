@@ -1,0 +1,5 @@
+{
+  "nexustoonsBaseUrl": "https://nexustoons.com",
+  "akiraScanBaseUrl": "https://akira-scan.pages.dev",
+  "telegraUploadUrl": "https://api.telegra.ph/upload"
+}

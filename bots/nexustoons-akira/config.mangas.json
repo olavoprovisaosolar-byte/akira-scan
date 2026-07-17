@@ -1,0 +1,2554 @@
+{
+  "updatedAt": "2026-07-17T04:52:59.433Z",
+  "minScore": 0.8,
+  "totalAkira": 433,
+  "totalNexus": 13674,
+  "matched": 424,
+  "enabled": 387,
+  "mangas": [
+    {
+      "nexusSlug": "1-segundo",
+      "akiraId": "obra-e7e46b19",
+      "title": "1 Segundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-centesima-regressao-do-jogador-de-nivel-maximo",
+      "akiraId": "obra-24d77989",
+      "title": "100ª Regressão do Jogador de Nível Máximo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-31-peca-que-virou-o-tabuleiro",
+      "akiraId": "obra-e4c68a67",
+      "title": "A 31ª Peça Que virou o Tabuleiro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cacula-e-o-destaque-da-academia",
+      "akiraId": "obra-bad36d81",
+      "title": "A Academia Está Condenada",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "a-ascensao-da-cobra-imortal",
+      "akiraId": "obra-f302fde3",
+      "title": "A Ascensão da Cobra Imortal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo",
+      "akiraId": "obra-fefcaf38",
+      "title": "A Ascensão do Espadachim de Rank Baixo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-ascensao-do-imperador-da-espada-de-namgung",
+      "akiraId": "obra-0ca641d6",
+      "title": "A Ascensão do Imperador da Espada de Namgung",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "aventura-de-um-barbaro-em-um-mundo-de-fantasia",
+      "akiraId": "obra-795ae3ae",
+      "title": "A Aventura do Bárbaro em um Mundo de Fantasia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-calamidade-desceu-e-eu-evolui-para-o-rei-carmesim",
+      "akiraId": "obra-c2b430f6",
+      "title": "A Calamidade Desceu e Eu Evoluí Para o Rei Carmesim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-contrato-de-casamento-da-minha-mae",
+      "akiraId": "obra-9e2ba9e7",
+      "title": "A Caminho de Encontrar a Mamãe",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-necromante-de-ferro-e-sangue-retorna",
+      "akiraId": "obra-b9a9a271",
+      "title": "A Crônica da Guerra de Lodoss: A Rainha Necromante",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "gye-baeksun-sem-emprego-e-sem-dinheiro",
+      "akiraId": "obra-9010fd2c",
+      "title": "A Desempregada Gye Baek-Sun",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "a-espada-do-xama",
+      "akiraId": "obra-a11a7cd3",
+      "title": "A Espada do Xamã",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-espada-suprema-do-culto-demoniaco",
+      "akiraId": "obra-6955dd77",
+      "title": "A Espada Suprema do Culto Demoníaco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-esposa-que-esperou-no-campo-de-trigo",
+      "akiraId": "obra-bb334ef5",
+      "title": "A Esposa Que Esperou no Campo de Trigo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-faisca-em-seus-olhos",
+      "akiraId": "obra-7dce24ff",
+      "title": "A Faísca em Seus Olhos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-garota-do-go",
+      "akiraId": "obra-69466adb",
+      "title": "A Garota do Go",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-heroina-e-obcecada-por-mim",
+      "akiraId": "obra-b58b5a3f",
+      "title": "A Heroína É Obcecada Por Mim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-marca-cinza",
+      "akiraId": "obra-e60e7957",
+      "title": "A Marca Cinza",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila",
+      "akiraId": "obra-ea94a6a7",
+      "title": "A Morte é o Único Fim Para a Vilã",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-necromante-reclusa-retorna-ao-mundo",
+      "akiraId": "obra-946f6768",
+      "title": "A Necromante Reclusa Retorna ao Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-neta-indesejada-do-cla-baekri",
+      "akiraId": "obra-816fce06",
+      "title": "A Neta Indesejada do Clã Baekri",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-princesa-vai-a-escola",
+      "akiraId": "obra-f249bd0f",
+      "title": "A Princesa Vai à Escola",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-regressao-do-promotor-mestre-da-espada",
+      "akiraId": "obra-7b2fba6f",
+      "title": "A Regressão do Promotor Mestre da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-revanche-do-mago-curador",
+      "akiraId": "obra-91554001",
+      "title": "A Revanche do Acusado Injustamente",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "a-serpente-negra",
+      "akiraId": "obra-bf768710",
+      "title": "A Serpente Negra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-superacao-do-nobre-vagabundo",
+      "akiraId": "obra-bed97db2",
+      "title": "A Superação do Nobre Vagabundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-transmissao-do-reino-demoniaco-do-demonio-celestial-rejuvenescido",
+      "akiraId": "obra-8b6cdf13",
+      "title": "A Transmissão do Reino Demoníaco do Demônio Celestial Rejuvenescido",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-ultima-passagem",
+      "akiraId": "obra-5befa48d",
+      "title": "A Última Passagem",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-vida-do-ex-mercenario-como-promotor",
+      "akiraId": "obra-972d0396",
+      "title": "A Vida do Ex-mercenário Como Promotor",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-vila-tem-um-crush",
+      "akiraId": "obra-acff825a",
+      "title": "A Vilã Tem um Crush",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-vinganca-da-flor-desabrochada",
+      "akiraId": "obra-dc26dee7",
+      "title": "A Vingança da Flor Desabrochada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-volta-do-mago-dos-becos",
+      "akiraId": "obra-ae860da9",
+      "title": "A Volta do Mago dos Becos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao",
+      "akiraId": "obra-a9c2e2c4",
+      "title": "A Vontade de Sobreviver de um Vilão",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "acham-que-eu-sou-um-genio-do-futebol",
+      "akiraId": "obra-bf1df717",
+      "title": "Acham que Eu Sou um Gênio do Futebol",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "acumulador-de-caracteristicas",
+      "akiraId": "obra-107261fb",
+      "title": "Acumulador de Características",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-o-boss-final",
+      "akiraId": "obra-7c0e5f04",
+      "title": "Akari, o Boss Final",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "alem-do-tempo",
+      "akiraId": "obra-8da8c72c",
+      "title": "Além do Tempo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "alquimia-do-vampiro",
+      "akiraId": "obra-c3011ef4",
+      "title": "Alquimia do Vampiro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "amigo-de-infancia-de-zenith",
+      "akiraId": "obra-c10e1475",
+      "title": "Amigo de Infância do Zênite",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "amor-em-4-patas",
+      "akiraId": "obra-e5fc1a6d",
+      "title": "Amor em 4 Patas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "aniquilacao-do-caminho-celestial",
+      "akiraId": "obra-1dfcb77e",
+      "title": "Aniquilação do Caminho Celestial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "antigo-corpo-sagrado",
+      "akiraId": "obra-9b18dcef",
+      "title": "Antigo Corpo Sagrado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "aparencias",
+      "akiraId": "obra-a5bf530a",
+      "title": "Aparências",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-apenas-um-imortal",
+      "akiraId": "obra-e27bd282",
+      "title": "Apenas um Imortal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "apos-alcancar-a-liberdade-financeira-elas-ofereceram-sua-lealdade",
+      "akiraId": "obra-fcd9fa7a",
+      "title": "Após Alcançar a Liberdade Financeira, Elas Ofereceram sua Lealdade",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "arquimago-transcendido-pela-regressao",
+      "akiraId": "obra-a1ca5fdf",
+      "title": "Arquimago Transcendido Pela Regressão",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "arquiteto-de-dungeons",
+      "akiraId": "obra-f41694e1",
+      "title": "Arquiteto de Masmorras",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "artes-marciais-de-elite-ser-um-genio-e-apenas-o-requisito-para-me-conhecer",
+      "akiraId": "obra-ea9849c0",
+      "title": "Artes Marciais de Elite: Ser um Gênio é Apenas o Requisito Para me Conhecer!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mundo-marcial-supremo-varrendo-sozinho-tres-mil-imperadores-com-uma-so-mao",
+      "akiraId": "obra-924b228a",
+      "title": "Artes Marciais de Elite: Varrendo Três Mil Imperadores com uma Só Mão!",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "artes-marciais-globais",
+      "akiraId": "obra-e48e6725",
+      "title": "Artes Marciais Globais",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "as-aventuras-de-kim-ohjin-com-animais-fantasticos",
+      "akiraId": "obra-85eb9d03",
+      "title": "As Aventuras de Kim Ohjin com Animais Fantásticos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "as-em-tempo-integral",
+      "akiraId": "obra-aad07c80",
+      "title": "Ás Em Tempo Integral",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "as-principais-heroinas-estao-tentando-me-matar",
+      "akiraId": "obra-fc668dbc",
+      "title": "As Principais Heroínas Estão Tentando Me Matar",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ascensao-do-devorador",
+      "akiraId": "obra-e63a2307",
+      "title": "Ascensão do Devorador",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ascensao-do-rei-cogumelo",
+      "akiraId": "obra-d7c6318f",
+      "title": "Ascensão do Rei Cogumelo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ascensao-ilimitada-forca-atraves-da-adversidade",
+      "akiraId": "obra-6cebe7e0",
+      "title": "Ascensão Ilimitada: Força Através da Adversidade",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "assassina-de-herois",
+      "akiraId": "obra-e25b19eb",
+      "title": "Assassina de Heróis",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "assassino-de-nivel-divino-eu-sou-a-sombra",
+      "akiraId": "obra-383ea824",
+      "title": "Assassino de Nível Divino, Eu Sou a Sombra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "demonio",
+      "akiraId": "obra-ee0307d5",
+      "title": "Asura: O Demônio da Luta",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce",
+      "akiraId": "obra-a09285c4",
+      "title": "Cale a Boca, Dragão Maligno! Não Quero Mais Criar um Filho com Você.",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "carl-o-explorador-de-masmorras",
+      "akiraId": "obra-8a375854",
+      "title": "Carl, o Explorador de Masmorras",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-carrasco",
+      "akiraId": "obra-ad3b3053",
+      "title": "Carrasco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "castelo-2-pinaculo",
+      "akiraId": "obra-aca2b626",
+      "title": "Castelo 2: Pináculo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cavaleiro-santo-de-grau-sss",
+      "akiraId": "obra-af9cec15",
+      "title": "Cavaleiro Santo De Grau SSS",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cerbero",
+      "akiraId": "obra-6fe7d27d",
+      "title": "Cérbero",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "clube-de-historias-de-fantasmas",
+      "akiraId": "obra-b1a29e02",
+      "title": "Clube de Histórias de Fantasmas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "colorista",
+      "akiraId": "obra-b3fe1488",
+      "title": "Colorista",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "comecando-a-evolucao-como-uma-grande-arvore",
+      "akiraId": "obra-e81e7e05",
+      "title": "Começando a Evolução como uma Grande Árvore",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "comecando-com-13-tracos-ocultos",
+      "akiraId": "obra-08f86d2b",
+      "title": "Começando com 13 Traços Ocultos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "comecando-como-o-boss-dragao-negro-sou-invencivel",
+      "akiraId": "obra-93bf529f",
+      "title": "Começando como o BOSS Dragão Negro, Sou Invencível",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "como-cuidar-de-viloes-da-forma-certa",
+      "akiraId": "obra-9444fee7",
+      "title": "Como Cuidar de Vilões da Forma Certa",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "complexo-de-amigos-de-infancia",
+      "akiraId": "obra-9813ed36",
+      "title": "Complexo de Amigos de Infância",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-escondido-conquista-o-mundo-magico",
+      "akiraId": "obra-b29fe435",
+      "title": "Conquistando o Mundo com um Único Soco",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "contos-de-demonios-e-deuses",
+      "akiraId": "obra-dbbabf0f",
+      "title": "Contos de Demônios e Deuses",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "contrato-de-mercenario",
+      "akiraId": "obra-8849de92",
+      "title": "Contrato Mercenário",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "coracao-ferido",
+      "akiraId": "obra-449e3278",
+      "title": "Coração Ferido",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cronicas-da-faccao-demoniaca",
+      "akiraId": "obra-d19ab004",
+      "title": "Crônicas da Facção Demoníaca",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cronicas-do-retorno-do-deus-marcial",
+      "akiraId": "obra-fee3a531",
+      "title": "Crônicas do Retorno do Deus Marcial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cronicas-do-soberano-preguicoso",
+      "akiraId": "obra-c675a235",
+      "title": "Crônicas do Soberano Preguiçoso",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "desafios-de-tome",
+      "akiraId": "obra-9d8c4981",
+      "title": "Cubo dos Desafios",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "cultivando-em-segredo-ao-lado-da-lider-da-seita-demoniaca",
+      "akiraId": "obra-d5a02bd9",
+      "title": "Cultivando em Segredo ao Lado da Líder da Seita Demoníaca",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "damas-de-ferro",
+      "akiraId": "obra-9e9411eb",
+      "title": "Damas de Ferro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "dao-do-imortal-bizarro",
+      "akiraId": "obra-b0546113",
+      "title": "Dao do Imortal Bizarro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "de-volta-para-chanbi",
+      "akiraId": "obra-b059346e",
+      "title": "De Volta para Chanbi",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "demonio",
+      "akiraId": "obra-a40f2041",
+      "title": "Demônio Celestial do Universo 3077",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "demonio",
+      "akiraId": "obra-bb0e1aec",
+      "title": "Demônio x Anjo, Não Conseguem se Dar Bem!",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "depois-da-descida-do-sobrenatural-eu-desbloqueei-a-torre-celeste",
+      "akiraId": "obra-d88e0779",
+      "title": "Depois da Descida do Sobrenatural, Eu Desbloqueei a Torre Celeste",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "queda",
+      "akiraId": "obra-6ee081d5",
+      "title": "Desafio da Queda",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "despertando-o-trovao-roxo-no-inicio",
+      "akiraId": "obra-afed62cb",
+      "title": "Despertando o Trovão Roxo no Início",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "destinado-a-ser-amado-por-vilas",
+      "akiraId": "obra-9f94a39a",
+      "title": "Destinado a Ser Amado por Vilãs",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-deus-da-espada-do-juizo-final",
+      "akiraId": "obra-84da2b37",
+      "title": "Deus da Espada do Dia do Juízo Final",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "deus-demonio-do-apocalipse-behemoth",
+      "akiraId": "obra-a353d19b",
+      "title": "Deus Demônio do Apocalipse Behemoth",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "deus-marcial-pay-to-win",
+      "akiraId": "obra-892a6a1a",
+      "title": "Deus Marcial Pay-to-Win",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "divida-de-sangue",
+      "akiraId": "obra-feb693b9",
+      "title": "Dívida de Sangue",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "dominacao-absoluta-no-nivel-0",
+      "akiraId": "obra-1df9bcbb",
+      "title": "Dominação Absoluta no Nível 0",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "dominio-absoluto",
+      "akiraId": "obra-8f595ef8",
+      "title": "Domínio Absoluto",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sequestrando-dragoes",
+      "akiraId": "obra-8a4938e6",
+      "title": "Dragões Sequestrados",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "lenda",
+      "akiraId": "obra-a4222c5a",
+      "title": "Dungeon Play: O Ex-Escravo Corporativo Domina com a Classe Lendária \"Gamer\"",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "dupla-baek",
+      "akiraId": "obra-f8a963a4",
+      "title": "Dupla Baek",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "preso-a-morte",
+      "akiraId": "obra-3bbbbda6",
+      "title": "Empresa Mortal",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "entomologista-do-cla-tang-de-sichuan",
+      "akiraId": "obra-f5659c25",
+      "title": "Entomologista do Clã Tang de Sichuan",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "escola-de-hipnose",
+      "akiraId": "obra-ada39d00",
+      "title": "Escola de Rua",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "escondendo-um-centro-logistico-no-apocalipse",
+      "akiraId": "obra-736ef784",
+      "title": "Escondendo um Centro Logístico no Apocalipse",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "essencia-da-reencarnacao",
+      "akiraId": "obra-8ed5b3fd",
+      "title": "Essência da Reencarnação",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "essencia-da-selva",
+      "akiraId": "obra-71339843",
+      "title": "Essência da Selva",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "este-heroi-e-um-supremacista-financeiro",
+      "akiraId": "obra-2e09a76e",
+      "title": "Este Herói É Um Supremacista Financeiro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "estou-desistindo-do-grupo-do-heroi",
+      "akiraId": "obra-b49e65b6",
+      "title": "Estou Desistindo do Grupo do Herói",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "estrategia-para-fracos-dominar-a-torre",
+      "akiraId": "obra-304574bc",
+      "title": "Estratégia Para Fracos Dominar a Torre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-dominei-a-academia-com-uma-unica-faca-de-sashimi",
+      "akiraId": "obra-a07d8800",
+      "title": "Eu Dominei a Academia Com uma Única Faca de Sashimi",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-levarei-essa-familia-a-grandeza",
+      "akiraId": "obra-c589d031",
+      "title": "Eu Levarei Essa Família à Grandeza",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-matei-um-jogador-da-academia",
+      "akiraId": "obra-a831559c",
+      "title": "Eu Matei Um Jogador da Academia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-me-tornei-o-mentor-do-rei-demonio-mais-fraco",
+      "akiraId": "obra-523ded51",
+      "title": "Eu Me Tornei o Mentor do Rei Demônio Mais Fraco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-me-tornei-o-primeiro-principe-rebelde",
+      "akiraId": "obra-5a30f5bc",
+      "title": "Eu Me Tornei o Primeiro Príncipe Rebelde",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-me-tornei-um-homem-casado-em-outro-mundo",
+      "akiraId": "obra-3e865dae",
+      "title": "Eu Me Tornei Um Homem Casado Em Outro Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-obtive-um-item-mitico",
+      "akiraId": "obra-eb0f5b0d",
+      "title": "Eu Obtive um Item Mítico",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-realmente-nao-sou-o-lacaio-do-deus-demonio",
+      "akiraId": "obra-8b8d96d1",
+      "title": "Eu Realmente não sou o Lacaio do Deus Demônio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-reencarnei-como-o-herdeiro-louco",
+      "akiraId": "obra-8c833597",
+      "title": "Eu Reencarnei Como o Herdeiro Louco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-retornei-como-um-xama-de-classe-fff",
+      "akiraId": "obra-94242549",
+      "title": "Eu Retornei Como um Xamã de Classe FFF",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-a-mae",
+      "akiraId": "obra-c7f8b00c",
+      "title": "Eu Sou a Mãe",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-o-assassino-de-deuses",
+      "akiraId": "obra-be6ccdff",
+      "title": "Eu Sou o Assassino de Deuses",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-o-lorde-mais-forte-em-outro-mundo",
+      "akiraId": "obra-93889bec",
+      "title": "Eu Sou o Lorde Mais Forte em Outro Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "eu-sou-o-vilao-predestinado",
+      "akiraId": "obra-9ddc5f63",
+      "title": "Eu Sou o Vilão Predestinado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "monstro",
+      "akiraId": "obra-8a0ed6ce",
+      "title": "Eu Virei Um Monstro Espacial Evoluído",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "evolucao-do-monstro-pet",
+      "akiraId": "obra-af685aad",
+      "title": "Evolução de Mascotes Monstruosos",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "evolucao-infinita-comecando-do-zero",
+      "akiraId": "obra-b90febfc",
+      "title": "Evolução Infinita: Começando do Zero",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "faca-matadora-de-porcos",
+      "akiraId": "obra-f12477b7",
+      "title": "Faca Matadora de Porcos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "filhos-da-runa",
+      "akiraId": "obra-54297388",
+      "title": "Filhos da Runa",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cinzas",
+      "akiraId": "obra-dadd34e2",
+      "title": "Fray: Chama de Cinzas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "fui-jogado-em-um-manga-desconhecido",
+      "akiraId": "obra-3958076f",
+      "title": "Fui Jogado em Um Mangá Desconhecido",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "fui-jogado-em-uma-historia-de-fantasmas-mas-ainda-tenho-que-trabalhar",
+      "akiraId": "obra-c124dc14",
+      "title": "Fui Jogado em uma História de Fantasmas, mas Ainda Tenho que Trabalhar",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "funcionario-publico-especial",
+      "akiraId": "obra-82b2fc15",
+      "title": "Funcionário Público Especial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "funerais-para-os-condenados",
+      "akiraId": "obra-90a6bbda",
+      "title": "Funerais para os Condenados",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "garoto-da-ressurreicao",
+      "akiraId": "obra-e4531cfa",
+      "title": "Garoto da Ressurreição",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "gaste-mais-ganhe-mais",
+      "akiraId": "obra-e3dd9b0f",
+      "title": "Gaste Mais, Ganhe Mais!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "genio-da-esgrima-da-academia",
+      "akiraId": "obra-ad72b202",
+      "title": "Gênio da Esgrima da Academia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "genio-de-uma-linhagem-unica",
+      "akiraId": "obra-d1c567c1",
+      "title": "Gênio de uma Linhagem Única",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "genio-regressado-criador-de-itens-mitico",
+      "akiraId": "obra-39051866",
+      "title": "Gênio Regressado Criador de Itens Mítico",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "goblin-de-nivel-999",
+      "akiraId": "obra-b0c55ea0",
+      "title": "Goblin de Nível 999",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "gokusotsu-kraken",
+      "akiraId": "obra-a1155f96",
+      "title": "Gokusotsu Kraken",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "graveto-reforcado-de-nivel-99",
+      "akiraId": "obra-b6aa49d0",
+      "title": "Graveto Reforçado de Nível +99",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "guerra-dos-corpos",
+      "akiraId": "obra-8c5d404e",
+      "title": "Guerra dos Corpos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "guerreiro-da-espada-mental",
+      "akiraId": "obra-d32eb564",
+      "title": "Guerreiro da Espada Mental",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "guia-de-sobrevivencia-do-cacador-de-bestas-demoniacas",
+      "akiraId": "obra-cc155bc6",
+      "title": "Guia de Sobrevivência do Caçador de Feras Demoníacas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "guia-de-sobrevivencia-do-extra-da-academia",
+      "akiraId": "obra-88c81057",
+      "title": "Guia de Sobrevivência do Figurante da Academia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "herdeiro-espadachim-do-cla-tang-so-quer-uma-vida-normal",
+      "akiraId": "obra-7a32c018",
+      "title": "Herdeiro Espadachim do Clã Tang Só Quer uma Vida Normal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "herdeiro-regressado-do-cla-yong",
+      "akiraId": "obra-857b8422",
+      "title": "Herdeiro Regressado Do Clã Yong",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "herois-demonios-e-viloes",
+      "akiraId": "obra-7ebf61b1",
+      "title": "Heróis, Demônios e Vilões",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-jovem-concubina-quer-viver-tranquilamente",
+      "akiraId": "obra-9c38f45f",
+      "title": "Hunter Quer Viver Tranquilamente",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "ilha-das-estrelas-e-correntes",
+      "akiraId": "obra-9521efba",
+      "title": "Ilha das Estrelas e Correntes",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "imperador-demoniaco",
+      "akiraId": "obra-df1daa03",
+      "title": "Imperador Demoníaco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "grande-imperador-da-luz-e-das-trevas",
+      "akiraId": "obra-b2bb4998",
+      "title": "Imperador Marcial da Luz e das Trevas",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "imperador-solo",
+      "akiraId": "obra-cf42e123",
+      "title": "Imperador Solo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "inscrito-no-godtube",
+      "akiraId": "obra-d276bf6d",
+      "title": "Inscrito no GodTube",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "invencivel-com-a-minha-esposa-imperatriz",
+      "akiraId": "obra-bbbea66e",
+      "title": "Invencível com a Minha Esposa Imperatriz",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "invocado-demais-forte-demais-e-de-saco-cheio",
+      "akiraId": "obra-c12cccc0",
+      "title": "Invocado Demais, Forte Demais e de Saco Cheio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "jihye-a-adulta-nada-impressionante",
+      "akiraId": "obra-f1f5daba",
+      "title": "Jihye, a Adulta Nada Impressionante",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "jogador",
+      "akiraId": "obra-d1eef406",
+      "title": "Jogador",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "jogador",
+      "akiraId": "obra-b0731b52",
+      "title": "Jogador que Devora Artefatos",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "jornada-de-ferro-e-gelo",
+      "akiraId": "obra-b07e15f6",
+      "title": "Jornada de Ferro e Gelo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "flores",
+      "akiraId": "obra-93c9f3e7",
+      "title": "Lágrimas Sobre Flores Murchas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "lendario-filho-mais-novo-da-casa-do-marques",
+      "akiraId": "obra-be8e359f",
+      "title": "Lendário Filho Mais Novo da Casa do Marquês",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "levei-um-fora-e-despertei-como-um-guerreiro-divino",
+      "akiraId": "obra-8f2ac804",
+      "title": "Levei um Fora e Despertei como um Guerreiro Divino",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "liberte-aquela-bruxa",
+      "akiraId": "obra-89100edb",
+      "title": "Liberte Aquela Bruxa",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "limao",
+      "akiraId": "obra-66a8ecb7",
+      "title": "Limbo",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "limpeza-inteligente-a-regresao-do-cacador-genial",
+      "akiraId": "obra-45a906a2",
+      "title": "Limpeza Inteligente: A Regressão do Caçador Genial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "liu-liu-liu",
+      "akiraId": "obra-cfba3d39",
+      "title": "Liu Liu Liu",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "logando-10000-anos-no-futuro",
+      "akiraId": "obra-30b3ada6",
+      "title": "Logando 10.000 Anos No Futuro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "loja-star-ginseng",
+      "akiraId": "obra-ef3dcecb",
+      "title": "Loja Star Ginseng",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-marca-do-destino",
+      "akiraId": "obra-ccfba7a4",
+      "title": "Lutador Clandestino",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "lutando-contra-monstros-com-monstros",
+      "akiraId": "obra-374b3f58",
+      "title": "Lutando Contra Monstros com Monstros",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "magnata-mulherengo",
+      "akiraId": "obra-c5f75c7c",
+      "title": "Magnata Mulherengo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mago-de-areia-no-deserto",
+      "akiraId": "obra-ab7c613b",
+      "title": "Mago da Areia do Deserto Ardente",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "mago-devorador-de-dragoes",
+      "akiraId": "obra-78daed2e",
+      "title": "Mago Devorador de Dragões",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-do-infinito",
+      "akiraId": "obra-e76ec350",
+      "title": "Mago do Infinito",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mago-prismatico-genial",
+      "akiraId": "obra-dc02c1e1",
+      "title": "Mago Prismático Genial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mais-que-bela-colheita-rei-demonio",
+      "akiraId": "obra-db212f01",
+      "title": "Mais Que Bela Colheita, Rei Demônio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mantenha-um-perfil-discreto-lider-da-seita",
+      "akiraId": "obra-78a1ab97",
+      "title": "Mantenha um Perfil Discreto, Líder da Seita",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "me-escolha-infinite-gacha",
+      "akiraId": "obra-35d0cfff",
+      "title": "Me Escolha!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "me-tornei-o-rebelde-da-familia-necromante",
+      "akiraId": "obra-c8d229f0",
+      "title": "Me Tornei o Rebelde da Família Necromante",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "me-tornei-um-deus-devorando-almas-no-purgatorio",
+      "akiraId": "obra-c32bf933",
+      "title": "Me Tornei um Deus Devorando Almas no Purgatório",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "me-tornei-um-mago-de-fantasia-medieval",
+      "akiraId": "obra-1d62a32f",
+      "title": "Me Tornei um Mago de Fantasia Medieval",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meio-sangue",
+      "akiraId": "obra-c34408de",
+      "title": "Meio Sangue",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "memorias-do-rei-da-guerra",
+      "akiraId": "obra-f24e1f4d",
+      "title": "Memórias do Rei da Guerra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "menina-agencia-de-salvacao",
+      "akiraId": "obra-918d6d00",
+      "title": "Menina × Agência de Salvação",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mestre-do-treinamento-marcial",
+      "akiraId": "obra-0d2a313e",
+      "title": "Mestre do Treinamento Marcial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mestre-dos-debuffs",
+      "akiraId": "obra-c3776148",
+      "title": "Mestre dos Debuffs",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mestre-espadachim-criado-pelas-estrelas",
+      "akiraId": "obra-e22def8b",
+      "title": "Mestre Espadachim Criado Pelas Estrelas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mestre-supremo-da-maldicao",
+      "akiraId": "obra-906ebafc",
+      "title": "Mestre Supremo da Maldição",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meteoro-o-heroi-de-velocidade-divina",
+      "akiraId": "obra-8397bf00",
+      "title": "Meteoro ~O Herói de Velocidade Divina~",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meu-clone-e-o-rei-dos-insetos-espaciais",
+      "akiraId": "obra-d0fd72f2",
+      "title": "Meu Clone é o Rei dos Insetos Espaciais",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meu-contrato-com-o-diabo-para-me-tornar-o-mais-forte",
+      "akiraId": "obra-e4f469ad",
+      "title": "Meu Contrato com o Diabo para Me Tornar o Mais Forte",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meu-guia-exclusivo-da-torre",
+      "akiraId": "obra-e18d5866",
+      "title": "Meu Guia Exclusivo da Torre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "meu-sistema-dragao",
+      "akiraId": "obra-f443286f",
+      "title": "Meu Sistema de Dragão",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "minha-esposa-e-a-rainha-dos-demonios",
+      "akiraId": "obra-b985256f",
+      "title": "Minha Esposa é a Rainha dos Demônios",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "minha-esposa-e-lider-do-culto-demoniaco",
+      "akiraId": "obra-faa00757",
+      "title": "Minha Esposa é Líder do Culto Demoníaco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "minha-idola-favorita-pega-o-ultimo-trem",
+      "akiraId": "obra-d3f1a3be",
+      "title": "Minha Ídola Favorita Pega o Último Trem",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "voce-e-minha-namorada",
+      "akiraId": "obra-a144d8ef",
+      "title": "Minha Namorada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "minha-vida-escolar-fingindo-ser-uma-pessoa-inutil",
+      "akiraId": "obra-cd989b80",
+      "title": "Minha Vida Escolar Fingindo Ser Um Inútil",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "minhas-sete-noivas-sao-todas-vilas",
+      "akiraId": "obra-bc3f1845",
+      "title": "Minhas Sete Noivas São Todas Vilãs",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "missoes-na-vida-real",
+      "akiraId": "obra-f286b166",
+      "title": "Missões na Vida Real",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "momento-de-cura-com-dubli",
+      "akiraId": "obra-8918eb8b",
+      "title": "Momento de cura com Dubli",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mordomo-rank-s",
+      "akiraId": "obra-dcb01234",
+      "title": "Mordomo Rank S",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nanotecnologia-marcial",
+      "akiraId": "obra-2e64bf7c",
+      "title": "Nanotecnologia Marcial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nao-se-exiba-jovem-mestre",
+      "akiraId": "obra-dfa4026b",
+      "title": "Não Se Exiba, Jovem Mestre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nascido-com-sangue-maldito",
+      "akiraId": "obra-2327cc36",
+      "title": "Nascido Com Sangue Maldito",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "necromante-de-forca-maxima",
+      "akiraId": "obra-939c6a06",
+      "title": "Necromante de Força Máxima",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "necromante-do-cla-da-espada",
+      "akiraId": "obra-de9dd7bf",
+      "title": "Necromante do Clã da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "necromante-absoluto",
+      "akiraId": "obra-e9fa1836",
+      "title": "Necromante Evoluído",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "necromante-sem-limites",
+      "akiraId": "obra-d88d9011",
+      "title": "Necromante Sem Limites",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-necromante-dos-esqueletos",
+      "akiraId": "obra-6dcb56ca",
+      "title": "Necromante: Rei dos Mortos",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "neste-mundo-nao-existem-guerreiros-maus",
+      "akiraId": "obra-59e4d3b7",
+      "title": "Neste Mundo Não Existem Guerreiros Maus",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nevoa-negra-2025",
+      "akiraId": "obra-6fdffd96",
+      "title": "Névoa Negra (2025)",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nos-nao-estamos-namorando",
+      "akiraId": "obra-bff207bd",
+      "title": "Nós Não Estamos Namorando!!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-novato-de-nivel-maximo",
+      "akiraId": "obra-288b1867",
+      "title": "Novato de Nível Máximo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nua-no-onmyouji",
+      "akiraId": "obra-8cc7d786",
+      "title": "Nue no Onmyouji",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "nunca-mexa-com-o-senior",
+      "akiraId": "obra-fbcab290",
+      "title": "Nunca Mexa com o Sênior",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-advogado-que-ve-almas",
+      "akiraId": "obra-237d346d",
+      "title": "O Advogado que Vê Almas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-apocalipse-precisa-de-um-pro",
+      "akiraId": "obra-9dd3959e",
+      "title": "O Apocalipse Precisa de um Pro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-arqueiro-da-vida-infinita",
+      "akiraId": "obra-f11b0216",
+      "title": "O Arqueiro da Vida Infinita",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-arquimago-do-vale",
+      "akiraId": "obra-74a545a6",
+      "title": "O Arquimago do Vale",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-arquimago-retorna-apos-4000-anos",
+      "akiraId": "obra-40cd7ccb",
+      "title": "O Arquimago Retorna Após 4000 Anos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-arquiteto-de-jogos-do-abismo",
+      "akiraId": "obra-ae91646c",
+      "title": "O Arquiteto de Jogos do Abismo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-assassino-reencarnado-e-um-genio-espadachim",
+      "akiraId": "obra-e1f9d047",
+      "title": "O Assassino Reencarnado É um Gênio Espadachim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-ator-de-mil-faces",
+      "akiraId": "obra-adc0bf1b",
+      "title": "O Ator de Mil Faces",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-barbaro-da-estacao-de-seul",
+      "akiraId": "obra-a156267c",
+      "title": "O Bárbaro da Estação de Seul",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cacador-de-classe-s-que-cura-monstros",
+      "akiraId": "obra-dd8043df",
+      "title": "O Caçador de Classe S que Cura Monstros",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cacador-de-destinos-rank-f",
+      "akiraId": "obra-89de9074",
+      "title": "O Caçador de Destinos Rank F",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "cacador-primordial",
+      "akiraId": "obra-f141ce2e",
+      "title": "O Caçador Primordial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-filho-mais-novo-do-mestre-espadachim",
+      "akiraId": "obra-a9edbb95",
+      "title": "O Caçula do Mestre Espadachim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-calouro-de-nivel-ss-da-super-academia-de-magia",
+      "akiraId": "obra-c18f0db1",
+      "title": "O Calouro de Nível SS da Academia de Super Magia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-campo-esquecido",
+      "akiraId": "obra-b2789460",
+      "title": "O Campo Esquecido",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-canal-da-rei-demonio",
+      "akiraId": "obra-c134e14e",
+      "title": "O Canal da Rei Demônio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cao-louco-do-cla-cheon",
+      "akiraId": "obra-c8141c53",
+      "title": "O Cão Louco do Clã Cheon",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cao-raivoso-da-mansao-do-duque",
+      "akiraId": "obra-d20e1eda",
+      "title": "O Cão Raivoso da Mansão do Duque",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-carteiro-do-apocalipse",
+      "akiraId": "obra-8b3f1176",
+      "title": "O Carteiro do Apocalipse",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cavaleiro-das-brasas",
+      "akiraId": "obra-e5f840f3",
+      "title": "O Cavaleiro das Brasas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cavaleiro-prodigio-com-tempo-limitado",
+      "akiraId": "obra-6ef88b97",
+      "title": "O Cavaleiro Prodígio com Tempo Limitado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ceifador-da-lua-cheia",
+      "akiraId": "obra-ef7ab822",
+      "title": "O Ceifador da Lua Cheia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-comeco-depois-do-fim",
+      "akiraId": "obra-0f20295f",
+      "title": "O Começo Depois do Fim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-conjurador",
+      "akiraId": "obra-7e5d1b6e",
+      "title": "O Conjurador",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "O-culto-do-dinheiro",
+      "akiraId": "obra-0eeca2e9",
+      "title": "O Culto ao Dinheiro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-demonio-celestial-nao-pode-viver-uma-vida-normal",
+      "akiraId": "obra-6a63897a",
+      "title": "O Demônio Celestial Não Pode Viver uma Vida Normal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-demonio-supremo-do-veneno",
+      "akiraId": "obra-8e226b4f",
+      "title": "O Demônio Supremo do Veneno",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-deus-do-ensino-medio",
+      "akiraId": "obra-c0553383",
+      "title": "O Deus do Ensino Médio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-deus-dos-improvisos",
+      "akiraId": "obra-a3a9674b",
+      "title": "O Deus dos Improvisos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-deus-marcial-retorna-ao-nivel-2",
+      "akiraId": "obra-cdcaef6f",
+      "title": "O Deus Marcial Retorna ao Nível 2",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-diabo",
+      "akiraId": "obra-9e5342ed",
+      "title": "O Diabo e a Bruxa do Gelo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-domador-genio-da-academia",
+      "akiraId": "obra-b16f63ad",
+      "title": "O Domador Gênio da Academia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-emissario-da-luz-de-arad",
+      "akiraId": "obra-e45aac64",
+      "title": "O Emissário de Luz de Arad",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-espadachim-genio-da-seita-do-monte-hua",
+      "akiraId": "obra-e571d8c8",
+      "title": "O Espadachim Gênio da Seita do Monte Hua",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-estilo-de-vida-de-um-imortal",
+      "akiraId": "obra-5ee08015",
+      "title": "O Estilo de Vida de um Imortal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-fazendeiro-de-mortos-vivos",
+      "akiraId": "obra-ad9b566b",
+      "title": "O Fazendeiro de Mortos-Vivos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-extra-e-muito-forte",
+      "akiraId": "obra-ae806b1a",
+      "title": "O Figurante é Muito Forte",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-filho-abandonado-mais-poderoso",
+      "akiraId": "obra-fdad3bfd",
+      "title": "O Filho Abandonado Mais Poderoso",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-filho-cacula-do-conde-e-um-jogador",
+      "akiraId": "obra-d63aa88d",
+      "title": "O Filho Caçula do Conde é um Jogador",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-filho-imprestavel-do-marques",
+      "akiraId": "obra-6e36f09d",
+      "title": "O Filho Imprestável do Marquês",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-filho-mais-novo-dos-chaebol",
+      "akiraId": "obra-8333be48",
+      "title": "O Filho Mais Novo do Grupo Mercantil Eunhae",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-filho-mais-novo-dos-chaebol",
+      "akiraId": "obra-35b97b51",
+      "title": "O Filho mais Novo dos Chaebol",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-filho-regressor-do-duque-e-um-assassino",
+      "akiraId": "obra-ddd549bb",
+      "title": "O Filho Regressor do Duque é um Assassino",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-garoto-da-morte",
+      "akiraId": "obra-b8a36e45",
+      "title": "O Garoto da Morte",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-genio-marcial-que-lembra-de-tudo",
+      "akiraId": "obra-f22d8f75",
+      "title": "O Gênio Marcial Que Lembra de Tudo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-genio-que-le-o-mundo",
+      "akiraId": "obra-dbe86333",
+      "title": "O Gênio que Lê o Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-genio-que-le-o-mundo",
+      "akiraId": "obra-5763eb92",
+      "title": "O Gênio Quer Ser Comum!",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-governante-das-trevas",
+      "akiraId": "obra-63de8397",
+      "title": "O Governante das Trevas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-grande-salto",
+      "akiraId": "obra-a4522a5d",
+      "title": "O Grande Salto",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-guerreiro-de-escolta-da-familia-jang",
+      "akiraId": "obra-86b2d019",
+      "title": "O Guerreiro de Escolta da Família Jang",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "guerreiro-de-sangue-frio",
+      "akiraId": "obra-ba7a6cf5",
+      "title": "O Guerreiro de Sangue Frio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-herdeiro-monstruoso-da-familia-chaebol",
+      "akiraId": "obra-59d22c10",
+      "title": "O Herdeiro Monstruoso da Família Chaebol",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "lenda",
+      "akiraId": "obra-d6722db4",
+      "title": "O Herói Lendário é um Estudante de Honra da Academia",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-heroi-retorna",
+      "akiraId": "obra-784209c5",
+      "title": "O Herói Voltou",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-imperador-da-espada-reencarnou-em-um-cla-de-mestres-da-espada",
+      "akiraId": "obra-0fc6490d",
+      "title": "O Imperador da Espada Reencarnou em um Clã de Mestres da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-imperador-de-aco",
+      "akiraId": "obra-8a90927f",
+      "title": "O Imperador de Aço",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-investidor-que-ve-o-futuro",
+      "akiraId": "obra-c4395c8e",
+      "title": "O Investidor que Vê o Futuro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "irmao",
+      "akiraId": "obra-dde02e0e",
+      "title": "O Irmão Mais Novo é o Destaque Da Academia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jogador-da-familia-caida",
+      "akiraId": "obra-de144b3f",
+      "title": "O Jogador da Família Caída",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "jogador-de-talentos-insanos",
+      "akiraId": "obra-b51623f3",
+      "title": "O Jogador de Talentos Insanos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jogador-que-esconde-seu-passado",
+      "akiraId": "obra-7e77d475",
+      "title": "O Jogador que Esconde seu Passado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jogador",
+      "akiraId": "obra-bb5d2560",
+      "title": "O Jogador que Voltou 10,000 Anos Depois",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jogo-do-ferreiro-genial",
+      "akiraId": "obra-7057b857",
+      "title": "O Jogo do Ferreiro Genial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jogo-do-qual-eu-vim",
+      "akiraId": "obra-79624bfc",
+      "title": "O Jogo do Qual Eu Vim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-jovem-mestre-do-grande-arquivo-celestial",
+      "akiraId": "obra-e88b1c77",
+      "title": "O Jovem Mestre do Grande Arquivo Celestial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-lanceiro-genio-imortal",
+      "akiraId": "obra-85c9c2d0",
+      "title": "O Lanceiro Gênio Imortal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-lixo-da-familia-condal",
+      "akiraId": "obra-bfdb6982",
+      "title": "O Lixo da Familia Condal",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "mago-devorador-de-talentos",
+      "akiraId": "obra-ecd7bea1",
+      "title": "O Mago Devorador de Talentos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-dos-turnos",
+      "akiraId": "obra-8dc2ab09",
+      "title": "O Mago dos Turnos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-genio-que-quebra-limites",
+      "akiraId": "obra-a04257c7",
+      "title": "O Mago Gênio que Quebra Limites",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-negro-que-retorna-apos-66666-anos",
+      "akiraId": "obra-94c47be8",
+      "title": "O Mago Negro que Retorna Após 66666 Anos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mago-supremo-das-barreiras-exilado-quer-uma-jornada-tranquila-com-sua-noiva",
+      "akiraId": "obra-968dcde1",
+      "title": "O Mago Supremo das Barreiras Exilado Quer Uma Jornada Tranquila com Sua Noiva",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "-o-melhor-curandeiro-da-academia-de-magia-ofensiva",
+      "akiraId": "obra-86c6287b",
+      "title": "O Melhor Curandeiro da Academia de Magia Ofensiva",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-melhor-homem-no-comando",
+      "akiraId": "obra-4494479b",
+      "title": "O Melhor Homem no Comando",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "instrutor-numero-um",
+      "akiraId": "obra-dabaafcf",
+      "title": "O Melhor Instrutor",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mestre-gu",
+      "akiraId": "obra-b5f879ab",
+      "title": "O Mestre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mestre-das-armadilhas-todo-poderoso",
+      "akiraId": "obra-e7f393d4",
+      "title": "O Mestre Das Armadilhas Todo Poderoso",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "O-Mestre-Domador",
+      "akiraId": "obra-9e16dab5",
+      "title": "O Mestre Domador",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-minucioso-vilao-da-academia-demoniaca",
+      "akiraId": "obra-82704cff",
+      "title": "O Minucioso Vilão da Academia Demoníaca",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-misterio-da-vila-gwichon",
+      "akiraId": "obra-e8593828",
+      "title": "O Mistério da Vila",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-mundo-apos-a-queda",
+      "akiraId": "obra-9533596a",
+      "title": "O Mundo Após a Queda",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-neto-do-imperador-santo-e-um-necromante",
+      "akiraId": "obra-4cada7bb",
+      "title": "O Neto do Imperador Sagrado É um Necromante",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-novato-e-muito-poderoso",
+      "akiraId": "obra-daa6c499",
+      "title": "O Novato é Muito Poderoso",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-papai-e-muito-forte",
+      "akiraId": "obra-de1085b8",
+      "title": "O Papai É Muito Forte",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-principe-herdeiro-que-vende-remedios",
+      "akiraId": "obra-bed69e23",
+      "title": "O Príncipe Herdeiro que Vende Remédios",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "lenda",
+      "akiraId": "obra-ef97dceb",
+      "title": "O Prodígio Lendário do Ducado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-promotor-kim-seo-jin",
+      "akiraId": "obra-88e8a20b",
+      "title": "O Promotor",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-psicopata-do-murim",
+      "akiraId": "obra-b1e06ae3",
+      "title": "O Psicopata do Murim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-rebelde-da-nobre-familia-tirana",
+      "akiraId": "obra-7de7743d",
+      "title": "O Rebelde da Nobre Família Tirana",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-recluso-supremo",
+      "akiraId": "obra-73cc5a21",
+      "title": "O Recluso Supremo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-recomeco-de-um-noob",
+      "akiraId": "obra-860851b6",
+      "title": "O Recomeço de um Noob",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "os-herois",
+      "akiraId": "obra-3235cc84",
+      "title": "O Rei Demônio Devastado pelos Heróis",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-cartel",
+      "akiraId": "obra-9764af38",
+      "title": "O Rei do Cartel",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-rei-dos-cavaleiros-que-retorna-com-um-deus",
+      "akiraId": "obra-913f8083",
+      "title": "O Rei dos Cavaleiros que Retorna com um Deus",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-rei-supremo-de-sichuan",
+      "akiraId": "obra-edd1e198",
+      "title": "O Rei Supremo de Sichuan",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-renascimento-de-um-mercenario-entre-nobres",
+      "akiraId": "obra-7486131b",
+      "title": "O Renascimento de Um Mercenário Entre Nobres",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-renascimento-do-ladrao-de-nivel-divino",
+      "akiraId": "obra-7d0cd179",
+      "title": "O Renascimento do Ladrão de Nível Divino",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-restaurante-do-arquimago",
+      "akiraId": "obra-61ed2679",
+      "title": "O Restaurante do Arquimago",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-da-seita-do-monte-hua",
+      "akiraId": "obra-48838675",
+      "title": "O Retorno da Seita do Monte Hua",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-espadachim-negro",
+      "akiraId": "obra-492515c9",
+      "title": "O Retorno do Espadachim Negro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-filho-adotivo-em-um-mundo-de-supremacia-de-linhagem",
+      "akiraId": "obra-9f1b4f92",
+      "title": "O Retorno do Filho Adotivo em um Mundo de Supremacia de Linhagem",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-instrutor-demoniaco-celestial",
+      "akiraId": "obra-d5b75a5e",
+      "title": "O Retorno do Instrutor Demoníaco",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "o-retorno-do-jogador-de-classe-sss",
+      "akiraId": "obra-2062ade2",
+      "title": "O Retorno do Jogador de Classe-SSS",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-mago-negro-ao-exercito",
+      "akiraId": "obra-70e66b51",
+      "title": "O Retorno do Mago Negro ao Exército",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-professor-runebound",
+      "akiraId": "obra-da13df93",
+      "title": "O Retorno do Professor Runebound",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-ranker",
+      "akiraId": "obra-74b75e96",
+      "title": "O Retorno do Ranker",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnacao-do-rei-dos-punhos",
+      "akiraId": "obra-aeb944d3",
+      "title": "O Retorno do Rei do Punho",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-santo-evolui-atraves-da-necromancia",
+      "akiraId": "obra-ec22d3e6",
+      "title": "O Santo Evolui Através da Necromancia",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-segundo-eunuco-recupera-sua-masculinidade",
+      "akiraId": "obra-db4bc6d8",
+      "title": "O Segundo Eunuco Recupera Sua Masculinidade",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-setimo-principe-quer-escapar",
+      "akiraId": "obra-f3949eb7",
+      "title": "O Sétimo Príncipe Quer Escapar",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-sistema-da-seita-lendaria",
+      "akiraId": "obra-502b1094",
+      "title": "O Sistema da Seita Lendária",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-sobrevivente-mais-forte-do-mundo",
+      "akiraId": "obra-7c24bf13",
+      "title": "O Sobrevivente Mais Forte do Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-soldado-esqueleto-nao-pode-proteger-a-masmorra",
+      "akiraId": "obra-beb6be0f",
+      "title": "O Soldado Esqueleto Não Pôde Proteger a Masmorra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reino",
+      "akiraId": "obra-fcbff10b",
+      "title": "O Terceiro Príncipe do Reino Caído Regrediu",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-trailer-de-comida-do-go-deok-chun",
+      "akiraId": "obra-eea38007",
+      "title": "O Trailer de Comida do Go Deok-chun",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-troll-mais-forte-do-mundo",
+      "akiraId": "obra-b0e1c560",
+      "title": "O Troll Mais Forte do Mundo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-tutorial-e-muito-dificil",
+      "akiraId": "obra-7656296c",
+      "title": "O Tutorial é Muito Difícil",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ola-griffin-o-passaro-fofinho",
+      "akiraId": "obra-822ee9d9",
+      "title": "Olá, Griffin, O Pássaro Fofinho!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "os-dez-grandes-imperadores-do-inicio-sao-todos-meus-aprendizes",
+      "akiraId": "obra-c563095d",
+      "title": "Os Dez Grandes Imperadores do Início São Todos Meus Aprendizes",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "filmes-sao-reais",
+      "akiraId": "obra-c6caeb25",
+      "title": "Os Filmes São Reais",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "as-maquinacoes-do-mercenario-regressado",
+      "akiraId": "obra-f71d1b34",
+      "title": "Os Planos do Mercenário Regressado",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "para-nao-morrer",
+      "akiraId": "obra-fc5602be",
+      "title": "Para Não Morrer",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "personagem-de-webtoon-na-kang-lim",
+      "akiraId": "obra-7b1407e5",
+      "title": "Personagem de Webtoon Na Kang Lim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "pico-marcial",
+      "akiraId": "obra-9be2056f",
+      "title": "Pico Marcial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "por-favor-parem-o-papa",
+      "akiraId": "obra-de947995",
+      "title": "Por favor, Parem o Papa!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "por-favor-salve-o-mundo-com-encontros",
+      "akiraId": "obra-b717e881",
+      "title": "Por favor, Salve O Mundo Com Encontros",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "por-que-deixei-de-ser-o-rei-demonio",
+      "akiraId": "obra-f6b041d2",
+      "title": "Por Que Deixei de Ser Rei Demônio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "poupe-me-grande-lorde",
+      "akiraId": "obra-fb7946ad",
+      "title": "Poupe-me, Grande Lorde",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "profissao-sem-valor-domador-de-dragoes",
+      "akiraId": "obra-d4883c3d",
+      "title": "Profissão sem Valor: Domador de Dragões",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "kirakiraestudo-declaracao-de-aprovacao-absoluta",
+      "akiraId": "obra-92b68b72",
+      "title": "Provação",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "providencia-de-alto-nivel",
+      "akiraId": "obra-b3496104",
+      "title": "Providência de Alto Nível",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "puramente-delinquente",
+      "akiraId": "obra-b100c746",
+      "title": "Puramente Delinquente",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "quando-a-noite-cai",
+      "akiraId": "obra-631e2368",
+      "title": "Quando a Noite Cai",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "quebrador-de-defesa",
+      "akiraId": "obra-cf7d251b",
+      "title": "Quebradores",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "reencarnacao-do-antigo-ranker-do-cla-murim",
+      "akiraId": "obra-dc13d51f",
+      "title": "Reencarnação do Antigo Ranker do Clã Murim",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnacao-do-deus-demonio",
+      "akiraId": "obra-7a389b59",
+      "title": "Reencarnação do Deus Demônio",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-reencarnacao-do-rei-dos-punhos",
+      "akiraId": "obra-d9f7d304",
+      "title": "Reencarnação do Deus dos Punhos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnado",
+      "akiraId": "obra-81af4053",
+      "title": "Reencarnado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnado-como-o-devorador-de-monstros-mais-forte-vinganca-contra-o-dragao-tirano",
+      "akiraId": "obra-b1508d70",
+      "title": "Reencarnado Como o Devorador de Monstros Mais Forte: Vingança Contra o Dragão Tirano",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnado-como-o-filho-cacula-de-uma-familia-de-espadachins-demoniacos",
+      "akiraId": "obra-c4ac4601",
+      "title": "Reencarnado como o Filho Caçula de uma Família de Espadachins Demoníacos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reencarnei-como-um-cirurgiao-lendario",
+      "akiraId": "obra-d0f705ee",
+      "title": "Reencarnei Como um Cirurgião Lendário",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "regressando-com-o-poder-do-rei",
+      "akiraId": "obra-000184c0",
+      "title": "Regressando Com o Poder do Rei",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "regressando-como-o-bastardo-do-cla-da-espada",
+      "akiraId": "obra-829c42c0",
+      "title": "Regressando como o Bastardo do Clã da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "regressao-absoluta",
+      "akiraId": "obra-8a82bc89",
+      "title": "Regressão Absoluta",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "regressao-do-sangue-impuro",
+      "akiraId": "obra-ac42b90b",
+      "title": "Regressão do Sangue Impuro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "rei-do-gado",
+      "akiraId": "obra-cb10076e",
+      "title": "Rei do Gado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "rei-dos-saqueadores-de-tumba-fim-da-linha",
+      "akiraId": "obra-da531a41",
+      "title": "Rei dos Saqueadores de Tumba: Fim da Linha",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "freesia-a-lei-da-retaliacao",
+      "akiraId": "obra-1da7eb9e",
+      "title": "Reinicialização Carmesim",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "a-dama-do-reinicio",
+      "akiraId": "obra-d804cf30",
+      "title": "Reiniciando a Masmorra",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "renascido-no-campo-de-batalha-do-culto-demoniaco",
+      "akiraId": "obra-86843259",
+      "title": "Renascido no Campo de Batalha do Culto Demoníaco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "renascimento-do-doutor",
+      "akiraId": "obra-77009c6a",
+      "title": "Renascimento do Doutor",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "ressurgimento-sobrenatural-comecando-com-um-trilhao-de-moedas-fantasmas",
+      "akiraId": "obra-d0c43ecd",
+      "title": "Ressurgimento Sobrenatural: Começando com um Trilhão de Moedas Fantasmas!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "retorno-ao-inicio-do-apocalipse",
+      "akiraId": "obra-94a8f974",
+      "title": "Retornar ao Início do Apocalipse",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "retorno-de-vidas-passadas",
+      "akiraId": "obra-bd0285b1",
+      "title": "Retorno de Vidas Passadas",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-assassino-de-dragoes-de-classe-unica",
+      "akiraId": "obra-e7a12318",
+      "title": "Retorno do Assassino de Dragões de Classe Única",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "retorno-do-cavaleiro-da-morte-de-nivel-apocaliptico",
+      "akiraId": "obra-921b3870",
+      "title": "Retorno do Cavaleiro da Morte de Nível Apocalíptico",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-retorno-do-demonio-louco",
+      "akiraId": "obra-75982152",
+      "title": "Retorno do Demônio Louco",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "retorno-do-heroi-de-classe-desastre",
+      "akiraId": "obra-9c6fabd5",
+      "title": "Retorno do Herói de Classe Desastre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "reverendo-da-insanidade-remake",
+      "akiraId": "obra-ace7a383",
+      "title": "Reverendo da Insanidade (2025)",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "desenhando-o-romance",
+      "akiraId": "obra-86a6c776",
+      "title": "Romance Desenhado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "salvar-o-mundo-e-uma-habilidade",
+      "akiraId": "obra-bf073e3c",
+      "title": "Salvar o Mundo é uma Habilidade",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "a-casa-sem-tempo",
+      "akiraId": "obra-5de046fd",
+      "title": "Sem Casa",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "sem-surpresa",
+      "akiraId": "obra-f08f5b6b",
+      "title": "Sem Surpresa",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "senhor-da-cidade-a-partir-de-hoje",
+      "akiraId": "obra-a8c9a8d9",
+      "title": "Senhor da Cidade a Partir de Hoje",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "senhor-devorador-por-favor-aja-como-um-chefe-final",
+      "akiraId": "obra-858c1d4d",
+      "title": "Senhor Devorador, Por Favor, Aja Como Um Chefe Final",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-senhor-dos-misterios-remake",
+      "akiraId": "obra-fb1f4fc5",
+      "title": "Senhor dos Mistérios (Remake)",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sentido-absoluto-da-espada",
+      "akiraId": "obra-c9328a8b",
+      "title": "Sentido Absoluto da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "servicos-de-limpeza",
+      "akiraId": "obra-e066cdc1",
+      "title": "Serviços de Limpeza",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "simulacao-de-cultivo-do-demonio-celestial",
+      "akiraId": "obra-ddf64ca9",
+      "title": "Simulação de Cultivo do Demônio Celestial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "simulacao-de-namoro-fantasma",
+      "akiraId": "obra-9c33fd2a",
+      "title": "Simulação de Namoro Fantasma",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "senhor-do-universo",
+      "akiraId": "obra-7391958b",
+      "title": "Sistema do Universo",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "sistema-supremo-de-magnata",
+      "akiraId": "obra-7e2296ad",
+      "title": "Sistema Supremo de Magnata",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sobrevivencia-do-genio-com-tempo-de-vida-limitado",
+      "akiraId": "obra-96d5fcce",
+      "title": "Sobrevivência do Gênio com Tempo de Vida Limitado",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sobrevivendo-ao-apocalipse",
+      "akiraId": "obra-f456c551",
+      "title": "Sobrevivendo ao Apocalipse!",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sobrevivendo-ao-jogo-como-um-barbaro",
+      "akiraId": "obra-bedd74c2",
+      "title": "Sobrevivendo no Jogo Como um Bárbaro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "sol-negro",
+      "akiraId": "obra-8d8efb7a",
+      "title": "Sol Negro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "lenda",
+      "akiraId": "obra-9e605890",
+      "title": "Sou Amaldiçoado, Mas a Santa Lendária Virou Minha Aliada",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "sozinho-como-um-slime",
+      "akiraId": "obra-7f4a5c31",
+      "title": "Sozinho como um Slime",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "streaming-do-arqueiro-genial",
+      "akiraId": "obra-b3592079",
+      "title": "Streaming do Arqueiro Genial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "super-deus-da-guerra",
+      "akiraId": "obra-bd1813cc",
+      "title": "Super Deus da Guerra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "super-heroi-friday",
+      "akiraId": "obra-c88b57cd",
+      "title": "Super Herói: Friday",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "superstar-desde-os-0-anos",
+      "akiraId": "obra-92fdf0ce",
+      "title": "Superstar desde os 0 Anos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "supremo-sistema-de-blefes",
+      "akiraId": "obra-cad1740c",
+      "title": "Supremo Sistema de Blefes",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "taverna-do-demonio-celestial",
+      "akiraId": "obra-896df8d2",
+      "title": "Taverna do Demônio Celestial",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "tecnica-do-deus-marcial-da-estrela",
+      "akiraId": "obra-a83ed5c4",
+      "title": "Técnica do Deus Marcial da Estrela",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "teto-x-egen",
+      "akiraId": "obra-ddd649e5",
+      "title": "Teto x Egen: Vizinhos por Acaso",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "todos-a-amam",
+      "akiraId": "obra-be936b69",
+      "title": "Todos a Amam",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "todos-os-talentos-de-futebol-sao-meus",
+      "akiraId": "obra-c1487c0d",
+      "title": "Todos os Talentos de Futebol São Meus",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "tornando-se-um-deus-no-codigo-binario",
+      "akiraId": "obra-c44a0cfc",
+      "title": "Tornando-se um Deus no Código Binário",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "torne-se-o-heroi-mais-forte-atraves-do-sistema-de-trapaca",
+      "akiraId": "obra-d472156a",
+      "title": "Torne-se o Herói Mais Forte Através do Sistema de Trapaça",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "torre-de-deus---temporada-3",
+      "akiraId": "obra-d1baaab8",
+      "title": "Torre de Deus",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "transmissao-do-deus-da-espada",
+      "akiraId": "obra-17fb3840",
+      "title": "Transmissão do Deus da Espada",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "as-aventuras-de-greed",
+      "akiraId": "obra-99599f35",
+      "title": "Ultra Equipado - As aventuras de Greed",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "um-dia-eu-me-tornei-um-filhote",
+      "akiraId": "obra-9bacd70a",
+      "title": "Um Dia Eu Me Tornei um Filhote",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "um-discipulo-vilao-nao-pode-ser-um-santo",
+      "akiraId": "obra-f2730288",
+      "title": "Um Discípulo Vilão Não Pode Ser Um Santo",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-homem-de-verdade",
+      "akiraId": "obra-ffb00693",
+      "title": "Um Homem de Verdade",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "uma-carta-de-amor-do-futuro",
+      "akiraId": "obra-c175bb90",
+      "title": "Uma Carta de Amor do Futuro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "uma-sensacao-de-diversao-com-seus-brinquedos",
+      "akiraId": "obra-87c7b49c",
+      "title": "Uma Sensação de Diversão com Seus Brinquedos",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-unico-fazendeiro-da-torre",
+      "akiraId": "obra-67bbced1",
+      "title": "Único Fazendeiro da Torre",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "upando-sozinho-ragnarok",
+      "akiraId": "obra-d750c37a",
+      "title": "Upando Sozinho",
+      "enabled": false
+    },
+    {
+      "nexusSlug": "upando-sozinho-ragnarok",
+      "akiraId": "obra-80d185be",
+      "title": "Upando Sozinho: Ragnarok",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "veletric",
+      "akiraId": "obra-dd2021fa",
+      "title": "Veletric",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "o-vilao-a-ser-morto",
+      "akiraId": "obra-81cd8dab",
+      "title": "Vilão a Ser Morto",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "vilao-no-meu-jogo-favorito-famoso-sem-querer",
+      "akiraId": "obra-957730bd",
+      "title": "Vilão no Meu Jogo Favorito, Famoso sem Querer",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "vivendo-como-um-jardineiro-num-mundo-de-cacadores",
+      "akiraId": "obra-6db50356",
+      "title": "Vivendo Como Um Jardineiro Num Mundo de Caçadores",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "vou-aniquilar-esta-terra",
+      "akiraId": "obra-ed3169b6",
+      "title": "Vou Aniquilar Esta Terra",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "vou-me-aposentar-depois-de-salvar-o-mundo",
+      "akiraId": "obra-a2b8bd69",
+      "title": "Vou Me Aposentar Depois de Salvar o Mundo",
+      "enabled": true
+    }
+  ]
+}
