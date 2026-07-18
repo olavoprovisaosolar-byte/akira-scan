@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-18T23:28:47.579Z",
+  "updatedAt": "2026-07-18T23:29:10.550Z",
   "minScore": 0.8,
-  "totalAkira": 434,
+  "totalAkira": 435,
   "totalNexus": 13674,
-  "matched": 425,
-  "enabled": 391,
+  "matched": 426,
+  "enabled": 392,
   "mangas": [
     {
       "nexusSlug": "1-segundo",
@@ -15,61 +15,61 @@
     {
       "nexusSlug": "a-centesima-regressao-do-jogador-de-nivel-maximo",
       "akiraId": "obra-24d77989",
-      "title": "100Âª RegressÃ£o do Jogador de NÃ­vel MÃ¡ximo",
+      "title": "100ÃÂª RegressÃÂ£o do Jogador de NÃÂ­vel MÃÂ¡ximo",
       "enabled": true
     },
     {
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro",
       "akiraId": "obra-e4c68a67",
-      "title": "A 31Âª PeÃ§a Que virou o Tabuleiro",
+      "title": "A 31ÃÂª PeÃÂ§a Que virou o Tabuleiro",
       "enabled": true
     },
     {
       "nexusSlug": "o-cacula-e-o-destaque-da-academia",
       "akiraId": "obra-bad36d81",
-      "title": "A Academia EstÃ¡ Condenada",
+      "title": "A Academia EstÃÂ¡ Condenada",
       "enabled": false
     },
     {
       "nexusSlug": "a-ascensao-da-cobra-imortal",
       "akiraId": "obra-f302fde3",
-      "title": "A AscensÃ£o da Cobra Imortal",
+      "title": "A AscensÃÂ£o da Cobra Imortal",
       "enabled": true
     },
     {
       "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo",
       "akiraId": "obra-fefcaf38",
-      "title": "A AscensÃ£o do Espadachim de Rank Baixo",
+      "title": "A AscensÃÂ£o do Espadachim de Rank Baixo",
       "enabled": true
     },
     {
       "nexusSlug": "a-ascensao-do-imperador-da-espada-de-namgung",
       "akiraId": "obra-0ca641d6",
-      "title": "A AscensÃ£o do Imperador da Espada de Namgung",
+      "title": "A AscensÃÂ£o do Imperador da Espada de Namgung",
       "enabled": true
     },
     {
       "nexusSlug": "aventura-de-um-barbaro-em-um-mundo-de-fantasia",
       "akiraId": "obra-795ae3ae",
-      "title": "A Aventura do BÃ¡rbaro em um Mundo de Fantasia",
+      "title": "A Aventura do BÃÂ¡rbaro em um Mundo de Fantasia",
       "enabled": true
     },
     {
       "nexusSlug": "a-calamidade-desceu-e-eu-evolui-para-o-rei-carmesim",
       "akiraId": "obra-c2b430f6",
-      "title": "A Calamidade Desceu e Eu EvoluÃ­ Para o Rei Carmesim",
+      "title": "A Calamidade Desceu e Eu EvoluÃÂ­ Para o Rei Carmesim",
       "enabled": true
     },
     {
       "nexusSlug": "o-contrato-de-casamento-da-minha-mae",
       "akiraId": "obra-9e2ba9e7",
-      "title": "A Caminho de Encontrar a MamÃ£e",
+      "title": "A Caminho de Encontrar a MamÃÂ£e",
       "enabled": false
     },
     {
       "nexusSlug": "o-necromante-de-ferro-e-sangue-retorna",
       "akiraId": "obra-b9a9a271",
-      "title": "A CrÃ´nica da Guerra de Lodoss: A Rainha Necromante",
+      "title": "A CrÃÂ´nica da Guerra de Lodoss: A Rainha Necromante",
       "enabled": true
     },
     {
@@ -81,13 +81,13 @@
     {
       "nexusSlug": "a-espada-do-xama",
       "akiraId": "obra-a11a7cd3",
-      "title": "A Espada do XamÃ£",
+      "title": "A Espada do XamÃÂ£",
       "enabled": true
     },
     {
       "nexusSlug": "a-espada-suprema-do-culto-demoniaco",
       "akiraId": "obra-6955dd77",
-      "title": "A Espada Suprema do Culto DemonÃ­aco",
+      "title": "A Espada Suprema do Culto DemonÃÂ­aco",
       "enabled": true
     },
     {
@@ -99,7 +99,7 @@
     {
       "nexusSlug": "a-faisca-em-seus-olhos",
       "akiraId": "obra-7dce24ff",
-      "title": "A FaÃ­sca em Seus Olhos",
+      "title": "A FaÃÂ­sca em Seus Olhos",
       "enabled": true
     },
     {
@@ -111,7 +111,7 @@
     {
       "nexusSlug": "a-heroina-e-obcecada-por-mim",
       "akiraId": "obra-b58b5a3f",
-      "title": "A HeroÃ­na Ã Obcecada Por Mim",
+      "title": "A HeroÃÂ­na ÃÂ Obcecada Por Mim",
       "enabled": true
     },
     {
@@ -123,7 +123,7 @@
     {
       "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila",
       "akiraId": "obra-ea94a6a7",
-      "title": "A Morte Ã© o Ãnico Fim Para a VilÃ£",
+      "title": "A Morte ÃÂ© o ÃÂnico Fim Para a VilÃÂ£",
       "enabled": true
     },
     {
@@ -135,19 +135,19 @@
     {
       "nexusSlug": "a-neta-indesejada-do-cla-baekri",
       "akiraId": "obra-816fce06",
-      "title": "A Neta Indesejada do ClÃ£ Baekri",
+      "title": "A Neta Indesejada do ClÃÂ£ Baekri",
       "enabled": true
     },
     {
       "nexusSlug": "a-princesa-vai-a-escola",
       "akiraId": "obra-f249bd0f",
-      "title": "A Princesa Vai Ã  Escola",
+      "title": "A Princesa Vai ÃÂ  Escola",
       "enabled": true
     },
     {
       "nexusSlug": "a-regressao-do-promotor-mestre-da-espada",
       "akiraId": "obra-7b2fba6f",
-      "title": "A RegressÃ£o do Promotor Mestre da Espada",
+      "title": "A RegressÃÂ£o do Promotor Mestre da Espada",
       "enabled": true
     },
     {
@@ -165,37 +165,37 @@
     {
       "nexusSlug": "a-superacao-do-nobre-vagabundo",
       "akiraId": "obra-bed97db2",
-      "title": "A SuperaÃ§Ã£o do Nobre Vagabundo",
+      "title": "A SuperaÃÂ§ÃÂ£o do Nobre Vagabundo",
       "enabled": true
     },
     {
       "nexusSlug": "a-transmissao-do-reino-demoniaco-do-demonio-celestial-rejuvenescido",
       "akiraId": "obra-8b6cdf13",
-      "title": "A TransmissÃ£o do Reino DemonÃ­aco do DemÃ´nio Celestial Rejuvenescido",
+      "title": "A TransmissÃÂ£o do Reino DemonÃÂ­aco do DemÃÂ´nio Celestial Rejuvenescido",
       "enabled": true
     },
     {
       "nexusSlug": "a-ultima-passagem",
       "akiraId": "obra-5befa48d",
-      "title": "A Ãltima Passagem",
+      "title": "A ÃÂltima Passagem",
       "enabled": true
     },
     {
       "nexusSlug": "a-vida-do-ex-mercenario-como-promotor",
       "akiraId": "obra-972d0396",
-      "title": "A Vida do Ex-mercenÃ¡rio Como Promotor",
+      "title": "A Vida do Ex-mercenÃÂ¡rio Como Promotor",
       "enabled": true
     },
     {
       "nexusSlug": "a-vila-tem-um-crush",
       "akiraId": "obra-acff825a",
-      "title": "A VilÃ£ Tem um Crush",
+      "title": "A VilÃÂ£ Tem um Crush",
       "enabled": true
     },
     {
       "nexusSlug": "a-vinganca-da-flor-desabrochada",
       "akiraId": "obra-dc26dee7",
-      "title": "A VinganÃ§a da Flor Desabrochada",
+      "title": "A VinganÃÂ§a da Flor Desabrochada",
       "enabled": true
     },
     {
@@ -207,19 +207,19 @@
     {
       "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao",
       "akiraId": "obra-a9c2e2c4",
-      "title": "A Vontade de Sobreviver de um VilÃ£o",
+      "title": "A Vontade de Sobreviver de um VilÃÂ£o",
       "enabled": true
     },
     {
       "nexusSlug": "acham-que-eu-sou-um-genio-do-futebol",
       "akiraId": "obra-bf1df717",
-      "title": "Acham que Eu Sou um GÃªnio do Futebol",
+      "title": "Acham que Eu Sou um GÃÂªnio do Futebol",
       "enabled": true
     },
     {
       "nexusSlug": "acumulador-de-caracteristicas",
       "akiraId": "obra-107261fb",
-      "title": "Acumulador de CaracterÃ­sticas",
+      "title": "Acumulador de CaracterÃÂ­sticas",
       "enabled": true
     },
     {
@@ -231,7 +231,7 @@
     {
       "nexusSlug": "alem-do-tempo",
       "akiraId": "obra-8da8c72c",
-      "title": "AlÃ©m do Tempo",
+      "title": "AlÃÂ©m do Tempo",
       "enabled": true
     },
     {
@@ -243,7 +243,7 @@
     {
       "nexusSlug": "amigo-de-infancia-de-zenith",
       "akiraId": "obra-c10e1475",
-      "title": "Amigo de InfÃ¢ncia do ZÃªnite",
+      "title": "Amigo de InfÃÂ¢ncia do ZÃÂªnite",
       "enabled": true
     },
     {
@@ -255,7 +255,7 @@
     {
       "nexusSlug": "aniquilacao-do-caminho-celestial",
       "akiraId": "obra-1dfcb77e",
-      "title": "AniquilaÃ§Ã£o do Caminho Celestial",
+      "title": "AniquilaÃÂ§ÃÂ£o do Caminho Celestial",
       "enabled": true
     },
     {
@@ -267,7 +267,7 @@
     {
       "nexusSlug": "aparencias",
       "akiraId": "obra-a5bf530a",
-      "title": "AparÃªncias",
+      "title": "AparÃÂªncias",
       "enabled": true
     },
     {
@@ -279,13 +279,13 @@
     {
       "nexusSlug": "apos-alcancar-a-liberdade-financeira-elas-ofereceram-sua-lealdade",
       "akiraId": "obra-fcd9fa7a",
-      "title": "ApÃ³s AlcanÃ§ar a Liberdade Financeira, Elas Ofereceram sua Lealdade",
+      "title": "ApÃÂ³s AlcanÃÂ§ar a Liberdade Financeira, Elas Ofereceram sua Lealdade",
       "enabled": true
     },
     {
       "nexusSlug": "arquimago-transcendido-pela-regressao",
       "akiraId": "obra-a1ca5fdf",
-      "title": "Arquimago Transcendido Pela RegressÃ£o",
+      "title": "Arquimago Transcendido Pela RegressÃÂ£o",
       "enabled": true
     },
     {
@@ -297,13 +297,13 @@
     {
       "nexusSlug": "artes-marciais-de-elite-ser-um-genio-e-apenas-o-requisito-para-me-conhecer",
       "akiraId": "obra-ea9849c0",
-      "title": "Artes Marciais de Elite: Ser um GÃªnio Ã© Apenas o Requisito Para me Conhecer!",
+      "title": "Artes Marciais de Elite: Ser um GÃÂªnio ÃÂ© Apenas o Requisito Para me Conhecer!",
       "enabled": true
     },
     {
       "nexusSlug": "mundo-marcial-supremo-varrendo-sozinho-tres-mil-imperadores-com-uma-so-mao",
       "akiraId": "obra-924b228a",
-      "title": "Artes Marciais de Elite: Varrendo TrÃªs Mil Imperadores com uma SÃ³ MÃ£o!",
+      "title": "Artes Marciais de Elite: Varrendo TrÃÂªs Mil Imperadores com uma SÃÂ³ MÃÂ£o!",
       "enabled": false
     },
     {
@@ -315,61 +315,61 @@
     {
       "nexusSlug": "as-aventuras-de-kim-ohjin-com-animais-fantasticos",
       "akiraId": "obra-85eb9d03",
-      "title": "As Aventuras de Kim Ohjin com Animais FantÃ¡sticos",
+      "title": "As Aventuras de Kim Ohjin com Animais FantÃÂ¡sticos",
       "enabled": true
     },
     {
       "nexusSlug": "as-em-tempo-integral",
       "akiraId": "obra-aad07c80",
-      "title": "Ãs Em Tempo Integral",
+      "title": "ÃÂs Em Tempo Integral",
       "enabled": true
     },
     {
       "nexusSlug": "as-principais-heroinas-estao-tentando-me-matar",
       "akiraId": "obra-fc668dbc",
-      "title": "As Principais HeroÃ­nas EstÃ£o Tentando Me Matar",
+      "title": "As Principais HeroÃÂ­nas EstÃÂ£o Tentando Me Matar",
       "enabled": true
     },
     {
       "nexusSlug": "ascensao-do-devorador",
       "akiraId": "obra-e63a2307",
-      "title": "AscensÃ£o do Devorador",
+      "title": "AscensÃÂ£o do Devorador",
       "enabled": true
     },
     {
       "nexusSlug": "ascensao-do-rei-cogumelo",
       "akiraId": "obra-d7c6318f",
-      "title": "AscensÃ£o do Rei Cogumelo",
+      "title": "AscensÃÂ£o do Rei Cogumelo",
       "enabled": true
     },
     {
       "nexusSlug": "ascensao-ilimitada-forca-atraves-da-adversidade",
       "akiraId": "obra-6cebe7e0",
-      "title": "AscensÃ£o Ilimitada: ForÃ§a AtravÃ©s da Adversidade",
+      "title": "AscensÃÂ£o Ilimitada: ForÃÂ§a AtravÃÂ©s da Adversidade",
       "enabled": true
     },
     {
       "nexusSlug": "assassina-de-herois",
       "akiraId": "obra-e25b19eb",
-      "title": "Assassina de HerÃ³is",
+      "title": "Assassina de HerÃÂ³is",
       "enabled": true
     },
     {
       "nexusSlug": "assassino-de-nivel-divino-eu-sou-a-sombra",
       "akiraId": "obra-383ea824",
-      "title": "Assassino de NÃ­vel Divino, Eu Sou a Sombra",
+      "title": "Assassino de NÃÂ­vel Divino, Eu Sou a Sombra",
       "enabled": true
     },
     {
       "nexusSlug": "demonio",
       "akiraId": "obra-ee0307d5",
-      "title": "Asura: O DemÃ´nio da Luta",
+      "title": "Asura: O DemÃÂ´nio da Luta",
       "enabled": true
     },
     {
       "nexusSlug": "cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce",
       "akiraId": "obra-a09285c4",
-      "title": "Cale a Boca, DragÃ£o Maligno! NÃ£o Quero Mais Criar um Filho com VocÃª.",
+      "title": "Cale a Boca, DragÃÂ£o Maligno! NÃÂ£o Quero Mais Criar um Filho com VocÃÂª.",
       "enabled": true
     },
     {
@@ -387,7 +387,7 @@
     {
       "nexusSlug": "castelo-2-pinaculo",
       "akiraId": "obra-aca2b626",
-      "title": "Castelo 2: PinÃ¡culo",
+      "title": "Castelo 2: PinÃÂ¡culo",
       "enabled": true
     },
     {
@@ -399,13 +399,13 @@
     {
       "nexusSlug": "cerbero",
       "akiraId": "obra-6fe7d27d",
-      "title": "CÃ©rbero",
+      "title": "CÃÂ©rbero",
       "enabled": true
     },
     {
       "nexusSlug": "clube-de-historias-de-fantasmas",
       "akiraId": "obra-b1a29e02",
-      "title": "Clube de HistÃ³rias de Fantasmas",
+      "title": "Clube de HistÃÂ³rias de Fantasmas",
       "enabled": true
     },
     {
@@ -417,73 +417,73 @@
     {
       "nexusSlug": "comecando-a-evolucao-como-uma-grande-arvore",
       "akiraId": "obra-e81e7e05",
-      "title": "ComeÃ§ando a EvoluÃ§Ã£o como uma Grande Ãrvore",
+      "title": "ComeÃÂ§ando a EvoluÃÂ§ÃÂ£o como uma Grande ÃÂrvore",
       "enabled": true
     },
     {
       "nexusSlug": "comecando-com-13-tracos-ocultos",
       "akiraId": "obra-08f86d2b",
-      "title": "ComeÃ§ando com 13 TraÃ§os Ocultos",
+      "title": "ComeÃÂ§ando com 13 TraÃÂ§os Ocultos",
       "enabled": true
     },
     {
       "nexusSlug": "comecando-como-o-boss-dragao-negro-sou-invencivel",
       "akiraId": "obra-93bf529f",
-      "title": "ComeÃ§ando como o BOSS DragÃ£o Negro, Sou InvencÃ­vel",
+      "title": "ComeÃÂ§ando como o BOSS DragÃÂ£o Negro, Sou InvencÃÂ­vel",
       "enabled": true
     },
     {
       "nexusSlug": "como-cuidar-de-viloes-da-forma-certa",
       "akiraId": "obra-9444fee7",
-      "title": "Como Cuidar de VilÃµes da Forma Certa",
+      "title": "Como Cuidar de VilÃÂµes da Forma Certa",
       "enabled": true
     },
     {
       "nexusSlug": "complexo-de-amigos-de-infancia",
       "akiraId": "obra-9813ed36",
-      "title": "Complexo de Amigos de InfÃ¢ncia",
+      "title": "Complexo de Amigos de InfÃÂ¢ncia",
       "enabled": true
     },
     {
       "nexusSlug": "o-mago-escondido-conquista-o-mundo-magico",
       "akiraId": "obra-b29fe435",
-      "title": "Conquistando o Mundo com um Ãnico Soco",
+      "title": "Conquistando o Mundo com um ÃÂnico Soco",
       "enabled": false
     },
     {
       "nexusSlug": "contos-de-demonios-e-deuses",
       "akiraId": "obra-dbbabf0f",
-      "title": "Contos de DemÃ´nios e Deuses",
+      "title": "Contos de DemÃÂ´nios e Deuses",
       "enabled": true
     },
     {
       "nexusSlug": "contrato-de-mercenario",
       "akiraId": "obra-8849de92",
-      "title": "Contrato MercenÃ¡rio",
+      "title": "Contrato MercenÃÂ¡rio",
       "enabled": true
     },
     {
       "nexusSlug": "coracao-ferido",
       "akiraId": "obra-449e3278",
-      "title": "CoraÃ§Ã£o Ferido",
+      "title": "CoraÃÂ§ÃÂ£o Ferido",
       "enabled": true
     },
     {
       "nexusSlug": "cronicas-da-faccao-demoniaca",
       "akiraId": "obra-d19ab004",
-      "title": "CrÃ´nicas da FacÃ§Ã£o DemonÃ­aca",
+      "title": "CrÃÂ´nicas da FacÃÂ§ÃÂ£o DemonÃÂ­aca",
       "enabled": true
     },
     {
       "nexusSlug": "cronicas-do-retorno-do-deus-marcial",
       "akiraId": "obra-fee3a531",
-      "title": "CrÃ´nicas do Retorno do Deus Marcial",
+      "title": "CrÃÂ´nicas do Retorno do Deus Marcial",
       "enabled": true
     },
     {
       "nexusSlug": "cronicas-do-soberano-preguicoso",
       "akiraId": "obra-c675a235",
-      "title": "CrÃ´nicas do Soberano PreguiÃ§oso",
+      "title": "CrÃÂ´nicas do Soberano PreguiÃÂ§oso",
       "enabled": true
     },
     {
@@ -495,7 +495,7 @@
     {
       "nexusSlug": "cultivando-em-segredo-ao-lado-da-lider-da-seita-demoniaca",
       "akiraId": "obra-d5a02bd9",
-      "title": "Cultivando em Segredo ao Lado da LÃ­der da Seita DemonÃ­aca",
+      "title": "Cultivando em Segredo ao Lado da LÃÂ­der da Seita DemonÃÂ­aca",
       "enabled": true
     },
     {
@@ -519,13 +519,13 @@
     {
       "nexusSlug": "demonio",
       "akiraId": "obra-a40f2041",
-      "title": "DemÃ´nio Celestial do Universo 3077",
+      "title": "DemÃÂ´nio Celestial do Universo 3077",
       "enabled": false
     },
     {
       "nexusSlug": "demonio",
       "akiraId": "obra-bb0e1aec",
-      "title": "DemÃ´nio x Anjo, NÃ£o Conseguem se Dar Bem!",
+      "title": "DemÃÂ´nio x Anjo, NÃÂ£o Conseguem se Dar Bem!",
       "enabled": false
     },
     {
@@ -543,25 +543,25 @@
     {
       "nexusSlug": "despertando-o-trovao-roxo-no-inicio",
       "akiraId": "obra-afed62cb",
-      "title": "Despertando o TrovÃ£o Roxo no InÃ­cio",
+      "title": "Despertando o TrovÃÂ£o Roxo no InÃÂ­cio",
       "enabled": true
     },
     {
       "nexusSlug": "destinado-a-ser-amado-por-vilas",
       "akiraId": "obra-9f94a39a",
-      "title": "Destinado a Ser Amado por VilÃ£s",
+      "title": "Destinado a Ser Amado por VilÃÂ£s",
       "enabled": true
     },
     {
       "nexusSlug": "o-deus-da-espada-do-juizo-final",
       "akiraId": "obra-84da2b37",
-      "title": "Deus da Espada do Dia do JuÃ­zo Final",
+      "title": "Deus da Espada do Dia do JuÃÂ­zo Final",
       "enabled": true
     },
     {
       "nexusSlug": "deus-demonio-do-apocalipse-behemoth",
       "akiraId": "obra-a353d19b",
-      "title": "Deus DemÃ´nio do Apocalipse Behemoth",
+      "title": "Deus DemÃÂ´nio do Apocalipse Behemoth",
       "enabled": true
     },
     {
@@ -573,31 +573,31 @@
     {
       "nexusSlug": "divida-de-sangue",
       "akiraId": "obra-feb693b9",
-      "title": "DÃ­vida de Sangue",
+      "title": "DÃÂ­vida de Sangue",
       "enabled": true
     },
     {
       "nexusSlug": "dominacao-absoluta-no-nivel-0",
       "akiraId": "obra-1df9bcbb",
-      "title": "DominaÃ§Ã£o Absoluta no NÃ­vel 0",
+      "title": "DominaÃÂ§ÃÂ£o Absoluta no NÃÂ­vel 0",
       "enabled": true
     },
     {
       "nexusSlug": "dominio-absoluto",
       "akiraId": "obra-8f595ef8",
-      "title": "DomÃ­nio Absoluto",
+      "title": "DomÃÂ­nio Absoluto",
       "enabled": true
     },
     {
       "nexusSlug": "sequestrando-dragoes",
       "akiraId": "obra-8a4938e6",
-      "title": "DragÃµes Sequestrados",
+      "title": "DragÃÂµes Sequestrados",
       "enabled": true
     },
     {
       "nexusSlug": "lenda",
       "akiraId": "obra-a4222c5a",
-      "title": "Dungeon Play: O Ex-Escravo Corporativo Domina com a Classe LendÃ¡ria \"Gamer\"",
+      "title": "Dungeon Play: O Ex-Escravo Corporativo Domina com a Classe LendÃÂ¡ria \"Gamer\"",
       "enabled": false
     },
     {
@@ -615,7 +615,7 @@
     {
       "nexusSlug": "entomologista-do-cla-tang-de-sichuan",
       "akiraId": "obra-f5659c25",
-      "title": "Entomologista do ClÃ£ Tang de Sichuan",
+      "title": "Entomologista do ClÃÂ£ Tang de Sichuan",
       "enabled": true
     },
     {
@@ -627,49 +627,49 @@
     {
       "nexusSlug": "escondendo-um-centro-logistico-no-apocalipse",
       "akiraId": "obra-736ef784",
-      "title": "Escondendo um Centro LogÃ­stico no Apocalipse",
+      "title": "Escondendo um Centro LogÃÂ­stico no Apocalipse",
       "enabled": true
     },
     {
       "nexusSlug": "essencia-da-reencarnacao",
       "akiraId": "obra-8ed5b3fd",
-      "title": "EssÃªncia da ReencarnaÃ§Ã£o",
+      "title": "EssÃÂªncia da ReencarnaÃÂ§ÃÂ£o",
       "enabled": true
     },
     {
       "nexusSlug": "essencia-da-selva",
       "akiraId": "obra-71339843",
-      "title": "EssÃªncia da Selva",
+      "title": "EssÃÂªncia da Selva",
       "enabled": true
     },
     {
       "nexusSlug": "este-heroi-e-um-supremacista-financeiro",
       "akiraId": "obra-2e09a76e",
-      "title": "Este HerÃ³i Ã Um Supremacista Financeiro",
+      "title": "Este HerÃÂ³i ÃÂ Um Supremacista Financeiro",
       "enabled": true
     },
     {
       "nexusSlug": "estou-desistindo-do-grupo-do-heroi",
       "akiraId": "obra-b49e65b6",
-      "title": "Estou Desistindo do Grupo do HerÃ³i",
+      "title": "Estou Desistindo do Grupo do HerÃÂ³i",
       "enabled": true
     },
     {
       "nexusSlug": "estrategia-para-fracos-dominar-a-torre",
       "akiraId": "obra-304574bc",
-      "title": "EstratÃ©gia Para Fracos Dominar a Torre",
+      "title": "EstratÃÂ©gia Para Fracos Dominar a Torre",
       "enabled": true
     },
     {
       "nexusSlug": "eu-dominei-a-academia-com-uma-unica-faca-de-sashimi",
       "akiraId": "obra-a07d8800",
-      "title": "Eu Dominei a Academia Com uma Ãnica Faca de Sashimi",
+      "title": "Eu Dominei a Academia Com uma ÃÂnica Faca de Sashimi",
       "enabled": true
     },
     {
       "nexusSlug": "eu-levarei-essa-familia-a-grandeza",
       "akiraId": "obra-c589d031",
-      "title": "Eu Levarei Essa FamÃ­lia Ã  Grandeza",
+      "title": "Eu Levarei Essa FamÃÂ­lia ÃÂ  Grandeza",
       "enabled": true
     },
     {
@@ -681,13 +681,13 @@
     {
       "nexusSlug": "eu-me-tornei-o-mentor-do-rei-demonio-mais-fraco",
       "akiraId": "obra-523ded51",
-      "title": "Eu Me Tornei o Mentor do Rei DemÃ´nio Mais Fraco",
+      "title": "Eu Me Tornei o Mentor do Rei DemÃÂ´nio Mais Fraco",
       "enabled": true
     },
     {
       "nexusSlug": "eu-me-tornei-o-primeiro-principe-rebelde",
       "akiraId": "obra-5a30f5bc",
-      "title": "Eu Me Tornei o Primeiro PrÃ­ncipe Rebelde",
+      "title": "Eu Me Tornei o Primeiro PrÃÂ­ncipe Rebelde",
       "enabled": true
     },
     {
@@ -699,13 +699,13 @@
     {
       "nexusSlug": "eu-obtive-um-item-mitico",
       "akiraId": "obra-eb0f5b0d",
-      "title": "Eu Obtive um Item MÃ­tico",
+      "title": "Eu Obtive um Item MÃÂ­tico",
       "enabled": true
     },
     {
       "nexusSlug": "eu-realmente-nao-sou-o-lacaio-do-deus-demonio",
       "akiraId": "obra-8b8d96d1",
-      "title": "Eu Realmente nÃ£o sou o Lacaio do Deus DemÃ´nio",
+      "title": "Eu Realmente nÃÂ£o sou o Lacaio do Deus DemÃÂ´nio",
       "enabled": true
     },
     {
@@ -717,13 +717,13 @@
     {
       "nexusSlug": "eu-retornei-como-um-xama-de-classe-fff",
       "akiraId": "obra-94242549",
-      "title": "Eu Retornei Como um XamÃ£ de Classe FFF",
+      "title": "Eu Retornei Como um XamÃÂ£ de Classe FFF",
       "enabled": true
     },
     {
       "nexusSlug": "eu-sou-a-mae",
       "akiraId": "obra-c7f8b00c",
-      "title": "Eu Sou a MÃ£e",
+      "title": "Eu Sou a MÃÂ£e",
       "enabled": true
     },
     {
@@ -741,25 +741,25 @@
     {
       "nexusSlug": "eu-sou-o-vilao-predestinado",
       "akiraId": "obra-9ddc5f63",
-      "title": "Eu Sou o VilÃ£o Predestinado",
+      "title": "Eu Sou o VilÃÂ£o Predestinado",
       "enabled": true
     },
     {
       "nexusSlug": "monstro",
       "akiraId": "obra-8a0ed6ce",
-      "title": "Eu Virei Um Monstro Espacial EvoluÃ­do",
+      "title": "Eu Virei Um Monstro Espacial EvoluÃÂ­do",
       "enabled": true
     },
     {
       "nexusSlug": "evolucao-do-monstro-pet",
       "akiraId": "obra-af685aad",
-      "title": "EvoluÃ§Ã£o de Mascotes Monstruosos",
+      "title": "EvoluÃÂ§ÃÂ£o de Mascotes Monstruosos",
       "enabled": false
     },
     {
       "nexusSlug": "evolucao-infinita-comecando-do-zero",
       "akiraId": "obra-b90febfc",
-      "title": "EvoluÃ§Ã£o Infinita: ComeÃ§ando do Zero",
+      "title": "EvoluÃÂ§ÃÂ£o Infinita: ComeÃÂ§ando do Zero",
       "enabled": true
     },
     {
@@ -783,19 +783,19 @@
     {
       "nexusSlug": "fui-jogado-em-um-manga-desconhecido",
       "akiraId": "obra-3958076f",
-      "title": "Fui Jogado em Um MangÃ¡ Desconhecido",
+      "title": "Fui Jogado em Um MangÃÂ¡ Desconhecido",
       "enabled": true
     },
     {
       "nexusSlug": "fui-jogado-em-uma-historia-de-fantasmas-mas-ainda-tenho-que-trabalhar",
       "akiraId": "obra-c124dc14",
-      "title": "Fui Jogado em uma HistÃ³ria de Fantasmas, mas Ainda Tenho que Trabalhar",
+      "title": "Fui Jogado em uma HistÃÂ³ria de Fantasmas, mas Ainda Tenho que Trabalhar",
       "enabled": true
     },
     {
       "nexusSlug": "funcionario-publico-especial",
       "akiraId": "obra-82b2fc15",
-      "title": "FuncionÃ¡rio PÃºblico Especial",
+      "title": "FuncionÃÂ¡rio PÃÂºblico Especial",
       "enabled": true
     },
     {
@@ -807,7 +807,7 @@
     {
       "nexusSlug": "garoto-da-ressurreicao",
       "akiraId": "obra-e4531cfa",
-      "title": "Garoto da RessurreiÃ§Ã£o",
+      "title": "Garoto da RessurreiÃÂ§ÃÂ£o",
       "enabled": true
     },
     {
@@ -819,25 +819,25 @@
     {
       "nexusSlug": "genio-da-esgrima-da-academia",
       "akiraId": "obra-ad72b202",
-      "title": "GÃªnio da Esgrima da Academia",
+      "title": "GÃÂªnio da Esgrima da Academia",
       "enabled": true
     },
     {
       "nexusSlug": "genio-de-uma-linhagem-unica",
       "akiraId": "obra-d1c567c1",
-      "title": "GÃªnio de uma Linhagem Ãnica",
+      "title": "GÃÂªnio de uma Linhagem ÃÂnica",
       "enabled": true
     },
     {
       "nexusSlug": "genio-regressado-criador-de-itens-mitico",
       "akiraId": "obra-39051866",
-      "title": "GÃªnio Regressado Criador de Itens MÃ­tico",
+      "title": "GÃÂªnio Regressado Criador de Itens MÃÂ­tico",
       "enabled": true
     },
     {
       "nexusSlug": "goblin-de-nivel-999",
       "akiraId": "obra-b0c55ea0",
-      "title": "Goblin de NÃ­vel 999",
+      "title": "Goblin de NÃÂ­vel 999",
       "enabled": true
     },
     {
@@ -849,7 +849,7 @@
     {
       "nexusSlug": "graveto-reforcado-de-nivel-99",
       "akiraId": "obra-b6aa49d0",
-      "title": "Graveto ReforÃ§ado de NÃ­vel +99",
+      "title": "Graveto ReforÃÂ§ado de NÃÂ­vel +99",
       "enabled": true
     },
     {
@@ -867,31 +867,31 @@
     {
       "nexusSlug": "guia-de-sobrevivencia-do-cacador-de-bestas-demoniacas",
       "akiraId": "obra-cc155bc6",
-      "title": "Guia de SobrevivÃªncia do CaÃ§ador de Feras DemonÃ­acas",
+      "title": "Guia de SobrevivÃÂªncia do CaÃÂ§ador de Feras DemonÃÂ­acas",
       "enabled": true
     },
     {
       "nexusSlug": "guia-de-sobrevivencia-do-extra-da-academia",
       "akiraId": "obra-88c81057",
-      "title": "Guia de SobrevivÃªncia do Figurante da Academia",
+      "title": "Guia de SobrevivÃÂªncia do Figurante da Academia",
       "enabled": true
     },
     {
       "nexusSlug": "herdeiro-espadachim-do-cla-tang-so-quer-uma-vida-normal",
       "akiraId": "obra-7a32c018",
-      "title": "Herdeiro Espadachim do ClÃ£ Tang SÃ³ Quer uma Vida Normal",
+      "title": "Herdeiro Espadachim do ClÃÂ£ Tang SÃÂ³ Quer uma Vida Normal",
       "enabled": true
     },
     {
       "nexusSlug": "herdeiro-regressado-do-cla-yong",
       "akiraId": "obra-857b8422",
-      "title": "Herdeiro Regressado Do ClÃ£ Yong",
+      "title": "Herdeiro Regressado Do ClÃÂ£ Yong",
       "enabled": true
     },
     {
       "nexusSlug": "herois-demonios-e-viloes",
       "akiraId": "obra-7ebf61b1",
-      "title": "HerÃ³is, DemÃ´nios e VilÃµes",
+      "title": "HerÃÂ³is, DemÃÂ´nios e VilÃÂµes",
       "enabled": true
     },
     {
@@ -909,7 +909,7 @@
     {
       "nexusSlug": "imperador-demoniaco",
       "akiraId": "obra-df1daa03",
-      "title": "Imperador DemonÃ­aco",
+      "title": "Imperador DemonÃÂ­aco",
       "enabled": true
     },
     {
@@ -933,7 +933,7 @@
     {
       "nexusSlug": "invencivel-com-a-minha-esposa-imperatriz",
       "akiraId": "obra-bbbea66e",
-      "title": "InvencÃ­vel com a Minha Esposa Imperatriz",
+      "title": "InvencÃÂ­vel com a Minha Esposa Imperatriz",
       "enabled": true
     },
     {
@@ -969,13 +969,13 @@
     {
       "nexusSlug": "flores",
       "akiraId": "obra-93c9f3e7",
-      "title": "LÃ¡grimas Sobre Flores Murchas",
+      "title": "LÃÂ¡grimas Sobre Flores Murchas",
       "enabled": true
     },
     {
       "nexusSlug": "lendario-filho-mais-novo-da-casa-do-marques",
       "akiraId": "obra-be8e359f",
-      "title": "LendÃ¡rio Filho Mais Novo da Casa do MarquÃªs",
+      "title": "LendÃÂ¡rio Filho Mais Novo da Casa do MarquÃÂªs",
       "enabled": true
     },
     {
@@ -999,7 +999,7 @@
     {
       "nexusSlug": "limpeza-inteligente-a-regresao-do-cacador-genial",
       "akiraId": "obra-45a906a2",
-      "title": "Limpeza Inteligente: A RegressÃ£o do CaÃ§ador Genial",
+      "title": "Limpeza Inteligente: A RegressÃÂ£o do CaÃÂ§ador Genial",
       "enabled": true
     },
     {
@@ -1047,7 +1047,7 @@
     {
       "nexusSlug": "mago-devorador-de-dragoes",
       "akiraId": "obra-78daed2e",
-      "title": "Mago Devorador de DragÃµes",
+      "title": "Mago Devorador de DragÃÂµes",
       "enabled": true
     },
     {
@@ -1059,19 +1059,19 @@
     {
       "nexusSlug": "mago-prismatico-genial",
       "akiraId": "obra-dc02c1e1",
-      "title": "Mago PrismÃ¡tico Genial",
+      "title": "Mago PrismÃÂ¡tico Genial",
       "enabled": true
     },
     {
       "nexusSlug": "mais-que-bela-colheita-rei-demonio",
       "akiraId": "obra-db212f01",
-      "title": "Mais Que Bela Colheita, Rei DemÃ´nio",
+      "title": "Mais Que Bela Colheita, Rei DemÃÂ´nio",
       "enabled": true
     },
     {
       "nexusSlug": "mantenha-um-perfil-discreto-lider-da-seita",
       "akiraId": "obra-78a1ab97",
-      "title": "Mantenha um Perfil Discreto, LÃ­der da Seita",
+      "title": "Mantenha um Perfil Discreto, LÃÂ­der da Seita",
       "enabled": true
     },
     {
@@ -1083,13 +1083,13 @@
     {
       "nexusSlug": "me-tornei-o-rebelde-da-familia-necromante",
       "akiraId": "obra-c8d229f0",
-      "title": "Me Tornei o Rebelde da FamÃ­lia Necromante",
+      "title": "Me Tornei o Rebelde da FamÃÂ­lia Necromante",
       "enabled": true
     },
     {
       "nexusSlug": "me-tornei-um-deus-devorando-almas-no-purgatorio",
       "akiraId": "obra-c32bf933",
-      "title": "Me Tornei um Deus Devorando Almas no PurgatÃ³rio",
+      "title": "Me Tornei um Deus Devorando Almas no PurgatÃÂ³rio",
       "enabled": true
     },
     {
@@ -1107,13 +1107,13 @@
     {
       "nexusSlug": "memorias-do-rei-da-guerra",
       "akiraId": "obra-f24e1f4d",
-      "title": "MemÃ³rias do Rei da Guerra",
+      "title": "MemÃÂ³rias do Rei da Guerra",
       "enabled": true
     },
     {
       "nexusSlug": "menina-agencia-de-salvacao",
       "akiraId": "obra-918d6d00",
-      "title": "Menina Ã AgÃªncia de SalvaÃ§Ã£o",
+      "title": "Menina ÃÂ AgÃÂªncia de SalvaÃÂ§ÃÂ£o",
       "enabled": true
     },
     {
@@ -1137,19 +1137,19 @@
     {
       "nexusSlug": "mestre-supremo-da-maldicao",
       "akiraId": "obra-906ebafc",
-      "title": "Mestre Supremo da MaldiÃ§Ã£o",
+      "title": "Mestre Supremo da MaldiÃÂ§ÃÂ£o",
       "enabled": true
     },
     {
       "nexusSlug": "meteoro-o-heroi-de-velocidade-divina",
       "akiraId": "obra-8397bf00",
-      "title": "Meteoro ~O HerÃ³i de Velocidade Divina~",
+      "title": "Meteoro ~O HerÃÂ³i de Velocidade Divina~",
       "enabled": true
     },
     {
       "nexusSlug": "meu-clone-e-o-rei-dos-insetos-espaciais",
       "akiraId": "obra-d0fd72f2",
-      "title": "Meu Clone Ã© o Rei dos Insetos Espaciais",
+      "title": "Meu Clone ÃÂ© o Rei dos Insetos Espaciais",
       "enabled": true
     },
     {
@@ -1167,25 +1167,25 @@
     {
       "nexusSlug": "meu-sistema-dragao",
       "akiraId": "obra-f443286f",
-      "title": "Meu Sistema de DragÃ£o",
+      "title": "Meu Sistema de DragÃÂ£o",
       "enabled": true
     },
     {
       "nexusSlug": "minha-esposa-e-a-rainha-dos-demonios",
       "akiraId": "obra-b985256f",
-      "title": "Minha Esposa Ã© a Rainha dos DemÃ´nios",
+      "title": "Minha Esposa ÃÂ© a Rainha dos DemÃÂ´nios",
       "enabled": true
     },
     {
       "nexusSlug": "minha-esposa-e-lider-do-culto-demoniaco",
       "akiraId": "obra-faa00757",
-      "title": "Minha Esposa Ã© LÃ­der do Culto DemonÃ­aco",
+      "title": "Minha Esposa ÃÂ© LÃÂ­der do Culto DemonÃÂ­aco",
       "enabled": true
     },
     {
       "nexusSlug": "minha-idola-favorita-pega-o-ultimo-trem",
       "akiraId": "obra-d3f1a3be",
-      "title": "Minha Ãdola Favorita Pega o Ãltimo Trem",
+      "title": "Minha ÃÂdola Favorita Pega o ÃÂltimo Trem",
       "enabled": true
     },
     {
@@ -1197,19 +1197,19 @@
     {
       "nexusSlug": "minha-vida-escolar-fingindo-ser-uma-pessoa-inutil",
       "akiraId": "obra-cd989b80",
-      "title": "Minha Vida Escolar Fingindo Ser Um InÃºtil",
+      "title": "Minha Vida Escolar Fingindo Ser Um InÃÂºtil",
       "enabled": true
     },
     {
       "nexusSlug": "minhas-sete-noivas-sao-todas-vilas",
       "akiraId": "obra-bc3f1845",
-      "title": "Minhas Sete Noivas SÃ£o Todas VilÃ£s",
+      "title": "Minhas Sete Noivas SÃÂ£o Todas VilÃÂ£s",
       "enabled": true
     },
     {
       "nexusSlug": "missoes-na-vida-real",
       "akiraId": "obra-f286b166",
-      "title": "MissÃµes na Vida Real",
+      "title": "MissÃÂµes na Vida Real",
       "enabled": true
     },
     {
@@ -1233,7 +1233,7 @@
     {
       "nexusSlug": "nao-se-exiba-jovem-mestre",
       "akiraId": "obra-dfa4026b",
-      "title": "NÃ£o Se Exiba, Jovem Mestre",
+      "title": "NÃÂ£o Se Exiba, Jovem Mestre",
       "enabled": true
     },
     {
@@ -1245,19 +1245,19 @@
     {
       "nexusSlug": "necromante-de-forca-maxima",
       "akiraId": "obra-939c6a06",
-      "title": "Necromante de ForÃ§a MÃ¡xima",
+      "title": "Necromante de ForÃÂ§a MÃÂ¡xima",
       "enabled": true
     },
     {
       "nexusSlug": "necromante-do-cla-da-espada",
       "akiraId": "obra-de9dd7bf",
-      "title": "Necromante do ClÃ£ da Espada",
+      "title": "Necromante do ClÃÂ£ da Espada",
       "enabled": true
     },
     {
       "nexusSlug": "necromante-absoluto",
       "akiraId": "obra-e9fa1836",
-      "title": "Necromante EvoluÃ­do",
+      "title": "Necromante EvoluÃÂ­do",
       "enabled": false
     },
     {
@@ -1275,25 +1275,25 @@
     {
       "nexusSlug": "neste-mundo-nao-existem-guerreiros-maus",
       "akiraId": "obra-59e4d3b7",
-      "title": "Neste Mundo NÃ£o Existem Guerreiros Maus",
+      "title": "Neste Mundo NÃÂ£o Existem Guerreiros Maus",
       "enabled": true
     },
     {
       "nexusSlug": "nevoa-negra-2025",
       "akiraId": "obra-6fdffd96",
-      "title": "NÃ©voa Negra (2025)",
+      "title": "NÃÂ©voa Negra (2025)",
       "enabled": true
     },
     {
       "nexusSlug": "nos-nao-estamos-namorando",
       "akiraId": "obra-bff207bd",
-      "title": "NÃ³s NÃ£o Estamos Namorando!!",
+      "title": "NÃÂ³s NÃÂ£o Estamos Namorando!!",
       "enabled": true
     },
     {
       "nexusSlug": "o-novato-de-nivel-maximo",
       "akiraId": "obra-288b1867",
-      "title": "Novato de NÃ­vel MÃ¡ximo",
+      "title": "Novato de NÃÂ­vel MÃÂ¡ximo",
       "enabled": true
     },
     {
@@ -1305,13 +1305,13 @@
     {
       "nexusSlug": "nunca-mexa-com-o-senior",
       "akiraId": "obra-fbcab290",
-      "title": "Nunca Mexa com o SÃªnior",
+      "title": "Nunca Mexa com o SÃÂªnior",
       "enabled": true
     },
     {
       "nexusSlug": "o-advogado-que-ve-almas",
       "akiraId": "obra-237d346d",
-      "title": "O Advogado que VÃª Almas",
+      "title": "O Advogado que VÃÂª Almas",
       "enabled": true
     },
     {
@@ -1335,7 +1335,7 @@
     {
       "nexusSlug": "o-arquimago-retorna-apos-4000-anos",
       "akiraId": "obra-40cd7ccb",
-      "title": "O Arquimago Retorna ApÃ³s 4000 Anos",
+      "title": "O Arquimago Retorna ApÃÂ³s 4000 Anos",
       "enabled": true
     },
     {
@@ -1347,7 +1347,7 @@
     {
       "nexusSlug": "o-assassino-reencarnado-e-um-genio-espadachim",
       "akiraId": "obra-e1f9d047",
-      "title": "O Assassino Reencarnado Ã um GÃªnio Espadachim",
+      "title": "O Assassino Reencarnado ÃÂ um GÃÂªnio Espadachim",
       "enabled": true
     },
     {
@@ -1359,37 +1359,37 @@
     {
       "nexusSlug": "o-barbaro-da-estacao-de-seul",
       "akiraId": "obra-a156267c",
-      "title": "O BÃ¡rbaro da EstaÃ§Ã£o de Seul",
+      "title": "O BÃÂ¡rbaro da EstaÃÂ§ÃÂ£o de Seul",
       "enabled": true
     },
     {
       "nexusSlug": "o-cacador-de-classe-s-que-cura-monstros",
       "akiraId": "obra-dd8043df",
-      "title": "O CaÃ§ador de Classe S que Cura Monstros",
+      "title": "O CaÃÂ§ador de Classe S que Cura Monstros",
       "enabled": true
     },
     {
       "nexusSlug": "o-cacador-de-destinos-rank-f",
       "akiraId": "obra-89de9074",
-      "title": "O CaÃ§ador de Destinos Rank F",
+      "title": "O CaÃÂ§ador de Destinos Rank F",
       "enabled": true
     },
     {
       "nexusSlug": "cacador-primordial",
       "akiraId": "obra-f141ce2e",
-      "title": "O CaÃ§ador Primordial",
+      "title": "O CaÃÂ§ador Primordial",
       "enabled": true
     },
     {
       "nexusSlug": "o-filho-mais-novo-do-mestre-espadachim",
       "akiraId": "obra-a9edbb95",
-      "title": "O CaÃ§ula do Mestre Espadachim",
+      "title": "O CaÃÂ§ula do Mestre Espadachim",
       "enabled": true
     },
     {
       "nexusSlug": "o-calouro-de-nivel-ss-da-super-academia-de-magia",
       "akiraId": "obra-c18f0db1",
-      "title": "O Calouro de NÃ­vel SS da Academia de Super Magia",
+      "title": "O Calouro de NÃÂ­vel SS da Academia de Super Magia",
       "enabled": true
     },
     {
@@ -1401,19 +1401,19 @@
     {
       "nexusSlug": "o-canal-da-rei-demonio",
       "akiraId": "obra-c134e14e",
-      "title": "O Canal da Rei DemÃ´nio",
+      "title": "O Canal da Rei DemÃÂ´nio",
       "enabled": true
     },
     {
       "nexusSlug": "o-cao-louco-do-cla-cheon",
       "akiraId": "obra-c8141c53",
-      "title": "O CÃ£o Louco do ClÃ£ Cheon",
+      "title": "O CÃÂ£o Louco do ClÃÂ£ Cheon",
       "enabled": true
     },
     {
       "nexusSlug": "o-cao-raivoso-da-mansao-do-duque",
       "akiraId": "obra-d20e1eda",
-      "title": "O CÃ£o Raivoso da MansÃ£o do Duque",
+      "title": "O CÃÂ£o Raivoso da MansÃÂ£o do Duque",
       "enabled": true
     },
     {
@@ -1431,7 +1431,7 @@
     {
       "nexusSlug": "o-cavaleiro-prodigio-com-tempo-limitado",
       "akiraId": "obra-6ef88b97",
-      "title": "O Cavaleiro ProdÃ­gio com Tempo Limitado",
+      "title": "O Cavaleiro ProdÃÂ­gio com Tempo Limitado",
       "enabled": true
     },
     {
@@ -1443,7 +1443,7 @@
     {
       "nexusSlug": "o-comeco-depois-do-fim",
       "akiraId": "obra-0f20295f",
-      "title": "O ComeÃ§o Depois do Fim",
+      "title": "O ComeÃÂ§o Depois do Fim",
       "enabled": true
     },
     {
@@ -1461,19 +1461,19 @@
     {
       "nexusSlug": "o-demonio-celestial-nao-pode-viver-uma-vida-normal",
       "akiraId": "obra-6a63897a",
-      "title": "O DemÃ´nio Celestial NÃ£o Pode Viver uma Vida Normal",
+      "title": "O DemÃÂ´nio Celestial NÃÂ£o Pode Viver uma Vida Normal",
       "enabled": true
     },
     {
       "nexusSlug": "o-demonio-supremo-do-veneno",
       "akiraId": "obra-8e226b4f",
-      "title": "O DemÃ´nio Supremo do Veneno",
+      "title": "O DemÃÂ´nio Supremo do Veneno",
       "enabled": true
     },
     {
       "nexusSlug": "o-deus-do-ensino-medio",
       "akiraId": "obra-c0553383",
-      "title": "O Deus do Ensino MÃ©dio",
+      "title": "O Deus do Ensino MÃÂ©dio",
       "enabled": true
     },
     {
@@ -1485,7 +1485,7 @@
     {
       "nexusSlug": "o-deus-marcial-retorna-ao-nivel-2",
       "akiraId": "obra-cdcaef6f",
-      "title": "O Deus Marcial Retorna ao NÃ­vel 2",
+      "title": "O Deus Marcial Retorna ao NÃÂ­vel 2",
       "enabled": true
     },
     {
@@ -1497,19 +1497,19 @@
     {
       "nexusSlug": "o-domador-genio-da-academia",
       "akiraId": "obra-b16f63ad",
-      "title": "O Domador GÃªnio da Academia",
+      "title": "O Domador GÃÂªnio da Academia",
       "enabled": true
     },
     {
       "nexusSlug": "o-emissario-da-luz-de-arad",
       "akiraId": "obra-e45aac64",
-      "title": "O EmissÃ¡rio de Luz de Arad",
+      "title": "O EmissÃÂ¡rio de Luz de Arad",
       "enabled": true
     },
     {
       "nexusSlug": "o-espadachim-genio-da-seita-do-monte-hua",
       "akiraId": "obra-e571d8c8",
-      "title": "O Espadachim GÃªnio da Seita do Monte Hua",
+      "title": "O Espadachim GÃÂªnio da Seita do Monte Hua",
       "enabled": true
     },
     {
@@ -1527,7 +1527,7 @@
     {
       "nexusSlug": "o-extra-e-muito-forte",
       "akiraId": "obra-ae806b1a",
-      "title": "O Figurante Ã© Muito Forte",
+      "title": "O Figurante ÃÂ© Muito Forte",
       "enabled": false
     },
     {
@@ -1539,13 +1539,13 @@
     {
       "nexusSlug": "o-filho-cacula-do-conde-e-um-jogador",
       "akiraId": "obra-d63aa88d",
-      "title": "O Filho CaÃ§ula do Conde Ã© um Jogador",
+      "title": "O Filho CaÃÂ§ula do Conde ÃÂ© um Jogador",
       "enabled": true
     },
     {
       "nexusSlug": "o-filho-imprestavel-do-marques",
       "akiraId": "obra-6e36f09d",
-      "title": "O Filho ImprestÃ¡vel do MarquÃªs",
+      "title": "O Filho ImprestÃÂ¡vel do MarquÃÂªs",
       "enabled": true
     },
     {
@@ -1563,7 +1563,7 @@
     {
       "nexusSlug": "o-filho-regressor-do-duque-e-um-assassino",
       "akiraId": "obra-ddd549bb",
-      "title": "O Filho Regressor do Duque Ã© um Assassino",
+      "title": "O Filho Regressor do Duque ÃÂ© um Assassino",
       "enabled": true
     },
     {
@@ -1575,19 +1575,19 @@
     {
       "nexusSlug": "o-genio-marcial-que-lembra-de-tudo",
       "akiraId": "obra-f22d8f75",
-      "title": "O GÃªnio Marcial Que Lembra de Tudo",
+      "title": "O GÃÂªnio Marcial Que Lembra de Tudo",
       "enabled": true
     },
     {
       "nexusSlug": "o-genio-que-le-o-mundo",
       "akiraId": "obra-dbe86333",
-      "title": "O GÃªnio que LÃª o Mundo",
+      "title": "O GÃÂªnio que LÃÂª o Mundo",
       "enabled": true
     },
     {
       "nexusSlug": "o-genio-que-le-o-mundo",
       "akiraId": "obra-5763eb92",
-      "title": "O GÃªnio Quer Ser Comum!",
+      "title": "O GÃÂªnio Quer Ser Comum!",
       "enabled": false
     },
     {
@@ -1605,7 +1605,7 @@
     {
       "nexusSlug": "o-guerreiro-de-escolta-da-familia-jang",
       "akiraId": "obra-86b2d019",
-      "title": "O Guerreiro de Escolta da FamÃ­lia Jang",
+      "title": "O Guerreiro de Escolta da FamÃÂ­lia Jang",
       "enabled": true
     },
     {
@@ -1617,49 +1617,49 @@
     {
       "nexusSlug": "o-herdeiro-monstruoso-da-familia-chaebol",
       "akiraId": "obra-59d22c10",
-      "title": "O Herdeiro Monstruoso da FamÃ­lia Chaebol",
+      "title": "O Herdeiro Monstruoso da FamÃÂ­lia Chaebol",
       "enabled": true
     },
     {
       "nexusSlug": "lenda",
       "akiraId": "obra-d6722db4",
-      "title": "O HerÃ³i LendÃ¡rio Ã© um Estudante de Honra da Academia",
+      "title": "O HerÃÂ³i LendÃÂ¡rio ÃÂ© um Estudante de Honra da Academia",
       "enabled": false
     },
     {
       "nexusSlug": "o-heroi-retorna",
       "akiraId": "obra-784209c5",
-      "title": "O HerÃ³i Voltou",
+      "title": "O HerÃÂ³i Voltou",
       "enabled": false
     },
     {
       "nexusSlug": "o-imperador-da-espada-reencarnou-em-um-cla-de-mestres-da-espada",
       "akiraId": "obra-0fc6490d",
-      "title": "O Imperador da Espada Reencarnou em um ClÃ£ de Mestres da Espada",
+      "title": "O Imperador da Espada Reencarnou em um ClÃÂ£ de Mestres da Espada",
       "enabled": true
     },
     {
       "nexusSlug": "o-imperador-de-aco",
       "akiraId": "obra-8a90927f",
-      "title": "O Imperador de AÃ§o",
+      "title": "O Imperador de AÃÂ§o",
       "enabled": true
     },
     {
       "nexusSlug": "o-investidor-que-ve-o-futuro",
       "akiraId": "obra-c4395c8e",
-      "title": "O Investidor que VÃª o Futuro",
+      "title": "O Investidor que VÃÂª o Futuro",
       "enabled": true
     },
     {
       "nexusSlug": "irmao",
       "akiraId": "obra-dde02e0e",
-      "title": "O IrmÃ£o Mais Novo Ã© o Destaque Da Academia",
+      "title": "O IrmÃÂ£o Mais Novo ÃÂ© o Destaque Da Academia",
       "enabled": true
     },
     {
       "nexusSlug": "o-jogador-da-familia-caida",
       "akiraId": "obra-de144b3f",
-      "title": "O Jogador da FamÃ­lia CaÃ­da",
+      "title": "O Jogador da FamÃÂ­lia CaÃÂ­da",
       "enabled": true
     },
     {
@@ -1701,7 +1701,7 @@
     {
       "nexusSlug": "o-lanceiro-genio-imortal",
       "akiraId": "obra-85c9c2d0",
-      "title": "O Lanceiro GÃªnio Imortal",
+      "title": "O Lanceiro GÃÂªnio Imortal",
       "enabled": true
     },
     {
@@ -1725,13 +1725,13 @@
     {
       "nexusSlug": "o-mago-genio-que-quebra-limites",
       "akiraId": "obra-a04257c7",
-      "title": "O Mago GÃªnio que Quebra Limites",
+      "title": "O Mago GÃÂªnio que Quebra Limites",
       "enabled": true
     },
     {
       "nexusSlug": "o-mago-negro-que-retorna-apos-66666-anos",
       "akiraId": "obra-94c47be8",
-      "title": "O Mago Negro que Retorna ApÃ³s 66666 Anos",
+      "title": "O Mago Negro que Retorna ApÃÂ³s 66666 Anos",
       "enabled": true
     },
     {
@@ -1779,49 +1779,49 @@
     {
       "nexusSlug": "o-minucioso-vilao-da-academia-demoniaca",
       "akiraId": "obra-82704cff",
-      "title": "O Minucioso VilÃ£o da Academia DemonÃ­aca",
+      "title": "O Minucioso VilÃÂ£o da Academia DemonÃÂ­aca",
       "enabled": true
     },
     {
       "nexusSlug": "o-misterio-da-vila-gwichon",
       "akiraId": "obra-e8593828",
-      "title": "O MistÃ©rio da Vila",
+      "title": "O MistÃÂ©rio da Vila",
       "enabled": true
     },
     {
       "nexusSlug": "o-mundo-apos-a-queda",
       "akiraId": "obra-9533596a",
-      "title": "O Mundo ApÃ³s a Queda",
+      "title": "O Mundo ApÃÂ³s a Queda",
       "enabled": true
     },
     {
       "nexusSlug": "o-neto-do-imperador-santo-e-um-necromante",
       "akiraId": "obra-4cada7bb",
-      "title": "O Neto do Imperador Sagrado Ã um Necromante",
+      "title": "O Neto do Imperador Sagrado ÃÂ um Necromante",
       "enabled": true
     },
     {
       "nexusSlug": "o-novato-e-muito-poderoso",
       "akiraId": "obra-daa6c499",
-      "title": "O Novato Ã© Muito Poderoso",
+      "title": "O Novato ÃÂ© Muito Poderoso",
       "enabled": true
     },
     {
       "nexusSlug": "o-papai-e-muito-forte",
       "akiraId": "obra-de1085b8",
-      "title": "O Papai Ã Muito Forte",
+      "title": "O Papai ÃÂ Muito Forte",
       "enabled": true
     },
     {
       "nexusSlug": "o-principe-herdeiro-que-vende-remedios",
       "akiraId": "obra-bed69e23",
-      "title": "O PrÃ­ncipe Herdeiro que Vende RemÃ©dios",
+      "title": "O PrÃÂ­ncipe Herdeiro que Vende RemÃÂ©dios",
       "enabled": true
     },
     {
       "nexusSlug": "lenda",
       "akiraId": "obra-ef97dceb",
-      "title": "O ProdÃ­gio LendÃ¡rio do Ducado",
+      "title": "O ProdÃÂ­gio LendÃÂ¡rio do Ducado",
       "enabled": true
     },
     {
@@ -1839,7 +1839,7 @@
     {
       "nexusSlug": "o-rebelde-da-nobre-familia-tirana",
       "akiraId": "obra-7de7743d",
-      "title": "O Rebelde da Nobre FamÃ­lia Tirana",
+      "title": "O Rebelde da Nobre FamÃÂ­lia Tirana",
       "enabled": true
     },
     {
@@ -1851,13 +1851,13 @@
     {
       "nexusSlug": "o-recomeco-de-um-noob",
       "akiraId": "obra-860851b6",
-      "title": "O RecomeÃ§o de um Noob",
+      "title": "O RecomeÃÂ§o de um Noob",
       "enabled": true
     },
     {
       "nexusSlug": "os-herois",
       "akiraId": "obra-3235cc84",
-      "title": "O Rei DemÃ´nio Devastado pelos HerÃ³is",
+      "title": "O Rei DemÃÂ´nio Devastado pelos HerÃÂ³is",
       "enabled": true
     },
     {
@@ -1881,13 +1881,13 @@
     {
       "nexusSlug": "o-renascimento-de-um-mercenario-entre-nobres",
       "akiraId": "obra-7486131b",
-      "title": "O Renascimento de Um MercenÃ¡rio Entre Nobres",
+      "title": "O Renascimento de Um MercenÃÂ¡rio Entre Nobres",
       "enabled": true
     },
     {
       "nexusSlug": "o-renascimento-do-ladrao-de-nivel-divino",
       "akiraId": "obra-7d0cd179",
-      "title": "O Renascimento do LadrÃ£o de NÃ­vel Divino",
+      "title": "O Renascimento do LadrÃÂ£o de NÃÂ­vel Divino",
       "enabled": true
     },
     {
@@ -1917,7 +1917,7 @@
     {
       "nexusSlug": "o-instrutor-demoniaco-celestial",
       "akiraId": "obra-d5b75a5e",
-      "title": "O Retorno do Instrutor DemonÃ­aco",
+      "title": "O Retorno do Instrutor DemonÃÂ­aco",
       "enabled": false
     },
     {
@@ -1929,7 +1929,7 @@
     {
       "nexusSlug": "o-retorno-do-mago-negro-ao-exercito",
       "akiraId": "obra-70e66b51",
-      "title": "O Retorno do Mago Negro ao ExÃ©rcito",
+      "title": "O Retorno do Mago Negro ao ExÃÂ©rcito",
       "enabled": true
     },
     {
@@ -1953,7 +1953,7 @@
     {
       "nexusSlug": "o-santo-evolui-atraves-da-necromancia",
       "akiraId": "obra-ec22d3e6",
-      "title": "O Santo Evolui AtravÃ©s da Necromancia",
+      "title": "O Santo Evolui AtravÃÂ©s da Necromancia",
       "enabled": true
     },
     {
@@ -1965,13 +1965,13 @@
     {
       "nexusSlug": "o-setimo-principe-quer-escapar",
       "akiraId": "obra-f3949eb7",
-      "title": "O SÃ©timo PrÃ­ncipe Quer Escapar",
+      "title": "O SÃÂ©timo PrÃÂ­ncipe Quer Escapar",
       "enabled": true
     },
     {
       "nexusSlug": "o-sistema-da-seita-lendaria",
       "akiraId": "obra-502b1094",
-      "title": "O Sistema da Seita LendÃ¡ria",
+      "title": "O Sistema da Seita LendÃÂ¡ria",
       "enabled": true
     },
     {
@@ -1983,13 +1983,13 @@
     {
       "nexusSlug": "o-soldado-esqueleto-nao-pode-proteger-a-masmorra",
       "akiraId": "obra-beb6be0f",
-      "title": "O Soldado Esqueleto NÃ£o PÃ´de Proteger a Masmorra",
+      "title": "O Soldado Esqueleto NÃÂ£o PÃÂ´de Proteger a Masmorra",
       "enabled": true
     },
     {
       "nexusSlug": "reino",
       "akiraId": "obra-fcbff10b",
-      "title": "O Terceiro PrÃ­ncipe do Reino CaÃ­do Regrediu",
+      "title": "O Terceiro PrÃÂ­ncipe do Reino CaÃÂ­do Regrediu",
       "enabled": true
     },
     {
@@ -2007,37 +2007,37 @@
     {
       "nexusSlug": "o-tutorial-e-muito-dificil",
       "akiraId": "obra-7656296c",
-      "title": "O Tutorial Ã© Muito DifÃ­cil",
+      "title": "O Tutorial ÃÂ© Muito DifÃÂ­cil",
       "enabled": true
     },
     {
       "nexusSlug": "ola-griffin-o-passaro-fofinho",
       "akiraId": "obra-822ee9d9",
-      "title": "OlÃ¡, Griffin, O PÃ¡ssaro Fofinho!",
+      "title": "OlÃÂ¡, Griffin, O PÃÂ¡ssaro Fofinho!",
       "enabled": true
     },
     {
       "nexusSlug": "os-dez-grandes-imperadores-do-inicio-sao-todos-meus-aprendizes",
       "akiraId": "obra-c563095d",
-      "title": "Os Dez Grandes Imperadores do InÃ­cio SÃ£o Todos Meus Aprendizes",
+      "title": "Os Dez Grandes Imperadores do InÃÂ­cio SÃÂ£o Todos Meus Aprendizes",
       "enabled": true
     },
     {
       "nexusSlug": "filmes-sao-reais",
       "akiraId": "obra-c6caeb25",
-      "title": "Os Filmes SÃ£o Reais",
+      "title": "Os Filmes SÃÂ£o Reais",
       "enabled": true
     },
     {
       "nexusSlug": "as-maquinacoes-do-mercenario-regressado",
       "akiraId": "obra-f71d1b34",
-      "title": "Os Planos do MercenÃ¡rio Regressado",
+      "title": "Os Planos do MercenÃÂ¡rio Regressado",
       "enabled": false
     },
     {
       "nexusSlug": "para-nao-morrer",
       "akiraId": "obra-fc5602be",
-      "title": "Para NÃ£o Morrer",
+      "title": "Para NÃÂ£o Morrer",
       "enabled": true
     },
     {
@@ -2067,7 +2067,7 @@
     {
       "nexusSlug": "por-que-deixei-de-ser-o-rei-demonio",
       "akiraId": "obra-f6b041d2",
-      "title": "Por Que Deixei de Ser Rei DemÃ´nio",
+      "title": "Por Que Deixei de Ser Rei DemÃÂ´nio",
       "enabled": true
     },
     {
@@ -2079,19 +2079,19 @@
     {
       "nexusSlug": "profissao-sem-valor-domador-de-dragoes",
       "akiraId": "obra-d4883c3d",
-      "title": "ProfissÃ£o sem Valor: Domador de DragÃµes",
+      "title": "ProfissÃÂ£o sem Valor: Domador de DragÃÂµes",
       "enabled": true
     },
     {
       "nexusSlug": "kirakiraestudo-declaracao-de-aprovacao-absoluta",
       "akiraId": "obra-92b68b72",
-      "title": "ProvaÃ§Ã£o",
+      "title": "ProvaÃÂ§ÃÂ£o",
       "enabled": true
     },
     {
       "nexusSlug": "providencia-de-alto-nivel",
       "akiraId": "obra-b3496104",
-      "title": "ProvidÃªncia de Alto NÃ­vel",
+      "title": "ProvidÃÂªncia de Alto NÃÂ­vel",
       "enabled": true
     },
     {
@@ -2115,19 +2115,19 @@
     {
       "nexusSlug": "reencarnacao-do-antigo-ranker-do-cla-murim",
       "akiraId": "obra-dc13d51f",
-      "title": "ReencarnaÃ§Ã£o do Antigo Ranker do ClÃ£ Murim",
+      "title": "ReencarnaÃÂ§ÃÂ£o do Antigo Ranker do ClÃÂ£ Murim",
       "enabled": true
     },
     {
       "nexusSlug": "reencarnacao-do-deus-demonio",
       "akiraId": "obra-7a389b59",
-      "title": "ReencarnaÃ§Ã£o do Deus DemÃ´nio",
+      "title": "ReencarnaÃÂ§ÃÂ£o do Deus DemÃÂ´nio",
       "enabled": true
     },
     {
       "nexusSlug": "a-reencarnacao-do-rei-dos-punhos",
       "akiraId": "obra-d9f7d304",
-      "title": "ReencarnaÃ§Ã£o do Deus dos Punhos",
+      "title": "ReencarnaÃÂ§ÃÂ£o do Deus dos Punhos",
       "enabled": true
     },
     {
@@ -2139,19 +2139,19 @@
     {
       "nexusSlug": "reencarnado-como-o-devorador-de-monstros-mais-forte-vinganca-contra-o-dragao-tirano",
       "akiraId": "obra-b1508d70",
-      "title": "Reencarnado Como o Devorador de Monstros Mais Forte: VinganÃ§a Contra o DragÃ£o Tirano",
+      "title": "Reencarnado Como o Devorador de Monstros Mais Forte: VinganÃÂ§a Contra o DragÃÂ£o Tirano",
       "enabled": true
     },
     {
       "nexusSlug": "reencarnado-como-o-filho-cacula-de-uma-familia-de-espadachins-demoniacos",
       "akiraId": "obra-c4ac4601",
-      "title": "Reencarnado como o Filho CaÃ§ula de uma FamÃ­lia de Espadachins DemonÃ­acos",
+      "title": "Reencarnado como o Filho CaÃÂ§ula de uma FamÃÂ­lia de Espadachins DemonÃÂ­acos",
       "enabled": true
     },
     {
       "nexusSlug": "reencarnei-como-um-cirurgiao-lendario",
       "akiraId": "obra-d0f705ee",
-      "title": "Reencarnei Como um CirurgiÃ£o LendÃ¡rio",
+      "title": "Reencarnei Como um CirurgiÃÂ£o LendÃÂ¡rio",
       "enabled": true
     },
     {
@@ -2163,19 +2163,19 @@
     {
       "nexusSlug": "regressando-como-o-bastardo-do-cla-da-espada",
       "akiraId": "obra-829c42c0",
-      "title": "Regressando como o Bastardo do ClÃ£ da Espada",
+      "title": "Regressando como o Bastardo do ClÃÂ£ da Espada",
       "enabled": true
     },
     {
       "nexusSlug": "regressao-absoluta",
       "akiraId": "obra-8a82bc89",
-      "title": "RegressÃ£o Absoluta",
+      "title": "RegressÃÂ£o Absoluta",
       "enabled": true
     },
     {
       "nexusSlug": "regressao-do-sangue-impuro",
       "akiraId": "obra-ac42b90b",
-      "title": "RegressÃ£o do Sangue Impuro",
+      "title": "RegressÃÂ£o do Sangue Impuro",
       "enabled": true
     },
     {
@@ -2193,7 +2193,7 @@
     {
       "nexusSlug": "freesia-a-lei-da-retaliacao",
       "akiraId": "obra-1da7eb9e",
-      "title": "ReinicializaÃ§Ã£o Carmesim",
+      "title": "ReinicializaÃÂ§ÃÂ£o Carmesim",
       "enabled": false
     },
     {
@@ -2205,7 +2205,7 @@
     {
       "nexusSlug": "renascido-no-campo-de-batalha-do-culto-demoniaco",
       "akiraId": "obra-86843259",
-      "title": "Renascido no Campo de Batalha do Culto DemonÃ­aco",
+      "title": "Renascido no Campo de Batalha do Culto DemonÃÂ­aco",
       "enabled": true
     },
     {
@@ -2217,13 +2217,13 @@
     {
       "nexusSlug": "ressurgimento-sobrenatural-comecando-com-um-trilhao-de-moedas-fantasmas",
       "akiraId": "obra-d0c43ecd",
-      "title": "Ressurgimento Sobrenatural: ComeÃ§ando com um TrilhÃ£o de Moedas Fantasmas!",
+      "title": "Ressurgimento Sobrenatural: ComeÃÂ§ando com um TrilhÃÂ£o de Moedas Fantasmas!",
       "enabled": true
     },
     {
       "nexusSlug": "retorno-ao-inicio-do-apocalipse",
       "akiraId": "obra-94a8f974",
-      "title": "Retornar ao InÃ­cio do Apocalipse",
+      "title": "Retornar ao InÃÂ­cio do Apocalipse",
       "enabled": true
     },
     {
@@ -2235,25 +2235,25 @@
     {
       "nexusSlug": "o-retorno-do-assassino-de-dragoes-de-classe-unica",
       "akiraId": "obra-e7a12318",
-      "title": "Retorno do Assassino de DragÃµes de Classe Ãnica",
+      "title": "Retorno do Assassino de DragÃÂµes de Classe ÃÂnica",
       "enabled": true
     },
     {
       "nexusSlug": "retorno-do-cavaleiro-da-morte-de-nivel-apocaliptico",
       "akiraId": "obra-921b3870",
-      "title": "Retorno do Cavaleiro da Morte de NÃ­vel ApocalÃ­ptico",
+      "title": "Retorno do Cavaleiro da Morte de NÃÂ­vel ApocalÃÂ­ptico",
       "enabled": true
     },
     {
       "nexusSlug": "o-retorno-do-demonio-louco",
       "akiraId": "obra-75982152",
-      "title": "Retorno do DemÃ´nio Louco",
+      "title": "Retorno do DemÃÂ´nio Louco",
       "enabled": true
     },
     {
       "nexusSlug": "retorno-do-heroi-de-classe-desastre",
       "akiraId": "obra-9c6fabd5",
-      "title": "Retorno do HerÃ³i de Classe Desastre",
+      "title": "Retorno do HerÃÂ³i de Classe Desastre",
       "enabled": true
     },
     {
@@ -2271,7 +2271,7 @@
     {
       "nexusSlug": "salvar-o-mundo-e-uma-habilidade",
       "akiraId": "obra-bf073e3c",
-      "title": "Salvar o Mundo Ã© uma Habilidade",
+      "title": "Salvar o Mundo ÃÂ© uma Habilidade",
       "enabled": true
     },
     {
@@ -2301,7 +2301,7 @@
     {
       "nexusSlug": "o-senhor-dos-misterios-remake",
       "akiraId": "obra-fb1f4fc5",
-      "title": "Senhor dos MistÃ©rios (Remake)",
+      "title": "Senhor dos MistÃÂ©rios (Remake)",
       "enabled": true
     },
     {
@@ -2313,19 +2313,19 @@
     {
       "nexusSlug": "servicos-de-limpeza",
       "akiraId": "obra-e066cdc1",
-      "title": "ServiÃ§os de Limpeza",
+      "title": "ServiÃÂ§os de Limpeza",
       "enabled": true
     },
     {
       "nexusSlug": "simulacao-de-cultivo-do-demonio-celestial",
       "akiraId": "obra-ddf64ca9",
-      "title": "SimulaÃ§Ã£o de Cultivo do DemÃ´nio Celestial",
+      "title": "SimulaÃÂ§ÃÂ£o de Cultivo do DemÃÂ´nio Celestial",
       "enabled": true
     },
     {
       "nexusSlug": "simulacao-de-namoro-fantasma",
       "akiraId": "obra-9c33fd2a",
-      "title": "SimulaÃ§Ã£o de Namoro Fantasma",
+      "title": "SimulaÃÂ§ÃÂ£o de Namoro Fantasma",
       "enabled": true
     },
     {
@@ -2343,7 +2343,7 @@
     {
       "nexusSlug": "sobrevivencia-do-genio-com-tempo-de-vida-limitado",
       "akiraId": "obra-96d5fcce",
-      "title": "SobrevivÃªncia do GÃªnio com Tempo de Vida Limitado",
+      "title": "SobrevivÃÂªncia do GÃÂªnio com Tempo de Vida Limitado",
       "enabled": true
     },
     {
@@ -2355,7 +2355,7 @@
     {
       "nexusSlug": "sobrevivendo-ao-jogo-como-um-barbaro",
       "akiraId": "obra-bedd74c2",
-      "title": "Sobrevivendo no Jogo Como um BÃ¡rbaro",
+      "title": "Sobrevivendo no Jogo Como um BÃÂ¡rbaro",
       "enabled": true
     },
     {
@@ -2367,7 +2367,7 @@
     {
       "nexusSlug": "lenda",
       "akiraId": "obra-9e605890",
-      "title": "Sou AmaldiÃ§oado, Mas a Santa LendÃ¡ria Virou Minha Aliada",
+      "title": "Sou AmaldiÃÂ§oado, Mas a Santa LendÃÂ¡ria Virou Minha Aliada",
       "enabled": false
     },
     {
@@ -2391,7 +2391,7 @@
     {
       "nexusSlug": "super-heroi-friday",
       "akiraId": "obra-c88b57cd",
-      "title": "Super HerÃ³i: Friday",
+      "title": "Super HerÃÂ³i: Friday",
       "enabled": true
     },
     {
@@ -2409,13 +2409,13 @@
     {
       "nexusSlug": "taverna-do-demonio-celestial",
       "akiraId": "obra-896df8d2",
-      "title": "Taverna do DemÃ´nio Celestial",
+      "title": "Taverna do DemÃÂ´nio Celestial",
       "enabled": true
     },
     {
       "nexusSlug": "tecnica-do-deus-marcial-da-estrela",
       "akiraId": "obra-a83ed5c4",
-      "title": "TÃ©cnica do Deus Marcial da Estrela",
+      "title": "TÃÂ©cnica do Deus Marcial da Estrela",
       "enabled": true
     },
     {
@@ -2433,19 +2433,19 @@
     {
       "nexusSlug": "todos-os-talentos-de-futebol-sao-meus",
       "akiraId": "obra-c1487c0d",
-      "title": "Todos os Talentos de Futebol SÃ£o Meus",
+      "title": "Todos os Talentos de Futebol SÃÂ£o Meus",
       "enabled": true
     },
     {
       "nexusSlug": "tornando-se-um-deus-no-codigo-binario",
       "akiraId": "obra-c44a0cfc",
-      "title": "Tornando-se um Deus no CÃ³digo BinÃ¡rio",
+      "title": "Tornando-se um Deus no CÃÂ³digo BinÃÂ¡rio",
       "enabled": true
     },
     {
       "nexusSlug": "torne-se-o-heroi-mais-forte-atraves-do-sistema-de-trapaca",
       "akiraId": "obra-d472156a",
-      "title": "Torne-se o HerÃ³i Mais Forte AtravÃ©s do Sistema de TrapaÃ§a",
+      "title": "Torne-se o HerÃÂ³i Mais Forte AtravÃÂ©s do Sistema de TrapaÃÂ§a",
       "enabled": true
     },
     {
@@ -2457,7 +2457,7 @@
     {
       "nexusSlug": "transmissao-do-deus-da-espada",
       "akiraId": "obra-17fb3840",
-      "title": "TransmissÃ£o do Deus da Espada",
+      "title": "TransmissÃÂ£o do Deus da Espada",
       "enabled": true
     },
     {
@@ -2475,7 +2475,7 @@
     {
       "nexusSlug": "um-discipulo-vilao-nao-pode-ser-um-santo",
       "akiraId": "obra-f2730288",
-      "title": "Um DiscÃ­pulo VilÃ£o NÃ£o Pode Ser Um Santo",
+      "title": "Um DiscÃÂ­pulo VilÃÂ£o NÃÂ£o Pode Ser Um Santo",
       "enabled": true
     },
     {
@@ -2493,13 +2493,13 @@
     {
       "nexusSlug": "uma-sensacao-de-diversao-com-seus-brinquedos",
       "akiraId": "obra-87c7b49c",
-      "title": "Uma SensaÃ§Ã£o de DiversÃ£o com Seus Brinquedos",
+      "title": "Uma SensaÃÂ§ÃÂ£o de DiversÃÂ£o com Seus Brinquedos",
       "enabled": true
     },
     {
       "nexusSlug": "o-unico-fazendeiro-da-torre",
       "akiraId": "obra-67bbced1",
-      "title": "Ãnico Fazendeiro da Torre",
+      "title": "ÃÂnico Fazendeiro da Torre",
       "enabled": true
     },
     {
@@ -2523,19 +2523,19 @@
     {
       "nexusSlug": "o-vilao-a-ser-morto",
       "akiraId": "obra-81cd8dab",
-      "title": "VilÃ£o a Ser Morto",
+      "title": "VilÃÂ£o a Ser Morto",
       "enabled": true
     },
     {
       "nexusSlug": "vilao-no-meu-jogo-favorito-famoso-sem-querer",
       "akiraId": "obra-957730bd",
-      "title": "VilÃ£o no Meu Jogo Favorito, Famoso sem Querer",
+      "title": "VilÃÂ£o no Meu Jogo Favorito, Famoso sem Querer",
       "enabled": true
     },
     {
       "nexusSlug": "vivendo-como-um-jardineiro-num-mundo-de-cacadores",
       "akiraId": "obra-6db50356",
-      "title": "Vivendo Como Um Jardineiro Num Mundo de CaÃ§adores",
+      "title": "Vivendo Como Um Jardineiro Num Mundo de CaÃÂ§adores",
       "enabled": true
     },
     {
@@ -2558,6 +2558,12 @@
     },
     {
       "nexusSlug": "https://nexustoons.com/r/zlzgt1rvumtfd2dyrmg5u1uxttrgaflju0fjdunguwpbz0l4rffzzldrqmzoz3npwhgwwkdnrutcmu12wdbroezbsvbcexdbrtfvwffichpmalvnvlvjaercc3dequjmr2c1zklcsxxgb25um0rcrld3",
+      "akiraId": null,
+      "title": "Gye Baeksun: Sem Emprego e Sem Dinheiro",
+      "enabled": true
+    },
+    {
+      "nexusSlug": "https://nexustoons.com/r/zlzgt1rvum5fd2dyrmg5u1uxttrgaflju0fjdunguwpbz0l4rffzzldrqmzoz3npwhgwwkdnrutcmu12wdbroeywaezgmkfcrxlfq2uxcgtzr1vqrmpvmevra3bqz3his2k0de5ets1oefp5sunrrhxzd0j5u3lkzhpv",
       "akiraId": null,
       "title": "Gye Baeksun: Sem Emprego e Sem Dinheiro",
       "enabled": true
