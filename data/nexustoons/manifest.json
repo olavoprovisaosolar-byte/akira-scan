@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-17T20:51:11.044Z",
+  "updatedAt": "2026-07-17T21:29:34.791Z",
   "mangas": {
     "reencarnacao-do-deus-demonio": {
       "chapters": {
@@ -4561,7 +4561,7 @@
           "capId": "cap-b297c941-80",
           "captured": true,
           "error": "Falha parcial: páginas 1",
-          "updatedAt": "2026-07-17T15:43:35.994Z",
+          "updatedAt": "2026-07-17T20:28:09.967Z",
           "hosted": false
         },
         "81": {
@@ -4685,7 +4685,7 @@
       "akiraId": "obra-f302fde3",
       "nexusId": "2",
       "title": "A Ascensão da Cobra Imortal",
-      "lastChecked": "2026-07-17T15:42:13.741Z"
+      "lastChecked": "2026-07-17T20:24:58.059Z"
     },
     "a-ascensao-do-espadachim-de-rank-baixo": {
       "chapters": {
@@ -4926,9 +4926,10 @@
         },
         "15": {
           "capId": "cap-73709707-15",
-          "captured": false,
-          "error": "maxContentLength size of 5243904 exceeded",
-          "updatedAt": "2026-07-17T11:26:48.371Z"
+          "captured": true,
+          "error": "Falha parcial: páginas 1",
+          "updatedAt": "2026-07-17T20:44:25.287Z",
+          "hosted": false
         },
         "16": {
           "capId": "cap-4125ca32-16",
@@ -4952,7 +4953,7 @@
       "akiraId": "obra-0ca641d6",
       "nexusId": "17744",
       "title": "A Ascensão do Imperador da Espada de Namgung",
-      "lastChecked": "2026-07-17T15:49:33.738Z"
+      "lastChecked": "2026-07-17T20:35:11.743Z"
     },
     "aventura-de-um-barbaro-em-um-mundo-de-fantasia": {
       "chapters": {
@@ -12420,7 +12421,7 @@
       "akiraId": "obra-7b2fba6f",
       "nexusId": "23",
       "title": "A Regressão do Promotor Mestre da Espada",
-      "lastChecked": "2026-07-17T16:01:55.645Z"
+      "lastChecked": "2026-07-17T20:45:11.622Z"
     },
     "a-serpente-negra": {
       "chapters": {

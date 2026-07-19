@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-17T20:51:11.075Z",
+  "updatedAt": "2026-07-17T22:08:10.588Z",
   "processed": {
     "gye-baeksun-sem-emprego-e-sem-dinheiro/cap-76c0f5fd-04": {
       "processedAt": "2026-07-17T19:23:56.941Z",
@@ -18593,6 +18593,22 @@
       "akiraCapId": "cap-cf669718-06",
       "nexusChapterId": 392508,
       "pagesCount": 57
+    },
+    "a-ultima-passagem/cap-ef287f95-30": {
+      "processedAt": "2026-07-17T22:06:47.337Z",
+      "chapterNumber": "30",
+      "akiraMangaId": "obra-5befa48d",
+      "akiraCapId": "cap-ef287f95-30",
+      "nexusChapterId": 142468,
+      "pagesCount": 8
+    },
+    "a-ultima-passagem/cap-ee72d653-29": {
+      "processedAt": "2026-07-17T22:07:02.511Z",
+      "chapterNumber": "29",
+      "akiraMangaId": "obra-5befa48d",
+      "akiraCapId": "cap-ee72d653-29",
+      "nexusChapterId": 142467,
+      "pagesCount": 8
     }
   }
 }
