@@ -43,6 +43,7 @@ export function renderHeader({ busca = true, buscaValor = "" } = {}) {
                 <button type="button" class="akira-nav-close" id="nav-close" aria-label="Fechar menu">✕</button>
             </div>
             <a href="index.html" class="${paginaAtiva("index.html").trim()}">Início</a>
+            <a href="atualizacoes.html" class="${paginaAtiva("atualizacoes.html").trim()}">Atualizações</a>
             <a href="biblioteca.html" class="${paginaAtiva("biblioteca.html").trim()}">Biblioteca</a>
             <a href="biblioteca.html?q=favoritos">Favoritos</a>
             <a href="perfil.html" class="${paginaAtiva("perfil.html").trim()}">Perfil</a>
@@ -247,7 +248,7 @@ async function initBuscaInteligente() {
     });
 }
 
-export function renderMangaCard(manga, { badge = "" } = {}) {
+export function renderMangaCard(manga, { badge = "", novo = false } = {}) {
     const accent = manga.accent || `hsl(${hashHue(manga.id)}, 72%, 52%)`;
     const id = escHtml(manga.id);
     const img = coverImgTagAttrs(manga, { loading: "lazy" });
@@ -256,16 +257,37 @@ export function renderMangaCard(manga, { badge = "" } = {}) {
     const syncBadge = Number.isFinite(prontos) && total > 0
         ? `<span class="manga-card-sync">${prontos}/${total}</span>`
         : "";
+    const novoBadge = novo ? `<span class="manga-card-badge manga-card-badge-new">NOVO</span>` : "";
     return `
     <a href="${linkManhwa(manga.id)}" class="manga-card" style="--card-accent:${accent}" data-manga-id="${id}">
         <div class="manga-card-capa">
             <img ${img.html}>
             ${badge ? `<span class="manga-card-badge">${escHtml(badge)}</span>` : ""}
+            ${novoBadge}
             ${syncBadge}
         </div>
         <div class="manga-card-info">
             <h3>${escHtml(manga.titulo)}</h3>
             <p>${escHtml((manga.generos || []).slice(0, 2).join(" · ") || manga.status || "Mangá")}</p>
+        </div>
+    </a>`;
+}
+
+export function renderFavoritoCard(manga, historico = null) {
+    const accent = manga.accent || `hsl(${hashHue(manga.id)}, 72%, 52%)`;
+    const img = coverImgTagAttrs(manga, { loading: "lazy" });
+    const hist = historico || {};
+    const cap = hist.capitulo_atual ? `Cap. ${hist.capitulo_atual}` : "Não iniciado";
+    const pct = hist.progresso ? Math.min(100, hist.progresso) : 0;
+    return `
+    <a href="${linkManhwa(manga.id)}" class="fav-card" style="--card-accent:${accent}" data-manga-id="${escHtml(manga.id)}">
+        <div class="fav-card-capa">
+            <img ${img.html}>
+            <span class="fav-card-cap">${escHtml(cap)}</span>
+        </div>
+        <div class="fav-card-body">
+            <h3>${escHtml(manga.titulo)}</h3>
+            ${pct > 0 ? `<div class="fav-card-progress"><span style="width:${pct}%"></span></div>` : ""}
         </div>
     </a>`;
 }

@@ -125,7 +125,7 @@ async function listaDaApi() {
                 if (!info) return m;
                 return {
                     ...m,
-                    syncProntos: info.legibleCaps ?? info.doneCaps ?? 0,
+                    syncProntos: info.legibleCaps ?? 0,
                     totalCapitulos: Math.max(m.totalCapitulos || 0, info.totalCaps || 0)
                 };
             });

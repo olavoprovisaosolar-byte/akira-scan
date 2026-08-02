@@ -78,9 +78,14 @@ function paginaLegivel(url) {
     return u.includes("telegra.ph")
         || u.includes("catbox.moe")
         || u.includes("litter.catbox.moe")
+        || u.includes("uguu.se")
         || u.includes("pixeldrain.com")
         || u.includes("iili.io")
         || u.includes("freeimage.host")
+        || u.includes("googleusercontent.com")
+        || u.includes("bp.blogspot.com")
+        || u.includes("/api/gh-cdn/")
+        || u.includes("cdn.jsdelivr.net/gh/")
         || u.includes("/api/cloud/page");
 }
 
@@ -100,6 +105,19 @@ function paginasDiretasDoIndice(info) {
 export async function obterPaginasRemotas(mangaId, capId) {
     const info = await capRemotoInfo(mangaId, capId);
     if (!info) return null;
+
+    // Capítulos hospedados no Blogger (busca live no feed)
+    if (info.hosting === "blogger" && info.bloggerPostId) {
+        try {
+            const { fetchBloggerChapter } = await import("./blogger-service.js");
+            const chapter = await fetchBloggerChapter(info.bloggerPostId, {
+                blog: info.bloggerHost || undefined
+            });
+            if (chapter.pages?.length) return chapter.pages;
+        } catch (e) {
+            console.warn("[Cloud] Blogger:", e.message);
+        }
+    }
 
     const directPages = paginasDiretasDoIndice(info);
     const usesR2Api = directPages?.some((p) => String(p.url).includes("/api/cloud/page"));

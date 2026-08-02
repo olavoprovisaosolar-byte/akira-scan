@@ -33,6 +33,25 @@ import { normalizeManga, isCompleteManga, toLegacyManga } from "../services/data
 import { capsRecentes, rankingSemanal } from "../mangas-destaque.js";
 import { MangaDetails } from "../ui/manga-details.js";
 import { enriquecerMangaComRemoto } from "../services/manga-chapters-link.js";
+import { setMangaMeta, resetHomeMeta } from "../seo-meta.js";
+import { obterAtualizacoes, formatarTempoRelativo } from "../services/updates-feed.js";
+
+function continuarHref(h) {
+    const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);
+    if (h.chapterId) {
+        let url = linkLeitor(h.mangaId, capNum, h.chapterId);
+        if (h.paginaAtual > 1) url += `&p=${h.paginaAtual}`;
+        return url;
+    }
+    return linkManhwa(h.mangaId);
+}
+
+function irMangaAleatorio(catalogo) {
+    const lista = catalogo.filter((m) => m?.id && m?.titulo);
+    if (!lista.length) return;
+    const pick = lista[Math.floor(Math.random() * lista.length)];
+    location.href = linkManhwa(pick.id);
+}
 
 let detailsView = null;
 
@@ -67,6 +86,7 @@ export async function initHomePage() {
     }
 
     showView("home");
+    resetHomeMeta();
 
     const sections = ["sec-recentes", "sec-ranking", "sec-novidades", "sec-populares", "category-grids"];
     sections.forEach((id) => {
@@ -91,13 +111,15 @@ export async function initHomePage() {
         mountHeroPlanet("hero-planet-slot").catch(() => {});
     }
 
+    let lista = [];
     try {
         if (!catalogo?.length) {
             throw new Error("Catálogo vazio — verifique a ligação ao servidor.");
         }
-        const lista = catalogo.filter((m) => m?.id && m?.titulo);
+        lista = catalogo.filter((m) => m?.id && m?.titulo);
 
         renderContinuar();
+        await renderAtualizacoesHoje();
         await renderRecentes(lista);
         await renderRanking(lista);
         renderNovidades(lista);
@@ -112,7 +134,7 @@ export async function initHomePage() {
     }
 
     try {
-        await renderGeneros();
+        await renderGeneros(lista);
     } catch (error) {
         console.warn("HomePage gêneros:", error.message);
         const el = document.getElementById("sec-generos");
@@ -159,6 +181,7 @@ async function initDetailsView(mangaId) {
         }
 
         document.title = `${manga.titulo} — AkiraScan`;
+        setMangaMeta(manga);
         view.render(manga, {
             favorito: ehFavorito(manga.id),
             onFavorito: () => alternarFavorito(manga.id)
@@ -227,9 +250,8 @@ function renderContinuar() {
             { id: h.mangaId, titulo: h.titulo, capa: h.capa },
             { loading: "lazy" }
         );
-        // Continuar → detalhes (evita abrir cap ainda não sincronizado no Pages)
         return `
-        <a href="${linkManhwa(h.mangaId)}" class="card-continuar"
+        <a href="${continuarHref(h)}" class="card-continuar"
            data-manga-id="${escHtml(h.mangaId)}" data-resume-cap="${escHtml(String(capNum))}">
             <img ${img.html}>
             <div class="card-continuar-body">
@@ -238,6 +260,35 @@ function renderContinuar() {
             </div>
         </a>`;
     }).join("");
+}
+
+async function renderAtualizacoesHoje() {
+    const el = document.getElementById("sec-atualizacoes-hoje");
+    const sec = document.getElementById("sec-hoje");
+    if (!el) return;
+    try {
+        const itens = await obterAtualizacoes({ limite: 12, dias: 1 });
+        if (!itens.length) {
+            sec?.classList.add("escondido");
+            return;
+        }
+        sec?.classList.remove("escondido");
+        el.innerHTML = itens.map((item) => {
+            const when = formatarTempoRelativo(item.hostedAt);
+            const href = linkLeitor(item.mangaId, item.numero, item.capId);
+            return `
+            <a href="${href}" class="update-item update-item-compact">
+                <div class="update-body">
+                    <strong class="update-manga">${escHtml(item.tituloManga || item.mangaId)}</strong>
+                    <span class="update-cap">Cap. ${escHtml(String(item.numero))}</span>
+                    <span class="update-time">${escHtml(when)}</span>
+                </div>
+                <span class="update-badge-new">NOVO</span>
+            </a>`;
+        }).join("");
+    } catch {
+        sec?.classList.add("escondido");
+    }
 }
 
 async function renderRecentes(catalogoPre = null) {
@@ -290,11 +341,14 @@ async function renderPopulares(catalogoPreFiltrado = null) {
         : '<p class="msg-vazia">Nenhum título popular completo no momento.</p>';
 }
 
-async function renderGeneros() {
+async function renderGeneros(catalogo = []) {
     const { generos } = await listarMangas({ pagina: 1, porPagina: 1 });
-    document.getElementById("sec-generos").innerHTML = generos.slice(0, 16).map((g) =>
+    document.getElementById("sec-generos").innerHTML = `
+        <button type="button" class="genre-chip genre-chip-random" id="btn-random-manga">🎲 Aleatório</button>
+        ${generos.slice(0, 16).map((g) =>
         `<a href="biblioteca.html?genero=${encodeURIComponent(g)}" class="genre-chip">${escHtml(g)}</a>`
-    ).join("");
+    ).join("")}`;
+    document.getElementById("btn-random-manga")?.addEventListener("click", () => irMangaAleatorio(catalogo));
 }
 
 /** Cards usam linkManhwa → index?view=details&id= */

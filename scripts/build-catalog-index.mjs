@@ -21,13 +21,17 @@ function lerIndiceCloud() {
     }
 }
 
-/** Caps prontos — só URLs remotas vivas (Telegra, Freeimage, Catbox, R2). */
+/** Caps prontos — URLs remotas vivas (Telegra, Catbox, gh-cdn, R2). */
 function capLegivelIndice(rec) {
     if (!rec?.done) return false;
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
         return u.includes("telegra.ph")
             || u.includes("catbox.moe")
+            || u.includes("litter.catbox.moe")
+            || u.includes("/api/gh-cdn/")
+            || u.includes("uguu.se")
+            || u.includes("pixeldrain.com")
             || u.includes("iili.io")
             || u.includes("freeimage.host")
             || u.includes("/api/cloud/page");

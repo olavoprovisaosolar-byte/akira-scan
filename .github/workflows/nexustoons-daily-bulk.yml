@@ -1,0 +1,161 @@
+name: NexusToons Daily Bulk (Remote)
+
+# Captura diária de caps novos — Catbox/Litterbox remoto, sem disco.
+# Domingo: backfill de caps pendentes (todos os caps em falta).
+# Dispare manualmente: Actions → NexusToons Daily Bulk → Run workflow
+
+on:
+  schedule:
+    # Diário 06:00 UTC (03:00 BRT) — só caps novos por mangá
+    - cron: "0 6 * * *"
+    # Domingo 04:00 UTC — backfill caps pendentes
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Modo de execução"
+        required: true
+        type: choice
+        default: latest
+        options:
+          - latest
+          - backfill
+      deploy:
+        description: "Deploy Cloudflare ao final"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nexustoons-daily-bulk
+  cancel-in-progress: false
+
+jobs:
+  bulk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Resolver modo
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 4 * * 0" ]; then
+            echo "mode=backfill" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=latest" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Estado atual
+        run: |
+          if [ -f data/nexustoons/state.json ]; then
+            node -e "const s=require('./data/nexustoons/state.json'); console.log('Caps processados:', Object.keys(s.processed||{}).length)"
+          fi
+          node -e "const c=require('./bots/nexustoons-akira/config.mangas.json'); console.log('Mangás enabled:', (c.mangas||[]).filter(m=>m.enabled!==false).length)"
+
+      - name: Bulk remoto (caps novos)
+        if: steps.mode.outputs.mode == 'latest'
+        env:
+          NEXUSTOONS_USE_PLAYWRIGHT: "1"
+          NEXUSTOONS_SYNC_ONLY_NEW: "1"
+          TELEGRA_SKIP: "1"
+          HOSTING_ADAPTER: catbox
+          NEXUSTOONS_HOSTING_ADAPTER: catbox
+          CATBOX_STATIC_FALLBACK: "false"
+          NEXUSTOONS_PURGE_LOCAL: "1"
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+          CATBOX_DELAY_MS: "600"
+          AKIRA_PUBLISH_TOKEN: ${{ secrets.AKIRA_PUBLISH_TOKEN }}
+          AKIRA_PUBLISH_BASE_URL: https://akira-scan.pages.dev
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+        run: npm run bot:nexustoons:bulk:remote -- --all --latest-only --no-deploy
+
+      - name: Bulk remoto (backfill pendente)
+        if: steps.mode.outputs.mode == 'backfill'
+        env:
+          NEXUSTOONS_USE_PLAYWRIGHT: "1"
+          NEXUSTOONS_ALL_CHAPTERS: "1"
+          TELEGRA_SKIP: "1"
+          HOSTING_ADAPTER: catbox
+          NEXUSTOONS_HOSTING_ADAPTER: catbox
+          CATBOX_STATIC_FALLBACK: "false"
+          NEXUSTOONS_PURGE_LOCAL: "1"
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+          CATBOX_DELAY_MS: "800"
+          AKIRA_PUBLISH_TOKEN: ${{ secrets.AKIRA_PUBLISH_TOKEN }}
+          AKIRA_PUBLISH_BASE_URL: https://akira-scan.pages.dev
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+        run: npm run bot:nexustoons:bulk:remote -- --all --no-deploy
+
+      - name: Rebuild catálogo
+        run: npm run build:catalog-index
+
+      - name: Commit checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/nexustoons/state.json \
+            data/nexustoons/manifest.json \
+            data/catalogo.json \
+            data/catalogo-index.json \
+            data/cloud/chapters-index.json \
+            2>/dev/null || true
+          MODE="${{ steps.mode.outputs.mode }}"
+          git diff --staged --quiet || git commit -m "bot(daily): bulk remoto ${MODE} $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push || true
+
+      - name: Deploy Cloudflare (opcional)
+        if: |
+          (github.event_name == 'workflow_dispatch' && inputs.deploy == true) ||
+          (github.event_name == 'schedule' && steps.mode.outputs.mode == 'latest')
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_PAGES_PROJECT: akira-scan
+          CF_PAGES_BRANCH: main
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+        run: npm run deploy:cloudflare
+        continue-on-error: true
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-bulk-log-${{ github.run_id }}
+          path: |
+            logs/bulk-remote.log
+            logs/bulk-all-nexustoons.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Re-disparar se ainda houver pendências (backfill)
+        if: success() && steps.mode.outputs.mode == 'backfill'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if node scripts/check-migrate-pending.mjs; then
+            echo "Pendências restantes — re-disparando backfill em 60s…"
+            sleep 60
+            gh workflow run nexustoons-daily-bulk.yml --ref main -f mode=backfill -f deploy=false
+          else
+            echo "Fila vazia — backfill completo."
+          fi

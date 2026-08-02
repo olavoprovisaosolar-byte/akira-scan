@@ -83,6 +83,7 @@ export async function apiObterDados() {
     return {
         favoritos: data.favoritos || [],
         historico: data.historico || {},
+        perfil: data.perfil || { nome: "", avatar: "" },
         ultimaAtualizacao: data.ultimaAtualizacao || null
     };
 }

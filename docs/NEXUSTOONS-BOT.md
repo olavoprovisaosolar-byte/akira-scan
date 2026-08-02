@@ -449,6 +449,30 @@ git push
 
 **Alternativa VPS (~$5/mês):** Ubuntu 4 GB+, `git clone`, `npm ci`, `npx playwright install chromium --with-deps`, `npm run migrate:cloud:hyper -- --no-deploy` (sem sync git automático; use cron ou push manual).
 
+## Automação diária (bulk remoto)
+
+### GitHub Actions (recomendado — PC desligado)
+
+Workflow: `.github/workflows/nexustoons-daily-bulk.yml`
+
+| Horário (UTC) | Modo | O que faz |
+|---------------|------|-----------|
+| **06:00 diário** | `latest` | Caps novos em todos os mangás enabled (~387) |
+| **04:00 domingo** | `backfill` | Caps pendentes em falta (re-dispara até fila vazia) |
+
+Disparo manual: GitHub → **Actions** → **NexusToons Daily Bulk (Remote)** → **Run workflow**.
+
+Secrets necessários: `AKIRA_PUBLISH_TOKEN` (obrigatório), `CLOUDFLARE_API_TOKEN` (deploy opcional).
+
+### Windows (PC ligado)
+
+```powershell
+npm run setup:cron:daily-bulk   # tarefa AkiraScan-DailyBulk as 03:00
+npm run bot:daily:bulk          # testar manualmente
+```
+
+Logs: `logs/daily-bulk-YYYY-MM-DD.log`
+
 ## Testes
 
 ```bash

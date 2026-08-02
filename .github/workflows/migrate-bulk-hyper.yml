@@ -1,6 +1,6 @@
 name: Migrate Bulk Hyper (Cloud)
 
-# Migração bulk hyper/ultra na nuvem — Telegra.ph primário, fallback cloud-static.
+# Migração bulk hyper/ultra na nuvem — Catbox (remoto), sem gravar imagens no runner.
 # Retoma de data/nexustoons/state.json; commits periódicos de checkpoint.
 
 on:
@@ -88,13 +88,12 @@ jobs:
           NEXUSTOONS_ALL_CHAPTERS: ${{ inputs.all_chapters == 'true' && '1' || '0' }}
           NEXUSTOONS_SYNC_ONLY_NEW: ${{ inputs.sync_only_new == 'true' && '1' || '0' }}
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
-          TELEGRA_SKIP: "0"
-          HOSTING_ADAPTER: telegra
-          NEXUSTOONS_HOSTING_ADAPTER: telegra
-          TELEGRA_STATIC_FALLBACK: "false"
-          FREEIMAGE_SKIP: "0"
-          TELEGRA_DELAY_MS: "0"
-          TELEGRA_RETRIES: "2"
+          TELEGRA_SKIP: "1"
+          HOSTING_ADAPTER: catbox
+          NEXUSTOONS_HOSTING_ADAPTER: catbox
+          CATBOX_STATIC_FALLBACK: "false"
+          NEXUSTOONS_PURGE_LOCAL: "1"
+          AKIRA_SKIP_CLOUD_PAGES: "1"
           STREAM_PAGE_CONCURRENCY: "4"
           STREAM_PAGE_MAX: "8"
           PAGE_DOWNLOAD_CONCURRENCY: "8"

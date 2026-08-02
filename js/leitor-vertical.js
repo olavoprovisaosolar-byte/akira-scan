@@ -178,6 +178,19 @@ export class LeitorVertical {
         this.barraProgresso.style.width = `${pct}%`;
     }
 
+    /** @param {number} index 0-based */
+    scrollToPage(index) {
+        const imgs = this.container.querySelectorAll(".pagina-manga");
+        const i = Math.max(0, Math.min(imgs.length - 1, index));
+        const img = imgs[i];
+        if (!img) return;
+        this._aplicarSrc(img);
+        img.scrollIntoView({ behavior: "auto", block: "start" });
+        this._paginaAtual = i;
+        this._atualizarProgresso();
+        this.aoMudarPagina?.(i, this.paginas.length);
+    }
+
     destruir() {
         this._alive = false;
         this._observer?.disconnect();

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /mobile/
+Disallow: /dev/
+Sitemap: https://akira-scan.pages.dev/sitemap.xml

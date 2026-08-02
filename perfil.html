@@ -11,7 +11,18 @@
     <div id="header-slot"></div>
 
     <main class="container container-narrow perfil-page">
-        <h1 class="perfil-titulo">O teu perfil</h1>
+        <section class="perfil-header">
+            <label class="perfil-avatar-wrap" for="perfil-avatar-input" title="Alterar foto">
+                <img class="perfil-avatar" id="perfil-avatar" alt="Avatar" src="">
+                <span class="perfil-avatar-edit">📷</span>
+                <input type="file" id="perfil-avatar-input" accept="image/*" hidden>
+            </label>
+            <div class="perfil-header-info">
+                <input type="text" class="perfil-nome-input" id="perfil-nome" maxlength="32" placeholder="Teu nome de leitor" autocomplete="nickname">
+                <p class="perfil-sub" id="perfil-sub">Leitor AkiraScan</p>
+                <a href="login.html" class="perfil-login-link" id="perfil-login-link">Entrar para sincronizar na nuvem</a>
+            </div>
+        </section>
 
         <div class="perfil-stats sidebar-block">
             <div class="perfil-stat">
@@ -25,13 +36,16 @@
         </div>
 
         <section class="secao-akira" id="sec-continuar-perfil">
-            <div class="secao-header"><h2>Continuar lendo</h2></div>
+            <div class="secao-header"><h2>▶ Continuar lendo</h2></div>
             <div class="row-continuar" id="lista-continuar"></div>
         </section>
 
         <section class="secao-akira">
-            <div class="secao-header"><h2>Favoritos</h2></div>
-            <div class="grid-mangas" id="lista-favoritos"></div>
+            <div class="secao-header">
+                <h2>💖 Meus favoritos</h2>
+                <a href="biblioteca.html?q=favoritos">Ver na biblioteca</a>
+            </div>
+            <div class="grid-favoritos" id="lista-favoritos"></div>
         </section>
 
         <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histórico</button>
@@ -40,66 +54,8 @@
     <div id="footer-slot"></div>
 
     <script type="module">
-        import { renderHeader, renderFooter, renderMangaCard, initShell, escHtml } from "./js/app-shell.js";
-        import { obterContinuarLista, obterFavoritos, limparHistorico } from "./js/storage.js";
-        import { obterManga } from "./js/services/data-service.js";
-        import { linkManhwa } from "./js/core/router.js";
-        import { normalizarNumeroProgresso } from "./js/services/chapter-label.js";
-        import { coverImgTagAttrs } from "./js/services/cover-utils.js";
-
-        document.getElementById("header-slot").innerHTML = renderHeader();
-        document.getElementById("footer-slot").innerHTML = renderFooter();
-        await initShell();
-
-        const continuar = obterContinuarLista();
-        const favoritos = obterFavoritos();
-        document.getElementById("stat-lendo").textContent = continuar.length;
-        document.getElementById("stat-fav").textContent = favoritos.length;
-
-        const secContinuar = document.getElementById("sec-continuar-perfil");
-        const elCont = document.getElementById("lista-continuar");
-        if (!continuar.length) {
-            secContinuar?.classList.add("escondido");
-        } else {
-            secContinuar?.classList.remove("escondido");
-        }
-        elCont.innerHTML = continuar.length
-            ? continuar.map((h) => {
-                const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);
-                const img = coverImgTagAttrs(
-                    { id: h.mangaId, titulo: h.titulo, capa: h.capa },
-                    { loading: "lazy" }
-                );
-                return `
-                <a href="${linkManhwa(h.mangaId)}" class="card-continuar"
-                   data-manga-id="${escHtml(h.mangaId)}" data-resume-cap="${escHtml(String(capNum))}">
-                    <img ${img.html}>
-                    <div class="card-continuar-body">
-                        <h3>${escHtml(h.titulo)}</h3>
-                        <span class="card-continuar-cap">Cap. ${capNum}</span>
-                    </div>
-                </a>`;
-            }).join("")
-            : '<p class="msg-vazia">Nenhum histórico ainda.</p>';
-
-        const elFav = document.getElementById("lista-favoritos");
-        if (!favoritos.length) {
-            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas páginas dos mangás.</p>';
-        } else {
-            for (const id of favoritos) {
-                try {
-                    const m = await obterManga(id);
-                    elFav.insertAdjacentHTML("beforeend", renderMangaCard(m));
-                } catch { /* skip */ }
-            }
-        }
-
-        document.getElementById("btn-limpar").addEventListener("click", () => {
-            if (confirm("Limpar todo o histórico de leitura?")) {
-                limparHistorico();
-                location.reload();
-            }
-        });
+        import { initPerfilPage } from "./js/pages/perfil-page.js";
+        await initPerfilPage();
     </script>
 </body>
 </html>

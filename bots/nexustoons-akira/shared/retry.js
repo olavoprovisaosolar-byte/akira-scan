@@ -9,6 +9,13 @@ export function isRetryableStatus(status) {
     return status === 429 || status === 503;
 }
 
+export function isRetryableNetworkError(err) {
+    const status = err?.status ?? err?.response?.status;
+    if (isRetryableStatus(status)) return true;
+    const msg = String(err?.message || err || "");
+    return /ECONNRESET|ETIMEDOUT|ECONNREFUSED|socket hang up|EPIPE|ENOTFOUND/i.test(msg);
+}
+
 export function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
 }
@@ -26,7 +33,7 @@ export async function withExponentialBackoff(fn, opts = {}) {
         } catch (e) {
             lastErr = e;
             const status = e.status ?? e.response?.status;
-            if (!isRetryableStatus(status) || attempt >= BACKOFF_MS.length) {
+            if (!isRetryableNetworkError(e) || attempt >= BACKOFF_MS.length) {
                 throw e;
             }
             const delayMs = BACKOFF_MS[attempt];

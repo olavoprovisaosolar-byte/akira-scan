@@ -64,13 +64,19 @@ function copyStaticSite() {
         }
     }
 
-    copyFile(path.join(OUT, "index.html"), path.join(OUT, "404.html"));
+    copyFile(path.join(ROOT, "404.html"), path.join(OUT, "404.html"));
+    if (fs.existsSync(path.join(ROOT, "robots.txt"))) {
+        copyFile(path.join(ROOT, "robots.txt"), path.join(OUT, "robots.txt"));
+    }
+    if (fs.existsSync(path.join(ROOT, "sitemap.xml"))) {
+        copyFile(path.join(ROOT, "sitemap.xml"), path.join(OUT, "sitemap.xml"));
+    }
 }
 
 function copyData() {
     const dataOut = path.join(OUT, "data");
     mkdirp(dataOut);
-    for (const f of ["catalogo.json", "catalogo-index.json"]) {
+    for (const f of ["catalogo.json", "catalogo-index.json", "blogger-config.json", "github-cdn-config.json"]) {
         const src = path.join(ROOT, "data", f);
         if (fs.existsSync(src)) copyFile(src, path.join(dataOut, f));
     }
@@ -177,6 +183,11 @@ function main() {
 
     console.log("  Build catálogo...");
     spawnSync(process.execPath, [path.join(__dirname, "build-catalog-index.mjs")], {
+        cwd: ROOT, stdio: "inherit"
+    });
+
+    console.log("  Build sitemap...");
+    spawnSync(process.execPath, [path.join(__dirname, "build-sitemap.mjs")], {
         cwd: ROOT, stdio: "inherit"
     });
 

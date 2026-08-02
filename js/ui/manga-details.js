@@ -15,6 +15,8 @@ import {
     primeiroCapLegivel
 } from "./chapter-grid.js";
 import { corDoManga } from "../banner-manga.js";
+import { renderComentariosSection, bindComentarios } from "../comments.js";
+import { obterNomeLeitor } from "../storage.js";
 
 export class MangaDetails {
     /**
@@ -200,8 +202,8 @@ export class MangaDetails {
                     <div class="manga-hero-actions">
                         <a href="${lerHref}" class="btn-akira btn-akira-primary btn-ler-primeiro${lerCap ? "" : " is-disabled"}"
                            data-manga-id="${escHtml(safe.id)}" ${lerCap ? "" : 'aria-disabled="true"'}>▶ Ler</a>
-                        <button type="button" id="btn-fav-details" class="btn-akira btn-akira-ghost">
-                            ${favorito ? "♥ Favorito" : "♡ Favoritar"}
+                        <button type="button" id="btn-fav-details" class="btn-akira btn-akira-ghost btn-fav-pulse">
+                            ${favorito ? "💖 Favorito" : "🤍 Favoritar"}
                         </button>
                         <a href="${linkBiblioteca()}" class="btn-akira btn-akira-ghost">← Voltar</a>
                     </div>
@@ -219,7 +221,8 @@ export class MangaDetails {
             ${renderChapterToolbar(safe)}
             ${syncHint}
             <div class="chapter-grid-host"></div>
-        </section>`;
+        </section>
+        <div class="manga-comments-host"></div>`;
 
         const gridHost = article.querySelector(".chapter-grid-host");
         if (gridHost) {
@@ -239,5 +242,11 @@ export class MangaDetails {
                 e.target.textContent = agora ? "💖 Favorito" : "🤍 Favoritar";
             }
         });
+
+        const commentsHost = article.querySelector(".manga-comments-host");
+        if (commentsHost) {
+            commentsHost.innerHTML = renderComentariosSection(safe.id, escHtml);
+            bindComentarios(commentsHost, safe.id, escHtml, obterNomeLeitor);
+        }
     }
 }

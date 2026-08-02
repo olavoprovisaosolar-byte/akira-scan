@@ -22,7 +22,7 @@ function chaveSessao(token) {
 }
 
 export function dadosVazios() {
-    return { favoritos: [], historico: {}, ultimaAtualizacao: null };
+    return { favoritos: [], historico: {}, perfil: { nome: "", avatar: "" }, ultimaAtualizacao: null };
 }
 
 async function lerConta(email) {
@@ -132,6 +132,10 @@ export async function guardarDados(uid, payload) {
     const mesclado = {
         favoritos: payload.favoritos ?? atual.favoritos ?? [],
         historico: { ...atual.historico, ...(payload.historico || {}) },
+        perfil: {
+            nome: String(payload.perfil?.nome ?? atual.perfil?.nome ?? "").trim().slice(0, 32),
+            avatar: payload.perfil?.avatar ?? atual.perfil?.avatar ?? ""
+        },
         ultimaAtualizacao: payload.ultimaAtualizacao || new Date().toISOString()
     };
     await store().setJSON(chaveDados(uid), mesclado);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página não encontrada — AkiraScan</title>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="css/akira.css">
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+    <main class="container akira-state akira-state-error" style="margin:4rem auto;text-align:center;max-width:480px">
+        <h1 style="font-size:3rem;margin:0">404</h1>
+        <p>Página não encontrada.</p>
+        <p style="color:var(--akira-muted,#9ca3af)">O mangá ou capítulo que procuras pode ter sido movido.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+            <a href="index.html" class="btn-akira btn-akira-primary">Início</a>
+            <a href="biblioteca.html" class="btn-akira btn-akira-ghost">Biblioteca</a>
+            <a href="biblioteca.html?sort=popular" class="btn-akira btn-akira-ghost">Populares</a>
+        </div>
+    </main>
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        document.getElementById("header-slot").innerHTML = renderHeader();
+        document.body.insertAdjacentHTML("beforeend", '<div id="footer-slot"></div>');
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        initShell();
+    </script>
+</body>
+</html>

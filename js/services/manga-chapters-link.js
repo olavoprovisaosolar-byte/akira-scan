@@ -10,9 +10,14 @@ function urlRemotaViva(url) {
     return u.includes("telegra.ph")
         || u.includes("catbox.moe")
         || u.includes("litter.catbox.moe")
+        || u.includes("uguu.se")
         || u.includes("pixeldrain.com")
         || u.includes("iili.io")
         || u.includes("freeimage.host")
+        || u.includes("googleusercontent.com")
+        || u.includes("bp.blogspot.com")
+        || u.includes("/api/gh-cdn/")
+        || u.includes("cdn.jsdelivr.net/gh/")
         || u.includes("/api/cloud/page");
 }
 
@@ -21,9 +26,10 @@ function temPaginasHospedadas(remoto) {
     return remoto.pages.some((p) => urlRemotaViva(p.url));
 }
 
-/** Capítulo pronto — só URLs remotas vivas (nunca cloud-static purged). */
+/** Capítulo pronto — URLs remotas vivas ou post Blogger. */
 export function capLegivel(remoto) {
     if (!remoto?.done) return false;
+    if (remoto.hosting === "blogger" && remoto.bloggerPostId) return true;
     return temPaginasHospedadas(remoto);
 }
 

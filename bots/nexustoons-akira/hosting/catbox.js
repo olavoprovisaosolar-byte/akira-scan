@@ -2,7 +2,7 @@
  * Hosting catbox.moe — upload anônimo (sem API key).
  * POST https://catbox.moe/user/api.php  reqtype=fileupload + fileToUpload
  *
- * Se catbox bloquear o IP (HTTP 412), cai no fallback estático em data/cloud/pages/.
+ * Modo remoto (CATBOX_STATIC_FALLBACK=false): catbox → litterbox (sem disco local).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -16,9 +16,7 @@ import {
     normalizeHostedChapter,
     isLegiblePageUrl
 } from "../shared/schema.js";
-import {
-    validateImageBuffer
-} from "./telegra.js";
+import { validateImageBuffer } from "./telegra.js";
 import {
     downloadProcessPage,
     STREAM_PAGE_CONCURRENCY
@@ -31,10 +29,11 @@ const STATIC_PAGES_ROOT = path.join(ROOT, "data", "cloud", "pages");
 
 const cfg = loadConfig();
 const CATBOX_URL = process.env.CATBOX_UPLOAD_URL || "https://catbox.moe/user/api.php";
-const UPLOAD_TIMEOUT_MS = Math.max(5000, Number(process.env.CATBOX_UPLOAD_TIMEOUT_MS || 60000));
+const UPLOAD_TIMEOUT_MS = Math.max(5000, Number(process.env.CATBOX_UPLOAD_TIMEOUT_MS || 90000));
 const PAGE_DELAY_MS = Math.max(0, Number(process.env.CATBOX_DELAY_MS || 800));
 const STATIC_FALLBACK = process.env.CATBOX_STATIC_FALLBACK !== "false";
 const PAGE_DOWNLOAD_CONCURRENCY = STREAM_PAGE_CONCURRENCY;
+const CATBOX_RETRIES = Math.max(1, Number(process.env.CATBOX_RETRIES || 5));
 const BROWSER_UA = process.env.NEXUSTOONS_USER_AGENT
     || "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
@@ -51,6 +50,11 @@ function extFromUrl(url, fallback = "jpg") {
     return fallback;
 }
 
+function isRetryableNetworkError(err) {
+    const msg = String(err?.message || err || "");
+    return /ECONNRESET|ETIMEDOUT|ECONNREFUSED|socket hang up|EPIPE|ENOTFOUND|network/i.test(msg);
+}
+
 function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
     const dir = path.join(STATIC_PAGES_ROOT, mangaId, capId);
     fs.mkdirSync(dir, { recursive: true });
@@ -60,19 +64,7 @@ function saveStaticPage(buffer, filenameExt, mangaId, capId, pageIndex) {
     return `${base}/data/cloud/pages/${mangaId}/${capId}/${name}`;
 }
 
-/**
- * @param {Buffer} buffer
- * @param {string} filename
- * @returns {Promise<string>} URL https://files.catbox.moe/...
- */
-export async function uploadImage(buffer, filename) {
-    if (catboxBlocked) {
-        throw new Error("Catbox upload bloqueado (HTTP 412 — use fallback estático)");
-    }
-
-    const check = validateImageBuffer(buffer);
-    if (!check.ok) throw new Error(check.error);
-
+async function uploadImageOnce(buffer, filename) {
     const ext = extFromUrl(filename, "jpg");
     const safeName = filename.replace(/[^\w.-]/g, "_").slice(0, 64) || `page.${ext}`;
 
@@ -80,7 +72,7 @@ export async function uploadImage(buffer, filename) {
     form.append("reqtype", "fileupload");
     form.append("fileToUpload", buffer, {
         filename: safeName,
-        contentType: ext === "png" ? "image/png" : "image/jpeg"
+        contentType: ext === "png" ? "image/png" : ext === "webp" ? "image/webp" : "image/jpeg"
     });
 
     const res = await axios.post(CATBOX_URL, form, {
@@ -99,7 +91,9 @@ export async function uploadImage(buffer, filename) {
     const body = String(res.data || "").trim();
     if (res.status >= 400 || body.startsWith("Error") || body.includes("Invalid")) {
         if (res.status === 412 || body.includes("Invalid uploader")) catboxBlocked = true;
-        throw new Error(`Catbox HTTP ${res.status}: ${body.slice(0, 200)}`);
+        const err = new Error(`Catbox HTTP ${res.status}: ${body.slice(0, 200)}`);
+        err.status = res.status;
+        throw err;
     }
 
     if (!body.startsWith("http")) {
@@ -109,13 +103,61 @@ export async function uploadImage(buffer, filename) {
     return body;
 }
 
+/**
+ * @param {Buffer} buffer
+ * @param {string} filename
+ * @returns {Promise<string>} URL https://files.catbox.moe/...
+ */
+export async function uploadImage(buffer, filename) {
+    if (catboxBlocked) {
+        throw new Error("Catbox upload bloqueado (HTTP 412 — use fallback remoto)");
+    }
+
+    const check = validateImageBuffer(buffer);
+    if (!check.ok) throw new Error(check.error);
+
+    let lastErr = null;
+    for (let attempt = 1; attempt <= CATBOX_RETRIES; attempt++) {
+        try {
+            return await uploadImageOnce(buffer, filename);
+        } catch (e) {
+            lastErr = e;
+            if (catboxBlocked) throw e;
+            const retryable = isRetryableNetworkError(e) || e.status === 429 || e.status === 503;
+            if (!retryable || attempt >= CATBOX_RETRIES) break;
+            const delay = Math.min(30000, 1500 * attempt * attempt);
+            log.warn(`Catbox retry ${attempt}/${CATBOX_RETRIES}`, { err: e.message, delayMs: delay });
+            await sleep(delay);
+        }
+    }
+    throw lastErr || new Error("Catbox falhou após retries");
+}
+
+async function tryLitterboxFallback(buffer, filename, pageIndex) {
+    if (process.env.LITTERBOX_SKIP === "1") return null;
+    try {
+        const { uploadImage: uploadLitter } = await import("./litterbox.js");
+        const url = await uploadLitter(buffer, filename);
+        log.tag("CATBOX", `Fallback litterbox página ${pageIndex + 1}`, { url: url.slice(0, 80) });
+        return { url, origem: "litterbox" };
+    } catch (e) {
+        log.warn(`Litterbox fallback falhou página ${pageIndex + 1}`, { err: e.message });
+        return null;
+    }
+}
+
 async function uploadWithFallback(buffer, filename, pageIndex, staticOpts) {
     try {
         const url = await uploadImage(buffer, filename);
         return { url, origem: "catbox" };
     } catch (e) {
         log.warn(`Catbox falhou página ${pageIndex + 1}`, { err: e.message });
+
+        const litter = await tryLitterboxFallback(buffer, filename, pageIndex);
+        if (litter) return litter;
+
         if (!STATIC_FALLBACK || !staticOpts?.mangaId || !staticOpts?.capId) throw e;
+
         const ext = extFromUrl(filename, "jpg");
         const url = saveStaticPage(buffer, ext, staticOpts.mangaId, staticOpts.capId, pageIndex);
         log.tag("CATBOX", `Fallback estático página ${pageIndex + 1}`, { url: url.slice(0, 80) });
@@ -124,7 +166,7 @@ async function uploadWithFallback(buffer, filename, pageIndex, staticOpts) {
 }
 
 /**
- * Download stream (concorrência 1–2) + upload sequencial catbox.
+ * Download stream + upload sequencial catbox.
  * @param {Array<{index: number, url: string}>} pages
  * @param {{ referer?: string, mangaId?: string, capId?: string, chapterNumber?: string|number }} [opts]
  */
@@ -160,6 +202,7 @@ export async function uploadChapterPages(pages, opts = {}) {
                     capId: opts.capId
                 });
                 if (result.origem === "cloud-static") hostingMode = "cloud-static";
+                else if (result.origem === "litterbox" && hostingMode === "catbox") hostingMode = "litterbox";
                 hosted.push({ index, url: result.url, origem: result.origem });
                 log.tag("CATBOX", `Upload página ${index + 1}/${sorted.length}`, {
                     url: result.url.slice(0, 60),
@@ -212,7 +255,8 @@ export function createAdapter() {
                 ? `${cfg.nexustoonsBaseUrl}/manga/${meta.nexusSlug}/${chapter.numero}`
                 : `${cfg.nexustoonsBaseUrl}/`;
 
-            log.info("Hospedando capítulo (catbox → fallback estático)", {
+            const fallbackLabel = STATIC_FALLBACK ? "estático" : "litterbox remoto";
+            log.info(`Hospedando capítulo (catbox → fallback ${fallbackLabel})`, {
                 capId: chapter.capId,
                 pages: chapter.pages.length
             });

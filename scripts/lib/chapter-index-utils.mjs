@@ -10,6 +10,9 @@ export function hasHostedPages(rec) {
         const u = String(p.url || "");
         return u.includes("telegra.ph")
             || u.includes("catbox.moe")
+            || u.includes("litter.catbox.moe")
+            || u.includes("/api/gh-cdn/")
+            || u.includes("cdn.jsdelivr.net/gh/")
             || u.includes("/api/cloud/page")
             || u.includes("/data/cloud/pages/");
     });

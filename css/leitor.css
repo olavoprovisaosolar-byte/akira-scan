@@ -81,7 +81,9 @@
 .meu-leitor-manga-css .pagina-manga {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
+    margin: 0 auto;
     opacity: 0;
     transition: opacity 0.3s ease;
     background: #0e0e12;
@@ -89,6 +91,29 @@
 
 .meu-leitor-manga-css .pagina-manga.carregada { opacity: 1; }
 .meu-leitor-manga-css .pagina-manga.erro { opacity: 0.35; min-height: 120px; }
+
+/* Leitor Blogger — cascata vertical */
+.blogger-viewer {
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 0 calc(48px + env(safe-area-inset-bottom));
+}
+.blogger-viewer .pagina-manga {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    opacity: 1;
+}
+.blogger-viewer-title {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    color: #c8c8d0;
+}
 
 .pagina-wrap {
     position: relative;
@@ -238,4 +263,42 @@
     .leitor-nav-caps {
         bottom: max(8px, env(safe-area-inset-bottom));
     }
+}
+
+/* Toolbar flutuante */
+.leitor-toolbar {
+    position: fixed;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 95;
+}
+
+.lt-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid rgba(157, 0, 255, 0.35);
+    background: rgba(12, 12, 16, 0.92);
+    color: #e8e8ec;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    backdrop-filter: blur(8px);
+}
+
+.lt-btn:active { transform: scale(0.95); }
+
+body.leitor-chrome-hidden .leitor-barra,
+body.leitor-chrome-hidden .leitor-nav-caps {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+body.leitor-chrome-hidden .leitor-nav-caps {
+    transform: translateY(100%);
 }

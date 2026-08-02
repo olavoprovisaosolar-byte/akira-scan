@@ -70,6 +70,9 @@ export function isDirectRemotePageUrl(url) {
         || u.includes("catbox.moe")
         || u.includes("files.catbox.moe")
         || u.includes("litter.catbox.moe")
+        || u.includes("/api/gh-cdn/")
+        || u.includes("cdn.jsdelivr.net/gh/")
+        || u.includes("uguu.se")
         || u.includes("pixeldrain.com")
         || u.includes("iili.io")
         || u.includes("freeimage.host");
@@ -77,6 +80,7 @@ export function isDirectRemotePageUrl(url) {
 
 export function capLegivelRec(rec) {
     if (!rec?.done) return false;
+    if (rec.hosting === "blogger" && rec.bloggerPostId) return true;
     // Só URLs remotas vivas — /data/cloud/pages/ purged = 404 no site
     return !!(rec.pages?.some((p) => {
         const u = String(p.url || "");
