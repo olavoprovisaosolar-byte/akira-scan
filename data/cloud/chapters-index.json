@@ -1497,14 +1497,153 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-espada-do-xama/12",
       "nexusSlug": "a-espada-do-xama"
+    },
+    "obra-e7e46b19/cap-d09e61ac-156": {
+      "mangaId": "obra-e7e46b19",
+      "capId": "cap-d09e61ac-156",
+      "numero": "156",
+      "titulo": "Capítulo 156",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 24,
+      "uploaded": 24,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679553069846558",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679553338409090",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679553661243513",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679554000851085",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679554303103116",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679554554499132",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679554865008773",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679555133575337",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679555431366707",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679555947266049&att=1533679555703734502",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679565875183766",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679566130774189",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679566433030285",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679566730821632",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 14,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679567024160768",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679567305183272",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679567594848297",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679567930130544",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679568198832308",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679568743825530&att=1533679568475652227",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 20,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679579359875184&att=1533679578080477358",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 21,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679579359875184&att=1533679578512621629",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 22,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679579359875184&att=1533679578873069689",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 23,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533634611786158150&msg=1533679579359875184&att=1533679579179516096",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T02:34:47.126Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/156",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
     "obra-e7e46b19": {
-      "totalCaps": 5,
-      "doneCaps": 5,
+      "totalCaps": 6,
+      "doneCaps": 6,
       "legibleCaps": 0,
-      "purgedCaps": 5
+      "purgedCaps": 6
     },
     "obra-c2b430f6": {
       "totalCaps": 1,
@@ -1520,7 +1659,7 @@
     }
   },
   "origem": "github",
-  "total": 7,
+  "total": 8,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T02:33:54.849Z"
+  "atualizadoEm": "2026-08-03T03:35:43.150Z"
 }
