@@ -3649,6 +3649,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-neta-indesejada-do-cla-baekri/46",
       "nexusSlug": "a-neta-indesejada-do-cla-baekri"
+    },
+    "obra-bf768710/cap-e8f245f1-36": {
+      "mangaId": "obra-bf768710",
+      "capId": "cap-e8f245f1-36",
+      "numero": "36",
+      "titulo": "Capítulo 36",
+      "tituloManga": "A Serpente Negra",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754965720305714",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754966592847903",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754967112945796",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754967599612085",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754968119578675",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754968614633522",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754969063166023",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754969621004298",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754970397216880",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533754895637807135&msg=1533754970904461443&att=1533754970921369770",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T07:34:20.254Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-serpente-negra/36",
+      "nexusSlug": "a-serpente-negra"
     }
   },
   "porManga": {
@@ -3705,10 +3774,16 @@
       "doneCaps": 1,
       "legibleCaps": 0,
       "purgedCaps": 1
+    },
+    "obra-bf768710": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 0,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 20,
+  "total": 21,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T08:24:33.090Z"
+  "atualizadoEm": "2026-08-03T08:34:46.854Z"
 }
