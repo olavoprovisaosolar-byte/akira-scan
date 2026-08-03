@@ -4347,6 +4347,140 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-serpente-negra/7",
       "nexusSlug": "a-serpente-negra"
+    },
+    "obra-bed97db2/cap-1c40d580-100": {
+      "mangaId": "obra-bed97db2",
+      "capId": "cap-1c40d580-100",
+      "numero": "100",
+      "titulo": "Capítulo 100",
+      "tituloManga": "A Superação do Nobre Vagabundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 23,
+      "uploaded": 23,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775478949679175",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775479344070726",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775479650385970",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775480010838237",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775480405229640",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775480770265259",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775481130713170",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775481621581864",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775482028425236",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775482791657542&att=1533775482481541240",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775498499326072",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775499015360532",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775499367546970",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775499774525470",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 14,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775500202217603",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775500563185764",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775500940415209",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775501322354788",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775501779402934",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775502559412274&att=1533775502215483392",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 20,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775513250828389&att=1533775512294527117",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 21,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775513250828389&att=1533775512701243432",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 22,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533775415385001996&msg=1533775513250828389&att=1533775513028395018",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T08:55:57.496Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-superacao-do-nobre-vagabundo/100",
+      "nexusSlug": "a-superacao-do-nobre-vagabundo"
     }
   },
   "porManga": {
@@ -4411,10 +4545,10 @@
       "purgedCaps": 2
     },
     "obra-bed97db2": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     },
     "obra-6955dd77": {
       "totalCaps": 1,
@@ -4430,7 +4564,7 @@
     }
   },
   "origem": "github",
-  "total": 27,
+  "total": 28,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:46:03.843Z"
+  "atualizadoEm": "2026-08-03T09:56:20.459Z"
 }
