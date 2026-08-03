@@ -4283,6 +4283,70 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-neta-indesejada-do-cla-baekri/44",
       "nexusSlug": "a-neta-indesejada-do-cla-baekri"
+    },
+    "obra-bf768710/cap-9a22cb2e-07": {
+      "mangaId": "obra-bf768710",
+      "capId": "cap-9a22cb2e-07",
+      "numero": "7",
+      "titulo": "Capítulo 7",
+      "tituloManga": "A Serpente Negra",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 9,
+      "uploaded": 9,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772914011144293",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772914485366824",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772915026165891",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772915525554216",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772916154433606",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772916716732416",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772917366718595",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772917865709578",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533772857098899607&msg=1533772918587134122&att=1533772918297989130",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T08:45:39.071Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-serpente-negra/7",
+      "nexusSlug": "a-serpente-negra"
     }
   },
   "porManga": {
@@ -4341,10 +4405,10 @@
       "purgedCaps": 2
     },
     "obra-bf768710": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     },
     "obra-bed97db2": {
       "totalCaps": 1,
@@ -4366,7 +4430,7 @@
     }
   },
   "origem": "github",
-  "total": 26,
+  "total": 27,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:36:10.605Z"
+  "atualizadoEm": "2026-08-03T09:46:03.843Z"
 }
