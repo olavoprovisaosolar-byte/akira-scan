@@ -5952,14 +5952,68 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/4.1",
       "nexusSlug": "1-segundo"
+    },
+    "obra-e7e46b19/cap-b1553e9e-4.2": {
+      "mangaId": "obra-e7e46b19",
+      "capId": "cap-b1553e9e-4.2",
+      "numero": "4.2",
+      "titulo": "Capítulo 4.2",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 7,
+      "uploaded": 7,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624196796649607&att=1533624196876210187",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624210885181450&att=1533624210583326810",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624225359986718&att=1533624225053544589",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624246473986160&att=1533624246486565037",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624261426544801&att=1533624261187731496",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624275100111001&att=1533624275020288020",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533624186570932276&msg=1533624288089866362&att=1533624287796138104",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-02T22:55:04.740Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/4.2",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
     "obra-e7e46b19": {
-      "totalCaps": 8,
-      "doneCaps": 8,
-      "legibleCaps": 8,
-      "purgedCaps": 8
+      "totalCaps": 9,
+      "doneCaps": 9,
+      "legibleCaps": 9,
+      "purgedCaps": 9
     },
     "obra-c2b430f6": {
       "totalCaps": 1,
@@ -6065,7 +6119,7 @@
     }
   },
   "origem": "github",
-  "total": 37,
+  "total": 38,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:37:05.330Z"
+  "atualizadoEm": "2026-08-03T23:37:08.026Z"
 }
