@@ -2073,6 +2073,80 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/14",
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
+    },
+    "obra-e4c68a67/cap-bb641059-15": {
+      "mangaId": "obra-e4c68a67",
+      "capId": "cap-bb641059-15",
+      "numero": "15",
+      "titulo": "Capítulo 15",
+      "tituloManga": "A 31ª Peça Que virou o Tabuleiro",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 11,
+      "uploaded": 11,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695279281344532",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695279704965311",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695280162275420",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695280615133314",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695281089220638",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695281529618543",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695281911173252",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695282309628025",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695282758549605",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695283450478754&att=1533695283169464442",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533640440916607060&msg=1533695485280256030&att=1533695484961493043",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T03:38:00.564Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/15",
+      "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
     }
   },
   "porManga": {
@@ -2101,14 +2175,14 @@
       "purgedCaps": 2
     },
     "obra-e4c68a67": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     }
   },
   "origem": "github",
-  "total": 11,
+  "total": 12,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T04:38:20.166Z"
+  "atualizadoEm": "2026-08-03T04:38:22.725Z"
 }
