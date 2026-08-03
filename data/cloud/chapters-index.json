@@ -3590,6 +3590,65 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-morte-e-o-unico-fim-para-a-vila/111",
       "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila"
+    },
+    "obra-816fce06/cap-0d50e2e5-46": {
+      "mangaId": "obra-816fce06",
+      "capId": "cap-0d50e2e5-46",
+      "numero": "46",
+      "titulo": "Capítulo 46",
+      "tituloManga": "A Neta Indesejada do Clã Baekri",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 8,
+      "uploaded": 8,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752395517919384",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752396067635321",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752397006897252",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752397543899187",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752398051283074",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752398554861578",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752399003648202",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533752342887792664&msg=1533752399737655466&att=1533752399372619876",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T07:24:08.230Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-neta-indesejada-do-cla-baekri/46",
+      "nexusSlug": "a-neta-indesejada-do-cla-baekri"
     }
   },
   "porManga": {
@@ -3640,10 +3699,16 @@
       "doneCaps": 1,
       "legibleCaps": 0,
       "purgedCaps": 1
+    },
+    "obra-816fce06": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 0,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 19,
+  "total": 20,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T08:14:37.882Z"
+  "atualizadoEm": "2026-08-03T08:24:33.090Z"
 }
