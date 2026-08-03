@@ -2656,88 +2656,93 @@
       "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/59",
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
     },
-    "obra-e4c68a67/cap-16e06dde-86": {
+    "obra-e4c68a67/cap-ff2beeb9-87": {
       "mangaId": "obra-e4c68a67",
-      "capId": "cap-16e06dde-86",
-      "numero": "86",
-      "titulo": "Capítulo 86",
+      "capId": "cap-ff2beeb9-87",
+      "numero": "87",
+      "titulo": "Capítulo 87",
       "tituloManga": "A 31ª Peça Que virou o Tabuleiro",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 13,
-      "uploaded": 13,
+      "total": 14,
+      "uploaded": 14,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741496417779722",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741506672857169",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741496933683261",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741507193081946",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741497428475954",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741508157771876",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741498007425034",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741508908417095",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741498795823164",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741509663522856",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741499391545435",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741510338678874",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741499911770242",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741510976344145",
           "origem": "discord-cdn"
         },
         {
           "index": 7,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741500620345385",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741511718736014",
           "origem": "discord-cdn"
         },
         {
           "index": 8,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741501270720622",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741512351940770",
           "origem": "discord-cdn"
         },
         {
           "index": 9,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741502432546846&att=1533741501908254810",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741513417297982&att=1533741512972832899",
           "origem": "discord-cdn"
         },
         {
           "index": 10,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741516244123688&att=1533741514595893378",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741531918503947&att=1533741530618269716",
           "origem": "discord-cdn"
         },
         {
           "index": 11,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741516244123688&att=1533741515384291381",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741531918503947&att=1533741531331166299",
           "origem": "discord-cdn"
         },
         {
           "index": 12,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168281460888&msg=1533741516244123688&att=1533741515971760268",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741531918503947&att=1533741531825963058",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533644168914665645&msg=1533741531918503947&att=1533741532094529667",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-03T06:40:51.901Z",
+      "hostedAt": "2026-08-03T06:40:55.877Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/86",
+      "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/87",
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
     }
   },
@@ -2776,5 +2781,5 @@
   "origem": "github",
   "total": 15,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T07:41:15.462Z"
+  "atualizadoEm": "2026-08-03T07:41:19.613Z"
 }
