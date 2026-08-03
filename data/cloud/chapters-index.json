@@ -3963,11 +3963,11 @@
       "sourceUrl": "https://nexustoons.com/manga/a-superacao-do-nobre-vagabundo/148",
       "nexusSlug": "a-superacao-do-nobre-vagabundo"
     },
-    "obra-e7e46b19/cap-7625cfe9-25": {
+    "obra-e7e46b19/cap-13464ea1-27": {
       "mangaId": "obra-e7e46b19",
-      "capId": "cap-7625cfe9-25",
-      "numero": "25",
-      "titulo": "Capítulo 25",
+      "capId": "cap-13464ea1-27",
+      "numero": "27",
+      "titulo": "Capítulo 27",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -3978,33 +3978,33 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627102707060808&msg=1533627133581328578&att=1533627130645184613",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627134851940352&msg=1533627161871781889&att=1533627159761912019",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627102707060808&msg=1533627133581328578&att=1533627131471331528",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627134851940352&msg=1533627161871781889&att=1533627160219357358",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627102707060808&msg=1533627133581328578&att=1533627132066926692",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627134851940352&msg=1533627161871781889&att=1533627160705634457",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627102707060808&msg=1533627133581328578&att=1533627132713111632",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627134851940352&msg=1533627161871781889&att=1533627161284575462",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627102707060808&msg=1533627133581328578&att=1533627133241458909",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627134851940352&msg=1533627161871781889&att=1533627161817387189",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-02T23:06:23.579Z",
+      "hostedAt": "2026-08-02T23:06:30.158Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/25",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/27",
       "nexusSlug": "1-segundo"
     }
   },
@@ -4079,5 +4079,5 @@
   "origem": "github",
   "total": 23,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:01:39.844Z"
+  "atualizadoEm": "2026-08-03T09:01:42.614Z"
 }
