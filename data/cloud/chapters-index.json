@@ -4234,6 +4234,55 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-morte-e-o-unico-fim-para-a-vila/128",
       "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila"
+    },
+    "obra-816fce06/cap-a84c9506-44": {
+      "mangaId": "obra-816fce06",
+      "capId": "cap-a84c9506-44",
+      "numero": "44",
+      "titulo": "Capítulo 44",
+      "tituloManga": "A Neta Indesejada do Clã Baekri",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 6,
+      "uploaded": 6,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770350238634116",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770350855327895",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770351375548476",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770352042315826",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770352608542760",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533621279612211334&msg=1533770353422110750&att=1533770353132834837",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T08:35:33.491Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-neta-indesejada-do-cla-baekri/44",
+      "nexusSlug": "a-neta-indesejada-do-cla-baekri"
     }
   },
   "porManga": {
@@ -4286,10 +4335,10 @@
       "purgedCaps": 2
     },
     "obra-816fce06": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     },
     "obra-bf768710": {
       "totalCaps": 1,
@@ -4317,7 +4366,7 @@
     }
   },
   "origem": "github",
-  "total": 25,
+  "total": 26,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:25:42.838Z"
+  "atualizadoEm": "2026-08-03T09:36:10.605Z"
 }
