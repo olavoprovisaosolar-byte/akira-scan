@@ -5953,58 +5953,63 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/4.1",
       "nexusSlug": "1-segundo"
     },
-    "obra-e7e46b19/cap-526d7b0f-61": {
+    "obra-e7e46b19/cap-c3c86cc3-64": {
       "mangaId": "obra-e7e46b19",
-      "capId": "cap-526d7b0f-61",
-      "numero": "61",
-      "titulo": "Capítulo 61",
+      "capId": "cap-c3c86cc3-64",
+      "numero": "64",
+      "titulo": "Capítulo 64",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 7,
-      "uploaded": 7,
+      "total": 8,
+      "uploaded": 8,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628474793791589",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628487867302010",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628475217543351",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628488437858375",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628475741569254",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628488920072395",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628476278575165",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628489574645961",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628476815310869",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628490363179048",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628477276819546",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628490887204914",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628454208147629&msg=1533628477809361086&att=1533628477620621382",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628491453694033",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628466422091998&msg=1533628492111937637&att=1533628491864604672",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-02T23:11:43.545Z",
+      "hostedAt": "2026-08-02T23:11:47.550Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/61",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/64",
       "nexusSlug": "1-segundo"
     }
   },
@@ -6121,5 +6126,5 @@
   "origem": "github",
   "total": 38,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:39:15.917Z"
+  "atualizadoEm": "2026-08-03T23:39:19.716Z"
 }
