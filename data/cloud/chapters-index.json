@@ -5899,11 +5899,11 @@
       "sourceUrl": "https://nexustoons.com/manga/a-vila-tem-um-crush/85",
       "nexusSlug": "a-vila-tem-um-crush"
     },
-    "obra-e7e46b19/cap-637a104a-22": {
+    "obra-e7e46b19/cap-3e0afe62-23": {
       "mangaId": "obra-e7e46b19",
-      "capId": "cap-637a104a-22",
-      "numero": "22",
-      "titulo": "Capítulo 22",
+      "capId": "cap-3e0afe62-23",
+      "numero": "23",
+      "titulo": "Capítulo 23",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -5914,33 +5914,33 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627052211830966&msg=1533627089759113336&att=1533627087707963402",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627079680196770&msg=1533627095903899801&att=1533627093227802755",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627052211830966&msg=1533627089759113336&att=1533627088173535312",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627079680196770&msg=1533627095903899801&att=1533627093756416131",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627052211830966&msg=1533627089759113336&att=1533627088672788581",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627079680196770&msg=1533627095903899801&att=1533627094624501810",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627052211830966&msg=1533627089759113336&att=1533627089146740798",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627079680196770&msg=1533627095903899801&att=1533627095207641138",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627052211830966&msg=1533627089759113336&att=1533627089515712693",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533627079680196770&msg=1533627095903899801&att=1533627095664693369",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-02T23:06:12.694Z",
+      "hostedAt": "2026-08-02T23:06:15.087Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/22",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/23",
       "nexusSlug": "1-segundo"
     }
   },
@@ -6057,5 +6057,5 @@
   "origem": "github",
   "total": 37,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:34:22.272Z"
+  "atualizadoEm": "2026-08-03T23:34:24.615Z"
 }
