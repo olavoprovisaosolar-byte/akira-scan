@@ -2835,53 +2835,88 @@
       "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/115",
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
     },
-    "obra-f302fde3/cap-171660a5-46": {
+    "obra-f302fde3/cap-8aa12a5c-56": {
       "mangaId": "obra-f302fde3",
-      "capId": "cap-171660a5-46",
-      "numero": "46",
-      "titulo": "Capítulo 46",
+      "capId": "cap-8aa12a5c-56",
+      "numero": "56",
+      "titulo": "Capítulo 56",
       "tituloManga": "A Ascensão da Cobra Imortal",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 6,
-      "uploaded": 6,
+      "total": 13,
+      "uploaded": 13,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742986352005160",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743003875803156",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742987090067487",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743004358021320",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742987815817246",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743004811133009",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742988457672818",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743005268180993",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742989309116476",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743005729816676",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648115310137434&msg=1533742990676463768&att=1533742990705688676",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743006484529293",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743006950101073",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743007365333042",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743007667585144",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743008229494795&att=1533743008116379779",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743017813348422&att=1533743016999653496",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743017813348422&att=1533743017335455834",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533648165629202535&msg=1533743017813348422&att=1533743017620406362",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-03T06:46:45.503Z",
+      "hostedAt": "2026-08-03T06:46:49.984Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-ascensao-da-cobra-imortal/46",
+      "sourceUrl": "https://nexustoons.com/manga/a-ascensao-da-cobra-imortal/56",
       "nexusSlug": "a-ascensao-da-cobra-imortal"
     }
   },
@@ -2926,5 +2961,5 @@
   "origem": "github",
   "total": 16,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T07:47:10.366Z"
+  "atualizadoEm": "2026-08-03T07:47:13.292Z"
 }
