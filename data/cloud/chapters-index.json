@@ -2492,98 +2492,123 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/79",
       "nexusSlug": "1-segundo"
     },
-    "obra-e4c68a67/cap-850a657a-45": {
+    "obra-e4c68a67/cap-28df7b46-46": {
       "mangaId": "obra-e4c68a67",
-      "capId": "cap-850a657a-45",
-      "numero": "45",
-      "titulo": "Capítulo 45",
+      "capId": "cap-28df7b46-46",
+      "numero": "46",
+      "titulo": "Capítulo 46",
       "tituloManga": "A 31ª Peça Que virou o Tabuleiro",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 15,
-      "uploaded": 15,
+      "total": 20,
+      "uploaded": 20,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740422243815535",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740443353878579",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740422759846018",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740443785760858",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740423539855400",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740444259848272",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740424261533797",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740444658172076",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740424991084635",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740445182464021",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740425595322429",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740445975183372",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740426345840802",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740446696734740",
           "origem": "discord-cdn"
         },
         {
           "index": 7,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740427084042340",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740447518953584",
           "origem": "discord-cdn"
         },
         {
           "index": 8,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740427788812389",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740448273793154",
           "origem": "discord-cdn"
         },
         {
           "index": 9,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740429034393691&att=1533740428447318149",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740449255264358&att=1533740448965726339",
           "origem": "discord-cdn"
         },
         {
           "index": 10,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740465315250397&att=1533740462433894460",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740472302960782",
           "origem": "discord-cdn"
         },
         {
           "index": 11,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740465315250397&att=1533740463306313850",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740472823189524",
           "origem": "discord-cdn"
         },
         {
           "index": 12,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740465315250397&att=1533740464069410936",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740473334759516",
           "origem": "discord-cdn"
         },
         {
           "index": 13,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740465315250397&att=1533740464677851257",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740474073092117",
           "origem": "discord-cdn"
         },
         {
           "index": 14,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641683504205974&msg=1533740465315250397&att=1533740464984031252",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740474743918603",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740475293630484",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740475838763130",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740476451127306",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740476962701312",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533641684724748469&msg=1533740477634056302&att=1533740477403365386",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-03T06:36:41.603Z",
+      "hostedAt": "2026-08-03T06:36:48.993Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/45",
+      "sourceUrl": "https://nexustoons.com/manga/a-31-peca-que-virou-o-tabuleiro/46",
       "nexusSlug": "a-31-peca-que-virou-o-tabuleiro"
     }
   },
@@ -2622,5 +2647,5 @@
   "origem": "github",
   "total": 14,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T07:37:11.087Z"
+  "atualizadoEm": "2026-08-03T07:37:15.005Z"
 }
