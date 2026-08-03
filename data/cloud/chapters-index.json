@@ -1994,14 +1994,148 @@
       "capturedAt": null,
       "sourceUrl": null,
       "nexusSlug": null
+    },
+    "obra-e7e46b19/cap-9d738f8b-226": {
+      "mangaId": "obra-e7e46b19",
+      "capId": "cap-9d738f8b-226",
+      "numero": "226",
+      "titulo": "Capítulo 226",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 23,
+      "uploaded": 23,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693781419757659",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693781671542836",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693781965017190",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693782321795214",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693782695084092",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693783026438165",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693783332618433",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693783596732496",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693783924019282",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693784305569824&att=1533693784242520114",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693793377845268",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693793608405012",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693793897943180",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693794166509678",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 14,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693794455654400",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693794778746890",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693795055566980",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693795349041343",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693795634384948",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533693796141764648&att=1533693795927982242",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 20,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533694009132974241&att=1533694008205905920",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 21,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533694009132974241&att=1533694008503566366",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 22,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533637360498118917&msg=1533694009132974241&att=1533694008910544906",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T03:33:00.315Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/226",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
     "obra-e7e46b19": {
-      "totalCaps": 6,
-      "doneCaps": 6,
+      "totalCaps": 7,
+      "doneCaps": 7,
       "legibleCaps": 0,
-      "purgedCaps": 6
+      "purgedCaps": 7
     },
     "obra-c2b430f6": {
       "totalCaps": 1,
@@ -2023,7 +2157,7 @@
     }
   },
   "origem": "github",
-  "total": 10,
+  "total": 11,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T04:32:24.423Z"
+  "atualizadoEm": "2026-08-03T04:33:22.385Z"
 }
