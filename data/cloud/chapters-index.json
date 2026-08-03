@@ -394,463 +394,143 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/102",
       "nexusSlug": "1-segundo"
     },
-    "obra-e7e46b19/cap-9c1c7c32-131": {
+    "obra-e7e46b19/cap-49698efa-137": {
       "mangaId": "obra-e7e46b19",
-      "capId": "cap-9c1c7c32-131",
-      "numero": "131",
-      "titulo": "Capítulo 131",
+      "capId": "cap-49698efa-137",
+      "numero": "137",
+      "titulo": "Capítulo 137",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 88,
-      "uploaded": 88,
+      "total": 24,
+      "uploaded": 24,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633619682394314",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633755447824424",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633619946377336",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633755753877684",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633620219138078",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633756089548972",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633620487700560",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633756391542854",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633620751683724",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633756701790248",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633621276102686",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633757012295691",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633621511110707",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633757305901176",
           "origem": "discord-cdn"
         },
         {
           "index": 7,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633621817032704",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633757624537169",
           "origem": "discord-cdn"
         },
         {
           "index": 8,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633622186262589",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633757930848327",
           "origem": "discord-cdn"
         },
         {
           "index": 9,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633622484062249&att=1533633622639378603",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633758484369680&att=1533633758253814001",
           "origem": "discord-cdn"
         },
         {
           "index": 10,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633633603158068",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633768185663579",
           "origem": "discord-cdn"
         },
         {
           "index": 11,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633633888243843",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633768630517850",
           "origem": "discord-cdn"
         },
         {
           "index": 12,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633634156941442",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633769037107270",
           "origem": "discord-cdn"
         },
         {
           "index": 13,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633634408337681",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633769343553586",
           "origem": "discord-cdn"
         },
         {
           "index": 14,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633634676899970",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633769712386169",
           "origem": "discord-cdn"
         },
         {
           "index": 15,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633634953859182",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633770031288472",
           "origem": "discord-cdn"
         },
         {
           "index": 16,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633635230548191",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633770383478936",
           "origem": "discord-cdn"
         },
         {
           "index": 17,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633635532673104",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633770723344464",
           "origem": "discord-cdn"
         },
         {
           "index": 18,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633635754836108",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633771054829682",
           "origem": "discord-cdn"
         },
         {
           "index": 19,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633636090253424&att=1533633636035989565",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633771625254962&att=1533633771406884904",
           "origem": "discord-cdn"
         },
         {
           "index": 20,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633642763653235",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633780986806302&att=1533633779862863992",
           "origem": "discord-cdn"
         },
         {
           "index": 21,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633642998272150",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633780986806302&att=1533633780156334150",
           "origem": "discord-cdn"
         },
         {
           "index": 22,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633643254251711",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633780986806302&att=1533633780454264854",
           "origem": "discord-cdn"
         },
         {
           "index": 23,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633643518623904",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 24,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633643761635429",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 25,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633644021940324",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 26,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633644290379917",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 27,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633644562747532",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 28,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633644814663720",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 29,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633645326368828&att=1533633645112201557",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 30,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633652607422724",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 31,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633652863533167",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 32,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633653140361277",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 33,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633653400146021",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 34,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633653685354506",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 35,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633653975027712",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 36,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633654381613126",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 37,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633654641656002",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 38,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633654885191790",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 39,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633655354949755&att=1533633655119810660",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 40,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633670496387233",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 41,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633670856966184",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 42,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633671137988843",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 43,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633671439847486",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 44,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633672144486470",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 45,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633672559726642",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 46,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633672819904663",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 47,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633673071427624",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 48,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633673360969972",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 49,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633673834795028&att=1533633673616687214",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 50,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633684048052384",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 51,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633684287131720",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 52,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633684559630396",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 53,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633684811550760",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 54,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633685096759427",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 55,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633685344092291",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 56,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633685620920542",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 57,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633685864054955",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 58,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633686099066911",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 59,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633686560309308&att=1533633686338146336",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 60,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633693699280986",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 61,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633693934157894",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 62,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633694181363852",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 63,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633694428823722",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 64,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633694659772548",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 65,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633694860841182",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 66,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633695116689408",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 67,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633695368609834",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 68,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633695582261299",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 69,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633696081641492&att=1533633695850692810",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 70,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633708450513046",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 71,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633708769284209",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 72,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633709029195887",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 73,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633709516001280",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 74,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633709918388375",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 75,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633710312788008",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 76,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633710677688491",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 77,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633712552411347",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 78,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633713290743858",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 79,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633714053976286&att=1533633713672552448",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 80,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633728545423440",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 81,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633728935624784",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 82,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633729220579399",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 83,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633729509982290",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 84,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633729765838920",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 85,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633730046853150",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 86,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633730286059591",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 87,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630184555544717&msg=1533633730789507121&att=1533633730554630274",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533630223227027526&msg=1533633780986806302&att=1533633780731084952",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-02T23:32:36.170Z",
+      "hostedAt": "2026-08-02T23:32:47.924Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/131",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/137",
       "nexusSlug": "1-segundo"
     }
   },
@@ -865,5 +545,5 @@
   "origem": "github",
   "total": 2,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T00:32:56.235Z"
+  "atualizadoEm": "2026-08-03T00:33:08.450Z"
 }
