@@ -4036,6 +4036,85 @@
       "capturedAt": null,
       "sourceUrl": null,
       "nexusSlug": null
+    },
+    "obra-e60e7957/cap-127a9672-10": {
+      "mangaId": "obra-e60e7957",
+      "capId": "cap-127a9672-10",
+      "numero": "10",
+      "titulo": "Capítulo 10",
+      "tituloManga": "A Marca Cinza",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 12,
+      "uploaded": 12,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765223977062410",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765224652607558",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765225159852152",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765225692659783",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765226196107314",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765226691039404",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765227147952228",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765227680759970",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765228402184244",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765229198970993&att=1533765228964085921",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765240410607767&att=1533765239970070629",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533765145388646441&msg=1533765240410607767&att=1533765240360013944",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T08:15:08.240Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-marca-cinza/10",
+      "nexusSlug": "a-marca-cinza"
     }
   },
   "porManga": {
@@ -4110,10 +4189,16 @@
       "doneCaps": 1,
       "legibleCaps": 0,
       "purgedCaps": 1
+    },
+    "obra-e60e7957": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 0,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 23,
+  "total": 24,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:05:15.005Z"
+  "atualizadoEm": "2026-08-03T09:15:33.161Z"
 }
