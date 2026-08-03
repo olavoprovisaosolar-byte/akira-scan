@@ -5899,92 +5899,77 @@
       "sourceUrl": "https://nexustoons.com/manga/a-vila-tem-um-crush/85",
       "nexusSlug": "a-vila-tem-um-crush"
     },
-    "obra-ae860da9/cap-f8ce3181-24": {
-      "mangaId": "obra-ae860da9",
-      "capId": "cap-f8ce3181-24",
-      "numero": "24",
-      "titulo": "Capítulo 24",
-      "tituloManga": "A Volta do Mago dos Becos",
+    "obra-e7e46b19/cap-f8acc534-00": {
+      "mangaId": "obra-e7e46b19",
+      "capId": "cap-f8acc534-00",
+      "numero": "0",
+      "titulo": "Capítulo 0",
+      "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 12,
-      "uploaded": 12,
+      "total": 9,
+      "uploaded": 9,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980779435135177",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620593272946740&att=1533620593042391111",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980780068601908",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620609039470672&att=1533620608733155398",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980780743626862",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620622289010859&att=1533620621966315751",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980781498863709",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620645475254453&att=1533620645051502722",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980782253703198",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620657554849832&att=1533620657232023642",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980782895566848",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620672729972757&att=1533620672494964756",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980783705063544",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620685782515772&att=1533620685459689684",
           "origem": "discord-cdn"
         },
         {
           "index": 7,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980784463974430",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620700642934956&att=1533620700282093669",
           "origem": "discord-cdn"
         },
         {
           "index": 8,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980785340715078",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 9,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980786670305311&att=1533980786095816825",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 10,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980799609868369&att=1533980799333040138",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 11,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533980721079779380&msg=1533980799609868369&att=1533980799680909483",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620572787835002&msg=1533620713171189780&att=1533620712902889522",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-03T22:31:42.187Z",
+      "hostedAt": "2026-08-02T22:40:52.182Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-volta-do-mago-dos-becos/24",
-      "nexusSlug": "a-volta-do-mago-dos-becos"
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/0",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
     "obra-e7e46b19": {
-      "totalCaps": 7,
-      "doneCaps": 7,
-      "legibleCaps": 7,
-      "purgedCaps": 7
+      "totalCaps": 8,
+      "doneCaps": 8,
+      "legibleCaps": 8,
+      "purgedCaps": 8
     },
     "obra-c2b430f6": {
       "totalCaps": 1,
@@ -6087,16 +6072,10 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
-    },
-    "obra-ae860da9": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
     }
   },
   "origem": "github",
   "total": 37,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:32:07.261Z"
+  "atualizadoEm": "2026-08-03T23:33:38.907Z"
 }
