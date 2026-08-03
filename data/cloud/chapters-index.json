@@ -4115,6 +4115,125 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-marca-cinza/10",
       "nexusSlug": "a-marca-cinza"
+    },
+    "obra-ea94a6a7/cap-35411833-129": {
+      "mangaId": "obra-ea94a6a7",
+      "capId": "cap-35411833-129",
+      "numero": "129",
+      "titulo": "Capítulo 129",
+      "tituloManga": "A Morte é o Único Fim Para a Vilã",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 20,
+      "uploaded": 20,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767766685913088",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767767034167366",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767767319248926",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767767738683512",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767768024023160",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767768392994936",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767768711630848",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767769089245184",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767769407881246",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767769970049115&att=1533767769756270733",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767780661329982",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767781072506951",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767781382881362",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767781667962960",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 14,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767781948854322",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767782301171862",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767782582456340",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767782850887690",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767783156940850",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533620461026410526&msg=1533767783588823040&att=1533767783383568404",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T08:25:14.702Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-morte-e-o-unico-fim-para-a-vila/129",
+      "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila"
     }
   },
   "porManga": {
@@ -4161,10 +4280,10 @@
       "purgedCaps": 2
     },
     "obra-ea94a6a7": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     },
     "obra-816fce06": {
       "totalCaps": 1,
@@ -4198,7 +4317,7 @@
     }
   },
   "origem": "github",
-  "total": 24,
+  "total": 25,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T09:15:33.161Z"
+  "atualizadoEm": "2026-08-03T09:25:38.039Z"
 }
