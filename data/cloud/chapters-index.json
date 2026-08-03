@@ -5899,68 +5899,63 @@
       "sourceUrl": "https://nexustoons.com/manga/a-vila-tem-um-crush/85",
       "nexusSlug": "a-vila-tem-um-crush"
     },
-    "obra-e7e46b19/cap-cc2ace98-66": {
+    "obra-e7e46b19/cap-39eb46a5-67": {
       "mangaId": "obra-e7e46b19",
-      "capId": "cap-cc2ace98-66",
-      "numero": "66",
-      "titulo": "Capítulo 66",
+      "capId": "cap-39eb46a5-67",
+      "numero": "67",
+      "titulo": "Capítulo 67",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "discord-cdn",
-      "total": 9,
-      "uploaded": 9,
+      "total": 8,
+      "uploaded": 8,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628508595818646",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628523384930475",
           "origem": "discord-cdn"
         },
         {
           "index": 1,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628509141074150",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628523917611038",
           "origem": "discord-cdn"
         },
         {
           "index": 2,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628509648322590",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628525079167088",
           "origem": "discord-cdn"
         },
         {
           "index": 3,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628510084665507",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628525511446669",
           "origem": "discord-cdn"
         },
         {
           "index": 4,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628510793498634",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628526056439898",
           "origem": "discord-cdn"
         },
         {
           "index": 5,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628511363797082",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628526526206112",
           "origem": "discord-cdn"
         },
         {
           "index": 6,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628511829495959",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628527130312876",
           "origem": "discord-cdn"
         },
         {
           "index": 7,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628512257183856",
-          "origem": "discord-cdn"
-        },
-        {
-          "index": 8,
-          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628482272231514&msg=1533628512953438379&att=1533628512722882571",
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533628484574773329&msg=1533628528040476743&att=1533628527742812311",
           "origem": "discord-cdn"
         }
       ],
-      "hostedAt": "2026-08-02T23:11:52.072Z",
+      "hostedAt": "2026-08-02T23:11:56.493Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/66",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/67",
       "nexusSlug": "1-segundo"
     }
   },
@@ -6077,5 +6072,5 @@
   "origem": "github",
   "total": 37,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:35:48.587Z"
+  "atualizadoEm": "2026-08-03T23:35:50.522Z"
 }
