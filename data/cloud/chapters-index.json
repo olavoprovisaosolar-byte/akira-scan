@@ -3297,6 +3297,195 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-heroina-e-obcecada-por-mim/10",
       "nexusSlug": "a-heroina-e-obcecada-por-mim"
+    },
+    "obra-b58b5a3f/cap-f2e385fa-31": {
+      "mangaId": "obra-b58b5a3f",
+      "capId": "cap-f2e385fa-31",
+      "numero": "31",
+      "titulo": "Capítulo 31",
+      "tituloManga": "A Heroína é obcecada por mim",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 34,
+      "uploaded": 34,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747255926849747",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747256279302195",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747256719839242",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747257101516880",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747257533268118",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 5,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747258133184643",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 6,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747258598625452",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 7,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747259106394232",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 8,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747259601195068",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 9,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747260490252329&att=1533747260100313128",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 10,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747276701368331",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 11,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747277234180116",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 12,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747278462980256",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 13,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747286491005029",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 14,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747287174418432",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 15,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747287690313778",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 16,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747288151691314",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 17,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747288554602506",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 18,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747288969580715",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 19,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747289653383349&att=1533747289343000697",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 20,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747304396488794",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 21,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747305193144420",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 22,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747305621094462",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 23,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747305994522735",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 24,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747306405302414",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 25,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747306824990782",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 26,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747307319791747",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 27,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747307701600387",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 28,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747308074897408",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 29,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747308896849951&att=1533747308556980324",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 30,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747320502620231&att=1533747318686351521",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 31,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747320502620231&att=1533747319198187662",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 32,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747320502620231&att=1533747319680536576",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 33,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533747196548219061&msg=1533747320502620231&att=1533747320313872454",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T07:03:55.917Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-heroina-e-obcecada-por-mim/31",
+      "nexusSlug": "a-heroina-e-obcecada-por-mim"
     }
   },
   "porManga": {
@@ -3337,14 +3526,14 @@
       "purgedCaps": 1
     },
     "obra-b58b5a3f": {
-      "totalCaps": 1,
-      "doneCaps": 1,
+      "totalCaps": 2,
+      "doneCaps": 2,
       "legibleCaps": 0,
-      "purgedCaps": 1
+      "purgedCaps": 2
     }
   },
   "origem": "github",
-  "total": 17,
+  "total": 18,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T07:54:04.704Z"
+  "atualizadoEm": "2026-08-03T08:04:19.987Z"
 }
