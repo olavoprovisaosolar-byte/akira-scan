@@ -4734,6 +4734,50 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-heroina-e-obcecada-por-mim/22",
       "nexusSlug": "a-heroina-e-obcecada-por-mim"
+    },
+    "obra-ea94a6a7/cap-4cc297b7-59": {
+      "mangaId": "obra-ea94a6a7",
+      "capId": "cap-4cc297b7-59",
+      "numero": "59",
+      "titulo": "Capítulo 59",
+      "tituloManga": "A Morte é o Único Fim Para a Vilã",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "discord-cdn",
+      "total": 5,
+      "uploaded": 5,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533961621825654854&msg=1533961679346339954&att=1533961676284493984",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 1,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533961621825654854&msg=1533961679346339954&att=1533961677694046428",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 2,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533961621825654854&msg=1533961679346339954&att=1533961678314541226",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 3,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533961621825654854&msg=1533961679346339954&att=1533961678813659256",
+          "origem": "discord-cdn"
+        },
+        {
+          "index": 4,
+          "url": "https://akira-scan.pages.dev/api/discord-img?ch=1533961621825654854&msg=1533961679346339954&att=1533961679380156497",
+          "origem": "discord-cdn"
+        }
+      ],
+      "hostedAt": "2026-08-03T21:15:43.735Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-morte-e-o-unico-fim-para-a-vila/59",
+      "nexusSlug": "a-morte-e-o-unico-fim-para-a-vila"
     }
   },
   "porManga": {
@@ -4780,10 +4824,10 @@
       "purgedCaps": 3
     },
     "obra-ea94a6a7": {
-      "totalCaps": 2,
-      "doneCaps": 2,
+      "totalCaps": 3,
+      "doneCaps": 3,
       "legibleCaps": 0,
-      "purgedCaps": 2
+      "purgedCaps": 3
     },
     "obra-816fce06": {
       "totalCaps": 2,
@@ -4823,7 +4867,7 @@
     }
   },
   "origem": "github",
-  "total": 30,
+  "total": 31,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T22:06:34.738Z"
+  "atualizadoEm": "2026-08-03T22:16:06.619Z"
 }
