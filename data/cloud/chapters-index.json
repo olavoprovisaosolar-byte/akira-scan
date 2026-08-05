@@ -6316,6 +6316,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/78",
       "nexusSlug": "1-segundo"
+    },
+    "obra-dbbabf0f/cap-e620a77c-524.5": {
+      "mangaId": "obra-dbbabf0f",
+      "capId": "cap-e620a77c-524.5",
+      "numero": "524.5",
+      "titulo": "Capítulo 524.5",
+      "tituloManga": "Contos de Demônios e Deuses",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/ukyu7u.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/wfo27w.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/ckeon3.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/qx7n7x.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/h3mx1f.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/d9g2i3.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/zo3hdi.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/2mat5n.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/4fvlbd.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/iueis4.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-05T21:45:05.186Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/524.5",
+      "nexusSlug": "contos-de-demonios-e-deuses"
     }
   },
   "porManga": {
@@ -6426,10 +6495,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-dbbabf0f": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 38,
+  "total": 39,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-03T23:39:48.205Z"
+  "atualizadoEm": "2026-08-05T22:45:51.120Z"
 }
