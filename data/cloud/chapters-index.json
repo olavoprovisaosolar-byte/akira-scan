@@ -6484,6 +6484,285 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/60",
       "nexusSlug": "de-volta-para-chanbi"
+    },
+    "obra-71339843/cap-d537ada0-218": {
+      "mangaId": "obra-71339843",
+      "capId": "cap-d537ada0-218",
+      "numero": "218",
+      "titulo": "Capítulo 218",
+      "tituloManga": "Essência da Selva",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 52,
+      "uploaded": 52,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/6vy3f3.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/0hsuvr.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/j87lpq.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/s4y98r.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/nde4pn.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/v6w01x.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/46lk1x.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/ifu6tn.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/henb8h.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/63jw9g.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://litter.catbox.moe/6qc2yz.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://litter.catbox.moe/lgttmi.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://litter.catbox.moe/k5l289.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://litter.catbox.moe/au3qny.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://litter.catbox.moe/slq1d6.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://litter.catbox.moe/ci2akr.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://litter.catbox.moe/uusqn1.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://litter.catbox.moe/dc5t9o.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://litter.catbox.moe/9a1auu.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://litter.catbox.moe/fbmlgs.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://litter.catbox.moe/jfggm1.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://litter.catbox.moe/6zzuoz.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://litter.catbox.moe/4t44aw.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://litter.catbox.moe/vxdecl.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://litter.catbox.moe/pewelx.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://litter.catbox.moe/sm7m1w.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://litter.catbox.moe/am92ln.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://litter.catbox.moe/4gep64.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://litter.catbox.moe/fay77j.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://litter.catbox.moe/dzn9ti.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://litter.catbox.moe/2m0bza.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://litter.catbox.moe/fatmm0.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://litter.catbox.moe/rtximh.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://litter.catbox.moe/g3x6gg.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://litter.catbox.moe/tuaev9.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://litter.catbox.moe/xr14er.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 36,
+          "url": "https://litter.catbox.moe/3p0f6v.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 37,
+          "url": "https://litter.catbox.moe/w9xycy.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 38,
+          "url": "https://litter.catbox.moe/vdi13a.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 39,
+          "url": "https://litter.catbox.moe/ufzpyj.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 40,
+          "url": "https://litter.catbox.moe/gtftyp.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 41,
+          "url": "https://litter.catbox.moe/8c9wkh.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 42,
+          "url": "https://litter.catbox.moe/nhimd1.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 43,
+          "url": "https://litter.catbox.moe/ehib1c.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 44,
+          "url": "https://litter.catbox.moe/5vcqyl.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 45,
+          "url": "https://litter.catbox.moe/jis8nd.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 46,
+          "url": "https://litter.catbox.moe/n7py4x.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 47,
+          "url": "https://litter.catbox.moe/7oexob.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 48,
+          "url": "https://litter.catbox.moe/mosdpw.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 49,
+          "url": "https://litter.catbox.moe/dzfe15.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 50,
+          "url": "https://litter.catbox.moe/5c5k1i.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 51,
+          "url": "https://litter.catbox.moe/btjow1.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-06T08:22:56.441Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/essencia-da-selva/218",
+      "nexusSlug": "essencia-da-selva"
     }
   },
   "porManga": {
@@ -6606,10 +6885,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-71339843": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 40,
+  "total": 41,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-06T08:19:27.764Z"
+  "atualizadoEm": "2026-08-06T09:23:23.317Z"
 }
