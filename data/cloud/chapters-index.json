@@ -6385,6 +6385,105 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/524.5",
       "nexusSlug": "contos-de-demonios-e-deuses"
+    },
+    "obra-b059346e/cap-3f006a52-60": {
+      "mangaId": "obra-b059346e",
+      "capId": "cap-3f006a52-60",
+      "numero": "60",
+      "titulo": "Capítulo 60",
+      "tituloManga": "De Volta para Chanbi",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 16,
+      "uploaded": 16,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/968sk3.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/s9bff2.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/udrgxb.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/v2xyj7.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/y8saps.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/kgqqrl.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/61ys3d.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/4n3pec.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/n009pi.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/j0ad8j.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://litter.catbox.moe/wwzjni.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://litter.catbox.moe/zm5bv4.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://litter.catbox.moe/1k8rzh.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://litter.catbox.moe/kl0fd6.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://litter.catbox.moe/y485ke.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://litter.catbox.moe/gjy2c8.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-06T07:18:58.492Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/60",
+      "nexusSlug": "de-volta-para-chanbi"
     }
   },
   "porManga": {
@@ -6501,10 +6600,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-b059346e": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 39,
+  "total": 40,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-05T22:45:51.120Z"
+  "atualizadoEm": "2026-08-06T08:19:27.764Z"
 }
