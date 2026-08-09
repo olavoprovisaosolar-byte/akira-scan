@@ -9028,38 +9028,38 @@
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
-      "hosting": "imgbb",
+      "hosting": "catbox",
       "total": 5,
       "uploaded": 5,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://i.ibb.co/bgDg4DZP/001.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4k7RSe.jpg",
+          "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://i.ibb.co/rfMNsLvv/002.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4k7YAb.jpg",
+          "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://i.ibb.co/93syWjBn/003.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4k71VV.jpg",
+          "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://i.ibb.co/h11pbQmq/004.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4k7MKP.jpg",
+          "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://i.ibb.co/spDkJsWR/005.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4k7hHg.jpg",
+          "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-09T05:21:02.334Z",
+      "hostedAt": "2026-08-09T23:05:59.595Z",
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/25",
       "nexusSlug": "1-segundo"
@@ -10046,350 +10046,6 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/23",
       "nexusSlug": "1-segundo"
-    },
-    "obra-5b18e8b5/cap-da70ed99-24": {
-      "mangaId": "obra-5b18e8b5",
-      "capId": "cap-da70ed99-24",
-      "numero": "24",
-      "titulo": "Capítulo 24",
-      "tituloManga": "1 Segundo",
-      "done": true,
-      "origem": "nexustoons-bot",
-      "hosting": "catbox",
-      "total": 65,
-      "uploaded": 65,
-      "localPurged": true,
-      "pages": [
-        {
-          "index": 0,
-          "url": "https://iili.io/C4kA6Rj.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 1,
-          "url": "https://iili.io/C4kAPOx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 2,
-          "url": "https://iili.io/C4kALxV.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 3,
-          "url": "https://iili.io/C4kAZiP.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 4,
-          "url": "https://iili.io/C4kADf1.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 5,
-          "url": "https://iili.io/C4kAb0F.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 6,
-          "url": "https://iili.io/C4kAmUg.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 7,
-          "url": "https://iili.io/C4kR95J.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 8,
-          "url": "https://iili.io/C4kRHOv.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 9,
-          "url": "https://iili.io/C4kRfft.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 10,
-          "url": "https://iili.io/C4kRq0X.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 11,
-          "url": "https://iili.io/C4kRxef.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 12,
-          "url": "https://iili.io/C4kR5q7.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 13,
-          "url": "https://iili.io/C4kR719.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 14,
-          "url": "https://iili.io/C4kRl5b.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 15,
-          "url": "https://iili.io/C4kR1mx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 16,
-          "url": "https://iili.io/C4kRGzQ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 17,
-          "url": "https://iili.io/C4kRVLB.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 18,
-          "url": "https://iili.io/C4kRjrF.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 19,
-          "url": "https://iili.io/C4kR8IR.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 20,
-          "url": "https://iili.io/C4kR6rX.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 21,
-          "url": "https://iili.io/C4kRQpf.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 22,
-          "url": "https://iili.io/C4kRbQ2.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 23,
-          "url": "https://iili.io/C4k5J2e.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 24,
-          "url": "https://iili.io/C4k5dYu.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 25,
-          "url": "https://iili.io/C4k52kb.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 26,
-          "url": "https://iili.io/C4k53pj.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 27,
-          "url": "https://iili.io/C4k5KTx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 28,
-          "url": "https://iili.io/C4k5fhQ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 29,
-          "url": "https://iili.io/C4k5CCB.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 30,
-          "url": "https://iili.io/C4k5nEP.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 31,
-          "url": "https://iili.io/C4k5o41.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 32,
-          "url": "https://iili.io/C4k5z3F.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 33,
-          "url": "https://iili.io/C4k5uyJ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 34,
-          "url": "https://iili.io/C4k57Qp.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 35,
-          "url": "https://iili.io/C4k5aCN.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 36,
-          "url": "https://iili.io/C4k5cGI.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 37,
-          "url": "https://iili.io/C4k5l4t.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 38,
-          "url": "https://iili.io/C4k5Gvs.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 39,
-          "url": "https://iili.io/C4k5Wuf.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 40,
-          "url": "https://iili.io/C4k5Xj4.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 41,
-          "url": "https://iili.io/C4k5hZl.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 42,
-          "url": "https://iili.io/C4k5NGS.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 43,
-          "url": "https://iili.io/C4k5kF9.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 44,
-          "url": "https://iili.io/C4k5vae.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 45,
-          "url": "https://iili.io/C4k588u.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 46,
-          "url": "https://iili.io/C4k5Syb.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 47,
-          "url": "https://iili.io/C4k5rwx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 48,
-          "url": "https://iili.io/C4k54ZQ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 49,
-          "url": "https://iili.io/C4k5s6P.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 50,
-          "url": "https://iili.io/C4k5QF1.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 51,
-          "url": "https://iili.io/C4k5ZcF.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 52,
-          "url": "https://iili.io/C4k5t8g.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 53,
-          "url": "https://iili.io/C4k5mAJ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 54,
-          "url": "https://iili.io/C4k5pwv.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 55,
-          "url": "https://iili.io/C4k5ytR.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 56,
-          "url": "https://iili.io/C4k7dPI.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 57,
-          "url": "https://iili.io/C4k73Ft.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 58,
-          "url": "https://iili.io/C4k7FcX.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 59,
-          "url": "https://iili.io/C4k7KSn.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 60,
-          "url": "https://iili.io/C4k7q9s.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 61,
-          "url": "https://iili.io/C4k7nt4.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 62,
-          "url": "https://iili.io/C4k7xol.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 63,
-          "url": "https://iili.io/C4k7IPS.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 64,
-          "url": "https://iili.io/C4k7uK7.jpg",
-          "origem": "catbox"
-        }
-      ],
-      "hostedAt": "2026-08-09T23:05:38.080Z",
-      "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/24",
-      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -10520,14 +10176,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 18,
-      "doneCaps": 18,
-      "legibleCaps": 18,
-      "purgedCaps": 18
+      "totalCaps": 17,
+      "doneCaps": 17,
+      "legibleCaps": 17,
+      "purgedCaps": 17
     }
   },
   "origem": "github",
-  "total": 59,
+  "total": 58,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:05:21.324Z"
+  "atualizadoEm": "2026-08-09T23:05:43.017Z"
 }
