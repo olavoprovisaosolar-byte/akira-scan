@@ -12728,6 +12728,70 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-espadachim-de-rank-baixo/16",
       "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo"
+    },
+    "obra-0ca641d6/cap-84b9351d-21": {
+      "mangaId": "obra-0ca641d6",
+      "capId": "cap-84b9351d-21",
+      "numero": "21",
+      "titulo": "Capítulo 21",
+      "tituloManga": "A Ascensão do Imperador da Espada de Namgung",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 9,
+      "uploaded": 9,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48J1xj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48JcOu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48JaRe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48JlDb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48dodP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48dAhJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48dVhG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48dx71.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48dO2S.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:54:56.000Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-imperador-da-espada-de-namgung/21",
+      "nexusSlug": "a-ascensao-do-imperador-da-espada-de-namgung"
     }
   },
   "porManga": {
@@ -12810,10 +12874,10 @@
       "purgedCaps": 1
     },
     "obra-0ca641d6": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-f249bd0f": {
       "totalCaps": 1,
@@ -12865,7 +12929,7 @@
     }
   },
   "origem": "github",
-  "total": 66,
+  "total": 67,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:51:44.015Z"
+  "atualizadoEm": "2026-08-09T23:54:39.313Z"
 }
