@@ -9669,6 +9669,65 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/0",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-adb30829-01": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-adb30829-01",
+      "numero": "1",
+      "titulo": "Capítulo 1",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 8,
+      "uploaded": 8,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4eSoUF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4eSTOJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4eSRxR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4eS7iN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4eSafI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4eSlUX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4eSERs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4eShs2.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T22:36:00.636Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/1",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -9799,14 +9858,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 14,
-      "doneCaps": 14,
-      "legibleCaps": 14,
-      "purgedCaps": 14
+      "totalCaps": 15,
+      "doneCaps": 15,
+      "legibleCaps": 15,
+      "purgedCaps": 15
     }
   },
   "origem": "github",
-  "total": 55,
+  "total": 56,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T22:35:13.500Z"
+  "atualizadoEm": "2026-08-09T22:35:44.669Z"
 }
