@@ -12574,6 +12574,160 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-ascensao-da-cobra-imortal/98",
       "nexusSlug": "a-ascensao-da-cobra-imortal"
+    },
+    "obra-fefcaf38/cap-d2e44f86-16": {
+      "mangaId": "obra-fefcaf38",
+      "capId": "cap-d2e44f86-16",
+      "numero": "16",
+      "titulo": "Capítulo 16",
+      "tituloManga": "A Ascensão do Espadachim de Rank Baixo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 27,
+      "uploaded": 27,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48H8c7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48HSS9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48HeP2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48HvFS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48Hiox.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48H4wb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48HrAu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48H6tj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48HZKB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48HLPV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48HsMQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48HtcP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48HpAg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48HyNa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48HmHF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C48HDS1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C48J9DJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C48JJov.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C48J2Pp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C48JdVR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C48JBHX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C48JFKN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C48JfSt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C48JKlI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C48JoDG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C48Jzxf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C48JnNs.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:52:00.504Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-espadachim-de-rank-baixo/16",
+      "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo"
     }
   },
   "porManga": {
@@ -12608,10 +12762,10 @@
       "purgedCaps": 4
     },
     "obra-fefcaf38": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-b58b5a3f": {
       "totalCaps": 3,
@@ -12711,7 +12865,7 @@
     }
   },
   "origem": "github",
-  "total": 65,
+  "total": 66,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:51:10.439Z"
+  "atualizadoEm": "2026-08-09T23:51:44.015Z"
 }
