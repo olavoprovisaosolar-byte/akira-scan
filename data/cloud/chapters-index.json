@@ -12729,74 +12729,194 @@
       "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-espadachim-de-rank-baixo/16",
       "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo"
     },
-    "obra-6955dd77/cap-0fe5de37-48": {
-      "mangaId": "obra-6955dd77",
-      "capId": "cap-0fe5de37-48",
-      "numero": "48",
-      "titulo": "Capítulo 48",
-      "tituloManga": "A Espada Suprema do Culto Demoníaco",
+    "obra-bb334ef5/cap-cf33d5e0-23": {
+      "mangaId": "obra-bb334ef5",
+      "capId": "cap-cf33d5e0-23",
+      "numero": "23",
+      "titulo": "Capítulo 23",
+      "tituloManga": "A Esposa Que Esperou no Campo de Trigo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 10,
-      "uploaded": 10,
+      "total": 34,
+      "uploaded": 34,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C482rAX.jpg",
+          "url": "https://iili.io/C483nOF.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C482tl2.jpg",
+          "url": "https://iili.io/C483fUB.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C482sVf.jpg",
+          "url": "https://iili.io/C483FKQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4824Nn.jpg",
+          "url": "https://iili.io/C483IWJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C482g9t.jpg",
+          "url": "https://iili.io/C483KlV.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C482ZKl.jpg",
+          "url": "https://iili.io/C483CR1.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C482LP4.jpg",
+          "url": "https://iili.io/C483zxa.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4826ts.jpg",
+          "url": "https://iili.io/C4832ix.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C482pR9.jpg",
+          "url": "https://iili.io/C4835UN.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C482yNe.jpg",
+          "url": "https://iili.io/C4831xs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C483cOX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C483EWG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C483AfR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C483Rlp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C483aRt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C483YJI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C483Xg2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C483Ne9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C483jJS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C483Vf4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C483W0l.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C483w57.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C483kzu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C483Gsf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C483ZXa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C483Qzg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C483g0Q.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C4836dB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C483vWb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C4838sj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C483Uqx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C483P5P.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C483tLJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C48FIp9.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-09T23:56:40.797Z",
+      "hostedAt": "2026-08-09T23:58:01.991Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-espada-suprema-do-culto-demoniaco/48",
-      "nexusSlug": "a-espada-suprema-do-culto-demoniaco"
+      "sourceUrl": "https://nexustoons.com/manga/a-esposa-que-esperou-no-campo-de-trigo/23",
+      "nexusSlug": "a-esposa-que-esperou-no-campo-de-trigo"
     }
   },
   "porManga": {
@@ -12867,10 +12987,10 @@
       "purgedCaps": 2
     },
     "obra-6955dd77": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     },
     "obra-e60e7957": {
       "totalCaps": 1,
@@ -12931,10 +13051,16 @@
       "doneCaps": 23,
       "legibleCaps": 23,
       "purgedCaps": 23
+    },
+    "obra-bb334ef5": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
   "total": 67,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:56:23.871Z"
+  "atualizadoEm": "2026-08-09T23:57:44.846Z"
 }
