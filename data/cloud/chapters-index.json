@@ -12917,6 +12917,95 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-esposa-que-esperou-no-campo-de-trigo/23",
       "nexusSlug": "a-esposa-que-esperou-no-campo-de-trigo"
+    },
+    "obra-69466adb/cap-595be1b2-09": {
+      "mangaId": "obra-69466adb",
+      "capId": "cap-595be1b2-09",
+      "numero": "9",
+      "titulo": "Capítulo 9",
+      "tituloManga": "A Garota do Go",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 14,
+      "uploaded": 14,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48FmZu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48FgQs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48K9Gj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48FyCb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48F6Gf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48FDu9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48Fbje.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48F4CG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48K38B.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48Kd3Q.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48KqwF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48KFyP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48K2aV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48KH6x.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:59:12.033Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-garota-do-go/9",
+      "nexusSlug": "a-garota-do-go"
     }
   },
   "porManga": {
@@ -13057,10 +13146,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-69466adb": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 67,
+  "total": 68,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:57:44.846Z"
+  "atualizadoEm": "2026-08-09T23:58:55.280Z"
 }
