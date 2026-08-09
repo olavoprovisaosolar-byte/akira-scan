@@ -12817,6 +12817,100 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-garota-do-go/42",
       "nexusSlug": "a-garota-do-go"
+    },
+    "obra-69466adb/cap-3578ddd6-39": {
+      "mangaId": "obra-69466adb",
+      "capId": "cap-3578ddd6-39",
+      "numero": "39",
+      "titulo": "Capítulo 39",
+      "tituloManga": "A Garota do Go",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 15,
+      "uploaded": 15,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48KIFR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48KoMJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48K5ut.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48Kx6v.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48Ku8N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48fCRS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48KR9I.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48Knna.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48fIWu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48fAfj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48fTib.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48fEWg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48fW0v.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48f5UQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48fR0x.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:59:59.633Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-garota-do-go/39",
+      "nexusSlug": "a-garota-do-go"
     }
   },
   "porManga": {
@@ -12953,14 +13047,14 @@
       "purgedCaps": 23
     },
     "obra-69466adb": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     }
   },
   "origem": "github",
-  "total": 67,
+  "total": 68,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:59:16.398Z"
+  "atualizadoEm": "2026-08-09T23:59:45.225Z"
 }
