@@ -8488,11 +8488,11 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/12",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-91e9e90d-16": {
+    "obra-5b18e8b5/cap-503d850d-17": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-91e9e90d-16",
-      "numero": "16",
-      "titulo": "Capítulo 16",
+      "capId": "cap-503d850d-17",
+      "numero": "17",
+      "titulo": "Capítulo 17",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -8503,43 +8503,43 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://i.ibb.co/WvHhx3kc/001.jpg",
+          "url": "https://i.ibb.co/Nn3h8NR6/001.jpg",
           "origem": "imgbb"
         },
         {
           "index": 1,
-          "url": "https://i.ibb.co/spKNqWxj/002.jpg",
+          "url": "https://i.ibb.co/Zzwx3Wy0/002.jpg",
           "origem": "imgbb"
         },
         {
           "index": 2,
-          "url": "https://i.ibb.co/fdckcfYw/003.jpg",
+          "url": "https://i.ibb.co/0RmHp4p4/003.jpg",
           "origem": "imgbb"
         },
         {
           "index": 3,
-          "url": "https://i.ibb.co/9HfKNJxP/004.jpg",
+          "url": "https://i.ibb.co/DgspxFcD/004.jpg",
           "origem": "imgbb"
         },
         {
           "index": 4,
-          "url": "https://i.ibb.co/TM2kGVq5/005.jpg",
+          "url": "https://i.ibb.co/mVbW2Hqt/005.jpg",
           "origem": "imgbb"
         },
         {
           "index": 5,
-          "url": "https://i.ibb.co/7cQjCCx/006.jpg",
+          "url": "https://i.ibb.co/mVh0jH6c/006.jpg",
           "origem": "imgbb"
         },
         {
           "index": 6,
-          "url": "https://i.ibb.co/Ps741x0z/007.jpg",
+          "url": "https://i.ibb.co/DP7wfj77/007.jpg",
           "origem": "imgbb"
         }
       ],
-      "hostedAt": "2026-08-09T04:30:20.450Z",
+      "hostedAt": "2026-08-09T04:31:54.564Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/16",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/17",
       "nexusSlug": "1-segundo"
     }
   },
@@ -8680,5 +8680,5 @@
   "origem": "github",
   "total": 48,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T05:31:48.942Z"
+  "atualizadoEm": "2026-08-09T05:35:46.274Z"
 }
