@@ -9107,6 +9107,55 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/27",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-eff48a71-26": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-eff48a71-26",
+      "numero": "26",
+      "titulo": "Capítulo 26",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "imgbb",
+      "total": 6,
+      "uploaded": 6,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://i.ibb.co/7JBdRrzL/001.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 1,
+          "url": "https://i.ibb.co/N2N8sXZd/002.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 2,
+          "url": "https://i.ibb.co/8LVzzDXb/003.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 3,
+          "url": "https://i.ibb.co/ZzNnTvB2/004.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 4,
+          "url": "https://i.ibb.co/k65vDxVF/005.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 5,
+          "url": "https://i.ibb.co/HpCNY4p8/006.jpg",
+          "origem": "imgbb"
+        }
+      ],
+      "hostedAt": "2026-08-09T05:39:39.082Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/26",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -9237,14 +9286,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 11,
-      "doneCaps": 11,
+      "totalCaps": 12,
+      "doneCaps": 12,
       "legibleCaps": 0,
-      "purgedCaps": 11
+      "purgedCaps": 12
     }
   },
   "origem": "github",
-  "total": 52,
+  "total": 53,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T06:39:56.495Z"
+  "atualizadoEm": "2026-08-09T06:42:24.114Z"
 }
