@@ -9072,38 +9072,38 @@
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
-      "hosting": "imgbb",
+      "hosting": "catbox",
       "total": 5,
       "uploaded": 5,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://i.ibb.co/Xx0YxRdf/001.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4kYJbj.jpg",
+          "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://i.ibb.co/k2Kf7nwW/002.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4kY3WQ.jpg",
+          "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://i.ibb.co/wNg4V0p7/003.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4kYfqB.jpg",
+          "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://i.ibb.co/0VsYkx0n/004.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4kYq0P.jpg",
+          "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://i.ibb.co/BkJN7cP/005.jpg",
-          "origem": "imgbb"
+          "url": "https://iili.io/C4kYo5g.jpg",
+          "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-09T05:37:15.620Z",
+      "hostedAt": "2026-08-09T23:06:45.700Z",
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/27",
       "nexusSlug": "1-segundo"
@@ -9116,43 +9116,43 @@
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
-      "hosting": "catbox",
+      "hosting": "imgbb",
       "total": 6,
       "uploaded": 6,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4k7kVp.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/7JBdRrzL/001.jpg",
+          "origem": "imgbb"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4k7SfI.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/N2N8sXZd/002.jpg",
+          "origem": "imgbb"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4k74Jn.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/8LVzzDXb/003.jpg",
+          "origem": "imgbb"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4k7Lx4.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/ZzNnTvB2/004.jpg",
+          "origem": "imgbb"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4k7b07.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/k65vDxVF/005.jpg",
+          "origem": "imgbb"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4k7mg9.jpg",
-          "origem": "catbox"
+          "url": "https://i.ibb.co/HpCNY4p8/006.jpg",
+          "origem": "imgbb"
         }
       ],
-      "hostedAt": "2026-08-09T23:06:23.743Z",
+      "hostedAt": "2026-08-09T05:39:39.082Z",
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/26",
       "nexusSlug": "1-segundo"
@@ -10185,5 +10185,5 @@
   "origem": "github",
   "total": 58,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:06:06.930Z"
+  "atualizadoEm": "2026-08-09T23:06:28.388Z"
 }
