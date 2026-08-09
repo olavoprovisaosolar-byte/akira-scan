@@ -10002,6 +10002,50 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/10",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-c85a2561-20": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-c85a2561-20",
+      "numero": "20",
+      "titulo": "Capítulo 20",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 5,
+      "uploaded": 5,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4kIiDN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4kIQVt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4kIDfn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4kT9R4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4kT3W7.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:01:38.790Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/20",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -10132,14 +10176,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 16,
-      "doneCaps": 16,
-      "legibleCaps": 16,
-      "purgedCaps": 16
+      "totalCaps": 17,
+      "doneCaps": 17,
+      "legibleCaps": 17,
+      "purgedCaps": 17
     }
   },
   "origem": "github",
-  "total": 57,
+  "total": 58,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:01:00.947Z"
+  "atualizadoEm": "2026-08-09T23:01:22.310Z"
 }
