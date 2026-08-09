@@ -10051,6 +10051,225 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/13",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-496c7572-14": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-496c7572-14",
+      "numero": "14",
+      "titulo": "Capítulo 14",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 40,
+      "uploaded": 40,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4kBfyP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4kBCwF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4kBxna.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4kBuFR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4kBAap.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4kBR8N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4kBYut.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4kBawX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4kB0ns.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4kBWS2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4kBh9S.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C4kBjA7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C4kBwN9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C4kBNte.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C4kBvPj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C4kBgSV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C4kB4HB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C4kBPN1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C4kBiDF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C4kBDKv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C4kByHN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C4kC2xn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C4kCFiG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C4kCBUl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C4kCxO7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C4kCTxe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C4kC70x.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C4kCYUQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C4kC0OP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C4kC1b1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C4kCMWg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C4kCVsa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C4kCNJp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C4kCeeI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://iili.io/C4kCkbt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://iili.io/C4kC8zX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 36,
+          "url": "https://iili.io/C4kCSXn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 37,
+          "url": "https://iili.io/C4kCUss.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 38,
+          "url": "https://iili.io/C4kCidl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 39,
+          "url": "https://iili.io/C4kCs72.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T22:55:57.654Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/14",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -10181,14 +10400,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 17,
-      "doneCaps": 17,
-      "legibleCaps": 17,
-      "purgedCaps": 17
+      "totalCaps": 18,
+      "doneCaps": 18,
+      "legibleCaps": 18,
+      "purgedCaps": 18
     }
   },
   "origem": "github",
-  "total": 58,
+  "total": 59,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T22:54:24.455Z"
+  "atualizadoEm": "2026-08-09T22:55:40.767Z"
 }
