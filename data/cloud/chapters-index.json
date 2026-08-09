@@ -10003,11 +10003,11 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/10",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-c7f788a8-22": {
+    "obra-5b18e8b5/cap-ca4f0d9d-23": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-c7f788a8-22",
-      "numero": "22",
-      "titulo": "Capítulo 22",
+      "capId": "cap-ca4f0d9d-23",
+      "numero": "23",
+      "titulo": "Capítulo 23",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -10018,33 +10018,33 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4kAYAv.jpg",
+          "url": "https://iili.io/C4kAex2.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4kActp.jpg",
+          "url": "https://iili.io/C4kAkVS.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4kAEPt.jpg",
+          "url": "https://iili.io/C4kAvi7.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4kAMKX.jpg",
+          "url": "https://iili.io/C4kASf9.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4kAWSs.jpg",
+          "url": "https://iili.io/C4kAgUu.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-09T23:03:16.540Z",
+      "hostedAt": "2026-08-09T23:03:38.202Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/22",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/23",
       "nexusSlug": "1-segundo"
     }
   },
@@ -10185,5 +10185,5 @@
   "origem": "github",
   "total": 58,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:02:59.986Z"
+  "atualizadoEm": "2026-08-09T23:03:21.034Z"
 }
