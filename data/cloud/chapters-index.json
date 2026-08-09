@@ -11961,6 +11961,565 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/39",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-a3e62684-40": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-a3e62684-40",
+      "numero": "40",
+      "titulo": "Capítulo 40",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 108,
+      "uploaded": 108,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4kPrns.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4v1r8B.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4v1map.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4vEKPf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4vEzN9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4vERPj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4vEEDF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4vEwSp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4vE4ff.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4vELRS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4vEyfj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C4vGFb1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C4vGnqJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C4vG5zX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C4vG0g4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C4vGNqb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C4vGSkB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C4vGbpI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C4vMF24.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C4vMzCu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C4vM5vV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C4vMcj1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C4vMV3v.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C4vMNjt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C4vM86G.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C4vMiw7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C4vMmcx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C4vV3oF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C4vVBcv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C4vVItt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C4vVED7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C4vVhKb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C4vVvDP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C4kNrCP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://iili.io/C4vVsJR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://iili.io/C4vW90G.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 36,
+          "url": "https://iili.io/C4vWFbS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 37,
+          "url": "https://iili.io/C4vWnqu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 38,
+          "url": "https://iili.io/C4vWT5Q.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 39,
+          "url": "https://iili.io/C4vW5zP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 40,
+          "url": "https://iili.io/C4vWl1a.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 41,
+          "url": "https://iili.io/C4vWXII.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 42,
+          "url": "https://iili.io/C4vWv2f.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 43,
+          "url": "https://iili.io/C4vWrIS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 44,
+          "url": "https://iili.io/C4vWiBe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 45,
+          "url": "https://iili.io/C4vWZ2j.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 46,
+          "url": "https://iili.io/C4vWpTB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 47,
+          "url": "https://iili.io/C4vXF3J.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 48,
+          "url": "https://iili.io/C4vXoQt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 49,
+          "url": "https://iili.io/C4vX1n9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 50,
+          "url": "https://iili.io/C4vXkn1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 51,
+          "url": "https://iili.io/C4vXPup.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 52,
+          "url": "https://iili.io/C4vXpSf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 53,
+          "url": "https://iili.io/C4vhqKu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 54,
+          "url": "https://iili.io/C4vhoHx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 55,
+          "url": "https://iili.io/C4vh7Kg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 56,
+          "url": "https://iili.io/C4vhEDN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 57,
+          "url": "https://iili.io/C4vhWiX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 58,
+          "url": "https://iili.io/C4vheR4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 59,
+          "url": "https://iili.io/C4vhgs9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 60,
+          "url": "https://iili.io/C4vhsJj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 61,
+          "url": "https://iili.io/C4vhbWP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 62,
+          "url": "https://iili.io/C4vj90g.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 63,
+          "url": "https://iili.io/C4vjFbp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 64,
+          "url": "https://iili.io/C4vjnqX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 65,
+          "url": "https://iili.io/C4vjue4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 66,
+          "url": "https://iili.io/C4vjYL7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 67,
+          "url": "https://iili.io/C4vj0ru.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 68,
+          "url": "https://iili.io/C4vjG7j.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 69,
+          "url": "https://iili.io/C4vjNB1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 70,
+          "url": "https://iili.io/C4vjerg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 71,
+          "url": "https://iili.io/C4vjSkv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 72,
+          "url": "https://iili.io/C4vjrIp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 73,
+          "url": "https://iili.io/C4vj4hN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 74,
+          "url": "https://iili.io/C4vjpTl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 75,
+          "url": "https://iili.io/C4vwF3u.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 76,
+          "url": "https://iili.io/C4vwzCP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 77,
+          "url": "https://iili.io/C4vwA3g.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 78,
+          "url": "https://iili.io/C4vwlZN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 79,
+          "url": "https://iili.io/C4vwWas.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 80,
+          "url": "https://iili.io/C4vwOt2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 81,
+          "url": "https://iili.io/C4vw8P9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 82,
+          "url": "https://iili.io/C4vwr8b.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 83,
+          "url": "https://iili.io/C4vwtP1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 84,
+          "url": "https://iili.io/C4vwpSa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 85,
+          "url": "https://iili.io/C4vN3oN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 86,
+          "url": "https://iili.io/C4vNzN4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 87,
+          "url": "https://iili.io/C4vNYle.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 88,
+          "url": "https://iili.io/C4vNEDQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 89,
+          "url": "https://iili.io/C4vNj0F.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 90,
+          "url": "https://iili.io/C4vNe5J.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 91,
+          "url": "https://iili.io/C4vNgsI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 92,
+          "url": "https://iili.io/C4vNZb4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 93,
+          "url": "https://iili.io/C4vO919.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 94,
+          "url": "https://iili.io/C4vOnqP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 95,
+          "url": "https://iili.io/C4vOT7a.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 96,
+          "url": "https://iili.io/C4vOG7s.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 97,
+          "url": "https://iili.io/C4vOhhl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 98,
+          "url": "https://iili.io/C4vOe49.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 99,
+          "url": "https://iili.io/C4vOv2e.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 100,
+          "url": "https://iili.io/C4vO4hQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 101,
+          "url": "https://iili.io/C4vObyJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 102,
+          "url": "https://iili.io/C4veF3X.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 103,
+          "url": "https://iili.io/C4veRae.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 104,
+          "url": "https://iili.io/C4veG6P.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 105,
+          "url": "https://iili.io/C4veNwv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 106,
+          "url": "https://iili.io/C4ve8PI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 107,
+          "url": "https://iili.io/C4vqocQ.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:43:21.422Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/40",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -12091,14 +12650,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 22,
-      "doneCaps": 22,
-      "legibleCaps": 22,
-      "purgedCaps": 22
+      "totalCaps": 23,
+      "doneCaps": 23,
+      "legibleCaps": 23,
+      "purgedCaps": 23
     }
   },
   "origem": "github",
-  "total": 63,
+  "total": 64,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:39:20.311Z"
+  "atualizadoEm": "2026-08-09T23:43:04.786Z"
 }
