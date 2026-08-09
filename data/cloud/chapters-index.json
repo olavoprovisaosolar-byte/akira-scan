@@ -9063,6 +9063,50 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/22",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-ca4f0d9d-23": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-ca4f0d9d-23",
+      "numero": "23",
+      "titulo": "Capítulo 23",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "imgbb",
+      "total": 5,
+      "uploaded": 5,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://i.ibb.co/Hf7H4jBY/001.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 1,
+          "url": "https://i.ibb.co/Pv0g6Vdy/002.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 2,
+          "url": "https://i.ibb.co/bMws34pN/003.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 3,
+          "url": "https://i.ibb.co/LzWXgG4q/004.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 4,
+          "url": "https://i.ibb.co/6c6Q7tXN/005.jpg",
+          "origem": "imgbb"
+        }
+      ],
+      "hostedAt": "2026-08-09T05:18:12.151Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/23",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -9193,14 +9237,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 10,
-      "doneCaps": 10,
+      "totalCaps": 11,
+      "doneCaps": 11,
       "legibleCaps": 0,
-      "purgedCaps": 10
+      "purgedCaps": 11
     }
   },
   "origem": "github",
-  "total": 51,
+  "total": 52,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T06:18:35.233Z"
+  "atualizadoEm": "2026-08-09T06:19:16.191Z"
 }
