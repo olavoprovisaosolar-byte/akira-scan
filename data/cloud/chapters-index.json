@@ -10893,6 +10893,60 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/34",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-676b9e9b-35": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-676b9e9b-35",
+      "numero": "35",
+      "titulo": "Capítulo 35",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 7,
+      "uploaded": 7,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4k4Pxs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4k4Qf4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4k4bJS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4k4ybe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4k6KgV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4k6Ce1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4k6A1R.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-09T23:26:59.475Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/35",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -11023,14 +11077,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 20,
-      "doneCaps": 20,
-      "legibleCaps": 20,
-      "purgedCaps": 20
+      "totalCaps": 21,
+      "doneCaps": 21,
+      "legibleCaps": 21,
+      "purgedCaps": 21
     }
   },
   "origem": "github",
-  "total": 61,
+  "total": 62,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T23:26:11.855Z"
+  "atualizadoEm": "2026-08-09T23:26:44.428Z"
 }
