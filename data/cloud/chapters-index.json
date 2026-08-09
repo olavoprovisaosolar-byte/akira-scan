@@ -8074,6 +8074,195 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/9",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-a3a9d5a1-11": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-a3a9d5a1-11",
+      "numero": "11",
+      "titulo": "Capítulo 11",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "imgbb",
+      "total": 34,
+      "uploaded": 34,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://i.ibb.co/Cp1Grvf6/001.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 1,
+          "url": "https://i.ibb.co/p6sH8M9w/002.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 2,
+          "url": "https://i.ibb.co/qLPNxfY2/003.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 3,
+          "url": "https://i.ibb.co/GfVnSBKP/004.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 4,
+          "url": "https://i.ibb.co/SXchWBJn/005.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 5,
+          "url": "https://i.ibb.co/RGnPRrkC/006.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 6,
+          "url": "https://i.ibb.co/B5vVy4d9/007.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 7,
+          "url": "https://i.ibb.co/9kgg55nd/008.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 8,
+          "url": "https://i.ibb.co/CKNZppyd/009.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 9,
+          "url": "https://i.ibb.co/KxsXQ3zs/010.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 10,
+          "url": "https://i.ibb.co/zVjt6dxf/011.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 11,
+          "url": "https://i.ibb.co/jC4Xj3Z/012.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 12,
+          "url": "https://i.ibb.co/RGSJqVzk/013.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 13,
+          "url": "https://i.ibb.co/pvpZrrXx/014.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 14,
+          "url": "https://i.ibb.co/wFpGknQY/015.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 15,
+          "url": "https://i.ibb.co/1Gfhc6zz/016.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 16,
+          "url": "https://i.ibb.co/R4bVxdyJ/017.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 17,
+          "url": "https://i.ibb.co/NdRz6rQP/018.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 18,
+          "url": "https://i.ibb.co/0pw1sW2g/019.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 19,
+          "url": "https://i.ibb.co/gMqfGpD5/020.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 20,
+          "url": "https://i.ibb.co/S4D0Zf09/021.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 21,
+          "url": "https://i.ibb.co/Kx36hR3c/022.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 22,
+          "url": "https://i.ibb.co/RkC7V9dg/023.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 23,
+          "url": "https://i.ibb.co/fzcfKpBS/024.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 24,
+          "url": "https://i.ibb.co/DHztNcGL/025.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 25,
+          "url": "https://i.ibb.co/TDfd3z6d/026.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 26,
+          "url": "https://i.ibb.co/Z1m8KHFj/027.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 27,
+          "url": "https://i.ibb.co/MxgV3W5N/028.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 28,
+          "url": "https://i.ibb.co/chP37bjM/029.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 29,
+          "url": "https://i.ibb.co/B2RVvJH2/030.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 30,
+          "url": "https://i.ibb.co/bRLsqTTG/031.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 31,
+          "url": "https://i.ibb.co/B5qYgGwp/032.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 32,
+          "url": "https://i.ibb.co/H5pyPPL/033.jpg",
+          "origem": "imgbb"
+        },
+        {
+          "index": 33,
+          "url": "https://i.ibb.co/1tYVC28N/034.jpg",
+          "origem": "imgbb"
+        }
+      ],
+      "hostedAt": "2026-08-09T03:59:21.642Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/11",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -8204,14 +8393,14 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 4,
-      "doneCaps": 4,
+      "totalCaps": 5,
+      "doneCaps": 5,
       "legibleCaps": 0,
-      "purgedCaps": 4
+      "purgedCaps": 5
     }
   },
   "origem": "github",
-  "total": 45,
+  "total": 46,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-09T04:49:53.119Z"
+  "atualizadoEm": "2026-08-09T05:00:46.337Z"
 }
