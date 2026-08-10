@@ -14053,89 +14053,204 @@
       "sourceUrl": "https://nexustoons.com/manga/dominio-absoluto/104",
       "nexusSlug": "dominio-absoluto"
     },
-    "obra-8a4938e6/cap-e0ef5dff-54": {
-      "mangaId": "obra-8a4938e6",
-      "capId": "cap-e0ef5dff-54",
-      "numero": "54",
-      "titulo": "Capítulo 54",
-      "tituloManga": "Sequestrando Dragões",
+    "obra-f5659c25/cap-bd82f3c3-94": {
+      "mangaId": "obra-f5659c25",
+      "capId": "cap-bd82f3c3-94",
+      "numero": "94",
+      "titulo": "Capítulo 94",
+      "tituloManga": "Entomologista Do Clã Tang De Sichuan",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 13,
-      "uploaded": 13,
+      "total": 36,
+      "uploaded": 36,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4SFrib.jpg",
+          "url": "https://iili.io/C4Sf0ZX.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4SFtb1.jpg",
+          "url": "https://iili.io/C4Sfoj1.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4SF8b9.jpg",
+          "url": "https://iili.io/C4SfTGa.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4SFUxe.jpg",
+          "url": "https://iili.io/C4SfByB.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4SFvO7.jpg",
+          "url": "https://iili.io/C4Sfu6J.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4SF6fj.jpg",
+          "url": "https://iili.io/C4SfxZF.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C4SFgWu.jpg",
+          "url": "https://iili.io/C4SfICg.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4SKJgR.jpg",
+          "url": "https://iili.io/C4Sfljt.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C4SKFeI.jpg",
+          "url": "https://iili.io/C4SfXa4.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C4SKTdl.jpg",
+          "url": "https://iili.io/C4SfGGs.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C4SK35N.jpg",
+          "url": "https://iili.io/C4Sfet9.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C4SKKbt.jpg",
+          "url": "https://iili.io/C4Sfh8l.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C4SKzg4.jpg",
+          "url": "https://iili.io/C4SfWFf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C4Sfw92.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C4SfOw7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C4SfM6G.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C4Sfrcx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C4SfDPa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C4Sf48Q.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C4SfS6b.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C4Sf8Mu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C4Sfvne.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C4SfmKJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C4SfgFj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C4SqzR2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C4SqH9p.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C4SqClf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C4SqJAN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C4Sfpcv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C4SqBKG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C4SqKVn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C4SfySR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C4SqYKb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C4Sq5iu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://iili.io/C4SqRVe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://iili.io/C4Sqalj.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T01:00:07.090Z",
+      "hostedAt": "2026-08-10T01:01:50.731Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/sequestrando-dragoes/54",
-      "nexusSlug": "sequestrando-dragoes"
+      "sourceUrl": "https://nexustoons.com/manga/entomologista-do-cla-tang-de-sichuan/94",
+      "nexusSlug": "entomologista-do-cla-tang-de-sichuan"
     }
   },
   "porManga": {
@@ -14319,7 +14434,7 @@
       "legibleCaps": 1,
       "purgedCaps": 1
     },
-    "obra-8a4938e6": {
+    "obra-f5659c25": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -14329,5 +14444,5 @@
   "origem": "github",
   "total": 78,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:59:50.219Z"
+  "atualizadoEm": "2026-08-10T01:01:33.403Z"
 }
