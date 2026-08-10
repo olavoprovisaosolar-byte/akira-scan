@@ -13652,6 +13652,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/complexo-de-amigos-de-infancia/85",
       "nexusSlug": "complexo-de-amigos-de-infancia"
+    },
+    "obra-dbbabf0f/cap-9b00cabb-523": {
+      "mangaId": "obra-dbbabf0f",
+      "capId": "cap-9b00cabb-523",
+      "numero": "523",
+      "titulo": "Capítulo 523",
+      "tituloManga": "Contos de Demônios e Deuses",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48SN87.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48Svwu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48SboJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48Se99.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48SUnj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48Skue.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48S8Zb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48SgMx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48UJSI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48UTH7.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:37:51.992Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/523",
+      "nexusSlug": "contos-de-demonios-e-deuses"
     }
   },
   "porManga": {
@@ -13764,10 +13833,10 @@
       "purgedCaps": 1
     },
     "obra-dbbabf0f": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-b059346e": {
       "totalCaps": 1,
@@ -13819,7 +13888,7 @@
     }
   },
   "origem": "github",
-  "total": 72,
+  "total": 73,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:32:39.263Z"
+  "atualizadoEm": "2026-08-10T00:37:35.214Z"
 }
