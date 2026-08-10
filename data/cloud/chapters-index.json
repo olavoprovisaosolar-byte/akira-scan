@@ -15179,6 +15179,70 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/evolucao-infinita-comecando-do-zero/113",
       "nexusSlug": "evolucao-infinita-comecando-do-zero"
+    },
+    "obra-0ca641d6/cap-84b9351d-21": {
+      "mangaId": "obra-0ca641d6",
+      "capId": "cap-84b9351d-21",
+      "numero": "21",
+      "titulo": "Capítulo 21",
+      "tituloManga": "A Ascensão do Imperador da Espada de Namgung",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 9,
+      "uploaded": 9,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/kkeaoi.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/kp04ke.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/rwt9sp.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/2gd7qj.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/rhggc4.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/n8e7cy.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/7vm50k.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/9y5xnd.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/58umy8.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T20:14:10.647Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-imperador-da-espada-de-namgung/21",
+      "nexusSlug": "a-ascensao-do-imperador-da-espada-de-namgung"
     }
   },
   "porManga": {
@@ -15261,10 +15325,10 @@
       "purgedCaps": 1
     },
     "obra-0ca641d6": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-f249bd0f": {
       "totalCaps": 1,
@@ -15406,7 +15470,7 @@
     }
   },
   "origem": "github",
-  "total": 85,
+  "total": 86,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T21:01:16.467Z"
+  "atualizadoEm": "2026-08-10T21:14:53.837Z"
 }
