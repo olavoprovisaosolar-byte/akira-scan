@@ -13905,79 +13905,64 @@
       "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/104",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     },
-    "obra-892a6a1a/cap-ab266cf4-27": {
-      "mangaId": "obra-892a6a1a",
-      "capId": "cap-ab266cf4-27",
-      "numero": "27",
-      "titulo": "Capítulo 27",
-      "tituloManga": "Deus Marcial Pay-to-Win",
+    "obra-1df9bcbb/cap-dc224b66-52": {
+      "mangaId": "obra-1df9bcbb",
+      "capId": "cap-dc224b66-52",
+      "numero": "52",
+      "titulo": "Capítulo 52",
+      "tituloManga": "Dominação Absoluta no Nível 0",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 11,
-      "uploaded": 11,
+      "total": 8,
+      "uploaded": 8,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4SdFoJ.jpg",
+          "url": "https://iili.io/C4SdZOX.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4Sddwg.jpg",
+          "url": "https://iili.io/C4SdmWG.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4Sd2ta.jpg",
+          "url": "https://iili.io/C4SdiUN.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4SdfPR.jpg",
+          "url": "https://iili.io/C4SdQRt.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4SdH91.jpg",
+          "url": "https://iili.io/C4SdLJI.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4SdKMv.jpg",
+          "url": "https://iili.io/C4Sdbxs.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C4SdBFp.jpg",
+          "url": "https://iili.io/C4Sdtbn.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4SdJAF.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 8,
-          "url": "https://iili.io/C4Sdx9t.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 9,
-          "url": "https://iili.io/C4SdCcN.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 10,
-          "url": "https://iili.io/C4SdnSI.jpg",
+          "url": "https://iili.io/C4SdPlp.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:56:09.891Z",
+      "hostedAt": "2026-08-10T00:56:44.643Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/deus-marcial-pay-to-win/27",
-      "nexusSlug": "deus-marcial-pay-to-win"
+      "sourceUrl": "https://nexustoons.com/manga/dominacao-absoluta-no-nivel-0/52",
+      "nexusSlug": "dominacao-absoluta-no-nivel-0"
     }
   },
   "porManga": {
@@ -14155,7 +14140,7 @@
       "legibleCaps": 1,
       "purgedCaps": 1
     },
-    "obra-892a6a1a": {
+    "obra-1df9bcbb": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -14165,5 +14150,5 @@
   "origem": "github",
   "total": 76,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:55:52.352Z"
+  "atualizadoEm": "2026-08-10T00:56:27.189Z"
 }
