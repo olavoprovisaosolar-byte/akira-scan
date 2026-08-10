@@ -13905,64 +13905,153 @@
       "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/104",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     },
-    "obra-1df9bcbb/cap-dc224b66-52": {
-      "mangaId": "obra-1df9bcbb",
-      "capId": "cap-dc224b66-52",
-      "numero": "52",
-      "titulo": "Capítulo 52",
-      "tituloManga": "Dominação Absoluta no Nível 0",
+    "obra-84da2b37/cap-30ef945f-119": {
+      "mangaId": "obra-84da2b37",
+      "capId": "cap-30ef945f-119",
+      "numero": "119",
+      "titulo": "Capítulo 119",
+      "tituloManga": "O Deus da Espada do Juízo Final",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 8,
-      "uploaded": 8,
+      "total": 9,
+      "uploaded": 9,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4SdZOX.jpg",
+          "url": "https://iili.io/C4SHAen.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4SdmWG.jpg",
+          "url": "https://iili.io/C4SHofp.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4SdiUN.jpg",
+          "url": "https://iili.io/C4SHKba.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4SdQRt.jpg",
+          "url": "https://iili.io/C4SHx0N.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4SdLJI.jpg",
+          "url": "https://iili.io/C4SHqzJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4Sdbxs.jpg",
+          "url": "https://iili.io/C4SHRbs.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C4Sdtbn.jpg",
+          "url": "https://iili.io/C4SHTJt.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4SdPlp.jpg",
+          "url": "https://iili.io/C4SHu5X.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4SHYXf.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:56:44.643Z",
+      "hostedAt": "2026-08-10T00:54:31.935Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/dominacao-absoluta-no-nivel-0/52",
-      "nexusSlug": "dominacao-absoluta-no-nivel-0"
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/119",
+      "nexusSlug": "o-deus-da-espada-do-juizo-final"
+    },
+    "obra-8f595ef8/cap-5418bee9-104": {
+      "mangaId": "obra-8f595ef8",
+      "capId": "cap-5418bee9-104",
+      "numero": "104",
+      "titulo": "Capítulo 104",
+      "tituloManga": "Domínio Absoluto",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 13,
+      "uploaded": 13,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4S2GdN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4S2LEx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4S2WmX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4S2t2V.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4S2M7I.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4S201R.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4S2lqv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4S21gp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4S3jyP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4S3M6x.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4S348N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C4S2mp1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C4S3dCJ.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:58:31.812Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/dominio-absoluto/104",
+      "nexusSlug": "dominio-absoluto"
     }
   },
   "porManga": {
@@ -14135,12 +14224,12 @@
       "purgedCaps": 1
     },
     "obra-84da2b37": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
-    "obra-1df9bcbb": {
+    "obra-8f595ef8": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -14148,7 +14237,7 @@
     }
   },
   "origem": "github",
-  "total": 76,
+  "total": 77,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:56:27.189Z"
+  "atualizadoEm": "2026-08-10T00:58:14.698Z"
 }
