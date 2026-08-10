@@ -13280,6 +13280,105 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/aniquilacao-do-caminho-celestial/10",
       "nexusSlug": "aniquilacao-do-caminho-celestial"
+    },
+    "obra-a5bf530a/cap-cf51cb26-619": {
+      "mangaId": "obra-a5bf530a",
+      "capId": "cap-cf51cb26-619",
+      "numero": "619",
+      "titulo": "Capítulo 619",
+      "tituloManga": "Aparências",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 16,
+      "uploaded": 16,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C485eat.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C485UwG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C485Sus.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C485OFI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C485k8X.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48589n.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C485gtf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C485w6N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C485Lc7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C485sFS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C485PP2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C485QS9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C485t9e.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C485bwb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C485DAu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C4856Ml.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:13:37.206Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/aparencias/619",
+      "nexusSlug": "aparencias"
     }
   },
   "porManga": {
@@ -13426,10 +13525,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-a5bf530a": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 69,
+  "total": 70,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:08:41.325Z"
+  "atualizadoEm": "2026-08-10T00:13:21.235Z"
 }
