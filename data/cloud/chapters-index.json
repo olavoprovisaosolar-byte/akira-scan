@@ -15243,6 +15243,80 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-imperador-da-espada-de-namgung/21",
       "nexusSlug": "a-ascensao-do-imperador-da-espada-de-namgung"
+    },
+    "obra-795ae3ae/cap-f2a73d2f-66": {
+      "mangaId": "obra-795ae3ae",
+      "capId": "cap-f2a73d2f-66",
+      "numero": "66",
+      "titulo": "Capítulo 66",
+      "tituloManga": "Aventura de um Bárbaro em um Mundo de Fantasia",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 11,
+      "uploaded": 11,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/c250s6.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/q04i21.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/w3zouk.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/6uh0zu.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/u3ihyh.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/fd5rfk.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/znv52y.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/pme13i.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/hm839o.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/9q3get.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://litter.catbox.moe/9m5o4w.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T20:30:43.707Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/aventura-de-um-barbaro-em-um-mundo-de-fantasia/66",
+      "nexusSlug": "aventura-de-um-barbaro-em-um-mundo-de-fantasia"
     }
   },
   "porManga": {
@@ -15467,10 +15541,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-795ae3ae": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 86,
+  "total": 87,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T21:14:53.837Z"
+  "atualizadoEm": "2026-08-10T21:31:37.787Z"
 }
