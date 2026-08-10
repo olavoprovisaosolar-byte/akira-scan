@@ -13845,6 +13845,95 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/59",
       "nexusSlug": "de-volta-para-chanbi"
+    },
+    "obra-afed62cb/cap-ae130076-83": {
+      "mangaId": "obra-afed62cb",
+      "capId": "cap-ae130076-83",
+      "numero": "83",
+      "titulo": "Capítulo 83",
+      "tituloManga": "Despertando o Trovão Roxo no Início",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 14,
+      "uploaded": 14,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48DOq7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48DUej.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48DwsS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48Dhzl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48De19.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48DjX2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48DWb4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48Dgmx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48DQrF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48DsqP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48Dtdg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48DyIR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48DL11.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48Dmmv.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:49:40.941Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/despertando-o-trovao-roxo-no-inicio/83",
+      "nexusSlug": "despertando-o-trovao-roxo-no-inicio"
     }
   },
   "porManga": {
@@ -14015,10 +14104,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-afed62cb": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 74,
+  "total": 75,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:48:16.486Z"
+  "atualizadoEm": "2026-08-10T00:49:24.076Z"
 }
