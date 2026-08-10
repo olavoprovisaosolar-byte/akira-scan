@@ -12729,428 +12729,338 @@
       "sourceUrl": "https://nexustoons.com/manga/a-ascensao-do-espadachim-de-rank-baixo/16",
       "nexusSlug": "a-ascensao-do-espadachim-de-rank-baixo"
     },
-    "obra-bb334ef5/cap-cf33d5e0-23": {
-      "mangaId": "obra-bb334ef5",
-      "capId": "cap-cf33d5e0-23",
-      "numero": "23",
-      "titulo": "Capítulo 23",
-      "tituloManga": "A Esposa Que Esperou no Campo de Trigo",
+    "obra-69466adb/cap-8f4b2c8f-42": {
+      "mangaId": "obra-69466adb",
+      "capId": "cap-8f4b2c8f-42",
+      "numero": "42",
+      "titulo": "Capítulo 42",
+      "tituloManga": "A Garota do Go",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 34,
-      "uploaded": 34,
+      "total": 14,
+      "uploaded": 14,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C483nOF.jpg",
+          "url": "https://iili.io/C48K8cQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C483fUB.jpg",
+          "url": "https://iili.io/C48KXA7.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C483FKQ.jpg",
+          "url": "https://iili.io/C48K4N1.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C483IWJ.jpg",
+          "url": "https://iili.io/C48KW9S.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C483KlV.jpg",
+          "url": "https://iili.io/C48KhN9.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C483CR1.jpg",
+          "url": "https://iili.io/C48KvKx.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C483zxa.jpg",
+          "url": "https://iili.io/C48K0Pf.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4832ix.jpg",
+          "url": "https://iili.io/C48KGcl.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C4835UN.jpg",
+          "url": "https://iili.io/C48KyNt.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C4831xs.jpg",
+          "url": "https://iili.io/C48fKl4.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C483cOX.jpg",
+          "url": "https://iili.io/C48f9DX.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C483EWG.jpg",
+          "url": "https://iili.io/C48fJxn.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C483AfR.jpg",
+          "url": "https://iili.io/C48KpRI.jpg",
           "origem": "catbox"
         },
         {
           "index": 13,
-          "url": "https://iili.io/C483Rlp.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 14,
-          "url": "https://iili.io/C483aRt.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 15,
-          "url": "https://iili.io/C483YJI.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 16,
-          "url": "https://iili.io/C483Xg2.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 17,
-          "url": "https://iili.io/C483Ne9.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 18,
-          "url": "https://iili.io/C483jJS.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 19,
-          "url": "https://iili.io/C483Vf4.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 20,
-          "url": "https://iili.io/C483W0l.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 21,
-          "url": "https://iili.io/C483w57.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 22,
-          "url": "https://iili.io/C483kzu.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 23,
-          "url": "https://iili.io/C483Gsf.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 24,
-          "url": "https://iili.io/C483ZXa.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 25,
-          "url": "https://iili.io/C483Qzg.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 26,
-          "url": "https://iili.io/C483g0Q.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 27,
-          "url": "https://iili.io/C4836dB.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 28,
-          "url": "https://iili.io/C483vWb.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 29,
-          "url": "https://iili.io/C4838sj.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 30,
-          "url": "https://iili.io/C483Uqx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 31,
-          "url": "https://iili.io/C483P5P.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 32,
-          "url": "https://iili.io/C483tLJ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 33,
-          "url": "https://iili.io/C48FIp9.jpg",
+          "url": "https://iili.io/C48KmHN.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-09T23:58:01.991Z",
+      "hostedAt": "2026-08-09T23:59:32.359Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-esposa-que-esperou-no-campo-de-trigo/23",
-      "nexusSlug": "a-esposa-que-esperou-no-campo-de-trigo"
+      "sourceUrl": "https://nexustoons.com/manga/a-garota-do-go/42",
+      "nexusSlug": "a-garota-do-go"
     },
-    "obra-f249bd0f/cap-b9cf1993-34": {
-      "mangaId": "obra-f249bd0f",
-      "capId": "cap-b9cf1993-34",
-      "numero": "34",
-      "titulo": "Capítulo 34",
-      "tituloManga": "A princesa vai à escola",
+    "obra-bed97db2/cap-8c93765e-154": {
+      "mangaId": "obra-bed97db2",
+      "capId": "cap-8c93765e-154",
+      "numero": "154",
+      "titulo": "Capítulo 154",
+      "tituloManga": "A Superação do Nobre Vagabundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 43,
-      "uploaded": 43,
+      "total": 45,
+      "uploaded": 45,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48qynn.jpg",
+          "url": "https://iili.io/C48CvX1.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48qZyN.jpg",
+          "url": "https://iili.io/C48C8LF.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48qLaR.jpg",
+          "url": "https://iili.io/C48Cg1a.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48qDuI.jpg",
+          "url": "https://iili.io/C48COmB.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48qbjt.jpg",
+          "url": "https://iili.io/C48CUqg.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48BfuS.jpg",
+          "url": "https://iili.io/C48CrrJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48qQvp.jpg",
+          "url": "https://iili.io/C48C6dv.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48qmZX.jpg",
+          "url": "https://iili.io/C48CkzP.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48BBt9.jpg",
+          "url": "https://iili.io/C48CP7R.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48Bx6b.jpg",
+          "url": "https://iili.io/C48CsmN.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C48BoMu.jpg",
+          "url": "https://iili.io/C48Ciep.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C48BIFj.jpg",
+          "url": "https://iili.io/C48CtLX.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C48BlMg.jpg",
+          "url": "https://iili.io/C48CbBn.jpg",
           "origem": "catbox"
         },
         {
           "index": 13,
-          "url": "https://iili.io/C48BTcx.jpg",
+          "url": "https://iili.io/C48CQII.jpg",
           "origem": "catbox"
         },
         {
           "index": 14,
-          "url": "https://iili.io/C48BYt1.jpg",
+          "url": "https://iili.io/C48CZXt.jpg",
           "origem": "catbox"
         },
         {
           "index": 15,
-          "url": "https://iili.io/C48Bnne.jpg",
+          "url": "https://iili.io/C48Cm1s.jpg",
           "origem": "catbox"
         },
         {
           "index": 16,
-          "url": "https://iili.io/C48BMSR.jpg",
+          "url": "https://iili.io/C48nH74.jpg",
           "origem": "catbox"
         },
         {
           "index": 17,
-          "url": "https://iili.io/C48BW9p.jpg",
+          "url": "https://iili.io/C48nFh7.jpg",
           "origem": "catbox"
         },
         {
           "index": 18,
-          "url": "https://iili.io/C48BGcv.jpg",
+          "url": "https://iili.io/C48ndp2.jpg",
           "origem": "catbox"
         },
         {
           "index": 19,
-          "url": "https://iili.io/C48BOVn.jpg",
+          "url": "https://iili.io/C48nqBe.jpg",
           "origem": "catbox"
         },
         {
           "index": 20,
-          "url": "https://iili.io/C48BePs.jpg",
+          "url": "https://iili.io/C48nKQ9.jpg",
           "origem": "catbox"
         },
         {
           "index": 21,
-          "url": "https://iili.io/C48BEKJ.jpg",
+          "url": "https://iili.io/C48n92f.jpg",
           "origem": "catbox"
         },
         {
           "index": 22,
-          "url": "https://iili.io/C48B0Pa.jpg",
+          "url": "https://iili.io/C48n3IS.jpg",
           "origem": "catbox"
         },
         {
           "index": 23,
-          "url": "https://iili.io/C48BXAN.jpg",
+          "url": "https://iili.io/C48nJkl.jpg",
           "origem": "catbox"
         },
         {
           "index": 24,
-          "url": "https://iili.io/C48BLiu.jpg",
+          "url": "https://iili.io/C48nxYx.jpg",
           "origem": "catbox"
         },
         {
           "index": 25,
-          "url": "https://iili.io/C48BSS4.jpg",
+          "url": "https://iili.io/C48nzkQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 26,
-          "url": "https://iili.io/C48Bix9.jpg",
+          "url": "https://iili.io/C48nuTB.jpg",
           "origem": "catbox"
         },
         {
           "index": 27,
-          "url": "https://iili.io/C48B4NS.jpg",
+          "url": "https://iili.io/C48nAhP.jpg",
           "origem": "catbox"
         },
         {
           "index": 28,
-          "url": "https://iili.io/C48BrR2.jpg",
+          "url": "https://iili.io/C48nCrb.jpg",
           "origem": "catbox"
         },
         {
           "index": 29,
-          "url": "https://iili.io/C48B8lf.jpg",
+          "url": "https://iili.io/C48nIpV.jpg",
           "origem": "catbox"
         },
         {
           "index": 30,
-          "url": "https://iili.io/C48BgHl.jpg",
+          "url": "https://iili.io/C48no2j.jpg",
           "origem": "catbox"
         },
         {
           "index": 31,
-          "url": "https://iili.io/C48BvKG.jpg",
+          "url": "https://iili.io/C48nBEu.jpg",
           "origem": "catbox"
         },
         {
           "index": 32,
-          "url": "https://iili.io/C48CdWF.jpg",
+          "url": "https://iili.io/C48nl3J.jpg",
           "origem": "catbox"
         },
         {
           "index": 33,
-          "url": "https://iili.io/C48BDUx.jpg",
+          "url": "https://iili.io/C48n1vR.jpg",
           "origem": "catbox"
         },
         {
           "index": 34,
-          "url": "https://iili.io/C48BZKb.jpg",
+          "url": "https://iili.io/C48n0Yv.jpg",
           "origem": "catbox"
         },
         {
           "index": 35,
-          "url": "https://iili.io/C48Btlj.jpg",
+          "url": "https://iili.io/C48nEpp.jpg",
           "origem": "catbox"
         },
         {
           "index": 36,
-          "url": "https://iili.io/C48BmHQ.jpg",
+          "url": "https://iili.io/C48nRQ1.jpg",
           "origem": "catbox"
         },
         {
           "index": 37,
-          "url": "https://iili.io/C48CJx1.jpg",
+          "url": "https://iili.io/C48n7CF.jpg",
           "origem": "catbox"
         },
         {
           "index": 38,
-          "url": "https://iili.io/C48ByOB.jpg",
+          "url": "https://iili.io/C48na4a.jpg",
           "origem": "catbox"
         },
         {
           "index": 39,
-          "url": "https://iili.io/C48BpRV.jpg",
+          "url": "https://iili.io/C48nYEg.jpg",
           "origem": "catbox"
         },
         {
           "index": 40,
-          "url": "https://iili.io/C48C2ig.jpg",
+          "url": "https://iili.io/C48nWQt.jpg",
           "origem": "catbox"
         },
         {
           "index": 41,
-          "url": "https://iili.io/C48CfUv.jpg",
+          "url": "https://iili.io/C48nhCX.jpg",
           "origem": "catbox"
         },
         {
           "index": 42,
-          "url": "https://iili.io/C48CCRp.jpg",
+          "url": "https://iili.io/C48nVjI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 43,
+          "url": "https://iili.io/C48njGn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 44,
+          "url": "https://iili.io/C48nMTN.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:02:32.274Z",
+      "hostedAt": "2026-08-10T00:04:16.047Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-princesa-vai-a-escola/34",
-      "nexusSlug": "a-princesa-vai-a-escola"
+      "sourceUrl": "https://nexustoons.com/manga/a-superacao-do-nobre-vagabundo/154",
+      "nexusSlug": "a-superacao-do-nobre-vagabundo"
     }
   },
   "porManga": {
@@ -13215,10 +13125,10 @@
       "purgedCaps": 2
     },
     "obra-bed97db2": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 3,
+      "doneCaps": 3,
+      "legibleCaps": 3,
+      "purgedCaps": 3
     },
     "obra-6955dd77": {
       "totalCaps": 1,
@@ -13239,10 +13149,10 @@
       "purgedCaps": 1
     },
     "obra-f249bd0f": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     },
     "obra-f302fde3": {
       "totalCaps": 2,
@@ -13286,7 +13196,7 @@
       "legibleCaps": 23,
       "purgedCaps": 23
     },
-    "obra-bb334ef5": {
+    "obra-69466adb": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -13296,5 +13206,5 @@
   "origem": "github",
   "total": 68,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:02:15.041Z"
+  "atualizadoEm": "2026-08-10T00:03:59.408Z"
 }
