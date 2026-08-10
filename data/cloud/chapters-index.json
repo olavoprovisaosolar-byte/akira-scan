@@ -15107,6 +15107,150 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/eu-me-tornei-o-mentor-do-rei-demonio-mais-fraco/31",
       "nexusSlug": "eu-me-tornei-o-mentor-do-rei-demonio-mais-fraco"
+    },
+    "obra-5a30f5bc/cap-e77f35cb-47": {
+      "mangaId": "obra-5a30f5bc",
+      "capId": "cap-e77f35cb-47",
+      "numero": "47",
+      "titulo": "Capítulo 47",
+      "tituloManga": "Eu Me Tornei o Primeiro Príncipe Rebelde",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 25,
+      "uploaded": 25,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4Sy8fp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4SyeWv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4SyXJ1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4SyOzJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4SyjOg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4SyksR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4SyS0N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4Sywba.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4U90pn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4U9GhG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4U9w2S.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C4U9vTu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C4U9h42.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C4U9NY7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C4U9lkX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C4U9XEl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C4U9ZTg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C4U9mCv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C4U9tja.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C4U9iYP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C4U9P3B.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C4U9rEQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C4U944V.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C4U9DZJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C4UHJaI.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T01:25:56.541Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/eu-me-tornei-o-primeiro-principe-rebelde/47",
+      "nexusSlug": "eu-me-tornei-o-primeiro-principe-rebelde"
     }
   },
   "porManga": {
@@ -15313,10 +15457,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-5a30f5bc": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 82,
+  "total": 83,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T01:25:00.930Z"
+  "atualizadoEm": "2026-08-10T01:25:39.400Z"
 }
