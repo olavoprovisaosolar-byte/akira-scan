@@ -13484,12 +13484,12 @@
       "sourceUrl": "https://nexustoons.com/manga/cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce/105",
       "nexusSlug": "cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce"
     },
-    "obra-08f86d2b/cap-82ff9940-42": {
-      "mangaId": "obra-08f86d2b",
-      "capId": "cap-82ff9940-42",
-      "numero": "42",
-      "titulo": "Capítulo 42",
-      "tituloManga": "Começando com 13 Traços Ocultos",
+    "obra-9444fee7/cap-7dde79e4-47": {
+      "mangaId": "obra-9444fee7",
+      "capId": "cap-7dde79e4-47",
+      "numero": "47",
+      "titulo": "Capítulo 47",
+      "tituloManga": "Como Cuidar De Vilões Da Forma Certa",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
@@ -13499,89 +13499,89 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48EJI9.jpg",
+          "url": "https://iili.io/C48EtZF.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48EBdQ.jpg",
+          "url": "https://iili.io/C48EQTP.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48EK1j.jpg",
+          "url": "https://iili.io/C48EsyB.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48E2Lu.jpg",
+          "url": "https://iili.io/C48EmGa.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48EdXe.jpg",
+          "url": "https://iili.io/C48Gqnn.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48Efrx.jpg",
+          "url": "https://iili.io/C48EZj1.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48EC7V.jpg",
+          "url": "https://iili.io/C48Ep6J.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48EFqb.jpg",
+          "url": "https://iili.io/C48EbCg.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48EzI1.jpg",
+          "url": "https://iili.io/C48G7ne.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48EIhF.jpg",
+          "url": "https://iili.io/C48GDR2.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C48EY2R.jpg",
+          "url": "https://iili.io/C48GRt9.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C48EREJ.jpg",
+          "url": "https://iili.io/C48Gz8l.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C48EABa.jpg",
+          "url": "https://iili.io/C48GYMu.jpg",
           "origem": "catbox"
         },
         {
           "index": 13,
-          "url": "https://iili.io/C48ETLg.jpg",
+          "url": "https://iili.io/C48GT92.jpg",
           "origem": "catbox"
         },
         {
           "index": 14,
-          "url": "https://iili.io/C48E5rv.jpg",
+          "url": "https://iili.io/C48Ggtt.jpg",
           "origem": "catbox"
         },
         {
           "index": 15,
-          "url": "https://iili.io/C48EomP.jpg",
+          "url": "https://iili.io/C48GuuS.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:28:14.693Z",
+      "hostedAt": "2026-08-10T00:30:15.603Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/comecando-com-13-tracos-ocultos/42",
-      "nexusSlug": "comecando-com-13-tracos-ocultos"
+      "sourceUrl": "https://nexustoons.com/manga/como-cuidar-de-viloes-da-forma-certa/47",
+      "nexusSlug": "como-cuidar-de-viloes-da-forma-certa"
     }
   },
   "porManga": {
@@ -13741,7 +13741,7 @@
       "legibleCaps": 1,
       "purgedCaps": 1
     },
-    "obra-08f86d2b": {
+    "obra-9444fee7": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -13751,5 +13751,5 @@
   "origem": "github",
   "total": 72,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:27:57.932Z"
+  "atualizadoEm": "2026-08-10T00:29:58.267Z"
 }
