@@ -13968,6 +13968,70 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/119",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
+    },
+    "obra-84da2b37/cap-39fe430d-117": {
+      "mangaId": "obra-84da2b37",
+      "capId": "cap-39fe430d-117",
+      "numero": "117",
+      "titulo": "Capítulo 117",
+      "tituloManga": "O Deus da Espada do Juízo Final",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 9,
+      "uploaded": 9,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4SHOqQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4SHL1p.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4SH4Ia.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4SHgmg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4SHsBR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4SH8dP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4SH6hJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4SHUkF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4SHQrN.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:54:49.393Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/117",
+      "nexusSlug": "o-deus-da-espada-do-juizo-final"
     }
   },
   "porManga": {
@@ -14140,14 +14204,14 @@
       "purgedCaps": 1
     },
     "obra-84da2b37": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 3,
+      "doneCaps": 3,
+      "legibleCaps": 3,
+      "purgedCaps": 3
     }
   },
   "origem": "github",
-  "total": 76,
+  "total": 77,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:54:14.296Z"
+  "atualizadoEm": "2026-08-10T00:54:33.690Z"
 }
