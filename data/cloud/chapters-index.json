@@ -13062,169 +13062,89 @@
       "sourceUrl": "https://nexustoons.com/manga/a-superacao-do-nobre-vagabundo/154",
       "nexusSlug": "a-superacao-do-nobre-vagabundo"
     },
-    "obra-5befa48d/cap-ff4ec6c1-92": {
-      "mangaId": "obra-5befa48d",
-      "capId": "cap-ff4ec6c1-92",
-      "numero": "92",
-      "titulo": "Capítulo 92",
-      "tituloManga": "A Última Passagem",
+    "obra-a9c2e2c4/cap-81285b51-61": {
+      "mangaId": "obra-a9c2e2c4",
+      "capId": "cap-81285b51-61",
+      "numero": "61",
+      "titulo": "Capítulo 61",
+      "tituloManga": "A Vontade de Sobreviver de um Vilão",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 29,
-      "uploaded": 29,
+      "total": 13,
+      "uploaded": 13,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48xnOQ.jpg",
+          "url": "https://iili.io/C48zmt2.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48xC5x.jpg",
+          "url": "https://iili.io/C48I9M7.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48xTs1.jpg",
+          "url": "https://iili.io/C48IoMP.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48xP7j.jpg",
+          "url": "https://iili.io/C48IdFe.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48xzzB.jpg",
+          "url": "https://iili.io/C48I2cu.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48xIWP.jpg",
+          "url": "https://iili.io/C48I38b.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48xBJj.jpg",
+          "url": "https://iili.io/C48IHP9.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48xobV.jpg",
+          "url": "https://iili.io/C48zynS.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48xmEF.jpg",
+          "url": "https://iili.io/C48I5Av.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48zdpR.jpg",
+          "url": "https://iili.io/C48IRHJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C48xtLP.jpg",
+          "url": "https://iili.io/C48ITcg.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C48xZhB.jpg",
+          "url": "https://iili.io/C48IuSa.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C48xbB1.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 13,
-          "url": "https://iili.io/C48xQIV.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 14,
-          "url": "https://iili.io/C48z92a.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 15,
-          "url": "https://iili.io/C48xprg.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 16,
-          "url": "https://iili.io/C48zzvf.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 17,
-          "url": "https://iili.io/C48zqBt.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 18,
-          "url": "https://iili.io/C48zFhN.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 19,
-          "url": "https://iili.io/C48zKQI.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 20,
-          "url": "https://iili.io/C48zIp4.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 21,
-          "url": "https://iili.io/C48zo2s.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 22,
-          "url": "https://iili.io/C48zBEX.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 23,
-          "url": "https://iili.io/C48z3Ip.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 24,
-          "url": "https://iili.io/C48zEyx.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 25,
-          "url": "https://iili.io/C48zAj2.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 26,
-          "url": "https://iili.io/C48zRQS.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 27,
-          "url": "https://iili.io/C48zl3u.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 28,
-          "url": "https://iili.io/C48zMTQ.jpg",
+          "url": "https://iili.io/C48I7NR.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:06:10.208Z",
+      "hostedAt": "2026-08-10T00:07:31.414Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-ultima-passagem/92",
-      "nexusSlug": "a-ultima-passagem"
+      "sourceUrl": "https://nexustoons.com/manga/a-vontade-de-sobreviver-de-um-vilao/61",
+      "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao"
     }
   },
   "porManga": {
@@ -13325,10 +13245,10 @@
       "purgedCaps": 2
     },
     "obra-5befa48d": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     },
     "obra-acff825a": {
       "totalCaps": 1,
@@ -13365,10 +13285,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-a9c2e2c4": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
   "total": 69,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:05:52.776Z"
+  "atualizadoEm": "2026-08-10T00:07:14.264Z"
 }
