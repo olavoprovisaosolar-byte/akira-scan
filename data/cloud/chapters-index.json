@@ -13747,58 +13747,162 @@
       "sourceUrl": "https://nexustoons.com/manga/cronicas-da-faccao-demoniaca/183",
       "nexusSlug": "cronicas-da-faccao-demoniaca"
     },
-    "obra-84da2b37/cap-ecb78fce-100": {
-      "mangaId": "obra-84da2b37",
-      "capId": "cap-ecb78fce-100",
-      "numero": "100",
-      "titulo": "Capítulo 100",
-      "tituloManga": "O Deus da Espada do Juízo Final",
+    "obra-b059346e/cap-de5a93d9-59": {
+      "mangaId": "obra-b059346e",
+      "capId": "cap-de5a93d9-59",
+      "numero": "59",
+      "titulo": "Capítulo 59",
+      "tituloManga": "De Volta para Chanbi",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 7,
-      "uploaded": 7,
+      "total": 16,
+      "uploaded": 16,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48mvNj.jpg",
+          "url": "https://iili.io/C48t09j.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48mkAb.jpg",
+          "url": "https://iili.io/C48tWMP.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48mUoQ.jpg",
+          "url": "https://iili.io/C48tEwQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48mgVV.jpg",
+          "url": "https://iili.io/C48tVoB.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48m8Dx.jpg",
+          "url": "https://iili.io/C48teHJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48meHu.jpg",
+          "url": "https://iili.io/C48t1Ax.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48mNSe.jpg",
+          "url": "https://iili.io/C48tGtV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48tXP1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48tPln.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48tiSs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48t6KX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48tLHG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48trPt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48DHle.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48tUoN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C48tQRf.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:52:23.306Z",
+      "hostedAt": "2026-08-10T00:48:34.048Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/100",
+      "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/59",
+      "nexusSlug": "de-volta-para-chanbi"
+    },
+    "obra-84da2b37/cap-80c0ad6f-104": {
+      "mangaId": "obra-84da2b37",
+      "capId": "cap-80c0ad6f-104",
+      "numero": "104",
+      "titulo": "Capítulo 104",
+      "tituloManga": "O Deus da Espada do Juízo Final",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 8,
+      "uploaded": 8,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48mtDv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48mZOJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48pHlt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48mLHg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48p9fI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48mpiN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48mQRa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48miUF.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:52:35.157Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/104",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     }
   },
@@ -13918,10 +14022,10 @@
       "purgedCaps": 1
     },
     "obra-b059346e": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-71339843": {
       "totalCaps": 1,
@@ -13979,7 +14083,7 @@
     }
   },
   "origem": "github",
-  "total": 74,
+  "total": 75,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:52:05.959Z"
+  "atualizadoEm": "2026-08-10T00:52:18.594Z"
 }
