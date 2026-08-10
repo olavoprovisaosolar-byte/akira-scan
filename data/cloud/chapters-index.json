@@ -13846,11 +13846,11 @@
       "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/59",
       "nexusSlug": "de-volta-para-chanbi"
     },
-    "obra-84da2b37/cap-3303dc47-111": {
+    "obra-84da2b37/cap-80c0ad6f-104": {
       "mangaId": "obra-84da2b37",
-      "capId": "cap-3303dc47-111",
-      "numero": "111",
-      "titulo": "Capítulo 111",
+      "capId": "cap-80c0ad6f-104",
+      "numero": "104",
+      "titulo": "Capítulo 104",
       "tituloManga": "O Deus da Espada do Juízo Final",
       "done": true,
       "origem": "nexustoons-bot",
@@ -13861,48 +13861,107 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48y8GV.jpg",
+          "url": "https://iili.io/C48mtDv.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48y6yg.jpg",
+          "url": "https://iili.io/C48mZOJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48yS6B.jpg",
+          "url": "https://iili.io/C48pHlt.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48yLZv.jpg",
+          "url": "https://iili.io/C48mLHg.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48yhve.jpg",
+          "url": "https://iili.io/C48p9fI.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48yW37.jpg",
+          "url": "https://iili.io/C48mpiN.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48yljf.jpg",
+          "url": "https://iili.io/C48mQRa.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48yD6N.jpg",
+          "url": "https://iili.io/C48miUF.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:53:20.006Z",
+      "hostedAt": "2026-08-10T00:52:35.157Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/111",
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/104",
+      "nexusSlug": "o-deus-da-espada-do-juizo-final"
+    },
+    "obra-84da2b37/cap-2d4935a4-108": {
+      "mangaId": "obra-84da2b37",
+      "capId": "cap-2d4935a4-108",
+      "numero": "108",
+      "titulo": "Capítulo 108",
+      "tituloManga": "O Deus da Espada do Juízo Final",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 8,
+      "uploaded": 8,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48ycTG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48yIBp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48y7vn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4S9dwG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48yu4I.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48yR2t.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48y5YX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48yTEN.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:53:34.843Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/108",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     }
   },
@@ -14076,14 +14135,14 @@
       "purgedCaps": 1
     },
     "obra-84da2b37": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     }
   },
   "origem": "github",
-  "total": 75,
+  "total": 76,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:53:02.676Z"
+  "atualizadoEm": "2026-08-10T00:53:17.191Z"
 }
