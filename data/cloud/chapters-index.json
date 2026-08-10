@@ -13905,128 +13905,79 @@
       "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/104",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     },
-    "obra-84da2b37/cap-30ef945f-119": {
-      "mangaId": "obra-84da2b37",
-      "capId": "cap-30ef945f-119",
-      "numero": "119",
-      "titulo": "Capítulo 119",
-      "tituloManga": "O Deus da Espada do Juízo Final",
+    "obra-892a6a1a/cap-ab266cf4-27": {
+      "mangaId": "obra-892a6a1a",
+      "capId": "cap-ab266cf4-27",
+      "numero": "27",
+      "titulo": "Capítulo 27",
+      "tituloManga": "Deus Marcial Pay-to-Win",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 9,
-      "uploaded": 9,
+      "total": 11,
+      "uploaded": 11,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4SHAen.jpg",
+          "url": "https://iili.io/C4SdFoJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4SHofp.jpg",
+          "url": "https://iili.io/C4Sddwg.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4SHKba.jpg",
+          "url": "https://iili.io/C4Sd2ta.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4SHx0N.jpg",
+          "url": "https://iili.io/C4SdfPR.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4SHqzJ.jpg",
+          "url": "https://iili.io/C4SdH91.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4SHRbs.jpg",
+          "url": "https://iili.io/C4SdKMv.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C4SHTJt.jpg",
+          "url": "https://iili.io/C4SdBFp.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4SHu5X.jpg",
+          "url": "https://iili.io/C4SdJAF.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C4SHYXf.jpg",
+          "url": "https://iili.io/C4Sdx9t.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4SdCcN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4SdnSI.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:54:31.935Z",
+      "hostedAt": "2026-08-10T00:56:09.891Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/119",
-      "nexusSlug": "o-deus-da-espada-do-juizo-final"
-    },
-    "obra-84da2b37/cap-601677be-120": {
-      "mangaId": "obra-84da2b37",
-      "capId": "cap-601677be-120",
-      "numero": "120",
-      "titulo": "Capítulo 120",
-      "tituloManga": "O Deus da Espada do Juízo Final",
-      "done": true,
-      "origem": "nexustoons-bot",
-      "hosting": "catbox",
-      "total": 8,
-      "uploaded": 8,
-      "localPurged": true,
-      "pages": [
-        {
-          "index": 0,
-          "url": "https://iili.io/C4SJ7v1.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 1,
-          "url": "https://iili.io/C4SJYyF.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 2,
-          "url": "https://iili.io/C4SJECv.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 3,
-          "url": "https://iili.io/C4SJ5YP.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 4,
-          "url": "https://iili.io/C4SJlja.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 5,
-          "url": "https://iili.io/C4SJcTg.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 6,
-          "url": "https://iili.io/C4SJ0ZJ.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 7,
-          "url": "https://iili.io/C4SJR3B.jpg",
-          "origem": "catbox"
-        }
-      ],
-      "hostedAt": "2026-08-10T00:55:21.047Z",
-      "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/120",
-      "nexusSlug": "o-deus-da-espada-do-juizo-final"
+      "sourceUrl": "https://nexustoons.com/manga/deus-marcial-pay-to-win/27",
+      "nexusSlug": "deus-marcial-pay-to-win"
     }
   },
   "porManga": {
@@ -14199,14 +14150,20 @@
       "purgedCaps": 1
     },
     "obra-84da2b37": {
-      "totalCaps": 3,
-      "doneCaps": 3,
-      "legibleCaps": 3,
-      "purgedCaps": 3
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
+    },
+    "obra-892a6a1a": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 77,
+  "total": 76,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:55:03.691Z"
+  "atualizadoEm": "2026-08-10T00:55:52.352Z"
 }
