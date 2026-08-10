@@ -15091,6 +15091,55 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/eu-sou-o-lorde-mais-forte-em-outro-mundo/62",
       "nexusSlug": "eu-sou-o-lorde-mais-forte-em-outro-mundo"
+    },
+    "obra-9ddc5f63/cap-518da6b7-349": {
+      "mangaId": "obra-9ddc5f63",
+      "capId": "cap-518da6b7-349",
+      "numero": "349",
+      "titulo": "Capítulo 349",
+      "tituloManga": "Eu sou o Vilão Predestinado",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 6,
+      "uploaded": 6,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4Ux30X.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4UxfJs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4UxFgn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4Ux2ft.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4UxHWN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4Uxq5G.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T01:35:02.591Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/eu-sou-o-vilao-predestinado/349",
+      "nexusSlug": "eu-sou-o-vilao-predestinado"
     }
   },
   "porManga": {
@@ -15303,10 +15352,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-9ddc5f63": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 83,
+  "total": 84,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T01:32:41.600Z"
+  "atualizadoEm": "2026-08-10T01:34:45.333Z"
 }
