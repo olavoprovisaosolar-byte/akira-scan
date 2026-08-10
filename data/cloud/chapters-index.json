@@ -13062,89 +13062,224 @@
       "sourceUrl": "https://nexustoons.com/manga/a-superacao-do-nobre-vagabundo/154",
       "nexusSlug": "a-superacao-do-nobre-vagabundo"
     },
-    "obra-a9c2e2c4/cap-81285b51-61": {
-      "mangaId": "obra-a9c2e2c4",
-      "capId": "cap-81285b51-61",
-      "numero": "61",
-      "titulo": "Capítulo 61",
-      "tituloManga": "A Vontade de Sobreviver de um Vilão",
+    "obra-1dfcb77e/cap-6a40971c-10": {
+      "mangaId": "obra-1dfcb77e",
+      "capId": "cap-6a40971c-10",
+      "numero": "10",
+      "titulo": "Capítulo 10",
+      "tituloManga": "Aniquilação do Caminho Celestial",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 13,
-      "uploaded": 13,
+      "total": 40,
+      "uploaded": 40,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48zmt2.jpg",
+          "url": "https://iili.io/C48uzva.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48I9M7.jpg",
+          "url": "https://iili.io/C48uKQV.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48IoMP.jpg",
+          "url": "https://iili.io/C48uC41.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48IdFe.jpg",
+          "url": "https://iili.io/C48uxYg.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48I2cu.jpg",
+          "url": "https://iili.io/C48uo3F.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48I38b.jpg",
+          "url": "https://iili.io/C48uqCB.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48IHP9.jpg",
+          "url": "https://iili.io/C48uFhQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48zynS.jpg",
+          "url": "https://iili.io/C48uBEP.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48I5Av.jpg",
+          "url": "https://iili.io/C48ul3X.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48IRHJ.jpg",
+          "url": "https://iili.io/C48ua4t.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C48ITcg.jpg",
+          "url": "https://iili.io/C48uRQp.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C48IuSa.jpg",
+          "url": "https://iili.io/C48uYGI.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C48I7NR.jpg",
+          "url": "https://iili.io/C48uIyJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48u7CN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48uAjR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C48uuTv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C48uOF9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C48ujGS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C48uw67.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C48uhn2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C48uEyG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C48uWZl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C48uVj4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C48uMuf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C48u6MB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C48u4nV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C48ugZQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C48uUwx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C48ueae.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C48uvyb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C48uSuj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C48uk8u.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C48umtR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C48uLcF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://iili.io/C48uDAJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://iili.io/C48ut9a.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 36,
+          "url": "https://iili.io/C48ubwv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 37,
+          "url": "https://iili.io/C48usF1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 38,
+          "url": "https://iili.io/C48uQ8g.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 39,
+          "url": "https://iili.io/C48uP6P.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:07:31.414Z",
+      "hostedAt": "2026-08-10T00:08:58.493Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/a-vontade-de-sobreviver-de-um-vilao/61",
-      "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao"
+      "sourceUrl": "https://nexustoons.com/manga/aniquilacao-do-caminho-celestial/10",
+      "nexusSlug": "aniquilacao-do-caminho-celestial"
     }
   },
   "porManga": {
@@ -13286,7 +13421,7 @@
       "legibleCaps": 1,
       "purgedCaps": 1
     },
-    "obra-a9c2e2c4": {
+    "obra-1dfcb77e": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -13296,5 +13431,5 @@
   "origem": "github",
   "total": 69,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:07:14.264Z"
+  "atualizadoEm": "2026-08-10T00:08:41.325Z"
 }
