@@ -13379,6 +13379,110 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/aparencias/619",
       "nexusSlug": "aparencias"
+    },
+    "obra-a09285c4/cap-47b3b8a0-105": {
+      "mangaId": "obra-a09285c4",
+      "capId": "cap-47b3b8a0-105",
+      "numero": "105",
+      "titulo": "Capítulo 105",
+      "tituloManga": "Cale a Boca, Dragão Maligno! Não Quero Mais Criar um Filho com Você",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 17,
+      "uploaded": 17,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C48clWJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C48c5R1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C48cTlV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C48c7OF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C48cYDg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C48c0iv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C48cRHP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C48cuUB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C48cvf4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C48cXRt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48cOWG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48chOX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48cWJI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48cGlp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48cEfR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C48cMUN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C48cr57.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T00:22:30.357Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce/105",
+      "nexusSlug": "cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce"
     }
   },
   "porManga": {
@@ -13531,10 +13635,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-a09285c4": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 70,
+  "total": 71,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:13:21.235Z"
+  "atualizadoEm": "2026-08-10T00:22:14.153Z"
 }
