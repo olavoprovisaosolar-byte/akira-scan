@@ -13653,74 +13653,224 @@
       "sourceUrl": "https://nexustoons.com/manga/complexo-de-amigos-de-infancia/85",
       "nexusSlug": "complexo-de-amigos-de-infancia"
     },
-    "obra-dbbabf0f/cap-9b00cabb-523": {
-      "mangaId": "obra-dbbabf0f",
-      "capId": "cap-9b00cabb-523",
-      "numero": "523",
-      "titulo": "Capítulo 523",
-      "tituloManga": "Contos de Demônios e Deuses",
+    "obra-449e3278/cap-0f854ccf-18": {
+      "mangaId": "obra-449e3278",
+      "capId": "cap-0f854ccf-18",
+      "numero": "18",
+      "titulo": "Capítulo 18",
+      "tituloManga": "Coração Ferido",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 10,
-      "uploaded": 10,
+      "total": 40,
+      "uploaded": 40,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48SN87.jpg",
+          "url": "https://iili.io/C48riS2.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48Svwu.jpg",
+          "url": "https://iili.io/C48rrPf.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48SboJ.jpg",
+          "url": "https://iili.io/C48r8tn.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48Se99.jpg",
+          "url": "https://iili.io/C48rvwX.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48SUnj.jpg",
+          "url": "https://iili.io/C48r6F4.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48Skue.jpg",
+          "url": "https://iili.io/C48rPcl.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48S8Zb.jpg",
+          "url": "https://iili.io/C48rbou.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48SgMx.jpg",
+          "url": "https://iili.io/C484JSV.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48UJSI.jpg",
+          "url": "https://iili.io/C484uRI.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48UTH7.jpg",
+          "url": "https://iili.io/C484aiG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C484BVa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C484xlR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C484oKv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C484qog.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C484ANt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C484CiJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C4848JV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C484jWu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C484hxe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C4844zF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C484Ofj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C484UOP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C484wib.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C484gb1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C484D5N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C484QgR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C486Bm7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C484beI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C484tJp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C486f72.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/C486nI9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 31,
+          "url": "https://iili.io/C486qeS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 32,
+          "url": "https://iili.io/C486hkN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 33,
+          "url": "https://iili.io/C486cI1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 34,
+          "url": "https://iili.io/C4867kB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 35,
+          "url": "https://iili.io/C486vBs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 36,
+          "url": "https://iili.io/C486OhX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 37,
+          "url": "https://iili.io/C48657V.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 38,
+          "url": "https://iili.io/C486jpI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 39,
+          "url": "https://iili.io/C486YmP.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:37:51.992Z",
+      "hostedAt": "2026-08-10T00:40:24.116Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/523",
-      "nexusSlug": "contos-de-demonios-e-deuses"
+      "sourceUrl": "https://nexustoons.com/manga/coracao-ferido/18",
+      "nexusSlug": "coracao-ferido"
     }
   },
   "porManga": {
@@ -13833,10 +13983,10 @@
       "purgedCaps": 1
     },
     "obra-dbbabf0f": {
-      "totalCaps": 2,
-      "doneCaps": 2,
-      "legibleCaps": 2,
-      "purgedCaps": 2
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     },
     "obra-b059346e": {
       "totalCaps": 1,
@@ -13885,10 +14035,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-449e3278": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
   "total": 73,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:37:35.214Z"
+  "atualizadoEm": "2026-08-10T00:40:06.572Z"
 }
