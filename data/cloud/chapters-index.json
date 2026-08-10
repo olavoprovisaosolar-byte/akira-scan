@@ -13846,11 +13846,11 @@
       "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/59",
       "nexusSlug": "de-volta-para-chanbi"
     },
-    "obra-84da2b37/cap-8e60a9f6-115": {
+    "obra-84da2b37/cap-b42714c0-114": {
       "mangaId": "obra-84da2b37",
-      "capId": "cap-8e60a9f6-115",
-      "numero": "115",
-      "titulo": "Capítulo 115",
+      "capId": "cap-b42714c0-114",
+      "numero": "114",
+      "titulo": "Capítulo 114",
       "tituloManga": "O Deus da Espada do Juízo Final",
       "done": true,
       "origem": "nexustoons-bot",
@@ -13861,48 +13861,48 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C4S91Ag.jpg",
+          "url": "https://iili.io/C4S9XPp.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C4S9GDJ.jpg",
+          "url": "https://iili.io/C4S9bxj.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C4S9jKN.jpg",
+          "url": "https://iili.io/C4S90HF.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C4S9Vov.jpg",
+          "url": "https://iili.io/C4S9WVR.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C4S95PV.jpg",
+          "url": "https://iili.io/C4S9ril.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C4S9cS1.jpg",
+          "url": "https://iili.io/C4S9acP.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C4S9ENa.jpg",
+          "url": "https://iili.io/C4S9RMQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C4S9nS9.jpg",
+          "url": "https://iili.io/C4S9Cc7.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:53:47.162Z",
+      "hostedAt": "2026-08-10T00:54:14.760Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/115",
+      "sourceUrl": "https://nexustoons.com/manga/o-deus-da-espada-do-juizo-final/114",
       "nexusSlug": "o-deus-da-espada-do-juizo-final"
     }
   },
@@ -14085,5 +14085,5 @@
   "origem": "github",
   "total": 75,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:53:29.799Z"
+  "atualizadoEm": "2026-08-10T00:53:57.638Z"
 }
