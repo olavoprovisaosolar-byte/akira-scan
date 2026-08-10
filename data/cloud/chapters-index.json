@@ -15317,6 +15317,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/aventura-de-um-barbaro-em-um-mundo-de-fantasia/66",
       "nexusSlug": "aventura-de-um-barbaro-em-um-mundo-de-fantasia"
+    },
+    "obra-6955dd77/cap-0fe5de37-48": {
+      "mangaId": "obra-6955dd77",
+      "capId": "cap-0fe5de37-48",
+      "numero": "48",
+      "titulo": "Capítulo 48",
+      "tituloManga": "A Espada Suprema do Culto Demoníaco",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/8w5j82.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/x22ep2.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/lv7a5e.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/lx46ot.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/46mhib.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/yx9x4v.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/2w9hcg.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/0411ko.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/f5bteo.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/o8ttu4.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T20:47:19.167Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-espada-suprema-do-culto-demoniaco/48",
+      "nexusSlug": "a-espada-suprema-do-culto-demoniaco"
     }
   },
   "porManga": {
@@ -15387,10 +15456,10 @@
       "purgedCaps": 3
     },
     "obra-6955dd77": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-e60e7957": {
       "totalCaps": 1,
@@ -15550,7 +15619,7 @@
     }
   },
   "origem": "github",
-  "total": 87,
+  "total": 88,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T21:31:37.787Z"
+  "atualizadoEm": "2026-08-10T21:48:04.101Z"
 }
