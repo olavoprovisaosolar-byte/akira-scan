@@ -13747,74 +13747,104 @@
       "sourceUrl": "https://nexustoons.com/manga/cronicas-da-faccao-demoniaca/183",
       "nexusSlug": "cronicas-da-faccao-demoniaca"
     },
-    "obra-b0546113/cap-cd2ab30f-91": {
-      "mangaId": "obra-b0546113",
-      "capId": "cap-cd2ab30f-91",
-      "numero": "91",
-      "titulo": "Capítulo 91",
-      "tituloManga": "Dao do Imortal Bizarro",
+    "obra-b059346e/cap-de5a93d9-59": {
+      "mangaId": "obra-b059346e",
+      "capId": "cap-de5a93d9-59",
+      "numero": "59",
+      "titulo": "Capítulo 59",
+      "tituloManga": "De Volta para Chanbi",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 10,
-      "uploaded": 10,
+      "total": 16,
+      "uploaded": 16,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48tf6X.jpg",
+          "url": "https://iili.io/C48t09j.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48t2ZN.jpg",
+          "url": "https://iili.io/C48tWMP.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48tCas.jpg",
+          "url": "https://iili.io/C48tEwQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48tn8G.jpg",
+          "url": "https://iili.io/C48tVoB.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48tBFn.jpg",
+          "url": "https://iili.io/C48teHJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48tKGt.jpg",
+          "url": "https://iili.io/C48t1Ax.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48tFnI.jpg",
+          "url": "https://iili.io/C48tGtV.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48tx9f.jpg",
+          "url": "https://iili.io/C48tXP1.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48tIwl.jpg",
+          "url": "https://iili.io/C48tPln.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48tzu4.jpg",
+          "url": "https://iili.io/C48tiSs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C48t6KX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C48tLHG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C48trPt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/C48DHle.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/C48tUoN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/C48tQRf.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:47:35.865Z",
+      "hostedAt": "2026-08-10T00:48:34.048Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/dao-do-imortal-bizarro/91",
-      "nexusSlug": "dao-do-imortal-bizarro"
+      "sourceUrl": "https://nexustoons.com/manga/de-volta-para-chanbi/59",
+      "nexusSlug": "de-volta-para-chanbi"
     }
   },
   "porManga": {
@@ -13933,10 +13963,10 @@
       "purgedCaps": 1
     },
     "obra-b059346e": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-71339843": {
       "totalCaps": 1,
@@ -13985,16 +14015,10 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
-    },
-    "obra-b0546113": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
     }
   },
   "origem": "github",
   "total": 74,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:47:18.962Z"
+  "atualizadoEm": "2026-08-10T00:48:16.486Z"
 }
