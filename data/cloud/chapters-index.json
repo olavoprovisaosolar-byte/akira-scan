@@ -14052,6 +14052,90 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/dominio-absoluto/104",
       "nexusSlug": "dominio-absoluto"
+    },
+    "obra-8a4938e6/cap-e0ef5dff-54": {
+      "mangaId": "obra-8a4938e6",
+      "capId": "cap-e0ef5dff-54",
+      "numero": "54",
+      "titulo": "Capítulo 54",
+      "tituloManga": "Sequestrando Dragões",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 13,
+      "uploaded": 13,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4SFrib.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4SFtb1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4SF8b9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4SFUxe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/C4SFvO7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/C4SF6fj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/C4SFgWu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/C4SKJgR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/C4SKFeI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/C4SKTdl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/C4SK35N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/C4SKKbt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/C4SKzg4.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T01:00:07.090Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/sequestrando-dragoes/54",
+      "nexusSlug": "sequestrando-dragoes"
     }
   },
   "porManga": {
@@ -14234,10 +14318,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-8a4938e6": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 77,
+  "total": 78,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:58:14.698Z"
+  "atualizadoEm": "2026-08-10T00:59:50.219Z"
 }
