@@ -13484,104 +13484,174 @@
       "sourceUrl": "https://nexustoons.com/manga/cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce/105",
       "nexusSlug": "cale-a-boca-dragao-maligno-nao-quero-mais-criar-um-filho-com-voce"
     },
-    "obra-9444fee7/cap-7dde79e4-47": {
-      "mangaId": "obra-9444fee7",
-      "capId": "cap-7dde79e4-47",
-      "numero": "47",
-      "titulo": "Capítulo 47",
-      "tituloManga": "Como Cuidar De Vilões Da Forma Certa",
+    "obra-9813ed36/cap-5746229b-85": {
+      "mangaId": "obra-9813ed36",
+      "capId": "cap-5746229b-85",
+      "numero": "85",
+      "titulo": "Capítulo 85",
+      "tituloManga": "Complexo de Amigos de Infância",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 16,
-      "uploaded": 16,
+      "total": 30,
+      "uploaded": 30,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/C48EtZF.jpg",
+          "url": "https://iili.io/C48VY2j.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/C48EQTP.jpg",
+          "url": "https://iili.io/C48V9mN.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/C48EsyB.jpg",
+          "url": "https://iili.io/C48VK1s.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/C48EmGa.jpg",
+          "url": "https://iili.io/C48V2LX.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/C48Gqnn.jpg",
+          "url": "https://iili.io/C48Mp7R.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/C48EZj1.jpg",
+          "url": "https://iili.io/C48VJII.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/C48Ep6J.jpg",
+          "url": "https://iili.io/C48VdXt.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/C48EbCg.jpg",
+          "url": "https://iili.io/C48VFBn.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/C48G7ne.jpg",
+          "url": "https://iili.io/C48Vj3J.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/C48GDR2.jpg",
+          "url": "https://iili.io/C48VGQ1.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/C48GRt9.jpg",
+          "url": "https://iili.io/C48VPaf.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/C48Gz8l.jpg",
+          "url": "https://iili.io/C48VVCF.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/C48GYMu.jpg",
+          "url": "https://iili.io/C48VNvR.jpg",
           "origem": "catbox"
         },
         {
           "index": 13,
-          "url": "https://iili.io/C48GT92.jpg",
+          "url": "https://iili.io/C48VwYv.jpg",
           "origem": "catbox"
         },
         {
           "index": 14,
-          "url": "https://iili.io/C48Ggtt.jpg",
+          "url": "https://iili.io/C48VX4a.jpg",
           "origem": "catbox"
         },
         {
           "index": 15,
-          "url": "https://iili.io/C48GuuS.jpg",
+          "url": "https://iili.io/C48VEhP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/C48W93b.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/C48Vp6u.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/C48WaPn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/C48VQu2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/C48Vbn9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/C48V2LX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/C48W3uV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/C48WdyQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/C48WwPe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/C48WjV9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/C48Who7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/C48XlWP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/C48Xt1e.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/C48WOKu.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-10T00:30:15.603Z",
+      "hostedAt": "2026-08-10T00:32:56.754Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/como-cuidar-de-viloes-da-forma-certa/47",
-      "nexusSlug": "como-cuidar-de-viloes-da-forma-certa"
+      "sourceUrl": "https://nexustoons.com/manga/complexo-de-amigos-de-infancia/85",
+      "nexusSlug": "complexo-de-amigos-de-infancia"
     }
   },
   "porManga": {
@@ -13741,7 +13811,7 @@
       "legibleCaps": 1,
       "purgedCaps": 1
     },
-    "obra-9444fee7": {
+    "obra-9813ed36": {
       "totalCaps": 1,
       "doneCaps": 1,
       "legibleCaps": 1,
@@ -13751,5 +13821,5 @@
   "origem": "github",
   "total": 72,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T00:29:58.267Z"
+  "atualizadoEm": "2026-08-10T00:32:39.263Z"
 }
