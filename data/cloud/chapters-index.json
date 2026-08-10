@@ -15140,6 +15140,45 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/eu-sou-o-vilao-predestinado/349",
       "nexusSlug": "eu-sou-o-vilao-predestinado"
+    },
+    "obra-b90febfc/cap-02deb752-113": {
+      "mangaId": "obra-b90febfc",
+      "capId": "cap-02deb752-113",
+      "numero": "113",
+      "titulo": "Capítulo 113",
+      "tituloManga": "Evolução Infinita: Começando do Zero",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 4,
+      "uploaded": 4,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/C4UzrMB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/C4UzXGS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/C4UxyYu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/C4Uzeyb.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-10T01:36:28.672Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/evolucao-infinita-comecando-do-zero/113",
+      "nexusSlug": "evolucao-infinita-comecando-do-zero"
     }
   },
   "porManga": {
@@ -15358,10 +15397,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-b90febfc": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 84,
+  "total": 85,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-10T01:34:45.333Z"
+  "atualizadoEm": "2026-08-10T01:36:12.333Z"
 }
