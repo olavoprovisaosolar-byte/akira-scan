@@ -16157,6 +16157,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-vontade-de-sobreviver-de-um-vilao/62",
       "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao"
+    },
+    "obra-dbbabf0f/cap-38062653-525": {
+      "mangaId": "obra-dbbabf0f",
+      "capId": "cap-38062653-525",
+      "numero": "525",
+      "titulo": "Capítulo 525",
+      "tituloManga": "Contos de Demônios e Deuses",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/ii0s07.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/ddne2f.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/qfs0zd.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/mdiv5l.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/xpl4ce.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/gp99fn.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/5ndwmc.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/7b4epk.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/cyzdav.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/x9mzu1.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-13T07:52:21.623Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/525",
+      "nexusSlug": "contos-de-demonios-e-deuses"
     }
   },
   "porManga": {
@@ -16269,10 +16338,10 @@
       "purgedCaps": 1
     },
     "obra-dbbabf0f": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-b059346e": {
       "totalCaps": 2,
@@ -16402,7 +16471,7 @@
     }
   },
   "origem": "github",
-  "total": 92,
+  "total": 93,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-13T04:31:31.159Z"
+  "atualizadoEm": "2026-08-13T08:53:03.841Z"
 }
