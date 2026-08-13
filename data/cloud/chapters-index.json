@@ -16226,6 +16226,75 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/contos-de-demonios-e-deuses/525",
       "nexusSlug": "contos-de-demonios-e-deuses"
+    },
+    "obra-b0546113/cap-cd2ab30f-91": {
+      "mangaId": "obra-b0546113",
+      "capId": "cap-cd2ab30f-91",
+      "numero": "91",
+      "titulo": "Capítulo 91",
+      "tituloManga": "Dao do Imortal Bizarro",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 10,
+      "uploaded": 10,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/4hseng.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/6pm6of.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/67xh4b.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/izcwv7.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/xwwjs2.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/4zqcq8.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/uu3hkt.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/e3pfmb.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/n7f5xe.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/fkqlta.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-13T08:23:21.283Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/dao-do-imortal-bizarro/91",
+      "nexusSlug": "dao-do-imortal-bizarro"
     }
   },
   "porManga": {
@@ -16468,10 +16537,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-b0546113": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 93,
+  "total": 94,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-13T09:13:54.607Z"
+  "atualizadoEm": "2026-08-13T09:24:02.714Z"
 }
