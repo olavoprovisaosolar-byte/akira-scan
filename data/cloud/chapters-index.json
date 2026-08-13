@@ -15824,6 +15824,170 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-esposa-que-esperou-no-campo-de-trigo/23",
       "nexusSlug": "a-esposa-que-esperou-no-campo-de-trigo"
+    },
+    "obra-5befa48d/cap-ff4ec6c1-92": {
+      "mangaId": "obra-5befa48d",
+      "capId": "cap-ff4ec6c1-92",
+      "numero": "92",
+      "titulo": "Capítulo 92",
+      "tituloManga": "A Última Passagem",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 29,
+      "uploaded": 29,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/eeoihi.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/uzdu92.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/xlx4dt.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/t1yn6k.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/inci00.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/id1glc.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/zkf60w.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/jj2rbo.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/muy1pk.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/lw4k60.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://litter.catbox.moe/iju6nc.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://litter.catbox.moe/a2gpe0.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://litter.catbox.moe/s3kkw5.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://litter.catbox.moe/xmmoly.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://litter.catbox.moe/u25d9v.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://litter.catbox.moe/gg13y1.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://litter.catbox.moe/7o0d8v.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://litter.catbox.moe/6fej2s.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://litter.catbox.moe/o7zwv4.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://litter.catbox.moe/f5haal.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://litter.catbox.moe/0fc4zp.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://litter.catbox.moe/nfok3x.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://litter.catbox.moe/21gcld.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://litter.catbox.moe/uq6rot.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://litter.catbox.moe/oi2v0i.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://litter.catbox.moe/2w7n2a.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://litter.catbox.moe/mocuyr.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://litter.catbox.moe/n2dvqz.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://litter.catbox.moe/1lxtjr.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-13T03:03:05.885Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-ultima-passagem/92",
+      "nexusSlug": "a-ultima-passagem"
     }
   },
   "porManga": {
@@ -15924,10 +16088,10 @@
       "purgedCaps": 2
     },
     "obra-5befa48d": {
-      "totalCaps": 1,
-      "doneCaps": 1,
-      "legibleCaps": 1,
-      "purgedCaps": 1
+      "totalCaps": 2,
+      "doneCaps": 2,
+      "legibleCaps": 2,
+      "purgedCaps": 2
     },
     "obra-acff825a": {
       "totalCaps": 1,
@@ -16063,7 +16227,7 @@
     }
   },
   "origem": "github",
-  "total": 90,
+  "total": 91,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-13T03:35:45.820Z"
+  "atualizadoEm": "2026-08-13T04:03:44.175Z"
 }
