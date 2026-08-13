@@ -15988,6 +15988,175 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/a-ultima-passagem/92",
       "nexusSlug": "a-ultima-passagem"
+    },
+    "obra-a9c2e2c4/cap-dcd951c6-62": {
+      "mangaId": "obra-a9c2e2c4",
+      "capId": "cap-dcd951c6-62",
+      "numero": "62",
+      "titulo": "Capítulo 62",
+      "tituloManga": "A Vontade de Sobreviver de um Vilão",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 30,
+      "uploaded": 30,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://litter.catbox.moe/m0g81n.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://litter.catbox.moe/y50rjg.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://litter.catbox.moe/yuqtjc.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://litter.catbox.moe/t7hsox.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://litter.catbox.moe/o4s3b9.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://litter.catbox.moe/h2i2ku.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://litter.catbox.moe/l1sc4m.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://litter.catbox.moe/47kis5.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://litter.catbox.moe/e241pm.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://litter.catbox.moe/zsebf5.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://litter.catbox.moe/pq98uz.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://litter.catbox.moe/83nsht.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://litter.catbox.moe/jb7kny.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://litter.catbox.moe/62mal9.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://litter.catbox.moe/h9ecjm.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://litter.catbox.moe/w2q6tk.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://litter.catbox.moe/vnbh37.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://litter.catbox.moe/13c64j.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://litter.catbox.moe/4s9d2w.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://litter.catbox.moe/1qc44y.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://litter.catbox.moe/rqp2zg.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://litter.catbox.moe/ci45du.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://litter.catbox.moe/0nj9t3.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://litter.catbox.moe/5yfo8a.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://litter.catbox.moe/48u5tm.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://litter.catbox.moe/1hj1rh.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://litter.catbox.moe/gd8en0.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://litter.catbox.moe/9dr1ab.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://litter.catbox.moe/hvalj5.webp",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://litter.catbox.moe/uzxjpt.webp",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-13T03:30:50.068Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/a-vontade-de-sobreviver-de-um-vilao/62",
+      "nexusSlug": "a-vontade-de-sobreviver-de-um-vilao"
     }
   },
   "porManga": {
@@ -16224,10 +16393,16 @@
       "doneCaps": 1,
       "legibleCaps": 1,
       "purgedCaps": 1
+    },
+    "obra-a9c2e2c4": {
+      "totalCaps": 1,
+      "doneCaps": 1,
+      "legibleCaps": 1,
+      "purgedCaps": 1
     }
   },
   "origem": "github",
-  "total": 91,
+  "total": 92,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-13T04:03:44.175Z"
+  "atualizadoEm": "2026-08-13T04:31:31.159Z"
 }
