@@ -16340,58 +16340,63 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/56",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-9c4c4aac-59": {
+    "obra-5b18e8b5/cap-7701d861-64": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-9c4c4aac-59",
-      "numero": "59",
-      "titulo": "Capítulo 59",
+      "capId": "cap-7701d861-64",
+      "numero": "64",
+      "titulo": "Capítulo 64",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 7,
-      "uploaded": 7,
+      "total": 8,
+      "uploaded": 8,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsSXjI9.jpg",
+          "url": "https://iili.io/CsSwfbS.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsSX0qG.jpg",
+          "url": "https://iili.io/CsSjysn.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsSXYzX.jpg",
+          "url": "https://iili.io/CsSwnse.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsSXReI.jpg",
+          "url": "https://iili.io/CsSwudx.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsSXWeS.jpg",
+          "url": "https://iili.io/CsSwKe2.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsSXLBa.jpg",
+          "url": "https://iili.io/CsSwYzP.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/CsSXJ0x.jpg",
+          "url": "https://iili.io/CsSjQJR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/CsSjncv.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:35:24.996Z",
+      "hostedAt": "2026-08-17T20:35:53.907Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/59",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/64",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16646,5 +16651,5 @@
   "origem": "github",
   "total": 96,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:35:00.219Z"
+  "atualizadoEm": "2026-08-17T20:35:31.309Z"
 }
