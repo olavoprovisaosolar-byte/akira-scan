@@ -19384,6 +19384,150 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/158",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-6d0d4fd8-159": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-6d0d4fd8-159",
+      "numero": "159",
+      "titulo": "Capítulo 159",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 25,
+      "uploaded": 25,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/Cs4YxEl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/Cs4YqIs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/Cs4YAv9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/Cs4YBhG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/Cs4YT2S.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/Cs4YoB4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/Cs4YCQf.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/Cs4Yz42.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/Cs4Y0EQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/Cs4YlCx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/Cs4YVv1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/Cs4YMYP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/Cs4Y14V.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/Cs4YaQj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/Cs4YG3B.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/Cs4YYhb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/Cs4YSaI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/Cs4YeGR.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/Cs4YUvt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/Cs4Y4un.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/Cs4YwZJ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/Cs4Y83N.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/Cs4Yk4p.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/Cs4YQ6l.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/Cs4Yb87.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-17T22:04:59.013Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/159",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -19514,10 +19658,10 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 34,
-      "doneCaps": 34,
-      "legibleCaps": 34,
-      "purgedCaps": 34
+      "totalCaps": 35,
+      "doneCaps": 35,
+      "legibleCaps": 35,
+      "purgedCaps": 35
     },
     "obra-69466adb": {
       "totalCaps": 1,
@@ -19635,7 +19779,7 @@
     }
   },
   "origem": "github",
-  "total": 105,
+  "total": 106,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T22:04:10.964Z"
+  "atualizadoEm": "2026-08-17T22:04:32.838Z"
 }
