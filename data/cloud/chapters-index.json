@@ -16296,53 +16296,63 @@
       "sourceUrl": "https://nexustoons.com/manga/dao-do-imortal-bizarro/91",
       "nexusSlug": "dao-do-imortal-bizarro"
     },
-    "obra-5b18e8b5/cap-38fa27e1-48": {
+    "obra-5b18e8b5/cap-f83e6a6a-47": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-38fa27e1-48",
-      "numero": "48",
-      "titulo": "Capítulo 48",
+      "capId": "cap-f83e6a6a-47",
+      "numero": "47",
+      "titulo": "Capítulo 47",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 6,
-      "uploaded": 6,
+      "total": 8,
+      "uploaded": 8,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsSzpMg.jpg",
+          "url": "https://iili.io/CsSzk92.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsSzvuS.jpg",
+          "url": "https://iili.io/CsSzgne.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsSzwFf.jpg",
+          "url": "https://iili.io/CsSzXGs.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsSz8w7.jpg",
+          "url": "https://iili.io/CsSzDt1.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsSz46b.jpg",
+          "url": "https://iili.io/CsSzSt9.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsSzrMu.jpg",
+          "url": "https://iili.io/CsSIFAN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/CsSInPs.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/CsSzh6G.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:31:06.309Z",
+      "hostedAt": "2026-08-17T20:31:10.512Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/48",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/47",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16597,5 +16607,5 @@
   "origem": "github",
   "total": 95,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:30:40.626Z"
+  "atualizadoEm": "2026-08-17T20:30:45.230Z"
 }
