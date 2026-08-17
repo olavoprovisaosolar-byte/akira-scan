@@ -16296,53 +16296,48 @@
       "sourceUrl": "https://nexustoons.com/manga/dao-do-imortal-bizarro/91",
       "nexusSlug": "dao-do-imortal-bizarro"
     },
-    "obra-5b18e8b5/cap-0bd5214d-54": {
+    "obra-5b18e8b5/cap-66436f88-56": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-0bd5214d-54",
-      "numero": "54",
-      "titulo": "Capítulo 54",
+      "capId": "cap-66436f88-56",
+      "numero": "56",
+      "titulo": "Capítulo 56",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 6,
-      "uploaded": 6,
+      "total": 5,
+      "uploaded": 5,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsSlFr7.jpg",
+          "url": "https://iili.io/CsSl4a9.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsScb7n.jpg",
+          "url": "https://iili.io/CsSlJLl.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsSl31S.jpg",
+          "url": "https://iili.io/CsSlArP.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsSlf29.jpg",
+          "url": "https://iili.io/CsSlxhx.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsSlHX4.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 5,
-          "url": "https://iili.io/CsSc107.jpg",
+          "url": "https://iili.io/CsSlBku.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:34:01.273Z",
+      "hostedAt": "2026-08-17T20:34:11.068Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/54",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/56",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16597,5 +16592,5 @@
   "origem": "github",
   "total": 95,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:33:38.530Z"
+  "atualizadoEm": "2026-08-17T20:33:45.517Z"
 }
