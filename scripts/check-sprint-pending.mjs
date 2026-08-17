@@ -12,7 +12,7 @@ import { loadCloudIndex } from "../bots/nexustoons-akira/shared/state.js";
 import { akiraMangaId } from "../bots/nexustoons-akira/shared/ids.js";
 import {
     fetchAllNexusMangas,
-    buildAkiraIdLookup,
+    buildFastMangaQueue,
     mangasWithCloudCaps
 } from "../bots/nexustoons-akira/shared/nexus-catalog.js";
 
