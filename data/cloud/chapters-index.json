@@ -16340,11 +16340,11 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/56",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-58c38bb0-61": {
+    "obra-5b18e8b5/cap-9c4c4aac-59": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-58c38bb0-61",
-      "numero": "61",
-      "titulo": "Capítulo 61",
+      "capId": "cap-9c4c4aac-59",
+      "numero": "59",
+      "titulo": "Capítulo 59",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -16355,43 +16355,43 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsSXeqb.jpg",
+          "url": "https://iili.io/CsSXjI9.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsSXIgR.jpg",
+          "url": "https://iili.io/CsSX0qG.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsSX5bt.jpg",
+          "url": "https://iili.io/CsSXYzX.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsSXPhF.jpg",
+          "url": "https://iili.io/CsSXReI.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsSXSdQ.jpg",
+          "url": "https://iili.io/CsSXWeS.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsSXk1j.jpg",
+          "url": "https://iili.io/CsSXLBa.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/CsSXHfj.jpg",
+          "url": "https://iili.io/CsSXJ0x.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:35:22.373Z",
+      "hostedAt": "2026-08-17T20:35:24.996Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/61",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/59",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16646,5 +16646,5 @@
   "origem": "github",
   "total": 96,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:34:56.700Z"
+  "atualizadoEm": "2026-08-17T20:35:00.219Z"
 }
