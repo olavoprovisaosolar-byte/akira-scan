@@ -16296,63 +16296,58 @@
       "sourceUrl": "https://nexustoons.com/manga/dao-do-imortal-bizarro/91",
       "nexusSlug": "dao-do-imortal-bizarro"
     },
-    "obra-5b18e8b5/cap-39e74f0f-52": {
+    "obra-5b18e8b5/cap-93dc9eab-53": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-39e74f0f-52",
-      "numero": "52",
-      "titulo": "Capítulo 52",
+      "capId": "cap-93dc9eab-53",
+      "numero": "53",
+      "titulo": "Capítulo 53",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 8,
-      "uploaded": 8,
+      "total": 7,
+      "uploaded": 7,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsS5q6F.jpg",
+          "url": "https://iili.io/CsS53ZB.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsS5uZN.jpg",
+          "url": "https://iili.io/CsS5Ncu.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsS5o8J.jpg",
+          "url": "https://iili.io/CsS5l8G.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsS5hP9.jpg",
+          "url": "https://iili.io/CsS54P1.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsS5RnI.jpg",
+          "url": "https://iili.io/CsS5StV.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsS519f.jpg",
+          "url": "https://iili.io/CsS5icg.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/CsS5fG1.jpg",
-          "origem": "catbox"
-        },
-        {
-          "index": 7,
-          "url": "https://iili.io/CsS5IuR.jpg",
+          "url": "https://iili.io/CsS5moN.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:32:22.831Z",
+      "hostedAt": "2026-08-17T20:32:27.281Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/52",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/53",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16607,5 +16602,5 @@
   "origem": "github",
   "total": 95,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:31:58.529Z"
+  "atualizadoEm": "2026-08-17T20:32:02.878Z"
 }
