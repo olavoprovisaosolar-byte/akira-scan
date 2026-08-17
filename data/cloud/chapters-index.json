@@ -19245,6 +19245,160 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/143",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-9b8bdab7-144": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-9b8bdab7-144",
+      "numero": "144",
+      "titulo": "Capítulo 144",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 27,
+      "uploaded": 27,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/Cs4CSYx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/Cs4C82j.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/Cs4Ckrb.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/Cs4Cjh7.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/Cs4COBe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/Cs4CwQ9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/Cs4CeEu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 7,
+          "url": "https://iili.io/Cs4ChIS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/Cs4Ct3J.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 9,
+          "url": "https://iili.io/Cs4CsCF.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 10,
+          "url": "https://iili.io/Cs4C6hP.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 11,
+          "url": "https://iili.io/Cs4CPQ1.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 12,
+          "url": "https://iili.io/Cs4CLEg.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 13,
+          "url": "https://iili.io/Cs4C4TB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 14,
+          "url": "https://iili.io/Cs4CQ4a.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 15,
+          "url": "https://iili.io/Cs4CgpV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 16,
+          "url": "https://iili.io/Cs4n9jI.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 17,
+          "url": "https://iili.io/Cs4CyTN.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 18,
+          "url": "https://iili.io/Cs4nK3G.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 19,
+          "url": "https://iili.io/Cs4nHQt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 20,
+          "url": "https://iili.io/Cs4ndCX.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 21,
+          "url": "https://iili.io/Cs4Cmpp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/Cs4n34s.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/Cs4n2Gn.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/Cs4nByl.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/Cs4nnu2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/Cs4nqv4.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-17T21:59:44.875Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/144",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -19375,10 +19529,10 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 33,
-      "doneCaps": 33,
-      "legibleCaps": 33,
-      "purgedCaps": 33
+      "totalCaps": 34,
+      "doneCaps": 34,
+      "legibleCaps": 34,
+      "purgedCaps": 34
     },
     "obra-69466adb": {
       "totalCaps": 1,
@@ -19496,7 +19650,7 @@
     }
   },
   "origem": "github",
-  "total": 104,
+  "total": 105,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T21:58:56.729Z"
+  "atualizadoEm": "2026-08-17T21:59:19.165Z"
 }
