@@ -16340,63 +16340,68 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/56",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-fa6a2163-68": {
+    "obra-5b18e8b5/cap-d78f645f-66": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-fa6a2163-68",
-      "numero": "68",
-      "titulo": "Capítulo 68",
+      "capId": "cap-d78f645f-66",
+      "numero": "66",
+      "titulo": "Capítulo 66",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 8,
-      "uploaded": 8,
+      "total": 9,
+      "uploaded": 9,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsSeudG.jpg",
+          "url": "https://iili.io/CsSOkJf.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsSOPfe.jpg",
+          "url": "https://iili.io/CsSOXVt.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsSe3dJ.jpg",
+          "url": "https://iili.io/CsSOwfn.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/CsSOmzB.jpg",
+          "url": "https://iili.io/CsSOWxI.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/CsSeJ0g.jpg",
+          "url": "https://iili.io/CsSOrW7.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsSOtOQ.jpg",
+          "url": "https://iili.io/CsSOERR.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/CsSOZ5x.jpg",
+          "url": "https://iili.io/CsSOhiX.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/CsSOMDN.jpg",
+          "url": "https://iili.io/CsSOGNp.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 8,
+          "url": "https://iili.io/CsSeeB1.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T20:36:35.739Z",
+      "hostedAt": "2026-08-17T20:36:40.147Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/68",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/66",
       "nexusSlug": "1-segundo"
     }
   },
@@ -16651,5 +16656,5 @@
   "origem": "github",
   "total": 96,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:36:11.536Z"
+  "atualizadoEm": "2026-08-17T20:36:15.810Z"
 }
