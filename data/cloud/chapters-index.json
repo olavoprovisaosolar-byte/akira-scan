@@ -20227,6 +20227,60 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/181",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-f58fa1fd-83": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-f58fa1fd-83",
+      "numero": "83",
+      "titulo": "Capítulo 83",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 7,
+      "uploaded": 7,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/CsghEGe.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/Csghau2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/Cs4bYn2.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/CsghcjS.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/Csgh1n9.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/CsghG6u.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 6,
+          "url": "https://iili.io/Csgh7yl.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-17T22:16:27.026Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/83",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -20357,10 +20411,10 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 36,
-      "doneCaps": 36,
-      "legibleCaps": 36,
-      "purgedCaps": 36
+      "totalCaps": 37,
+      "doneCaps": 37,
+      "legibleCaps": 37,
+      "purgedCaps": 37
     },
     "obra-69466adb": {
       "totalCaps": 1,
@@ -20478,7 +20532,7 @@
     }
   },
   "origem": "github",
-  "total": 107,
+  "total": 108,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T22:14:45.015Z"
+  "atualizadoEm": "2026-08-17T22:16:06.055Z"
 }
