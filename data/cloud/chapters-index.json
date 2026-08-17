@@ -17167,11 +17167,11 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/73",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-3b358776-84": {
+    "obra-5b18e8b5/cap-242306c3-85": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-3b358776-84",
-      "numero": "84",
-      "titulo": "Capítulo 84",
+      "capId": "cap-242306c3-85",
+      "numero": "85",
+      "titulo": "Capítulo 85",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
@@ -17182,48 +17182,48 @@
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/CsghvMF.jpg",
+          "url": "https://iili.io/CsghiwN.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/CsghOZP.jpg",
+          "url": "https://iili.io/CsghstI.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/CsghNwB.jpg",
+          "url": "https://iili.io/CsghgcJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/Csghkn1.jpg",
+          "url": "https://iili.io/Csghr8v.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/Csgh86g.jpg",
+          "url": "https://iili.io/CsghZMX.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/CsghhyQ.jpg",
+          "url": "https://iili.io/CsghQnt.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/CsghwuV.jpg",
+          "url": "https://iili.io/CsghPup.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/CsghWaj.jpg",
+          "url": "https://iili.io/Csgh69R.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T21:29:19.441Z",
+      "hostedAt": "2026-08-17T21:29:34.368Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/84",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/85",
       "nexusSlug": "1-segundo"
     }
   },
@@ -17478,5 +17478,5 @@
   "origem": "github",
   "total": 99,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T21:28:52.554Z"
+  "atualizadoEm": "2026-08-17T21:29:07.219Z"
 }
