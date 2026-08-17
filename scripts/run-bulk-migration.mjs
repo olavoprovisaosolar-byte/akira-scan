@@ -12,9 +12,15 @@ import { spawn, spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadState, isMangaFullyInState } from "../bots/nexustoons-akira/shared/state.js";
+import { loadState, isMangaFullyInState, loadCloudIndex } from "../bots/nexustoons-akira/shared/state.js";
 import { createAdapter } from "../bots/nexustoons-akira/capture/nexustoons.js";
 import { runPostDeployPurge } from "../bots/nexustoons-akira/shared/page-purge.js";
+import { akiraMangaId } from "../bots/nexustoons-akira/shared/ids.js";
+import {
+    fetchAllNexusMangas,
+    buildFastMangaQueue,
+    mangasWithCloudCaps
+} from "../bots/nexustoons-akira/shared/nexus-catalog.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -28,6 +34,12 @@ const LITE = args.includes("--lite");
 const ULTRA = args.includes("--ultra") && !LITE;
 const HYPER = args.includes("--hyper") && !LITE;
 const TURBO = (args.includes("--turbo") || ULTRA || HYPER) && !LITE;
+const FULL_CATALOG = args.includes("--full-catalog") || process.env.NEXUSTOONS_FULL_CATALOG === "1";
+const LATEST_ONLY = args.includes("--latest-only")
+    || process.env.NEXUSTOONS_SYNC_ONLY_NEW === "1";
+const ALL_CHAPTERS_FLAG = args.includes("--all-chapters")
+    || process.env.NEXUSTOONS_ALL_CHAPTERS === "1";
+const SHARD = process.env.NEXUSTOONS_SHARD || args.find((a) => a.startsWith("--shard="))?.split("=")[1] || "";
 
 function applyTelegraEnv() {
     process.env.TELEGRA_SKIP = process.env.TELEGRA_SKIP || "0";
@@ -226,6 +238,33 @@ async function resolveWorkQueue(onProgress) {
         return [{ nexusSlug: slug, title: slug, akiraId: null }];
     }
 
+    if (FULL_CATALOG) {
+        onProgress?.("Catálogo completo — listagem rápida via API…");
+        const capture = createAdapter();
+        let config = { mangas: [] };
+        if (fs.existsSync(CONFIG_MANGAS)) {
+            try { config = JSON.parse(fs.readFileSync(CONFIG_MANGAS, "utf8")); } catch { /* ignore */ }
+        }
+        const nexusList = await fetchAllNexusMangas(capture, {
+            onProgress: ({ fetched }) => {
+                if (fetched % 2000 === 0) onProgress?.(`  ${fetched} obras listadas…`);
+            }
+        });
+        await capture.close?.();
+        let queue = buildFastMangaQueue(nexusList, config, { shard: SHARD || undefined });
+        if (LATEST_ONLY && !ALL_CHAPTERS_FLAG) {
+            const cloudIdx = loadCloudIndex();
+            const hasCaps = mangasWithCloudCaps(cloudIdx);
+            const before = queue.length;
+            queue = queue.filter((m) => {
+                const id = m.akiraId || akiraMangaId(m.nexusSlug || m.slug, null);
+                return !hasCaps.has(id);
+            });
+            onProgress?.(`Latest-only: ${before - queue.length} já com cap no site, ${queue.length} pendentes`);
+        }
+        return queue;
+    }
+
     const enabled = loadEnabledMangas();
     if (!enabled.length) {
         console.error("Nenhum mangá enabled em config.mangas.json. Execute: node scripts/map-catalog-to-nexustoons.mjs");
@@ -324,9 +363,16 @@ runStep("Limpar caps fantasma (global)", process.execPath, [
 if (!DRY_RUN) {
     const MANGA_PARALLEL = Math.max(1, Number(process.env.NEXUSTOONS_MANGA_PARALLEL || 1));
 
+    function bulkArgsForSlug(slug) {
+        const a = [BULK_RUN, `--slug=${slug}`, "--no-deploy"];
+        if (LATEST_ONLY && !ALL_CHAPTERS_FLAG) a.push("--latest-only");
+        else if (ALL_CHAPTERS_FLAG) a.push("--all-chapters");
+        return a;
+    }
+
     function runMangaAsync(slug, title) {
         return new Promise((resolve, reject) => {
-            const child = spawn(process.execPath, [BULK_RUN, `--slug=${slug}`, "--no-deploy"], {
+            const child = spawn(process.execPath, bulkArgsForSlug(slug), {
                 cwd: ROOT,
                 env: { ...process.env },
                 stdio: "inherit"
@@ -389,7 +435,7 @@ if (!DRY_RUN) {
             runStep(
                 `Bulk import: ${title}`,
                 process.execPath,
-                [BULK_RUN, `--slug=${slug}`, "--no-deploy"],
+                bulkArgsForSlug(slug),
                 { stdio: "inherit", env: { ...process.env } }
             );
         }

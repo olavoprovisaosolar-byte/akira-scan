@@ -101,6 +101,11 @@ async function hasPendingWork() {
 
 const rawArgs = process.argv.slice(2);
 const migArgs = rawArgs.filter((a) => a !== "--no-git-sync");
+const NO_GIT_SYNC_FLAG = rawArgs.includes("--no-git-sync");
+
+if (NO_GIT_SYNC_FLAG) {
+    process.env.SKIP_GIT_SYNC = "1";
+}
 
 if (!migArgs.some((a) => a.startsWith("--slug=") || a === "--slug" || a === "--all")) {
     console.error("Uso: node scripts/cloud-hyper-run.mjs (--all | --slug=SLUG) [--hyper|--ultra] [--no-deploy]");

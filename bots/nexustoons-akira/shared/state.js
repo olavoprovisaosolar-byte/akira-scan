@@ -11,6 +11,31 @@ export const CATALOGO_PATH = path.join(ROOT, "data", "catalogo.json");
 
 const EMPTY = { version: 1, updatedAt: null, processed: {} };
 
+function sleepSync(ms) {
+    const end = Date.now() + ms;
+    while (Date.now() < end) { /* spin */ }
+}
+
+function renameWithRetry(src, dest, attempts = 10) {
+    for (let i = 0; i < attempts; i++) {
+        try {
+            fs.renameSync(src, dest);
+            return;
+        } catch (e) {
+            const retryable = e.code === "EPERM" || e.code === "EBUSY" || e.code === "EACCES";
+            if (!retryable || i === attempts - 1) throw e;
+            sleepSync(40 + i * 35);
+        }
+    }
+}
+
+/** Escrita atômica: tmp + rename com retry (Windows/antivírus). */
+function guardarJsonAtomic(file, data) {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    const tmp = `${file}.tmp.${process.pid}`;
+    fs.writeFileSync(tmp, JSON.stringify(data, null, 2), "utf8");
+    renameWithRetry(tmp, file);
+}
 export function chapterStateKey(mangaSlug, capId) {
     return `${mangaSlug}/${capId}`;
 }
@@ -27,30 +52,23 @@ export function loadState() {
 
 /** Escrita atômica: tmp + rename (checkpoint seguro para resume). */
 export function saveState(state) {
-    fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
     state.updatedAt = new Date().toISOString();
-    const payload = JSON.stringify(state, null, 2);
-    const tmp = `${STATE_PATH}.tmp.${process.pid}`;
-    fs.writeFileSync(tmp, payload, "utf8");
-    fs.renameSync(tmp, STATE_PATH);
+    withFileLockSync("state", () => {
+        guardarJsonAtomic(STATE_PATH, state);
+    });
 }
 
 /** Persiste state imediatamente após capítulo processado com sucesso. */
 export function saveStateImmediate(state) {
-    const multiWorker = Math.max(1, Number(process.env.NEXUSTOONS_MANGA_PARALLEL || 1)) > 1;
-    if (!multiWorker) {
-        saveState(state);
-        return;
-    }
     withFileLockSync("state", () => {
         const disk = loadState();
         for (const [key, entry] of Object.entries(state.processed || {})) {
             disk.processed[key] = entry;
         }
-        saveState(disk);
+        disk.updatedAt = new Date().toISOString();
+        guardarJsonAtomic(STATE_PATH, disk);
     });
 }
-
 export function isProcessedInState(state, mangaSlug, capId) {
     const key = chapterStateKey(mangaSlug, capId);
     return Boolean(state.processed[key]);
@@ -85,7 +103,7 @@ export function isChapterCompleteInState(state, mangaSlug, capId, expectedPages)
     return true;
 }
 
-function loadCloudIndex() {
+export function loadCloudIndex() {
     if (!fs.existsSync(CLOUD_INDEX_PATH)) return { caps: {} };
     try {
         return JSON.parse(fs.readFileSync(CLOUD_INDEX_PATH, "utf8"));
@@ -112,8 +130,53 @@ function envTruthy(name) {
 export function wantsTelegraPrimary() {
     const adapter = process.env.HOSTING_ADAPTER
         || process.env.NEXUSTOONS_HOSTING_ADAPTER
-        || "telegra";
+        || "imgbb";
     return adapter === "telegra" && !envTruthy("TELEGRA_SKIP");
+}
+
+/** Modo ImgBB: só considera “já feito” caps com URLs i.ibb.co. */
+export function wantsImgbbPrimary() {
+    const adapter = process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "imgbb";
+    return (adapter === "imgbb" || adapter === "ibb") && !envTruthy("IMGBB_SKIP");
+}
+
+/** Modo R2: só considera “já feito” caps com /api/cloud/page. */
+export function wantsR2Primary() {
+    const adapter = process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "imgbb";
+    return adapter === "r2" || adapter === "cloudflare-r2";
+}
+
+/** Modo Catbox: só considera “já feito” caps com files.catbox.moe (migra discord/github). */
+export function wantsCatboxPrimary() {
+    const adapter = process.env.HOSTING_ADAPTER
+        || process.env.NEXUSTOONS_HOSTING_ADAPTER
+        || "imgbb";
+    return adapter === "catbox";
+}
+
+function hasR2Pages(rec) {
+    return rec?.pages?.some((p) => String(p.url || "").includes("/api/cloud/page"));
+}
+
+function hasCatboxPages(rec) {
+    // Alvo permanente: catbox ou freeimage (fallback quando catbox bloqueia o IP)
+    return rec?.pages?.some((p) => {
+        const u = String(p.url || "");
+        return u.includes("files.catbox.moe")
+            || u.includes("iili.io")
+            || u.includes("freeimage.host");
+    });
+}
+
+function hasImgbbPages(rec) {
+    return rec?.pages?.some((p) => {
+        const u = String(p.url || "");
+        return u.includes("i.ibb.co") || u.includes("ibb.co") || u.includes("imgbb.com");
+    });
 }
 
 function hasTelegraPages(rec) {
@@ -123,21 +186,35 @@ function hasTelegraPages(rec) {
             || u.includes("iili.io")
             || u.includes("freeimage.host")
             || u.includes("catbox.moe")
-            || u.includes("litter.catbox.moe");
+            || u.includes("litter.catbox.moe")
+            || u.includes("i.ibb.co")
+            || u.includes("ibb.co");
     });
 }
 
 function hasHostedPages(rec) {
     return rec?.pages?.some((p) => {
         const u = String(p.url || "");
-        return u.includes("telegra.ph")
+        return u.includes("i.ibb.co")
+            || u.includes("ibb.co")
+            || u.includes("imgbb.com")
+            || u.includes("telegra.ph")
             || u.includes("catbox.moe")
+            || u.includes("litter.catbox.moe")
+            || u.includes("iili.io")
+            || u.includes("freeimage.host")
+            || u.includes("pixeldrain.com")
             || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
+            || u.includes("cdn.discordapp.com")
+            || u.includes("media.discordapp.net")
+            || u.includes("/api/discord-img");
     });
 }
 
 function hasPublishablePages(rec) {
+    if (wantsR2Primary()) return hasR2Pages(rec);
+    if (wantsCatboxPrimary()) return hasCatboxPages(rec);
+    if (wantsImgbbPrimary()) return hasImgbbPages(rec);
     if (wantsTelegraPrimary()) return hasTelegraPages(rec);
     return hasHostedPages(rec);
 }
@@ -175,10 +252,14 @@ function isInCatalogo(catalogo, akiraMangaId, chapterNumber) {
 
 /**
  * Verifica state.json, índice cloud e (opcionalmente) catalogo.json.
+ * Em modo ImgBB só salta caps que já tenham URLs i.ibb.co.
  * @returns {{ skip: boolean, reason?: string, source?: string }}
  */
 export function getChapterSkipReason(state, mangaSlug, capId, akiraMangaId, chapterNumber, expectedPages = null) {
     const telegraMode = wantsTelegraPrimary();
+    const imgbbMode = wantsImgbbPrimary();
+    const r2Mode = wantsR2Primary();
+    const catboxMode = wantsCatboxPrimary();
     const idx = loadCloudIndex();
     const cloudHit = isInCloudIndex(idx, akiraMangaId, capId, chapterNumber);
 
@@ -188,6 +269,11 @@ export function getChapterSkipReason(state, mangaSlug, capId, akiraMangaId, chap
             return { skip: false, reason: "page-count-mismatch" };
         }
         return { skip: true, reason: cloudHit.key, source: cloudHit.source };
+    }
+
+    // ImgBB / R2 / Catbox: ignorar state/catálogo antigo — só cloud no formato alvo conta
+    if (imgbbMode || r2Mode || catboxMode) {
+        return { skip: false };
     }
 
     const key = chapterStateKey(mangaSlug, capId);
@@ -268,8 +354,7 @@ export function rollbackChapterPublication({
     return { ok: true, capId, chapterNumber };
 }
 
-function recomputePorManga(capsObj) {
-    const porManga = {};
+function recomputePorManga(capsObj) {    const porManga = {};
     for (const rec of Object.values(capsObj || {})) {
         const mangaId = rec.mangaId;
         if (!mangaId) continue;
@@ -284,15 +369,7 @@ function recomputePorManga(capsObj) {
     return porManga;
 }
 
-function guardarJsonAtomic(file, data) {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    const tmp = `${file}.${process.pid}.tmp`;
-    fs.writeFileSync(tmp, JSON.stringify(data, null, 2), "utf8");
-    fs.renameSync(tmp, file);
-}
-
-/** Verifica state.json OU índice cloud Akira Scan OU catalogo (Telegra). */
-export function isChapterAlreadyPublished(state, mangaSlug, capId, akiraMangaId, chapterNumber) {
+/** Verifica state.json OU índice cloud Akira Scan OU catalogo (Telegra). */export function isChapterAlreadyPublished(state, mangaSlug, capId, akiraMangaId, chapterNumber) {
     return getChapterSkipReason(state, mangaSlug, capId, akiraMangaId, chapterNumber).skip;
 }
 
@@ -306,6 +383,39 @@ export function countProcessedForSlug(state, slug) {
 export function isMangaFullyInState(state, slug, totalChapters, akiraMangaId = null) {
     const total = Number(totalChapters);
     if (!slug || !Number.isFinite(total) || total <= 0) return false;
+
+    if (wantsR2Primary()) {
+        if (!akiraMangaId) return false;
+        const idx = loadCloudIndex();
+        let r2Caps = 0;
+        for (const rec of Object.values(idx.caps || {})) {
+            if (rec.mangaId !== akiraMangaId || !rec.done || !hasR2Pages(rec)) continue;
+            r2Caps++;
+        }
+        return r2Caps >= total;
+    }
+
+    if (wantsCatboxPrimary()) {
+        if (!akiraMangaId) return false;
+        const idx = loadCloudIndex();
+        let catboxCaps = 0;
+        for (const rec of Object.values(idx.caps || {})) {
+            if (rec.mangaId !== akiraMangaId || !rec.done || !hasCatboxPages(rec)) continue;
+            catboxCaps++;
+        }
+        return catboxCaps >= total;
+    }
+
+    if (wantsImgbbPrimary()) {
+        if (!akiraMangaId) return false;
+        const idx = loadCloudIndex();
+        let imgbbCaps = 0;
+        for (const rec of Object.values(idx.caps || {})) {
+            if (rec.mangaId !== akiraMangaId || !rec.done || !hasImgbbPages(rec)) continue;
+            imgbbCaps++;
+        }
+        return imgbbCaps >= total;
+    }
 
     if (wantsTelegraPrimary()) {
         if (!akiraMangaId) return false;
