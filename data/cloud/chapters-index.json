@@ -19246,133 +19246,178 @@
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/143",
       "nexusSlug": "1-segundo"
     },
-    "obra-5b18e8b5/cap-04ac93b5-150": {
+    "obra-5b18e8b5/cap-cd7241f6-151": {
       "mangaId": "obra-5b18e8b5",
-      "capId": "cap-04ac93b5-150",
-      "numero": "150",
-      "titulo": "Capítulo 150",
+      "capId": "cap-cd7241f6-151",
+      "numero": "151",
+      "titulo": "Capítulo 151",
       "tituloManga": "1 Segundo",
       "done": true,
       "origem": "nexustoons-bot",
       "hosting": "catbox",
-      "total": 22,
-      "uploaded": 22,
+      "total": 31,
+      "uploaded": 31,
       "localPurged": true,
       "pages": [
         {
           "index": 0,
-          "url": "https://iili.io/Cs4ICle.jpg",
+          "url": "https://iili.io/Cs4IpLB.jpg",
           "origem": "catbox"
         },
         {
           "index": 1,
-          "url": "https://iili.io/Cs4Ifi7.jpg",
+          "url": "https://iili.io/Cs4IZej.jpg",
           "origem": "catbox"
         },
         {
           "index": 2,
-          "url": "https://iili.io/Cs4IxHb.jpg",
+          "url": "https://iili.io/Cs4Itmx.jpg",
           "origem": "catbox"
         },
         {
           "index": 3,
-          "url": "https://iili.io/Cs4InUu.jpg",
+          "url": "https://iili.io/Cs4TJrF.jpg",
           "origem": "catbox"
         },
         {
           "index": 4,
-          "url": "https://iili.io/Cs4IzRj.jpg",
+          "url": "https://iili.io/Cs4IbzQ.jpg",
           "origem": "catbox"
         },
         {
           "index": 5,
-          "url": "https://iili.io/Cs4IBf9.jpg",
+          "url": "https://iili.io/Cs4T9qP.jpg",
           "origem": "catbox"
         },
         {
           "index": 6,
-          "url": "https://iili.io/Cs4IAxV.jpg",
+          "url": "https://iili.io/Cs4ImXV.jpg",
           "origem": "catbox"
         },
         {
           "index": 7,
-          "url": "https://iili.io/Cs4IIOx.jpg",
+          "url": "https://iili.io/Cs4TH11.jpg",
           "origem": "catbox"
         },
         {
           "index": 8,
-          "url": "https://iili.io/Cs4IYf1.jpg",
+          "url": "https://iili.io/Cs4ToBI.jpg",
           "origem": "catbox"
         },
         {
           "index": 9,
-          "url": "https://iili.io/Cs4I5iP.jpg",
+          "url": "https://iili.io/Cs4TqIR.jpg",
           "origem": "catbox"
         },
         {
           "index": 10,
-          "url": "https://iili.io/Cs4I15J.jpg",
+          "url": "https://iili.io/Cs4TBXp.jpg",
           "origem": "catbox"
         },
         {
           "index": 11,
-          "url": "https://iili.io/Cs4I0Ja.jpg",
+          "url": "https://iili.io/Cs4Tx1t.jpg",
           "origem": "catbox"
         },
         {
           "index": 12,
-          "url": "https://iili.io/Cs4IEOv.jpg",
+          "url": "https://iili.io/Cs4TFkJ.jpg",
           "origem": "catbox"
         },
         {
           "index": 13,
-          "url": "https://iili.io/Cs4IGbR.jpg",
+          "url": "https://iili.io/Cs4TzrX.jpg",
           "origem": "catbox"
         },
         {
           "index": 14,
-          "url": "https://iili.io/Cs4Ia0F.jpg",
+          "url": "https://iili.io/Cs4TCLN.jpg",
           "origem": "catbox"
         },
         {
           "index": 15,
-          "url": "https://iili.io/Cs4IVxp.jpg",
+          "url": "https://iili.io/Cs4TKmv.jpg",
           "origem": "catbox"
         },
         {
           "index": 16,
-          "url": "https://iili.io/Cs4Ijft.jpg",
+          "url": "https://iili.io/Cs4TaQ2.jpg",
           "origem": "catbox"
         },
         {
           "index": 17,
-          "url": "https://iili.io/Cs4IeJs.jpg",
+          "url": "https://iili.io/Cs4TRpf.jpg",
           "origem": "catbox"
         },
         {
           "index": 18,
-          "url": "https://iili.io/Cs4Iw0X.jpg",
+          "url": "https://iili.io/Cs4TYhl.jpg",
           "origem": "catbox"
         },
         {
           "index": 19,
-          "url": "https://iili.io/Cs4Ik5G.jpg",
+          "url": "https://iili.io/Cs4T0E7.jpg",
           "origem": "catbox"
         },
         {
           "index": 20,
-          "url": "https://iili.io/Cs4IXsI.jpg",
+          "url": "https://iili.io/Cs4T7I4.jpg",
           "origem": "catbox"
         },
         {
           "index": 21,
-          "url": "https://iili.io/Cs4INgn.jpg",
+          "url": "https://iili.io/Cs4T149.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 22,
+          "url": "https://iili.io/Cs4TAkG.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 23,
+          "url": "https://iili.io/Cs4Tu7s.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 24,
+          "url": "https://iili.io/Cs4TMYu.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 25,
+          "url": "https://iili.io/Cs4TWpj.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 26,
+          "url": "https://iili.io/Cs4TwQV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 27,
+          "url": "https://iili.io/Cs4TjhQ.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 28,
+          "url": "https://iili.io/Cs4TOCB.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 29,
+          "url": "https://iili.io/Cs4ThTx.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 30,
+          "url": "https://iili.io/Cs4TVkb.jpg",
           "origem": "catbox"
         }
       ],
-      "hostedAt": "2026-08-17T22:01:50.725Z",
+      "hostedAt": "2026-08-17T22:02:12.281Z",
       "capturedAt": null,
-      "sourceUrl": "https://nexustoons.com/manga/1-segundo/150",
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/151",
       "nexusSlug": "1-segundo"
     }
   },
@@ -19627,5 +19672,5 @@
   "origem": "github",
   "total": 105,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T22:01:24.469Z"
+  "atualizadoEm": "2026-08-17T22:01:45.021Z"
 }
