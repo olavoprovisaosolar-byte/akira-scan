@@ -16727,6 +16727,55 @@
       "capturedAt": null,
       "sourceUrl": "https://nexustoons.com/manga/1-segundo/79",
       "nexusSlug": "1-segundo"
+    },
+    "obra-5b18e8b5/cap-3ad84a4e-51": {
+      "mangaId": "obra-5b18e8b5",
+      "capId": "cap-3ad84a4e-51",
+      "numero": "51",
+      "titulo": "Capítulo 51",
+      "tituloManga": "1 Segundo",
+      "done": true,
+      "origem": "nexustoons-bot",
+      "hosting": "catbox",
+      "total": 6,
+      "uploaded": 6,
+      "localPurged": true,
+      "pages": [
+        {
+          "index": 0,
+          "url": "https://iili.io/CsS5xyv.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 1,
+          "url": "https://iili.io/CsS52jV.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 2,
+          "url": "https://iili.io/CsS55Gt.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 3,
+          "url": "https://iili.io/CsS5Eu4.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 4,
+          "url": "https://iili.io/CsS5naa.jpg",
+          "origem": "catbox"
+        },
+        {
+          "index": 5,
+          "url": "https://iili.io/CsUFy12.jpg",
+          "origem": "catbox"
+        }
+      ],
+      "hostedAt": "2026-08-17T20:43:14.401Z",
+      "capturedAt": null,
+      "sourceUrl": "https://nexustoons.com/manga/1-segundo/51",
+      "nexusSlug": "1-segundo"
     }
   },
   "porManga": {
@@ -16857,10 +16906,10 @@
       "purgedCaps": 1
     },
     "obra-5b18e8b5": {
-      "totalCaps": 26,
-      "doneCaps": 26,
-      "legibleCaps": 26,
-      "purgedCaps": 26
+      "totalCaps": 27,
+      "doneCaps": 27,
+      "legibleCaps": 27,
+      "purgedCaps": 27
     },
     "obra-69466adb": {
       "totalCaps": 1,
@@ -16978,7 +17027,7 @@
     }
   },
   "origem": "github",
-  "total": 97,
+  "total": 98,
   "aviso": "GitHub raw HTTP 520: error code: 520\n",
-  "atualizadoEm": "2026-08-17T20:39:43.672Z"
+  "atualizadoEm": "2026-08-17T20:44:47.836Z"
 }
