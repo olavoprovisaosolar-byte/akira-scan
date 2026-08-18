@@ -1,0 +1,154 @@
+name: Nexus Sprint 1 Day (Cloud)
+
+# Sprint 24h na nuvem — 1 cap recente por obra (~13k mangás).
+# PC pode ficar desligado. Retoma do state.json; re-dispara sozinho a cada 6h.
+#
+# Disparar: Actions → Nexus Sprint 1 Day (Cloud) → Run workflow
+# Ou local: node scripts/handoff-sprint-to-cloud.mjs --push
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy Cloudflare Pages ao concluir rodada"
+        required: false
+        type: boolean
+        default: false
+      manga_parallel:
+        description: "Mangás em paralelo (2 recomendado no runner free)"
+        required: false
+        default: "2"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nexus-sprint-1day-cloud
+  cancel-in-progress: false
+
+jobs:
+  sprint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+
+      - name: Estado do sprint
+        run: |
+          if [ -f data/nexustoons/state.json ]; then
+            node -e "const s=require('./data/nexustoons/state.json'); console.log('state caps:', Object.keys(s.processed||{}).length)"
+          fi
+          if [ -f data/cloud/chapters-index.json ]; then
+            node -e "const i=require('./data/cloud/chapters-index.json'); console.log('cloud caps:', Object.keys(i.caps||{}).length)"
+          fi
+          node scripts/check-sprint-pending.mjs || true
+
+      - name: Sprint hyper (full catalog + latest-only)
+        env:
+          SYNC_INTERVAL_MINUTES: "30"
+          MIGRATE_LOOP: "0"
+          NEXUSTOONS_FULL_CATALOG: "1"
+          NEXUSTOONS_SYNC_ONLY_NEW: "1"
+          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
+          NEXUSTOONS_CHAPTER_CONCURRENCY: "4"
+          NEXUSTOONS_PW_POOL_SIZE: "4"
+          NEXUSTOONS_USE_PLAYWRIGHT: "1"
+          TELEGRA_SKIP: "1"
+          HOSTING_ADAPTER: catbox
+          NEXUSTOONS_HOSTING_ADAPTER: catbox
+          CATBOX_FORCE_FREEIMAGE: "1"
+          CATBOX_SKIP: "true"
+          LITTERBOX_SKIP: "1"
+          CATBOX_STATIC_FALLBACK: "false"
+          NEXUSTOONS_PURGE_LOCAL: "1"
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+          NEXUSTOONS_DEFER_CATALOG: "1"
+          NEXUSTOONS_OVERLAP_PIPELINE: "1"
+          SHARP_SKIP_REENCODE: "1"
+          NEXUSTOONS_PW_LITE: "1"
+          NEXUSTOONS_PW_BLOCK_HEAVY: "1"
+          NEXUSTOONS_DELAY_MS: "0"
+          NEXUSTOONS_CHAPTER_DELAY_MS: "0"
+          FREEIMAGE_DELAY_MS: "0"
+          STREAM_PAGE_CONCURRENCY: "24"
+          STREAM_PAGE_MAX: "24"
+          PAGE_DOWNLOAD_CONCURRENCY: "24"
+          NEXUSTOONS_STATE_SAVE_EVERY: "5"
+          CF_PAGES_PROJECT: akira-scan
+          CF_PAGES_BRANCH: main
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          AKIRA_PUBLISH_TOKEN: ${{ secrets.AKIRA_PUBLISH_TOKEN }}
+          AKIRA_PUBLISH_BASE_URL: https://akira-scan.pages.dev
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+        run: |
+          node scripts/cloud-hyper-run.mjs --hyper --all --full-catalog --latest-only --no-deploy --no-git-sync
+
+      - name: Rebuild catalogo-index
+        run: npm run build:catalog-index
+        continue-on-error: true
+
+      - name: Commit checkpoint
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/nexustoons/state.json \
+            data/nexustoons/manifest.json \
+            data/catalogo.json \
+            data/catalogo-index.json \
+            data/cloud/chapters-index.json \
+            2>/dev/null || true
+          git diff --staged --quiet || git commit -m "bot(sprint): checkpoint cloud $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+          git push || true
+
+      - name: Deploy Cloudflare (opcional)
+        if: inputs.deploy == true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_PAGES_PROJECT: akira-scan
+          CF_PAGES_BRANCH: main
+          AKIRA_SKIP_CLOUD_PAGES: "1"
+        run: npm run deploy:cloudflare
+        continue-on-error: true
+
+      - name: Re-disparar se sprint incompleto
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if node scripts/check-sprint-pending.mjs; then
+            echo "Sprint incompleto — próxima rodada em 45s…"
+            sleep 45
+            gh workflow run nexus-sprint-1day-cloud.yml \
+              --ref "$(git rev-parse --abbrev-ref HEAD)" \
+              -f deploy=false \
+              -f manga_parallel=${{ inputs.manga_parallel }}
+          else
+            echo "Sprint completo — todas as obras têm cap legível."
+          fi
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sprint-cloud-log-${{ github.run_id }}
+          path: logs/migration-*.log
+          if-no-files-found: ignore
+          retention-days: 14

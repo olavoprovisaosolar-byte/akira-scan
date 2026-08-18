@@ -35,6 +35,7 @@ import {
     isMangaFullyInState
 } from "./shared/state.js";
 import { akiraMangaId, akiraCapId } from "./shared/ids.js";
+import { fetchAllNexusMangas, buildAkiraIdLookup, applyShard } from "./shared/nexus-catalog.js";
 import { selectChaptersForRun } from "./shared/chapters.js";
 import { log, setLogFile } from "./shared/logger.js";
 import { logChapterStart, logChapterDone, logChapterSkipped } from "./shared/progress.js";
@@ -60,14 +61,16 @@ const BATCH_DEPLOY = args.includes("--batch-deploy")
     || (ALL_CHAPTERS && process.env.NEXUSTOONS_BULK === "1");
 const BULK_MODE = process.env.NEXUSTOONS_BULK === "1" || args.includes("--bulk");
 const MULTI_BULK = process.env.NEXUSTOONS_MULTI_BULK === "1" || args.includes("--all");
+const FULL_CATALOG = process.env.NEXUSTOONS_FULL_CATALOG === "1" || args.includes("--full-catalog");
+const SHARD = process.env.NEXUSTOONS_SHARD || args.find((a) => a.startsWith("--shard="))?.split("=")[1] || "";
 const SKIP_DEPLOY = args.includes("--no-deploy") || MULTI_BULK;
 
-const DEFAULT_CHAPTER_DELAY = process.env.NEXUSTOONS_BULK === "1" ? 800 : 1500;
-const CHAPTER_DELAY_MS = Math.max(0, Number(process.env.NEXUSTOONS_CHAPTER_DELAY_MS || DEFAULT_CHAPTER_DELAY));
-const CHAPTER_CONCURRENCY = Math.max(1, Number(process.env.NEXUSTOONS_CHAPTER_CONCURRENCY || 1));
-const STATE_SAVE_EVERY = Math.max(1, Number(process.env.NEXUSTOONS_STATE_SAVE_EVERY || 1));
-const OVERLAP_PIPELINE = process.env.NEXUSTOONS_OVERLAP_PIPELINE === "1"
-    || process.env.NEXUSTOONS_OVERLAP_PIPELINE === "true";
+const DEFAULT_CHAPTER_DELAY = process.env.NEXUSTOONS_BULK === "1" ? 0 : 1500;
+const CHAPTER_DELAY_MS = Math.max(0, Number(process.env.NEXUSTOONS_CHAPTER_DELAY_MS ?? DEFAULT_CHAPTER_DELAY));
+const CHAPTER_CONCURRENCY = Math.max(1, Number(process.env.NEXUSTOONS_CHAPTER_CONCURRENCY || (process.env.NEXUSTOONS_BULK === "1" ? 5 : 1)));
+const STATE_SAVE_EVERY = Math.max(1, Number(process.env.NEXUSTOONS_STATE_SAVE_EVERY || (process.env.NEXUSTOONS_BULK === "1" ? 5 : 1)));
+const OVERLAP_PIPELINE = process.env.NEXUSTOONS_OVERLAP_PIPELINE !== "0"
+    && process.env.NEXUSTOONS_OVERLAP_PIPELINE !== "false";
 
 function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
@@ -113,6 +116,27 @@ function resolveMangaList(config) {
 }
 
 async function fetchCatalogMangas(capture, config) {
+    if (FULL_CATALOG && MULTI_BULK && !SLUG_FILTER) {
+        log.info("Modo catálogo completo — buscando todas as obras NexusToons…");
+        const idBySlug = buildAkiraIdLookup(config);
+        const nexusList = await fetchAllNexusMangas(capture, {
+            onProgress: ({ fetched }) => {
+                if (fetched % 500 === 0) {
+                    log.info(`Catálogo Nexus: ${fetched} obras listadas…`);
+                }
+            }
+        });
+        const mangas = nexusList.map((m) => ({
+            slug: m.slug,
+            akiraId: idBySlug.get(m.slug) || akiraMangaId(m.slug, null),
+            title: m.title,
+            enabled: true
+        }));
+        const filtered = applyShard(mangas, SHARD);
+        log.info(`Catálogo completo: ${filtered.length} obras (${idBySlug.size} IDs Akira preservados)${SHARD ? ` shard ${SHARD}` : ""}`);
+        return MANGA_LIMIT > 0 ? filtered.slice(0, MANGA_LIMIT) : filtered;
+    }
+
     const configured = resolveMangaList(config);
     if (configured.length) return configured;
 
@@ -168,12 +192,12 @@ async function processManga(capture, hosting, upload, manifest, state, entry, ma
     }
 
     const totalRemoteChapters = remote.chapters?.length || 0;
-    if (BULK_MODE && isMangaFullyInState(state, slug, totalRemoteChapters)) {
-        log.info(`Mangá já completo no state (${totalRemoteChapters} caps)`, { slug, title: label });
+    const mangaId = explicitId || akiraMangaId(slug, null);
+
+    if (BULK_MODE && isMangaFullyInState(state, slug, totalRemoteChapters, mangaId)) {
+        log.info(`Mangá já completo no destino/state (${totalRemoteChapters} caps)`, { slug, title: label });
         return { captured: 0, hosted: 0, uploaded: 0, skipped: totalRemoteChapters, skippedManga: true };
     }
-
-    const mangaId = explicitId || akiraMangaId(slug, null);
 
     upsertMangaEntry(manifest, slug, {
         akiraId: mangaId,
@@ -215,10 +239,17 @@ async function processManga(capture, hosting, upload, manifest, state, entry, ma
     const meta = {
         title: remote.title,
         description: remote.description,
-        author: remote.author,
+        author: remote.author || remote.artist,
         status: remote.status,
         nexusSlug: slug,
-        akiraMangaId: mangaId
+        akiraMangaId: mangaId,
+        coverImage: remote.coverImage,
+        bannerImage: remote.bannerImage,
+        categories: remote.categories,
+        rating: remote.rating,
+        views: remote.views,
+        type: remote.type,
+        releaseYear: remote.releaseYear
     };
 
     function maybeSaveState() {

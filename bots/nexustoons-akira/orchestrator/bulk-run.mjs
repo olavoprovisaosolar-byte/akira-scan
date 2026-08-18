@@ -5,6 +5,7 @@
  * Uso:
  *   npm run bot:nexustoons:bulk -- --slug=gye-baeksun-sem-emprego-e-sem-dinheiro
  *   npm run bot:nexustoons:bulk -- --all
+ *   npm run bot:nexustoons:bulk -- --all --full-catalog
  *   npm run bot:nexustoons:bulk -- --slug=SLUG --dry-run
  *   npm run bot:nexustoons:bulk -- --all --no-deploy
  */
@@ -20,8 +21,14 @@ process.env.NEXUSTOONS_BULK = "1";
 
 const rawArgs = process.argv.slice(2);
 const ALL_MANGAS = rawArgs.includes("--all");
+const FULL_CATALOG = rawArgs.includes("--full-catalog");
 const slugArg = rawArgs.find((a) => a.startsWith("--slug="))?.split("=")[1]
     || (rawArgs.includes("--slug") ? rawArgs[rawArgs.indexOf("--slug") + 1] : null);
+
+if (FULL_CATALOG && !ALL_MANGAS) {
+    console.error("[CRÍTICO] --full-catalog exige --all");
+    process.exit(1);
+}
 
 if (!slugArg && !ALL_MANGAS) {
     console.error("[CRÍTICO] bulk import exige --slug=SLUG ou --all");
@@ -64,7 +71,8 @@ const { setLogFile } = await import("../shared/logger.js");
 
 if (ALL_MANGAS) {
     process.env.NEXUSTOONS_MULTI_BULK = "1";
-    setLogFile("bulk-all-nexustoons.log");
+    if (FULL_CATALOG) process.env.NEXUSTOONS_FULL_CATALOG = "1";
+    setLogFile(FULL_CATALOG ? "bulk-full-nexustoons.log" : "bulk-all-nexustoons.log");
 } else {
     process.env.NEXUSTOONS_BULK_SLUG = slugArg;
     setLogFile(`bulk-${slugArg.replace(/[^\w-]/g, "_").slice(0, 40)}.log`);
