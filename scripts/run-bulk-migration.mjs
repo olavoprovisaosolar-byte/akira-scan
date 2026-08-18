@@ -261,6 +261,25 @@ async function resolveWorkQueue(onProgress) {
                 return !hasCaps.has(id);
             });
             onProgress?.(`Latest-only: ${before - queue.length} já com cap no site, ${queue.length} pendentes`);
+        } else if (ALL_CHAPTERS_FLAG) {
+            const cloudIdx = loadCloudIndex();
+            const porManga = cloudIdx.porManga || {};
+            const manifestPath = path.join(ROOT, "data", "nexustoons", "manifest.json");
+            let manifest = { mangas: {} };
+            if (fs.existsSync(manifestPath)) {
+                try { manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8")); } catch { /* ignore */ }
+            }
+            const before = queue.length;
+            queue = queue.filter((m) => {
+                const slug = m.nexusSlug || m.slug;
+                const id = m.akiraId || akiraMangaId(slug, null);
+                const legible = porManga[id]?.legibleCaps || 0;
+                const known = Number(manifest.mangas?.[slug]?.totalChapters)
+                    || Object.keys(manifest.mangas?.[slug]?.chapters || {}).length;
+                if (known > 0 && legible >= known) return false;
+                return true;
+            });
+            onProgress?.(`Full backfill: ${before - queue.length} obras completas, ${queue.length} pendentes`);
         }
         return queue;
     }
