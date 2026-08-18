@@ -21,6 +21,7 @@ import {
     buildFastMangaQueue,
     mangasWithCloudCaps
 } from "../bots/nexustoons-akira/shared/nexus-catalog.js";
+import { spawnWithWatchdog } from "./lib/supervised-spawn.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -389,27 +390,26 @@ if (!DRY_RUN) {
         return a;
     }
 
-    function runMangaAsync(slug, title) {
-        return new Promise((resolve, reject) => {
-            const child = spawn(process.execPath, bulkArgsForSlug(slug), {
-                cwd: ROOT,
-                env: { ...process.env },
-                stdio: "inherit"
-            });
-            child.on("error", reject);
-            child.on("close", (code) => {
-                if (code !== 0) reject(new Error(`Bulk import '${title}' falhou (código ${code})`));
-                else resolve();
-            });
+    async function runMangaAsync(slug, title) {
+        const result = await spawnWithWatchdog(process.execPath, bulkArgsForSlug(slug), {
+            cwd: ROOT,
+            env: { ...process.env },
+            label: `bulk:${slug}`
         });
+        if (result.stalled) {
+            throw new Error(`Bulk import '${title}' travou (watchdog)`);
+        }
+        if (result.code !== 0) {
+            throw new Error(`Bulk import '${title}' falhou (código ${result.code})`);
+        }
     }
 
     async function runMangaPool(items, parallelism) {
         let nextIdx = 0;
-        let failErr = null;
+        let failures = 0;
 
         async function worker(workerId) {
-            while (!failErr) {
+            for (;;) {
                 const i = nextIdx++;
                 if (i >= items.length) break;
                 const m = items[i];
@@ -420,9 +420,8 @@ if (!DRY_RUN) {
                     await runMangaAsync(slug, title);
                     log(`✓ Bulk import: ${title}`);
                 } catch (e) {
-                    failErr = e;
-                    log(`✗ Falhou: ${title} — ${e.message}`);
-                    break;
+                    failures++;
+                    log(`✗ Falhou (segue o próximo): ${title} — ${e.message}`);
                 }
             }
         }
@@ -432,17 +431,14 @@ if (!DRY_RUN) {
             workers.push(worker(w + 1));
         }
         await Promise.all(workers);
-        if (failErr) throw failErr;
+        if (failures) {
+            log(`⚠ ${failures} mangá(s) falharam nesta rodada — a fila continua (state.json retoma)`);
+        }
     }
 
     if (MANGA_PARALLEL > 1) {
         log(`▶ Import bulk paralelo (${MANGA_PARALLEL} workers)`);
-        try {
-            await runMangaPool(queue, MANGA_PARALLEL);
-        } catch (e) {
-            log(`✗ Import bulk paralelo falhou: ${e.message}`);
-            process.exit(1);
-        }
+        await runMangaPool(queue, MANGA_PARALLEL);
         log(`✓ Import bulk paralelo concluído (${queue.length} mangás)`);
     } else {
         for (let i = 0; i < queue.length; i++) {
@@ -450,13 +446,12 @@ if (!DRY_RUN) {
             const slug = m.nexusSlug || m.slug;
             const title = m.title || slug;
             log(`[MANGÁ ${i + 1}/${queue.length}] Processando '${title}' | slug=${slug}`);
-
-            runStep(
-                `Bulk import: ${title}`,
-                process.execPath,
-                bulkArgsForSlug(slug),
-                { stdio: "inherit", env: { ...process.env } }
-            );
+            try {
+                await runMangaAsync(slug, title);
+                log(`✓ Bulk import: ${title}`);
+            } catch (e) {
+                log(`✗ Falhou (segue o próximo): ${title} — ${e.message}`);
+            }
         }
     }
 

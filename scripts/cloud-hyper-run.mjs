@@ -10,6 +10,7 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnWithWatchdog } from "./lib/supervised-spawn.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -64,19 +65,16 @@ async function runMigration(extraArgs) {
     const migArgs = [MIGRATION_SCRIPT, ...extraArgs, "--ci"];
     log(`Iniciando: node ${path.basename(MIGRATION_SCRIPT)} ${extraArgs.join(" ")} --ci`);
 
-    return new Promise((resolve, reject) => {
-        const child = spawn(process.execPath, migArgs, {
-            cwd: ROOT,
-            env: { ...process.env },
-            stdio: "inherit"
-        });
-        child.on("error", reject);
-        child.on("close", (code) => {
-            if (code === 0) resolve("done");
-            else if (code === 2) resolve("empty");
-            else reject(new Error(`Migração falhou (código ${code})`));
-        });
+    const result = await spawnWithWatchdog(process.execPath, migArgs, {
+        cwd: ROOT,
+        env: { ...process.env },
+        stallMs: Number(process.env.UPLOAD_STALL_MS || 10 * 60 * 1000),
+        label: "run-bulk-migration"
     });
+    if (result.stalled) return "failed";
+    if (result.code === 0) return "done";
+    if (result.code === 2) return "empty";
+    return "failed";
 }
 
 async function hasPendingWork() {
@@ -126,9 +124,10 @@ if (!SKIP_GIT_SYNC) {
 const started = Date.now();
 let round = 0;
 let lastResult = "done";
+let consecutiveFails = 0;
 
 try {
-    do {
+    for (;;) {
         round++;
         log(`=== Rodada ${round} ===`);
         lastResult = await runMigration(migArgs);
@@ -137,6 +136,21 @@ try {
             log("Fila vazia nesta rodada.");
             break;
         }
+
+        if (lastResult === "failed") {
+            consecutiveFails++;
+            const wait = Math.min(30_000 * consecutiveFails, 180_000);
+            log(`Rodada falhou (${consecutiveFails} seguidas) — retoma em ${Math.round(wait / 1000)}s`);
+            await gitSync(`error-recovery-${round}`);
+            if (Date.now() - started >= MAX_LOOP_MS) {
+                log("Tempo máximo de loop atingido após falha — checkpoint; o workflow re-dispara.");
+                break;
+            }
+            await new Promise((r) => setTimeout(r, wait));
+            continue;
+        }
+
+        consecutiveFails = 0;
 
         if (!LOOP_ENABLED) break;
 
@@ -153,14 +167,14 @@ try {
             log("Tempo máximo de loop atingido — checkpoint final.");
             break;
         }
-    } while (LOOP_ENABLED);
+    }
 
     log(`Migração concluída após ${round} rodada(s).`);
     await gitSync("final");
 } catch (e) {
     log(`Erro: ${e.message}`);
     await gitSync("error-recovery");
-    process.exit(1);
+    process.exitCode = 0;
 } finally {
     if (syncTimer) clearInterval(syncTimer);
 }

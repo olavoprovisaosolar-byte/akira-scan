@@ -4,7 +4,19 @@ name: Nexus Full Sync (Cloud)
 # Roda sozinho: checkpoint git a cada 30 min + re-dispara até fila vazia.
 # PC pode ficar desligado.
 
+# Merge neste ficheiro (ou nos scripts abaixo) dispara o backfill na hora —
+# para o PC poder desligar. Commits só em data/*.json NÃO re-disparam.
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/nexus-full-sync-cloud.yml"
+      - "scripts/cloud-hyper-run.mjs"
+      - "scripts/run-bulk-migration.mjs"
+      - "scripts/lib/supervised-spawn.mjs"
+      - "bots/nexustoons-akira/capture/nexustoons.js"
+  schedule:
+    - cron: "40 */3 * * *"
   workflow_dispatch:
     inputs:
       deploy:
@@ -19,6 +31,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: nexus-full-sync-cloud
@@ -61,7 +74,7 @@ jobs:
           MIGRATE_LOOP_MAX_MS: "21000000"
           NEXUSTOONS_FULL_CATALOG: "1"
           NEXUSTOONS_ALL_CHAPTERS: "1"
-          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
+          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel || '2' }}
           NEXUSTOONS_CHAPTER_CONCURRENCY: "4"
           NEXUSTOONS_PW_POOL_SIZE: "4"
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
@@ -125,7 +138,8 @@ jobs:
         continue-on-error: true
 
       - name: Re-disparar até terminar
-        if: success()
+        if: always()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -135,7 +149,7 @@ jobs:
             gh workflow run nexus-full-sync-cloud.yml \
               --ref "$(git rev-parse --abbrev-ref HEAD)" \
               -f deploy=false \
-              -f manga_parallel=${{ inputs.manga_parallel }}
+              -f manga_parallel=${{ inputs.manga_parallel || '2' }}
           else
             echo "Backfill completo — nada pendente na heurística."
           fi
