@@ -249,7 +249,27 @@ export function createChapterFetcher() {
         warmedSlug = null;
     }
 
-    return { fetchChapterPages, close };
+    /**
+     * GET JSON da API com cookies Cloudflare da sessão Playwright.
+     * Usado quando axios recebe 403/challenge nos runners da nuvem.
+     */
+    async function fetchJson(apiPath) {
+        await warmup(null);
+        await throttlePwRequest();
+        const path = apiPath.startsWith("/") ? apiPath : `/${apiPath}`;
+        const res = await page.context().request.get(`${BASE}${path}`, {
+            headers: {
+                Accept: "application/json",
+                Referer: `${BASE}/`
+            }
+        });
+        if (!res.ok()) {
+            throw new Error(`Playwright ${path} → HTTP ${res.status()}`);
+        }
+        return processResponse(await res.json());
+    }
+
+    return { fetchChapterPages, fetchJson, close };
 }
 
 /** Adapter capture completo via Playwright (modo alternativo). */

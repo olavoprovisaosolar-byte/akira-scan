@@ -2,6 +2,7 @@
 /**
  * Verifica se ainda há mangás pendentes para migração bulk.
  * Exit 0 = há pendências · Exit 1 = fila vazia
+ * Erro de rede = exit 0 (assume pendente).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -18,24 +19,30 @@ function loadEnabled() {
     return (cfg.mangas || []).filter((m) => m.enabled !== false);
 }
 
-const enabled = loadEnabled();
-const state = loadState();
-const capture = createAdapter();
-let pending = 0;
-let invalid = 0;
+try {
+    const enabled = loadEnabled();
+    const state = loadState();
+    const capture = createAdapter();
+    let pending = 0;
+    let invalid = 0;
 
-for (const m of enabled) {
-    const slug = m.nexusSlug || m.slug;
-    try {
-        const detail = await capture.getManga(slug);
-        const chapters = detail.chapters?.length || 0;
-        if (!isMangaFullyInState(state, slug, chapters, m.akiraId || null)) pending++;
-    } catch {
-        invalid++;
+    for (const m of enabled) {
+        const slug = m.nexusSlug || m.slug;
+        try {
+            const detail = await capture.getManga(slug);
+            const chapters = detail.chapters?.length || 0;
+            if (!isMangaFullyInState(state, slug, chapters, m.akiraId || null)) pending++;
+        } catch {
+            invalid++;
+        }
     }
+
+    await capture.close();
+
+    console.log(JSON.stringify({ pending, invalid, enabled: enabled.length }, null, 2));
+    process.exit(pending > 0 || invalid > 0 ? 0 : 1);
+} catch (e) {
+    console.error("[migrate-pending] falha ao medir fila — assumindo pendente:", e.message);
+    console.log(JSON.stringify({ pending: -1, error: e.message, assume: "pending" }, null, 2));
+    process.exit(0);
 }
-
-await capture.close();
-
-console.log(JSON.stringify({ pending, invalid, enabled: enabled.length }, null, 2));
-process.exit(pending > 0 ? 0 : 1);

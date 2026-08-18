@@ -1,12 +1,14 @@
 name: Nexus Sprint 1 Day (Cloud)
 
 # Sprint 24h na nuvem — 1 cap recente por obra (~13k mangás).
-# PC pode ficar desligado. Retoma do state.json; re-dispara sozinho a cada 6h.
+# PC pode ficar desligado. Retoma do state.json; re-dispara sozinho se a fila não acabar.
 #
 # Disparar: Actions → Nexus Sprint 1 Day (Cloud) → Run workflow
-# Ou local: node scripts/handoff-sprint-to-cloud.mjs --push
+# Ou local: node scripts/run-1day-sprint.mjs
 
 on:
+  schedule:
+    - cron: "25 */3 * * *"
   workflow_dispatch:
     inputs:
       deploy:
@@ -21,6 +23,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: nexus-sprint-1day-cloud
@@ -65,7 +68,7 @@ jobs:
           MIGRATE_LOOP: "0"
           NEXUSTOONS_FULL_CATALOG: "1"
           NEXUSTOONS_SYNC_ONLY_NEW: "1"
-          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel }}
+          NEXUSTOONS_MANGA_PARALLEL: ${{ inputs.manga_parallel || '2' }}
           NEXUSTOONS_CHAPTER_CONCURRENCY: "4"
           NEXUSTOONS_PW_POOL_SIZE: "4"
           NEXUSTOONS_USE_PLAYWRIGHT: "1"
@@ -129,7 +132,8 @@ jobs:
         continue-on-error: true
 
       - name: Re-disparar se sprint incompleto
-        if: success()
+        if: always()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -139,7 +143,7 @@ jobs:
             gh workflow run nexus-sprint-1day-cloud.yml \
               --ref "$(git rev-parse --abbrev-ref HEAD)" \
               -f deploy=false \
-              -f manga_parallel=${{ inputs.manga_parallel }}
+              -f manga_parallel=${{ inputs.manga_parallel || '2' }}
           else
             echo "Sprint completo — todas as obras têm cap legível."
           fi

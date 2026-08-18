@@ -42,6 +42,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: migrate-bulk-hyper
@@ -118,7 +119,8 @@ jobs:
           node scripts/cloud-hyper-run.mjs "${ARGS[@]}"
 
       - name: Retrigger se ainda houver pendências
-        if: success()
+        if: always()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

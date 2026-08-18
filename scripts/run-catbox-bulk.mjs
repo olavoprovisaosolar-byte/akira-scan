@@ -8,10 +8,10 @@
  *   npm run bot:nexustoons:bulk:catbox -- --slug=meu-manga --latest-only
  */
 import "dotenv/config";
-import { spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { catboxAlbumsEnabled, getCatboxUserHash } from "../bots/nexustoons-akira/hosting/catbox-albums.mjs";
+import { spawnWithWatchdog, runWithRestarts } from "./lib/supervised-spawn.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -79,16 +79,21 @@ console.log(`[catbox-bulk] Destino: ${via}`);
 console.log(`[catbox-bulk] Concurrency: pages=${env.STREAM_PAGE_CONCURRENCY} chapters=${env.NEXUSTOONS_CHAPTER_CONCURRENCY} pwPool=${env.NEXUSTOONS_PW_POOL_SIZE}`);
 console.log(`[catbox-bulk] Args: ${args.join(" ") || "(vazio)"}\n`);
 
-const child = spawn(
-    process.execPath,
-    ["bots/nexustoons-akira/orchestrator/bulk-run.mjs", ...args],
-    { cwd: ROOT, env, stdio: "inherit", shell: false }
+const last = await runWithRestarts(
+    (attempt) => {
+        if (attempt > 1) {
+            console.warn(`\n[catbox-bulk] restart #${attempt} — retoma do state.json\n`);
+        }
+        return spawnWithWatchdog(
+            process.execPath,
+            ["bots/nexustoons-akira/orchestrator/bulk-run.mjs", ...args],
+            { cwd: ROOT, env, label: "catbox-bulk" }
+        );
+    },
+    { isDone: (r) => r.code === 0 || r.code === 2 }
 );
 
-child.on("exit", (code, signal) => {
-    if (signal) {
-        console.error(`[catbox-bulk] terminou por signal ${signal}`);
-        process.exit(1);
-    }
-    process.exit(code ?? 1);
-});
+if (last.signal === "SIGINT" || last.signal === "SIGTERM") {
+    process.exit(130);
+}
+process.exit(last.code ?? 1);

@@ -558,17 +558,25 @@ async function main() {
 
     for (let mi = 0; mi < mangas.length; mi++) {
         const entry = mangas[mi];
-        const stats = await processManga(
-            capture, hosting, upload, manifest, state, entry,
-            mangas.length > 1 ? mi + 1 : null,
-            mangas.length > 1 ? mangas.length : null
-        );
-        totalCaptured += stats.captured;
-        totalHosted += stats.hosted;
-        totalUploaded += stats.uploaded;
-        totalSkipped += stats.skipped;
-        if (stats.skippedManga) mangasSkippedComplete++;
-        saveManifest(manifest);
+        try {
+            const stats = await processManga(
+                capture, hosting, upload, manifest, state, entry,
+                mangas.length > 1 ? mi + 1 : null,
+                mangas.length > 1 ? mangas.length : null
+            );
+            totalCaptured += stats.captured;
+            totalHosted += stats.hosted;
+            totalUploaded += stats.uploaded;
+            totalSkipped += stats.skipped;
+            if (stats.skippedManga) mangasSkippedComplete++;
+            saveManifest(manifest);
+        } catch (e) {
+            log.error("Mangá falhou — seguindo o próximo", {
+                slug: entry.slug || entry.nexusSlug,
+                err: e.message
+            });
+            saveManifest(manifest);
+        }
     }
 
     if (!DRY_RUN && totalUploaded > 0) {

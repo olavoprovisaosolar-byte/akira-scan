@@ -7,6 +7,7 @@ import { loadConfig } from "../shared/config.js";
 import { processResponse } from "../shared/orion-crypto.js";
 import { normalizeChapter } from "../shared/schema.js";
 import { log } from "../shared/logger.js";
+import { isCloudflareBlocked } from "../shared/cloudflare.js";
 
 const { nexustoonsBaseUrl: BASE } = loadConfig();
 
@@ -41,10 +42,17 @@ async function throttleNexusRequest() {
     lastRequestAt = Date.now();
 }
 
-async function apiGet(path) {
+async function apiGet(path, getPwFetcher = null) {
     await throttleNexusRequest();
     const res = await client.get(path, { headers: { ...HEADERS, Accept: "application/json" } });
     if (res.status >= 400) {
+        if (getPwFetcher && isCloudflareBlocked(res.status, res.data)) {
+            const pw = await getPwFetcher().catch(() => null);
+            if (pw?.fetchJson) {
+                log.warn("Nexus API bloqueada (Cloudflare) — tentando Playwright", { path, status: res.status });
+                return pw.fetchJson(path);
+            }
+        }
         throw new Error(`NexusToons ${path} → HTTP ${res.status}: ${JSON.stringify(res.data).slice(0, 200)}`);
     }
     return processResponse(res.data);
@@ -104,13 +112,13 @@ export function createAdapter() {
         name: "nexustoons",
 
         async listMangas({ page = 1, limit = 50 } = {}) {
-            const data = await apiGet(`/api/mangas?page=${page}&limit=${limit}`);
+            const data = await apiGet(`/api/mangas?page=${page}&limit=${limit}`, getPwFetcher);
             const items = data?.data || data?.mangas || [];
             return items.map(mapMangaSummary);
         },
 
         async getManga(slug) {
-            const data = await apiGet(`/api/manga/${encodeURIComponent(slug)}`);
+            const data = await apiGet(`/api/manga/${encodeURIComponent(slug)}`, getPwFetcher);
             return mapMangaDetail(data);
         },
 
