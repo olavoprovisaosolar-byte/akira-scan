@@ -14,10 +14,14 @@ export function isDurablePageUrl(url) {
         || u.includes("pixeldrain.com");
 }
 
+/**
+ * Proxies que hoje respondem com imagem real.
+ * gh-cdn está OFF: Cloudflare devolve GitHub API 403 → 502 (token rate-limit/expirado).
+ * Reativar só depois de GITHUB_CDN_TOKEN estável no Pages.
+ */
 export function isWorkingProxyPageUrl(url) {
     const u = String(url || "");
-    return u.includes("/api/gh-cdn/")
-        || u.includes("/api/cloud/page");
+    return u.includes("/api/cloud/page");
 }
 
 export function isServablePageUrl(url) {
@@ -25,6 +29,7 @@ export function isServablePageUrl(url) {
     if (!u || u.includes("litter.catbox.moe")) return false;
     if (u.includes("/data/cloud/pages/")) return false;
     if (u.includes("/api/discord-img")) return false;
+    if (u.includes("/api/gh-cdn/")) return false;
     return isDurablePageUrl(u) || isWorkingProxyPageUrl(u);
 }
 
@@ -36,5 +41,6 @@ export function isStructurallyValidPageUrl(url) {
     return isDurablePageUrl(u)
         || isWorkingProxyPageUrl(u)
         || u.includes("/api/discord-img")
+        || u.includes("/api/gh-cdn/")
         || /\.(webp|jpg|jpeg|png|gif)(\?|$)/i.test(u);
 }

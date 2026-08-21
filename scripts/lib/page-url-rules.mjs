@@ -3,13 +3,13 @@
  *
  * Legível agora:
  *  - hosts duráveis (iili, freeimage, ibb, files.catbox, telegra, pixeldrain)
- *  - proxy GitHub CDN (/api/gh-cdn/) — secrets já no Pages
  *  - API R2 (/api/cloud/page)
  *
  * NÃO legível (quebrados ou temporários):
  *  - litter.catbox.moe (expira)
  *  - /data/cloud/pages/ (omitidos do deploy / purged)
  *  - /api/discord-img (URLs Discord expiradas sem DISCORD_BOT_TOKEN)
+ *  - /api/gh-cdn/ (GitHub API 403 → 502 até renovar GITHUB_CDN_TOKEN)
  */
 export function isDurablePageUrl(url) {
     const u = String(url || "");
@@ -25,8 +25,7 @@ export function isDurablePageUrl(url) {
 
 export function isWorkingProxyPageUrl(url) {
     const u = String(url || "");
-    return u.includes("/api/gh-cdn/")
-        || u.includes("/api/cloud/page");
+    return u.includes("/api/cloud/page");
 }
 
 /** URL que o leitor deve aceitar como página real (hoje). */
@@ -35,10 +34,11 @@ export function isServablePageUrl(url) {
     if (!u || u.includes("litter.catbox.moe")) return false;
     if (u.includes("/data/cloud/pages/")) return false;
     if (u.includes("/api/discord-img")) return false;
+    if (u.includes("/api/gh-cdn/")) return false;
     return isDurablePageUrl(u) || isWorkingProxyPageUrl(u);
 }
 
-/** Aceite estrutural no validador do leitor (inclui discord para quando o secret existir). */
+/** Aceite estrutural no validador do leitor (inclui discord/gh-cdn para quando o secret existir). */
 export function isStructurallyValidPageUrl(url) {
     const u = String(url || "");
     if (!u) return false;
@@ -47,6 +47,7 @@ export function isStructurallyValidPageUrl(url) {
     return isDurablePageUrl(u)
         || isWorkingProxyPageUrl(u)
         || u.includes("/api/discord-img")
+        || u.includes("/api/gh-cdn/")
         || /\.(webp|jpg|jpeg|png|gif)(\?|$)/i.test(u);
 }
 

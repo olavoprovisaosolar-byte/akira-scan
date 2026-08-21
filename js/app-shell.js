@@ -19,10 +19,14 @@ export function escHtml(t = "") {
 }
 
 export function paginaAtiva(path) {
+    const params = new URLSearchParams(location.search);
+    // Detalhes/leitor vivem em index.html?view=… — não marcar "Início" como ativo
+    if (params.get("view") === "details" || params.get("view") === "reader") {
+        return "";
+    }
     const raw = (location.pathname.split("/").pop() || "index.html").toLowerCase();
     const file = raw.replace(/\.html$/i, "") || "index";
     const want = String(path || "").toLowerCase().replace(/\.html$/i, "") || "index";
-    // CF/SPA pode servir /biblioteca sem .html
     return file === want ? " ativo" : "";
 }
 

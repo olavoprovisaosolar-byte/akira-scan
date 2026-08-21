@@ -197,6 +197,7 @@ function hasHostedPages(rec) {
         const u = String(p.url || "");
         if (!u || u.includes("litter.catbox.moe")) return false;
         if (u.includes("/data/cloud/pages/")) return false;
+        if (u.includes("/api/gh-cdn/")) return false; // proxy 502 até renovar GITHUB_CDN_TOKEN
         return u.includes("i.ibb.co")
             || u.includes("ibb.co")
             || u.includes("imgbb.com")
@@ -205,8 +206,7 @@ function hasHostedPages(rec) {
             || u.includes("iili.io")
             || u.includes("freeimage.host")
             || u.includes("pixeldrain.com")
-            || u.includes("/api/cloud/page")
-            || u.includes("/api/gh-cdn/");
+            || u.includes("/api/cloud/page");
     });
 }
 

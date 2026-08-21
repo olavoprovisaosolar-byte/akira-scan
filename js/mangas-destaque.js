@@ -150,12 +150,23 @@ export function rankingSemanal(mangas, limite = 10) {
 }
 
 export function todosGeneros(mangas) {
+    const aliases = {
+        "músic": "Música",
+        "music": "Música",
+        "sobre vivência": "Sobrevivência",
+        "sobrevive ncia": "Sobrevivência"
+    };
     const set = new Set();
-    mangas.forEach((m) => (m.generos || []).forEach((g) => set.add(g)));
-    return [...set].sort();
+    mangas.forEach((m) => (m.generos || []).forEach((g) => {
+        const raw = String(g || "").trim();
+        if (!raw) return;
+        const key = raw.toLowerCase();
+        set.add(aliases[key] || raw);
+    }));
+    return [...set].sort((a, b) => a.localeCompare(b, "pt"));
 }
 
-/** Tem caps prontos para leitura (Nexus/Freeimage/gh-cdn). */
+/** Tem caps prontos para leitura (Freeimage/iili/catbox files/telegra). */
 export function temCapsProntos(m) {
     const sync = Number(m?.syncProntos) || 0;
     if (sync > 0) return true;

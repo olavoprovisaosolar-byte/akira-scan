@@ -11,7 +11,9 @@ import { capLegivelIndice } from "./lib/chapter-index-utils.mjs";
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CLOUD = path.join(ROOT, "data", "cloud", "chapters-index.json");
 const CATALOGO = path.join(ROOT, "data", "catalogo.json");
-const MIN_CAPS = Number(process.env.AKIRA_MIN_CLOUD_CAPS || 500);
+const MIN_INDEX_CAPS = Number(process.env.AKIRA_MIN_CLOUD_CAPS || 500);
+// Legíveis = só hosts que o leitor abre hoje (iili/telegra/files.catbox). gh-cdn está off.
+const MIN_LEGIBLE_CAPS = Number(process.env.AKIRA_MIN_LEGIBLE_CAPS || 200);
 
 function fail(msg) {
     console.error(`[verify-cloud-data] FAIL: ${msg}`);
@@ -43,18 +45,18 @@ function durableUrl(u) {
         || s.includes("i.ibb.co")
         || s.includes("files.catbox.moe")
         || s.includes("telegra.ph")
-        || s.includes("/api/gh-cdn/");
+        || s.includes("pixeldrain.com");
 }
 const durable = capIds.filter((id) => {
     const r = caps[id];
     return r?.done && (r.pages || []).some((p) => durableUrl(p.url));
 });
 
-if (capIds.length < MIN_CAPS) {
-    fail(`índice demasiado pequeno: ${capIds.length} caps (mín ${MIN_CAPS})`);
+if (capIds.length < MIN_INDEX_CAPS) {
+    fail(`índice demasiado pequeno: ${capIds.length} caps (mín ${MIN_INDEX_CAPS})`);
 }
-if (legible.length < MIN_CAPS) {
-    fail(`caps legíveis insuficientes: ${legible.length} (mín ${MIN_CAPS})`);
+if (legible.length < MIN_LEGIBLE_CAPS) {
+    fail(`caps legíveis insuficientes: ${legible.length} (mín ${MIN_LEGIBLE_CAPS})`);
 }
 if (legible.length !== capIds.length) {
     console.warn(
@@ -63,7 +65,7 @@ if (legible.length !== capIds.length) {
 }
 if (durable.length < legible.length) {
     console.warn(
-        `[verify-cloud-data] aviso: ${durable.length}/${legible.length} caps com host durável (iili/telegra/catbox/gh-cdn)`
+        `[verify-cloud-data] aviso: ${durable.length}/${legible.length} caps com host durável (iili/telegra/catbox)`
     );
 }
 
@@ -76,7 +78,7 @@ for (const m of catMangas) {
     if (n > 0) catMangasWithCaps++;
 }
 
-if (catCaps < Math.min(MIN_CAPS, legible.length * 0.5)) {
+if (catCaps < Math.min(MIN_LEGIBLE_CAPS, legible.length * 0.5)) {
     fail(`catalogo.json com poucos caps: ${catCaps}`);
 }
 

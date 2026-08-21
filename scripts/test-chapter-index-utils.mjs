@@ -12,10 +12,11 @@ import { isRealChapterPageSet } from "../js/services/chapter-label.js";
 
 assert.equal(isDurablePageUrl("https://iili.io/abc.jpg"), true);
 assert.equal(isDurablePageUrl("https://litter.catbox.moe/x.webp"), false);
-assert.equal(isServablePageUrl("https://akira-scan.pages.dev/api/gh-cdn/04/pages/a/b/001.jpg"), true);
+assert.equal(isServablePageUrl("https://akira-scan.pages.dev/api/gh-cdn/04/pages/a/b/001.jpg"), false);
 assert.equal(isServablePageUrl("https://akira-scan.pages.dev/api/discord-img?ch=1&msg=2"), false);
 assert.equal(isServablePageUrl("https://akira-scan.pages.dev/data/cloud/pages/a/b/001.jpg"), false);
 assert.equal(isServablePageUrl("https://litter.catbox.moe/x.webp"), false);
+assert.equal(isServablePageUrl("https://iili.io/abc.jpg"), true);
 
 assert.equal(hasHostedPages({ pages: [{ url: "https://iili.io/a.jpg" }] }), true);
 assert.equal(capLegivelIndice({ done: true, pages: [{ url: "https://iili.io/a.jpg" }] }), true);
