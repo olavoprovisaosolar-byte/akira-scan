@@ -6,9 +6,12 @@ name: Nexus Sprint 1 Day (Cloud)
 # Disparar: Actions → Nexus Sprint 1 Day (Cloud) → Run workflow
 # Ou local: node scripts/run-1day-sprint.mjs
 
+# Pausado: IPs do GitHub Actions são bloqueados pela Cloudflare da NexusToons.
+# Reative o cron depois de configurar NEXUSTOONS_COOKIE, ou rode no PC:
+#   node scripts/keep-upload-alive.mjs --background
 on:
-  schedule:
-    - cron: "25 */3 * * *"
+  # schedule:
+  #   - cron: "25 */3 * * *"
   workflow_dispatch:
     inputs:
       deploy:

@@ -10,8 +10,14 @@ export function hasHostedPages(rec) {
         const u = String(p.url || "");
         return u.includes("telegra.ph")
             || u.includes("catbox.moe")
+            || u.includes("iili.io")
+            || u.includes("freeimage.host")
+            || u.includes("i.ibb.co")
+            || u.includes("ibb.co")
             || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
+            || u.includes("/api/discord-img")
+            || u.includes("/data/cloud/pages/")
+            || u.includes("akira-scan.pages.dev");
     });
 }
 

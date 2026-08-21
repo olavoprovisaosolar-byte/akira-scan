@@ -1,8 +1,9 @@
 name: NexusToons Update Chapters
 
 on:
-  schedule:
-    - cron: "0 * * * *"
+  # Pausado enquanto NexusToons bloqueia IPs de datacenter (Cloudflare).
+  # schedule:
+  #   - cron: "0 * * * *"
   workflow_dispatch:
 
 permissions:
