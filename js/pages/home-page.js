@@ -70,9 +70,13 @@ export async function initHomePage() {
     const route = parseRoute();
 
     if (route.view === "reader" && route.mangaId && route.chapterNum) {
-        const q = new URLSearchParams({ id: route.mangaId, n: String(route.chapterNum) });
+        const q = new URLSearchParams({
+            m: route.mangaId,
+            id: route.mangaId,
+            n: String(route.chapterNum)
+        });
         if (route.chapterId) q.set("ch", route.chapterId);
-        location.replace(`leitor.html?${q}`);
+        location.replace(`/leitor.html?${q}`);
         return;
     }
 

@@ -124,12 +124,13 @@ function copyBackupCovers() {
 }
 
 function writeCloudflareMeta() {
+    // Cloudflare Pages: splat catches /obra/id and /obra/id/cap → SPA index.
+    // home-page.js redireciona view=reader para leitor.html.
     fs.writeFileSync(path.join(OUT, "_redirects"), [
         "/mobile  /mobile/  301",
         "/biblioteca/*  /data/toonlivre-backup/:splat  200",
         "/backup/*  /data/toonlivre-backup/:splat  200",
-        "/obra/:id/:cap  /leitor.html  200",
-        "/obra/:id  /index.html  200",
+        "/obra/*  /index.html  200",
         "/ranking  /ranking.html  200",
         "/historico  /historico.html  200",
         "/atualizacoes  /atualizacoes.html  200",
