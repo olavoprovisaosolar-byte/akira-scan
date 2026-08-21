@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Atualizações — AkiraScan</title>
+    <meta name="description" content="Últimos capítulos adicionados ao AkiraScan — atualizações diárias.">
+    <meta name="theme-color" content="#060608">
+    <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
+    <script src="js/host-env.js"></script>
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+
+    <main class="container">
+        <section class="updates-hero">
+            <p class="hero-kicker">Feed ao vivo</p>
+            <h1>📡 Atualizações</h1>
+            <p class="updates-sub">Capítulos adicionados recentemente — acompanha o catálogo em tempo real.</p>
+            <div class="updates-stats" id="updates-stats"></div>
+        </section>
+
+        <div class="updates-sort-bar" id="updates-sort">
+            <button type="button" class="genre-chip ativo" data-sort="grouped">Por obra</button>
+            <button type="button" class="genre-chip" data-sort="recent">Lista</button>
+            <button type="button" class="genre-chip" data-sort="hot">🔥 Hot</button>
+        </div>
+
+        <div class="updates-filters" id="updates-filters">
+            <button type="button" class="genre-chip ativo" data-dias="">Todos</button>
+            <button type="button" class="genre-chip" data-dias="1">Hoje</button>
+            <button type="button" class="genre-chip" data-dias="7">Esta semana</button>
+            <button type="button" class="genre-chip" data-dias="30">Este mês</button>
+        </div>
+
+        <div class="updates-feed updates-timeline" id="updates-feed">
+            <p class="msg-vazia">A carregar atualizações…</p>
+        </div>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { initAtualizacoesPage } from "./js/pages/atualizacoes-page.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader();
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+        await initAtualizacoesPage();
+    </script>
+</body>
+</html>

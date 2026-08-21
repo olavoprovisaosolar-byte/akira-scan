@@ -1,14 +1,17 @@
 /**
  * Service Worker — cache estático + catálogo stale-while-revalidate.
  */
-const CACHE_STATIC = "akirascan-static-v28";
-const CACHE_DATA = "akirascan-data-v28";
+const CACHE_STATIC = "akirascan-static-v45";
+const CACHE_DATA = "akirascan-data-v29";
+const CACHE_IMAGES = "akirascan-images-v1";
 
 const STATIC_ASSETS = [
     "/",
     "/index.html",
     "/biblioteca.html",
     "/manhwa.html",
+    "/ranking.html",
+    "/historico.html",
     "/leitor.html",
     "/css/akira.css",
     "/css/leitor.css",
@@ -16,9 +19,9 @@ const STATIC_ASSETS = [
     "/js/site-config.js"
 ];
 
-// Índice leve só — chapters-index é grande e muda com frequência (não pré-cachear).
 const DATA_ASSETS = [
-    "data/catalogo-index.json"
+    "data/catalogo-index.json",
+    "data/cloud/chapters-index.json"
 ];
 
 self.addEventListener("message", (event) => {
@@ -42,7 +45,7 @@ self.addEventListener("activate", (event) => {
         caches.keys().then((keys) =>
             Promise.all(
                 keys
-                    .filter((k) => k.startsWith("akirascan-") && k !== CACHE_STATIC && k !== CACHE_DATA)
+                    .filter((k) => k.startsWith("akirascan-") && k !== CACHE_STATIC && k !== CACHE_DATA && k !== CACHE_IMAGES)
                     .map((k) => caches.delete(k))
             )
         ).then(() => self.clients.claim())
@@ -56,6 +59,11 @@ self.addEventListener("fetch", (event) => {
 
     if (DATA_ASSETS.some((p) => url.pathname.endsWith(p.replace(/^\//, "")) || url.pathname === p)) {
         event.respondWith(staleWhileRevalidate(event.request, CACHE_DATA));
+        return;
+    }
+
+    if (url.pathname.startsWith("/api/gh-cdn/")) {
+        event.respondWith(staleWhileRevalidate(event.request, CACHE_IMAGES));
         return;
     }
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Histórico — AkiraScan</title>
+    <meta name="description" content="Histórico de leitura no AkiraScan.">
+    <meta name="theme-color" content="#060608">
+    <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
+    <script src="js/host-env.js"></script>
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+
+    <main class="container historico-page">
+        <section class="updates-hero">
+            <p class="hero-kicker">Conta</p>
+            <h1>Histórico de leitura</h1>
+            <p class="updates-sub">Retoma onde paraste — capítulos e páginas guardados neste dispositivo e na conta.</p>
+            <button type="button" class="btn-akira btn-akira-ghost" id="historico-clear">Limpar histórico</button>
+        </section>
+
+        <p class="msg-vazia" id="historico-empty" hidden>Ainda não há histórico. Abre um capítulo para começar.</p>
+        <div id="historico-list"></div>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { initHistoricoPage } from "./js/pages/historico-page.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader();
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+        await initHistoricoPage();
+    </script>
+</body>
+</html>

@@ -31,18 +31,42 @@ function ensureDetailsRoot(): HTMLElement | null {
 
 const MANGA_ID_RE = /^[a-z0-9][a-z0-9-]{0,120}$/i;
 
+function obraFromPath(pathname = typeof location !== "undefined" ? location.pathname : ""): { mangaId: string; cap: string | null } | null {
+    const parts = String(pathname || "").replace(/\/+$/, "").split("/").filter(Boolean);
+    if (parts[0] !== "obra" || !parts[1]) return null;
+    try {
+        return {
+            mangaId: decodeURIComponent(parts[1]),
+            cap: parts[2] ? decodeURIComponent(parts[2]) : null
+        };
+    } catch {
+        return { mangaId: parts[1], cap: parts[2] || null };
+    }
+}
+
 export function parseRoute(searchParams: URLSearchParams = new URLSearchParams(location.search)): RouteParams {
+    const obra = obraFromPath();
     const viewRaw = (searchParams.get("view") || "").trim();
-    const view: AppView =
+    let view: AppView =
         viewRaw === "details" ? "details"
             : viewRaw === "reader" ? "reader"
                 : "home";
 
-    const mangaId = (searchParams.get("id") || searchParams.get("m") || "").trim() || null;
-    const capRaw = searchParams.get("n") || searchParams.get("cap");
+    let mangaId = (searchParams.get("id") || searchParams.get("m") || "").trim() || null;
+    let capRaw = searchParams.get("n") || searchParams.get("cap");
     const chapterId = searchParams.get("ch") || searchParams.get("chapterId") || null;
-    const chapterNum = capRaw ? Number(capRaw) : null;
 
+    if (obra) {
+        mangaId = mangaId || obra.mangaId;
+        if (obra.cap) {
+            capRaw = capRaw || obra.cap;
+            view = "reader";
+        } else {
+            view = "details";
+        }
+    }
+
+    const chapterNum = capRaw ? Number(capRaw) : null;
     return { view, mangaId, chapterNum, chapterId };
 }
 
@@ -94,23 +118,15 @@ export function buildUrl(view: AppView, params: {
     chapterNum?: number;
     chapterId?: string;
 } = {}): string {
-    const page = view === "reader" ? "leitor.html" : view === "details" ? "index.html" : "index.html";
-    const sp = new URLSearchParams();
-
-    if (view === "details") {
-        sp.set("view", "details");
-        if (params.mangaId) sp.set("id", params.mangaId);
-    } else if (view === "reader") {
-        if (params.mangaId) sp.set("id", params.mangaId);
-        if (params.chapterNum != null && Number.isFinite(Number(params.chapterNum))) {
-            sp.set("n", String(params.chapterNum));
-        }
-        if (params.chapterId) sp.set("ch", params.chapterId);
-        return `leitor.html?${sp}`;
+    if (view === "details" && params.mangaId) {
+        return `/obra/${encodeURIComponent(params.mangaId)}`;
     }
-
-    const qs = sp.toString();
-    return qs ? `${page}?${qs}` : page;
+    if (view === "reader" && params.mangaId) {
+        const n = Number(params.chapterNum) || 1;
+        const base = `/obra/${encodeURIComponent(params.mangaId)}/${encodeURIComponent(String(n))}`;
+        return params.chapterId ? `${base}?ch=${encodeURIComponent(params.chapterId)}` : base;
+    }
+    return "index.html";
 }
 
 export function navigate(view: AppView, params: {
@@ -134,8 +150,9 @@ export function parseManhwaRoute(searchParams: URLSearchParams) {
 }
 
 export function parseLeitorRoute(searchParams: URLSearchParams) {
-    const mangaId = (searchParams.get("id") || searchParams.get("m") || "").trim();
-    const capRaw = searchParams.get("n") || searchParams.get("cap");
+    const obra = obraFromPath();
+    const mangaId = (searchParams.get("id") || searchParams.get("m") || obra?.mangaId || "").trim();
+    const capRaw = searchParams.get("n") || searchParams.get("cap") || obra?.cap || "";
     const chapterId = searchParams.get("ch") || searchParams.get("chapterId") || null;
 
     const idCheck = validateMangaId(mangaId);
@@ -143,7 +160,7 @@ export function parseLeitorRoute(searchParams: URLSearchParams) {
     if (!capRaw) return { ok: false as const, error: "Capítulo não especificado." };
 
     const capNum = Number(capRaw);
-    if (!Number.isFinite(capNum) || capNum < 0) {
+    if (!Number.isFinite(capNum) || capNum <= 0) {
         return { ok: false as const, error: "Número de capítulo inválido." };
     }
 

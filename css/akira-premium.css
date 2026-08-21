@@ -1,0 +1,835 @@
+/**
+ * AkiraScan Premium — camada visual NexusToons × Akira roxo
+ * Sobrepõe akira.css com glass, glow, animações e densidade visual maior.
+ */
+
+:root {
+    --akira-glass: rgba(18, 18, 26, 0.72);
+    --akira-glass-border: rgba(168, 85, 247, 0.14);
+    --akira-glow-strong: 0 0 40px rgba(168, 85, 247, 0.35);
+    --akira-gradient-brand: linear-gradient(135deg, #C084FC 0%, #A855F7 45%, #7C3AED 100%);
+    --akira-gradient-surface: linear-gradient(160deg, rgba(24, 24, 32, 0.95), rgba(12, 12, 16, 0.88));
+}
+
+/* ── Ambiente ── */
+.akira-ambient {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.akira-ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.45;
+    animation: ambientFloat 18s ease-in-out infinite;
+}
+
+.akira-ambient-orb-1 {
+    width: min(520px, 80vw);
+    height: min(520px, 80vw);
+    top: -12%;
+    left: -8%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.35), transparent 70%);
+}
+
+.akira-ambient-orb-2 {
+    width: min(420px, 70vw);
+    height: min(420px, 70vw);
+    bottom: 5%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.28), transparent 70%);
+    animation-delay: -6s;
+}
+
+.akira-ambient-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168, 85, 247, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black, transparent);
+    opacity: 0.5;
+}
+
+@keyframes ambientFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(24px, 16px) scale(1.05); }
+}
+
+body.akira-app > *:not(.akira-ambient) {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Header premium ── */
+.akira-header {
+    background: #000 !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    box-shadow: none !important;
+}
+
+.akira-header::after {
+    display: none !important;
+}
+
+.akira-search input {
+    background: rgba(26, 26, 34, 0.85);
+    border-color: rgba(168, 85, 247, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.akira-search input:focus {
+    box-shadow: 0 0 0 3px var(--akira-purple-glow), 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+
+.akira-search-suggestions {
+    background: var(--akira-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius);
+    box-shadow: var(--akira-shadow), var(--akira-glow-strong);
+}
+
+.search-hit {
+    border-radius: var(--akira-radius-sm);
+    transition: background var(--akira-transition-fast), transform var(--akira-transition-fast);
+}
+
+.search-hit:hover {
+    background: rgba(168, 85, 247, 0.12);
+    transform: translateX(4px);
+}
+
+.akira-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    padding: 8px 16px;
+}
+
+.akira-nav a:hover,
+.akira-nav a.ativo {
+    background: rgba(168, 85, 247, 0.14);
+    border-color: rgba(168, 85, 247, 0.35);
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.12);
+}
+
+.nav-icon {
+    font-size: 0.95em;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+.btn-theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--akira-glass-border);
+    background: rgba(26, 26, 34, 0.6);
+    cursor: pointer;
+    transition: border-color var(--akira-transition-fast), box-shadow var(--akira-transition-fast);
+}
+
+.btn-theme-toggle:hover {
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: var(--akira-glow-strong);
+}
+
+.header-cta {
+    display: none;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    background: var(--akira-gradient-brand);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+    white-space: nowrap;
+    transition: transform var(--akira-transition-fast), box-shadow var(--akira-transition-fast);
+}
+
+.header-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(168, 85, 247, 0.5);
+}
+
+@media (min-width: 901px) {
+    .header-cta { display: inline-flex; align-items: center; }
+}
+
+/* ── Quick nav home ── */
+.home-quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: var(--space-md) 0 var(--space-lg);
+}
+
+.quick-nav-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    background: var(--akira-gradient-surface);
+    border: 1px solid var(--akira-glass-border);
+    color: var(--akira-text);
+    transition: transform var(--akira-transition-fast), border-color var(--akira-transition-fast), box-shadow var(--akira-transition-fast);
+}
+
+.quick-nav-chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(168, 85, 247, 0.45);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.18);
+}
+
+.quick-nav-chip-accent {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.22), rgba(124, 58, 237, 0.12));
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+/* ── Carrossel premium ── */
+.hero-carousel {
+    border: 1px solid var(--akira-glass-border);
+    box-shadow: var(--akira-shadow), 0 0 60px rgba(168, 85, 247, 0.12);
+}
+
+.hero-carousel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 80px rgba(168, 85, 247, 0.08);
+    z-index: 3;
+}
+
+.hero-slide-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.hero-slide-content .btn-akira-primary {
+    align-self: flex-start;
+    box-shadow: 0 8px 28px rgba(168, 85, 247, 0.45);
+}
+
+/* ── Secções glass ── */
+.secao-akira,
+.category-grid-section,
+#categories-section > .secao-akira,
+#categories-section > .home-grid-duo > .secao-akira {
+    background: var(--akira-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius-lg);
+    padding: var(--space-md) var(--space-md) var(--space-sm);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.secao-header h2 {
+    font-size: 1.42rem;
+    background: linear-gradient(90deg, #fff 0%, var(--akira-purple-light) 120%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.secao-header a {
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.22);
+    transition: background var(--akira-transition-fast);
+}
+
+.secao-header a:hover {
+    background: rgba(168, 85, 247, 0.2);
+    text-decoration: none;
+}
+
+/* ── Cards mangá premium ── */
+.manga-card {
+    position: relative;
+    background: var(--akira-gradient-surface);
+    border-color: var(--akira-glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.manga-card-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.12) 50%,
+        transparent 60%
+    );
+    transform: translateX(-120%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.manga-card:hover .manga-card-shine {
+    transform: translateX(120%);
+}
+
+.manga-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity var(--akira-transition);
+    pointer-events: none;
+    z-index: 4;
+}
+
+.manga-card:hover::before { opacity: 1; }
+
+.manga-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45), 0 0 32px rgba(168, 85, 247, 0.2);
+}
+
+.manga-card-rating {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    background: rgba(6, 6, 8, 0.85);
+    border: 1px solid rgba(251, 191, 36, 0.35);
+    color: #fcd34d;
+}
+
+.manga-card-status {
+    position: absolute;
+    top: 38px;
+    right: 10px;
+    z-index: 3;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(168, 85, 247, 0.25);
+    color: var(--akira-purple-light);
+}
+
+/* ── Continuar lendo ── */
+.card-continuar {
+    background: var(--akira-glass);
+    backdrop-filter: blur(8px);
+    border-color: var(--akira-glass-border);
+    min-width: 280px;
+}
+
+.card-continuar img {
+    border-radius: var(--akira-radius-sm);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.card-continuar:hover {
+    box-shadow: 0 12px 32px rgba(168, 85, 247, 0.2);
+}
+
+/* ── Ranking premium ── */
+.ranking-item {
+    background: var(--akira-glass);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius);
+    padding: 10px 12px;
+    transition: transform var(--akira-transition-fast), box-shadow var(--akira-transition-fast);
+}
+
+.ranking-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+
+.ranking-item:nth-child(1) .ranking-pos { color: #fcd34d; text-shadow: 0 0 12px rgba(251, 191, 36, 0.5); }
+.ranking-item:nth-child(2) .ranking-pos { color: #d1d5db; }
+.ranking-item:nth-child(3) .ranking-pos { color: #d97706; }
+
+.ranking-pos {
+    font-size: 1.1rem;
+    font-weight: 900;
+    min-width: 2ch;
+}
+
+.ranking-score {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(168, 85, 247, 0.15);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--akira-purple-light);
+}
+
+/* ── Caps recentes ── */
+.item-cap-recente {
+    background: var(--akira-glass);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius);
+    padding: 12px;
+    transition: transform var(--akira-transition-fast), border-color var(--akira-transition-fast);
+}
+
+.item-cap-recente:hover {
+    transform: translateY(-3px);
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+.item-cap-recente img {
+    border-radius: var(--akira-radius-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Updates feed ── */
+.update-item {
+    background: var(--akira-glass);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius);
+    transition: transform var(--akira-transition-fast), box-shadow var(--akira-transition-fast);
+}
+
+.update-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 8px 28px rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.35);
+}
+
+.update-cover {
+    border-radius: var(--akira-radius-sm);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.update-badge-new {
+    background: var(--akira-gradient-brand);
+    box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+}
+
+.updates-hero {
+    padding: clamp(32px, 6vw, 56px) 0 var(--space-lg);
+    text-align: center;
+    position: relative;
+}
+
+.updates-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(168, 85, 247, 0.15), transparent);
+    pointer-events: none;
+}
+
+.updates-hero h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+}
+
+.updates-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+}
+
+.updates-stat {
+    padding: 12px 24px;
+    border-radius: var(--akira-radius);
+    background: var(--akira-glass);
+    border: 1px solid var(--akira-glass-border);
+}
+
+.updates-stat strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--akira-purple-light);
+}
+
+/* ── Biblioteca ── */
+.bib-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.bib-hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--akira-gradient-brand);
+    opacity: 0.3;
+}
+
+.sidebar-block {
+    background: var(--akira-glass);
+    backdrop-filter: blur(10px);
+    border-color: var(--akira-glass-border);
+}
+
+.sidebar-block h3 {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--akira-purple-light);
+    margin: 0 0 12px;
+}
+
+/* ── Detalhes mangá ── */
+.manga-details-hero {
+    border-radius: var(--akira-radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--akira-glass-border);
+    box-shadow: var(--akira-shadow), 0 0 48px rgba(168, 85, 247, 0.1);
+}
+
+.manga-details-hero .manga-hero-capa {
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 32px rgba(168, 85, 247, 0.2);
+    border: 2px solid rgba(168, 85, 247, 0.25);
+}
+
+.manga-details-sinopse,
+.manga-details-capitulos {
+    background: var(--akira-glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius-lg);
+    padding: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.hero-kicker {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--akira-purple-light);
+}
+
+.meta-tag {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.28);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.meta-tag-link:hover {
+    background: rgba(168, 85, 247, 0.25);
+}
+
+.chapter-card {
+    background: var(--akira-gradient-surface);
+    border-color: var(--akira-glass-border);
+    transition: transform var(--akira-transition-fast), border-color var(--akira-transition-fast);
+}
+
+.chapter-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(168, 85, 247, 0.45);
+}
+
+/* ── Perfil ── */
+.perfil-header {
+    background: var(--akira-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.perfil-avatar {
+    border: 3px solid rgba(168, 85, 247, 0.45);
+    box-shadow: 0 8px 32px rgba(168, 85, 247, 0.25);
+}
+
+.perfil-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.perfil-stat {
+    background: var(--akira-glass);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius);
+    padding: var(--space-md);
+    text-align: center;
+}
+
+.perfil-stat-num {
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--akira-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.grid-favoritos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-md);
+}
+
+.fav-card {
+    background: var(--akira-gradient-surface);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius-lg);
+    overflow: hidden;
+    transition: transform var(--akira-transition), box-shadow var(--akira-transition);
+}
+
+.fav-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(168, 85, 247, 0.2);
+}
+
+.fav-card-progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.fav-card-progress span {
+    display: block;
+    height: 100%;
+    background: var(--akira-gradient-brand);
+    border-radius: inherit;
+}
+
+/* ── Auth premium ── */
+body.auth-page {
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(168, 85, 247, 0.25), transparent),
+        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(124, 58, 237, 0.15), transparent),
+        var(--akira-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+}
+
+.auth-box {
+    background: var(--akira-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--akira-glass-border);
+    border-radius: var(--akira-radius-lg);
+    box-shadow: var(--akira-shadow), 0 0 60px rgba(168, 85, 247, 0.12);
+    max-width: 420px;
+    width: 100%;
+    padding: clamp(28px, 5vw, 40px);
+}
+
+.auth-box h2 span {
+    background: var(--akira-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-brand {
+    text-align: center;
+    margin-bottom: var(--space-md);
+}
+
+.auth-brand-name {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    background: var(--akira-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.auth-brand-tag {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    color: var(--akira-muted);
+}
+
+.auth-tab.ativo,
+.auth-tab.ativa {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.45);
+}
+
+.auth-submit {
+    background: var(--akira-gradient-brand);
+    box-shadow: 0 8px 28px rgba(168, 85, 247, 0.4);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.auth-field input {
+    background: rgba(26, 26, 34, 0.8);
+    border-color: var(--akira-glass-border);
+}
+
+.auth-field input:focus {
+    border-color: var(--akira-purple);
+    box-shadow: 0 0 0 3px var(--akira-purple-glow);
+}
+
+/* ── Leitor NexusToons ── */
+.leitor-app.nexus-reader {
+    background: #000 !important;
+}
+
+.reader-header {
+    background: rgba(9, 9, 11, 0.92) !important;
+    border-bottom-color: #27272a !important;
+    box-shadow: none !important;
+}
+
+.nx-progress,
+.leitor-progresso {
+    background: #27272a !important;
+    box-shadow: none !important;
+    height: 3px !important;
+}
+
+.nx-progress-fill {
+    background: linear-gradient(90deg, var(--akira-purple-dark, #7c3aed), var(--akira-purple-light, #c084fc)) !important;
+}
+
+.reader-footer {
+    background: rgba(9, 9, 11, 0.94) !important;
+    border-top-color: #27272a !important;
+    box-shadow: none !important;
+}
+
+.lt-btn { display: none !important; }
+
+/* ── Footer ── */
+.akira-footer-rich {
+    border-top: 1px solid var(--akira-glass-border);
+    background: linear-gradient(180deg, transparent, rgba(8, 8, 12, 0.95));
+    margin-top: var(--space-xl);
+}
+
+.footer-brand .footer-logo,
+.footer-brand img {
+    filter: drop-shadow(0 0 24px rgba(168, 85, 247, 0.3));
+}
+
+/* ── Botões globais ── */
+.btn-akira-primary {
+    background: var(--akira-gradient-brand);
+    border: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.btn-akira-ghost {
+    backdrop-filter: blur(4px);
+}
+
+/* ── 404 ── */
+.page-404 {
+    text-align: center;
+    padding: clamp(48px, 10vw, 96px) var(--space-md);
+}
+
+.page-404-code {
+    font-size: clamp(4rem, 15vw, 8rem);
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+    background: var(--akira-gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.4));
+}
+
+.page-404-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-lg);
+}
+
+/* ── Genre chips ── */
+.genre-chip {
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+/* ── Scroll rows ── */
+.scroll-row {
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+}
+
+.scroll-row-manga .manga-card {
+    scroll-snap-align: start;
+}
+
+/* ── Light theme tweaks ── */
+[data-theme="light"] .secao-akira,
+[data-theme="light"] .manga-card,
+[data-theme="light"] .sidebar-block {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(124, 58, 237, 0.15);
+}
+
+[data-theme="light"] body.akira-app {
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.08), transparent),
+        #f8f8fa;
+}
+
+@media (max-width: 900px) {
+    .akira-nav.aberto {
+        background: rgba(8, 8, 12, 0.97);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid var(--akira-glass-border);
+        box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .secao-header h2 {
+        font-size: 1.2rem;
+    }
+}

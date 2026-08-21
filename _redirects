@@ -1,0 +1,6 @@
+/mobile  /mobile/  301
+/biblioteca/*  /data/toonlivre-backup/:splat  200
+/backup/*  /data/toonlivre-backup/:splat  200
+/obra/:id/:cap  /leitor.html  200
+/obra/:id  /index.html  200
+/*  /index.html  200

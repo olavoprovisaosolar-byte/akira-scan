@@ -1,0 +1,542 @@
+/**
+ * Perfil — identidade AkiraScan (roxo)
+ */
+
+.perfil-page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.perfil-card {
+    background: rgba(26, 26, 26, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+}
+
+.perfil-hero-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.perfil-avatar-wrap {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 96px;
+    height: 96px;
+}
+
+.perfil-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(168, 85, 247, 0.35);
+    background: #141419;
+    display: block;
+}
+
+.perfil-avatar-cam {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: linear-gradient(135deg, var(--akira-purple, #a855f7), var(--akira-purple-dark, #7c3aed));
+    border: 2px solid #121212;
+    box-shadow: 0 4px 12px var(--akira-purple-glow, rgba(168, 85, 247, 0.4));
+}
+
+.perfil-hero-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.perfil-nome {
+    margin: 0;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.perfil-handle {
+    margin: 4px 0 0;
+    color: var(--akira-purple-light, #c084fc);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.perfil-email {
+    margin: 4px 0 12px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.perfil-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.perfil-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.perfil-badge-role {
+    background: color-mix(in srgb, var(--akira-purple, #a855f7) 22%, transparent);
+    border: 1px solid color-mix(in srgb, var(--akira-purple, #a855f7) 45%, transparent);
+    color: var(--akira-purple-light, #c084fc);
+}
+
+.perfil-badge-role.is-staff[data-role="admin"] {
+    background: color-mix(in srgb, #f59e0b 22%, transparent);
+    border-color: color-mix(in srgb, #f59e0b 55%, transparent);
+    color: #fbbf24;
+}
+
+.perfil-badge-role.is-staff[data-role="dev"] {
+    background: color-mix(in srgb, #38bdf8 22%, transparent);
+    border-color: color-mix(in srgb, #38bdf8 55%, transparent);
+    color: #7dd3fc;
+}
+
+.perfil-badge-muted {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #a1a1aa;
+}
+
+.perfil-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.perfil-btn-outline,
+.perfil-btn-primary,
+.perfil-btn-danger {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 12px;
+    min-height: 40px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.perfil-btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #e4e4e7;
+}
+
+.perfil-btn-outline:hover {
+    border-color: var(--akira-purple, #a855f7);
+    color: #fff;
+}
+
+.perfil-btn-primary {
+    background: var(--akira-purple, #a855f7);
+    color: #fff;
+}
+
+.perfil-btn-primary:hover {
+    background: var(--akira-purple-light, #c084fc);
+    color: #111;
+}
+
+.perfil-btn-danger {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #f87171;
+}
+
+.perfil-login-link {
+    color: var(--akira-purple-light, #c084fc);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Settings */
+.perfil-section-head h2 {
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+}
+
+.perfil-setting-block {
+    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.perfil-setting-block:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.perfil-setting-block h3 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.perfil-hint {
+    margin: 0 0 12px;
+    color: #9ca3af;
+    font-size: 0.82rem;
+    line-height: 1.45;
+}
+
+.perfil-theme-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.perfil-swatch {
+    appearance: none;
+    border: 2px solid transparent;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #9ca3af;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.perfil-swatch i {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: block;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.perfil-swatch.ativo {
+    color: #fff;
+}
+
+.perfil-swatch.ativo i {
+    box-shadow: 0 0 0 3px #121212, 0 0 0 5px var(--akira-purple, #a855f7);
+}
+
+.perfil-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.perfil-toggle-row strong {
+    display: block;
+    font-size: 0.9rem;
+}
+
+.perfil-toggle-row small {
+    display: block;
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+.perfil-switch {
+    appearance: none;
+    width: 46px;
+    height: 26px;
+    border-radius: 999px;
+    background: #3f3f46;
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.perfil-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.2s;
+}
+
+.perfil-switch:checked {
+    background: var(--akira-purple, #a855f7);
+}
+
+.perfil-switch:checked::after {
+    transform: translateX(20px);
+}
+
+.perfil-setting-row-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.perfil-inline-form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.perfil-inline-form input,
+.perfil-dialog input {
+    flex: 1;
+    min-width: 160px;
+    min-height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0b0b0b;
+    color: #fff;
+    padding: 0 12px;
+    font: inherit;
+}
+
+/* Status bar */
+.perfil-status-bar {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px;
+    border-radius: 999px;
+    background: rgba(26, 26, 26, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    scrollbar-width: none;
+}
+
+.perfil-status-bar::-webkit-scrollbar { display: none; }
+
+.perfil-status-tab {
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: #a1a1aa;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.perfil-status-tab em {
+    font-style: normal;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #2a2a2e;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+}
+
+.perfil-status-tab.ativo {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.perfil-status-tab.ativo em {
+    background: color-mix(in srgb, var(--akira-purple, #a855f7) 35%, #2a2a2e);
+}
+
+/* List cards */
+.perfil-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perfil-manga-card {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(26, 26, 26, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    text-decoration: none;
+    color: inherit;
+}
+
+.perfil-manga-card img {
+    width: 64px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #1a1a1a;
+}
+
+.perfil-manga-meta h3 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.perfil-manga-meta p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.perfil-manga-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.perfil-btn-continuar {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: transparent;
+    color: #e4e4e7;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.perfil-btn-continuar:hover {
+    border-color: var(--akira-purple, #a855f7);
+    color: var(--akira-purple-light, #c084fc);
+}
+
+.perfil-empty {
+    text-align: center;
+    color: #71717a;
+    padding: 40px 16px;
+    border-radius: 16px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Dialog */
+.perfil-dialog {
+    border: none;
+    border-radius: 18px;
+    padding: 0;
+    background: transparent;
+    max-width: 420px;
+    width: calc(100% - 32px);
+}
+
+.perfil-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.perfil-dialog-inner {
+    background: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #fff;
+}
+
+.perfil-dialog-inner h2 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.perfil-dialog-inner label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #a1a1aa;
+}
+
+.perfil-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .perfil-hero-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .perfil-badges,
+    .perfil-hero-actions {
+        justify-content: center;
+    }
+
+    .perfil-manga-card {
+        grid-template-columns: 56px 1fr;
+    }
+
+    .perfil-manga-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .perfil-status-bar {
+        border-radius: 16px;
+    }
+}

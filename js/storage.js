@@ -1,9 +1,10 @@
 /**
  * AkiraScan — Favoritos, histórico e continuar lendo.
- * Local: localStorage. Com sessão API: sync via Netlify Blobs.
+ * Local: localStorage. Com sessão API: sync via Cloudflare KV.
  */
 import { normalizarNumeroProgresso } from "./services/chapter-label.js";
-import { temSessaoApi, apiGuardarDados, apiObterDados } from "./user-api.js";
+import { temSessaoApi, apiGuardarDados, apiObterDados, obterUsernameSessao } from "./user-api.js";
+import { obterListasStatus, substituirListasStatus, mesclarListasStatus } from "./perfil-prefs.js";
 
 const STORAGE_KEY = "akirascan_v2";
 let pushTimer = null;
@@ -22,6 +23,7 @@ function criarVazio() {
     return {
         favoritos: [],
         historico: {},
+        perfil: { nome: "", username: "", avatar: "", bio: "", banner: "" },
         ultimaAtualizacao: null
     };
 }
@@ -36,7 +38,20 @@ function exportarDados() {
     return {
         favoritos: dados.favoritos || [],
         historico: dados.historico || {},
+        listas: obterListasStatus(),
+        perfil: dados.perfil || { nome: "", username: "", avatar: "" },
         ultimaAtualizacao: dados.ultimaAtualizacao || null
+    };
+}
+
+function mesclarPerfil(local = {}, remoto = {}) {
+    const pick = (a, b, max) => String(a || b || "").trim().slice(0, max);
+    return {
+        nome: pick(local.nome, remoto.nome, 32),
+        username: pick(local.username, remoto.username, 20),
+        avatar: local.avatar || remoto.avatar || "",
+        bio: pick(local.bio, remoto.bio, 160),
+        banner: local.banner || remoto.banner || ""
     };
 }
 
@@ -66,10 +81,14 @@ function aplicarRemoto(remoto) {
     if (tsRemoto > tsLocal) {
         local.favoritos = remoto.favoritos || [];
         local.historico = remoto.historico || {};
+        local.perfil = mesclarPerfil(local.perfil, remoto.perfil);
         local.ultimaAtualizacao = remoto.ultimaAtualizacao;
+        substituirListasStatus(remoto.listas || {});
     } else {
         local.favoritos = mesclarFavoritos(local.favoritos, remoto.favoritos);
         local.historico = mesclarHistorico(local.historico, remoto.historico);
+        local.perfil = mesclarPerfil(local.perfil, remoto.perfil);
+        mesclarListasStatus(remoto.listas || {});
     }
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(local));
@@ -79,11 +98,25 @@ function agendarPushNuvem() {
     if (!temSessaoApi()) return;
     clearTimeout(pushTimer);
     pushTimer = setTimeout(async () => {
-        const dados = exportarDados();
+        const dados = ler();
         dados.ultimaAtualizacao = new Date().toISOString();
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
-        await apiGuardarDados(dados);
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
+        } catch (e) {
+            console.warn("[storage] Falha ao guardar local:", e.message);
+        }
+        await apiGuardarDados({
+            favoritos: dados.favoritos || [],
+            historico: dados.historico || {},
+            listas: obterListasStatus(),
+            perfil: dados.perfil || { nome: "", username: "", avatar: "" },
+            ultimaAtualizacao: dados.ultimaAtualizacao
+        });
     }, 1200);
+}
+
+export function agendarSyncNuvem() {
+    agendarPushNuvem();
 }
 
 export async function sincronizarComNuvem() {
@@ -157,6 +190,46 @@ export function limparHistorico() {
 
 export function obterUltimaAtualizacaoSync() {
     return ler().ultimaAtualizacao;
+}
+
+export function obterPerfil() {
+    const p = ler().perfil || {};
+    const sessUser = obterUsernameSessao();
+    return {
+        nome: p.nome || "",
+        username: p.username || sessUser || "",
+        avatar: p.avatar || "",
+        bio: p.bio || "",
+        banner: p.banner || ""
+    };
+}
+
+export function guardarPerfil({ nome, username, avatar, bio, banner } = {}) {
+    const dados = ler();
+    dados.perfil = {
+        nome: String(nome ?? dados.perfil?.nome ?? "").trim().slice(0, 32),
+        username: String(username ?? dados.perfil?.username ?? "").trim().slice(0, 20),
+        avatar: avatar ?? dados.perfil?.avatar ?? "",
+        bio: String(bio ?? dados.perfil?.bio ?? "").trim().slice(0, 160),
+        banner: banner ?? dados.perfil?.banner ?? ""
+    };
+    dados.ultimaAtualizacao = new Date().toISOString();
+    try {
+        guardar(dados);
+    } catch (e) {
+        if (avatar && e?.name === "QuotaExceededError") {
+            dados.perfil.avatar = "";
+            guardar(dados);
+            throw new Error("Foto muito grande — tenta uma imagem menor.");
+        }
+        throw e;
+    }
+    return dados.perfil;
+}
+
+export function obterNomeLeitor() {
+    const p = obterPerfil();
+    return p.username || p.nome || "Leitor";
 }
 
 export function marcarUltimaAtualizacaoSync(iso) {

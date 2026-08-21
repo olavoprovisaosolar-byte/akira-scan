@@ -22,6 +22,7 @@ export function initCarousel(containerId, mangas = []) {
                 <h1>${escHtml(m.titulo)}</h1>
                 <p>${escHtml((m.sinopse || "").slice(0, 140))}${(m.sinopse || "").length > 140 ? "…" : ""}</p>
                 <div class="hero-slide-meta">
+                    ${m.nexusRating ? `<span class="meta-tag meta-tag-rating">★ ${Number(m.nexusRating).toFixed(1)}</span>` : ""}
                     ${(m.generos || []).slice(0, 3).map((g) => `<span class="meta-tag">${escHtml(g)}</span>`).join("")}
                 </div>
                 <a href="${linkManhwa(m.id)}" class="btn-akira btn-akira-primary">Ler agora</a>
@@ -52,6 +53,25 @@ export function initCarousel(containerId, mangas = []) {
             resetTimer();
         });
     });
+
+    // Swipe touch (mobile)
+    let touchX = 0;
+    let touchY = 0;
+    root.addEventListener("touchstart", (e) => {
+        const t = e.changedTouches[0];
+        touchX = t.clientX;
+        touchY = t.clientY;
+    }, { passive: true });
+
+    root.addEventListener("touchend", (e) => {
+        const t = e.changedTouches[0];
+        const dx = t.clientX - touchX;
+        const dy = t.clientY - touchY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
+        if (dx < 0) next();
+        else prev();
+        resetTimer();
+    }, { passive: true });
 
     function resetTimer() {
         clearInterval(timer);

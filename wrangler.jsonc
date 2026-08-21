@@ -2,5 +2,15 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "akira-scan",
   "compatibility_date": "2026-01-01",
-  "pages_build_output_dir": "./deploy-cloudflare"
+  "pages_build_output_dir": "./deploy-cloudflare",
+  "kv_namespaces": [
+    {
+      "binding": "AKIRA_USERS",
+      "id": "a4ba56c1a5d64c479ab92bc23edebc7a"
+    },
+    {
+      "binding": "AKIRA_COMMENTS",
+      "id": "1caa6d4f85d945cbb40900c8cbf1f703"
+    }
+  ]
 }

@@ -4,102 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Perfil — AkiraScan</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#0b0b0b">
+    <link rel="icon" type="image/svg+xml" href="img/akirascan-logo.svg">
     <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <script src="js/host-env.js"></script>
 </head>
 <body class="akira-app">
     <div id="header-slot"></div>
 
-    <main class="container container-narrow perfil-page">
-        <h1 class="perfil-titulo">O teu perfil</h1>
+    <main class="container perfil-page">
+        <!-- Hero -->
+        <section class="perfil-card perfil-hero-card" aria-label="Perfil">
+            <div class="perfil-hero-row">
+                <label class="perfil-avatar-wrap" for="perfil-avatar-input" title="Alterar foto">
+                    <img class="perfil-avatar" id="perfil-avatar" alt="Avatar" src="" width="96" height="96">
+                    <span class="perfil-avatar-cam" aria-hidden="true">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </span>
+                    <input type="file" id="perfil-avatar-input" accept="image/*" hidden>
+                </label>
 
-        <div class="perfil-stats sidebar-block">
-            <div class="perfil-stat">
-                <p class="perfil-stat-num" id="stat-lendo">0</p>
-                <p class="perfil-stat-label">A ler</p>
+                <div class="perfil-hero-info">
+                    <h1 class="perfil-nome" id="perfil-nome">Leitor</h1>
+                    <p class="perfil-handle" id="perfil-handle">@leitor</p>
+                    <p class="perfil-email" id="perfil-email">—</p>
+                    <div class="perfil-badges">
+                        <span class="perfil-badge perfil-badge-role" id="perfil-role">● Leitor</span>
+                        <span class="perfil-badge perfil-badge-muted" id="perfil-cadastrado">● Cadastrado: —</span>
+                        <span class="perfil-badge perfil-badge-muted" id="perfil-visita">● Última visita: —</span>
+                    </div>
+                    <div class="perfil-hero-actions">
+                        <button type="button" class="perfil-btn-outline" id="btn-abrir-config">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.2.7.8 1.2 1.5 1.2H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+                            Configurações
+                        </button>
+                        <a href="historico.html" class="perfil-btn-outline">Histórico</a>
+                        <a href="login.html" class="perfil-login-link" id="perfil-login-link">Entrar</a>
+                    </div>
+                </div>
             </div>
-            <div class="perfil-stat">
-                <p class="perfil-stat-num" id="stat-fav">0</p>
-                <p class="perfil-stat-label">Favoritos</p>
-            </div>
-        </div>
-
-        <section class="secao-akira" id="sec-continuar-perfil">
-            <div class="secao-header"><h2>Continuar lendo</h2></div>
-            <div class="row-continuar" id="lista-continuar"></div>
         </section>
 
-        <section class="secao-akira">
-            <div class="secao-header"><h2>Favoritos</h2></div>
-            <div class="grid-mangas" id="lista-favoritos"></div>
+        <!-- Configurações da conta -->
+        <section class="perfil-card perfil-settings-card" id="perfil-settings" hidden>
+            <header class="perfil-section-head">
+                <h2>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.2.7.8 1.2 1.5 1.2H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+                    Configurações da Conta
+                </h2>
+            </header>
+
+            <div class="perfil-setting-block">
+                <h3>Cor do Tema</h3>
+                <p class="perfil-hint">Personalize a aparência do site escolhendo sua cor favorita</p>
+                <div class="perfil-theme-swatches" id="theme-swatches" role="listbox" aria-label="Cores do tema"></div>
+            </div>
+
+            <div class="perfil-setting-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                    Notificações
+                </h3>
+                <p class="perfil-hint">Avisos de capítulos novos nos favoritos aparecem no sino do cabeçalho. Avisos do sistema (Admin) são sempre enviados.</p>
+                <label class="perfil-toggle-row">
+                    <span>
+                        <strong>Capítulos novos</strong>
+                        <small>Sino no cabeçalho quando um favorito recebe capítulo</small>
+                    </span>
+                    <input type="checkbox" id="pref-notif-comments" class="perfil-switch" checked>
+                </label>
+            </div>
+
+            <div class="perfil-setting-block">
+                <h3>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                    Continue Lendo
+                </h3>
+                <p class="perfil-hint">Controle se a faixa Continue Lendo deve aparecer na página inicial.</p>
+                <label class="perfil-toggle-row">
+                    <span>
+                        <strong>Mostrar na Home</strong>
+                        <small>Ativa ou oculta a faixa Continue Lendo na página inicial</small>
+                    </span>
+                    <input type="checkbox" id="pref-show-continuar" class="perfil-switch" checked>
+                </label>
+            </div>
+
+            <div class="perfil-setting-block perfil-setting-row-action">
+                <div>
+                    <h3>Alterar Senha</h3>
+                    <p class="perfil-hint">Mantenha sua conta segura alterando sua senha regularmente</p>
+                </div>
+                <button type="button" class="perfil-btn-primary" id="btn-alterar-senha">Alterar Senha</button>
+            </div>
+
+            <div class="perfil-setting-block">
+                <h3>Username</h3>
+                <p class="perfil-hint">Nome único na comunidade (sem espaços)</p>
+                <div class="perfil-inline-form">
+                    <input type="text" id="perfil-username" maxlength="20" placeholder="@username" pattern="[A-Za-z0-9_]+" autocomplete="username">
+                    <button type="button" class="perfil-btn-outline" id="btn-salvar-username">Guardar</button>
+                </div>
+            </div>
+
+            <div class="perfil-setting-block">
+                <button type="button" id="btn-limpar" class="perfil-btn-danger">Limpar histórico de leitura</button>
+            </div>
         </section>
 
-        <button type="button" id="btn-limpar" class="btn-akira btn-akira-ghost perfil-limpar">Limpar histórico</button>
+        <!-- Abas de biblioteca -->
+        <nav class="perfil-status-bar" id="perfil-status-bar" aria-label="Biblioteca pessoal">
+            <button type="button" class="perfil-status-tab ativo" data-list="lendo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <span>Lendo</span>
+                <em id="count-lendo">0</em>
+            </button>
+            <button type="button" class="perfil-status-tab" data-list="favoritos">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+                <span>Favoritos</span>
+                <em id="count-favoritos">0</em>
+            </button>
+            <button type="button" class="perfil-status-tab" data-list="lido">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+                <span>Lido</span>
+                <em id="count-lido">0</em>
+            </button>
+            <button type="button" class="perfil-status-tab" data-list="interessado">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                <span>Interessado</span>
+                <em id="count-interessado">0</em>
+            </button>
+            <button type="button" class="perfil-status-tab" data-list="pausado">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span>Pausado</span>
+                <em id="count-pausado">0</em>
+            </button>
+            <button type="button" class="perfil-status-tab" data-list="dropado">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+                <span>Dropado</span>
+                <em id="count-dropado">0</em>
+            </button>
+        </nav>
+
+        <section class="perfil-list" id="perfil-list" aria-live="polite"></section>
     </main>
+
+    <!-- Modal senha -->
+    <dialog class="perfil-dialog" id="dialog-senha">
+        <form method="dialog" id="form-senha" class="perfil-dialog-inner">
+            <h2>Alterar Senha</h2>
+            <label>Senha atual<input type="password" name="atual" required minlength="6" autocomplete="current-password"></label>
+            <label>Nova senha<input type="password" name="nova" required minlength="6" autocomplete="new-password"></label>
+            <label>Confirmar<input type="password" name="confirma" required minlength="6" autocomplete="new-password"></label>
+            <p class="perfil-hint" id="senha-status" hidden></p>
+            <div class="perfil-dialog-actions">
+                <button type="button" class="perfil-btn-outline" id="btn-senha-cancelar">Cancelar</button>
+                <button type="submit" class="perfil-btn-primary">Guardar</button>
+            </div>
+        </form>
+    </dialog>
 
     <div id="footer-slot"></div>
 
     <script type="module">
-        import { renderHeader, renderFooter, renderMangaCard, initShell, escHtml } from "./js/app-shell.js";
-        import { obterContinuarLista, obterFavoritos, limparHistorico } from "./js/storage.js";
-        import { obterManga } from "./js/services/data-service.js";
-        import { linkManhwa } from "./js/core/router.js";
-        import { normalizarNumeroProgresso } from "./js/services/chapter-label.js";
-        import { coverImgTagAttrs } from "./js/services/cover-utils.js";
-
-        document.getElementById("header-slot").innerHTML = renderHeader();
-        document.getElementById("footer-slot").innerHTML = renderFooter();
-        await initShell();
-
-        const continuar = obterContinuarLista();
-        const favoritos = obterFavoritos();
-        document.getElementById("stat-lendo").textContent = continuar.length;
-        document.getElementById("stat-fav").textContent = favoritos.length;
-
-        const secContinuar = document.getElementById("sec-continuar-perfil");
-        const elCont = document.getElementById("lista-continuar");
-        if (!continuar.length) {
-            secContinuar?.classList.add("escondido");
-        } else {
-            secContinuar?.classList.remove("escondido");
-        }
-        elCont.innerHTML = continuar.length
-            ? continuar.map((h) => {
-                const capNum = normalizarNumeroProgresso(h.capitulo_atual, h.chapterId);
-                const img = coverImgTagAttrs(
-                    { id: h.mangaId, titulo: h.titulo, capa: h.capa },
-                    { loading: "lazy" }
-                );
-                return `
-                <a href="${linkManhwa(h.mangaId)}" class="card-continuar"
-                   data-manga-id="${escHtml(h.mangaId)}" data-resume-cap="${escHtml(String(capNum))}">
-                    <img ${img.html}>
-                    <div class="card-continuar-body">
-                        <h3>${escHtml(h.titulo)}</h3>
-                        <span class="card-continuar-cap">Cap. ${capNum}</span>
-                    </div>
-                </a>`;
-            }).join("")
-            : '<p class="msg-vazia">Nenhum histórico ainda.</p>';
-
-        const elFav = document.getElementById("lista-favoritos");
-        if (!favoritos.length) {
-            elFav.innerHTML = '<p class="msg-vazia">Adiciona favoritos nas páginas dos mangás.</p>';
-        } else {
-            for (const id of favoritos) {
-                try {
-                    const m = await obterManga(id);
-                    elFav.insertAdjacentHTML("beforeend", renderMangaCard(m));
-                } catch { /* skip */ }
-            }
-        }
-
-        document.getElementById("btn-limpar").addEventListener("click", () => {
-            if (confirm("Limpar todo o histórico de leitura?")) {
-                limparHistorico();
-                location.reload();
-            }
-        });
+        import { initPerfilPage } from "./js/pages/perfil-page.js";
+        await initPerfilPage();
     </script>
 </body>
 </html>

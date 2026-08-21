@@ -1,7 +1,7 @@
 /**
  * Metadados base — capas MAL únicas por título. Banner = capa (sem imagens genéricas duplicadas).
  */
-import { parseChapterNumber } from "./services/chapter-label.js";
+import { slugTipo } from "./services/genre-utils.js";
 
 export const MANGAS_DESTAQUE = [
     { id: "solo-leveling", titulo: "Solo Leveling", sinopse: "Sung Jinwoo, o caçador mais fraco, ganha um sistema que lhe permite subir de nível sem limites.", autor: "Chugong", artista: "DUBU", generos: ["Ação", "Fantasia", "Sistema"], status: "Completo", popularidade: 100, capa: "https://cdn.myanimelist.net/images/manga/3/183705.jpg" },
@@ -24,6 +24,8 @@ export const MANGAS_DESTAQUE = [
     { id: "mob-psycho-100", titulo: "Mob Psycho 100", sinopse: "Shigeo esconde poderes psíquicos enormes.", autor: "ONE", artista: "ONE", generos: ["Ação", "Comédia"], status: "Completo", popularidade: 79, capa: "https://cdn.myanimelist.net/images/manga/3/138375.jpg" }
 ];
 
+const CAPS_PADRAO = 3;
+
 function isLocalPath(url) {
     return typeof url === "string" && (url.startsWith("/biblioteca/") || url.startsWith("/backup/") || url.startsWith("/data/toonlivre-backup/"));
 }
@@ -44,24 +46,28 @@ function normalizarImagens(m) {
 
 export function enriquecerDestaque(manga) {
     const { capa, banner } = normalizarImagens(manga);
-    // Nunca inventar capitulo-01/02/03 — mangá sem caps fica vazio até o Nexus subir.
-    const caps = (manga.capitulos || []).length
+    const caps = manga.capitulos?.length
         ? manga.capitulos.map((c, i) => ({
             ...c,
-            numero: Number.isFinite(parseChapterNumber(c)) ? parseChapterNumber(c) : (i + 1),
+            numero: parseChapterNumber(c) || (i + 1),
             publicadoEm: c.publicadoEm || manga.atualizadoEm || new Date().toISOString()
         }))
-        : [];
+        : Array.from({ length: CAPS_PADRAO }, (_, i) => ({
+            id: `capitulo-${String(i + 1).padStart(2, "0")}`,
+            numero: i + 1,
+            paginas: 0,
+            publicadoEm: new Date(Date.now() - i * 86400000).toISOString()
+        }));
 
-    const ultimoCap = caps[0] || caps[caps.length - 1] || null;
+    const ultimoCap = caps[caps.length - 1];
 
     return {
         ...manga,
         capa,
         banner,
         capitulos: caps,
-        ultimoCapitulo: ultimoCap || manga.ultimoCapitulo || null,
-        atualizadoEm: manga.atualizadoEm || ultimoCap?.publicadoEm || null,
+        ultimoCapitulo: ultimoCap,
+        atualizadoEm: manga.atualizadoEm || ultimoCap?.publicadoEm || new Date().toISOString(),
         origem: manga.origem || "destaque"
     };
 }
@@ -144,58 +150,59 @@ export function mergeCatalogo(local = [], remoto = null) {
     return [...map.values()].sort((a, b) => a.titulo.localeCompare(b.titulo));
 }
 
+function tsCap(cap) {
+    return Date.parse(cap?.publicadoEm || cap?.hostedAt || cap?.atualizadoEm || cap?.data || 0) || 0;
+}
+
+export function rankingPorJanela(mangas, dias, limite = 10) {
+    const cutoff = Date.now() - dias * 86400000;
+    const scored = [...mangas].map((m) => {
+        const caps = m.capitulos || [];
+        const recentCaps = caps.filter((c) => tsCap(c) >= cutoff).length;
+        const t = Date.parse(m.atualizadoEm || m.ultimoCapitulo?.publicadoEm || 0) || tsCap(caps[caps.length - 1]);
+        const recency = t >= cutoff ? 1 + (t - cutoff) / (dias * 86400000) : 0.08;
+        const score = recentCaps * 18 + (m.popularidade || 0) * recency + (Number(m.nexusViews) || 0) / 20000;
+        return { m, score };
+    });
+    return scored
+        .sort((a, b) => b.score - a.score)
+        .slice(0, limite)
+        .map((x, i) => ({ ...x.m, rank: i + 1 }));
+}
+
 export function rankingSemanal(mangas, limite = 10) {
-    const legiveis = mangas.filter(temCapsProntos);
-    return ordenar(legiveis, "popular").slice(0, limite).map((m, i) => ({ ...m, rank: i + 1 }));
+    return rankingPorJanela(mangas, 7, limite);
+}
+
+export function rankingMensal(mangas, limite = 10) {
+    return rankingPorJanela(mangas, 30, limite);
+}
+
+export function rankingGeral(mangas, limite = 10) {
+    return ordenar(mangas, "popular").slice(0, limite).map((m, i) => ({ ...m, rank: i + 1 }));
 }
 
 export function todosGeneros(mangas) {
-    const aliases = {
-        "músic": "Música",
-        "music": "Música",
-        "sobre vivência": "Sobrevivência",
-        "sobrevive ncia": "Sobrevivência"
-    };
     const set = new Set();
-    mangas.forEach((m) => (m.generos || []).forEach((g) => {
-        const raw = String(g || "").trim();
-        if (!raw) return;
-        const key = raw.toLowerCase();
-        set.add(aliases[key] || raw);
-    }));
-    return [...set].sort((a, b) => a.localeCompare(b, "pt"));
-}
-
-/** Tem caps prontos para leitura (Freeimage/iili/catbox files/telegra). */
-export function temCapsProntos(m) {
-    const sync = Number(m?.syncProntos) || 0;
-    if (sync > 0) return true;
-    const caps = m?.capitulos || [];
-    if (caps.some((c) => c.legivel === true)) return true;
-    return caps.length > 0 && (Number(m?.totalCapitulos) || 0) > 0
-        && !caps.every((c) => /^capitulo-\d+$/i.test(String(c.id || "")));
+    mangas.forEach((m) => (m.generos || []).forEach((g) => set.add(g)));
+    return [...set].sort();
 }
 
 export function capsRecentes(mangas, limite = 12) {
     const itens = [];
     for (const m of mangas) {
-        if (!temCapsProntos(m)) continue;
         const caps = [...(m.capitulos || [])].sort((a, b) => {
             const da = new Date(a.publicadoEm || 0);
             const db = new Date(b.publicadoEm || 0);
             return db - da;
         });
-        const ult = caps.find((c) => c.legivel === true) || caps[0];
+        const ult = caps[0];
         if (ult) {
             itens.push({
                 mangaId: m.id,
                 titulo: m.titulo,
                 capa: m.capa,
-                capitulo: {
-                    ...ult,
-                    // Preview do índice = caps reais do catálogo Nexus → tratar como legível
-                    legivel: ult.legivel !== false
-                },
+                capitulo: ult,
                 publicadoEm: ult.publicadoEm || m.atualizadoEm
             });
         }
@@ -207,13 +214,42 @@ export function capsRecentes(mangas, limite = 12) {
 
 export function ordenar(mangas, sort = "az") {
     const lista = [...mangas];
-    if (sort === "popular") {
-        return lista.sort((a, b) => {
-            const pa = (Number(b.syncProntos) || 0) - (Number(a.syncProntos) || 0);
-            if (pa !== 0) return pa;
-            return (b.popularidade || 0) - (a.popularidade || 0);
+    if (sort === "popular") return lista.sort((a, b) => (b.popularidade || 0) - (a.popularidade || 0));
+    if (sort === "recentes") return lista.sort((a, b) => new Date(b.atualizadoEm || 0) - new Date(a.atualizadoEm || 0));
+    if (sort === "rating") return lista.sort((a, b) => (b.nexusRating || 0) - (a.nexusRating || 0));
+    if (sort === "caps") return lista.sort((a, b) => (b.totalCapitulos || b.capitulos?.length || 0) - (a.totalCapitulos || a.capitulos?.length || 0));
+    return lista.sort((a, b) => a.titulo.localeCompare(b.titulo));
+}
+
+export function filtrarMangas(mangas, opts = {}) {
+    let lista = [...mangas];
+    const { status, minRating, ano, minCaps, tipo } = opts;
+
+    if (status) {
+        lista = lista.filter((m) =>
+            String(m.status || "").toLowerCase().includes(status.toLowerCase())
+        );
+    }
+    if (minRating) {
+        const min = Number(minRating);
+        lista = lista.filter((m) => (m.nexusRating || 0) >= min);
+    }
+    if (ano) {
+        lista = lista.filter((m) => String(m.ano || m.releaseYear || m.nexusYear || m.year || "") === String(ano));
+    }
+    if (minCaps) {
+        const min = Number(minCaps);
+        lista = lista.filter((m) =>
+            (m.totalCapitulos || m.capitulos?.length || 0) >= min
+        );
+    }
+    if (tipo) {
+        const want = slugTipo(tipo);
+        lista = lista.filter((m) => {
+            const raw = m.nexusType || m.tipo || m.type || "";
+            const have = raw ? slugTipo(raw) : "manhwa";
+            return have === want;
         });
     }
-    if (sort === "recentes") return lista.sort((a, b) => new Date(b.atualizadoEm || 0) - new Date(a.atualizadoEm || 0));
-    return lista.sort((a, b) => String(a.titulo || "").localeCompare(String(b.titulo || "")));
+    return lista;
 }

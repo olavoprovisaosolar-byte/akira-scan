@@ -10,10 +10,12 @@ export function capsVisiveis(manga) {
 }
 
 export function capsTodos(manga) {
+    const seen = new Set();
     return (manga?.capitulos || []).filter((c) => {
-        if (!c?.id) return false;
-        const n = Number(parseChapterNumber(c));
-        return Number.isFinite(n) && n >= 0;
+        if (!c.id || Number(parseChapterNumber(c)) <= 0) return false;
+        if (seen.has(c.id)) return false;
+        seen.add(c.id);
+        return true;
     });
 }
 
@@ -31,15 +33,29 @@ export function primeiroCapLegivel(manga) {
 
 function capValido(cap) {
     const num = parseChapterNumber(cap);
-    const n = Number(num);
-    const baseValid = Boolean(cap.id) && Number.isFinite(n) && n >= 0;
+    const baseValid = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
     return { num, baseValid, valido: baseValid && cap.legivel === true };
 }
 
-export function renderChapterGrid(manga, { filter = "all" } = {}) {
-    let caps = capsTodos(manga).sort(
-        (a, b) => parseChapterNumber(b) - parseChapterNumber(a)
-    );
+function dataCap(cap) {
+    return cap?.publicadoEm || cap?.hostedAt || cap?.atualizadoEm || cap?.data || "";
+}
+
+function formatarDataCap(iso) {
+    const t = Date.parse(iso || "");
+    if (!Number.isFinite(t) || t <= 0) return "";
+    try {
+        return new Date(t).toLocaleDateString("pt-BR");
+    } catch {
+        return "";
+    }
+}
+
+export function renderChapterGrid(manga, { filter = "all", sort = "desc" } = {}) {
+    let caps = capsTodos(manga).sort((a, b) => {
+        const diff = parseChapterNumber(b) - parseChapterNumber(a);
+        return sort === "asc" ? -diff : diff;
+    });
 
     if (filter === "ready") {
         caps = caps.filter((c) => capValido(c).valido);
@@ -80,6 +96,7 @@ export function renderChapterGrid(manga, { filter = "all" } = {}) {
                ${valido ? "" : 'aria-disabled="true" tabindex="-1"'}
                data-valid="${valido}">
                 <span class="chapter-num">Cap. ${escHtml(String(num))}</span>
+                ${formatarDataCap(dataCap(cap)) ? `<span class="chapter-date">${escHtml(formatarDataCap(dataCap(cap)))}</span>` : ""}
                 ${badge}${statusBadge}
                 <span class="chapter-action btn-akira btn-akira-sm ${valido ? "btn-akira-primary" : "btn-akira-ghost"}">${valido ? "Abrir" : "Aguarde"}</span>
             </a>`;
@@ -101,6 +118,10 @@ export function renderChapterToolbar(manga) {
             <button type="button" class="chapter-filter" data-filter="ready" role="tab" aria-selected="false">Prontos</button>
             <button type="button" class="chapter-filter" data-filter="soon" role="tab" aria-selected="false">Em breve</button>
         </div>
+        <div class="chapter-sort" role="group" aria-label="Ordenar capítulos">
+            <button type="button" class="chapter-sort-btn is-active" data-sort="desc">Recentes</button>
+            <button type="button" class="chapter-sort-btn" data-sort="asc">Antigos</button>
+        </div>
     </div>`;
 }
 
@@ -114,7 +135,7 @@ export function bindChapterGrid(container, manga, { onInvalid } = {}) {
             }
             const num = Number(el.dataset.capNum);
             const capId = el.dataset.capId;
-            if (!capId || !Number.isFinite(num) || num < 0) {
+            if (!capId || !Number.isFinite(num) || num <= 0) {
                 e.preventDefault();
                 onInvalid?.("Parâmetros do capítulo inválidos.");
             }
@@ -125,19 +146,33 @@ export function bindChapterGrid(container, manga, { onInvalid } = {}) {
 export function bindChapterToolbar(root, manga, { onInvalid } = {}) {
     const host = root.querySelector(".chapter-grid-host");
     const filters = root.querySelectorAll(".chapter-filter");
+    const sorts = root.querySelectorAll(".chapter-sort-btn");
     if (!host || !filters.length) return;
 
-    const apply = (filter) => {
+    let filter = "all";
+    let sort = "desc";
+
+    const apply = () => {
         filters.forEach((btn) => {
             const active = btn.dataset.filter === filter;
             btn.classList.toggle("is-active", active);
             btn.setAttribute("aria-selected", active ? "true" : "false");
         });
-        host.innerHTML = renderChapterGrid(manga, { filter });
+        sorts.forEach((btn) => btn.classList.toggle("is-active", btn.dataset.sort === sort));
+        host.innerHTML = renderChapterGrid(manga, { filter, sort });
         bindChapterGrid(host, manga, { onInvalid });
     };
 
     filters.forEach((btn) => {
-        btn.addEventListener("click", () => apply(btn.dataset.filter || "all"));
+        btn.addEventListener("click", () => {
+            filter = btn.dataset.filter || "all";
+            apply();
+        });
+    });
+    sorts.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            sort = btn.dataset.sort || "desc";
+            apply();
+        });
     });
 }

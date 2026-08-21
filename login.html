@@ -6,9 +6,16 @@
     <title>Login — AkiraScan</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
+    <script src="js/host-env.js"></script>
 </head>
 <body class="auth-page">
     <div class="auth-box">
+        <div class="auth-brand">
+            <img class="auth-brand-logo" src="img/akirascan-logo.svg" alt="AkiraScan" width="200" height="40">
+            <span class="auth-brand-tag">Leitura premium de mangás</span>
+        </div>
         <h2 id="titulo-form"><span>BEM-VINDO</span> DE VOLTA!</h2>
 
         <div class="auth-tabs" role="tablist">
@@ -17,6 +24,10 @@
         </div>
 
         <form id="form-auth">
+            <div class="auth-field escondido" id="grupo-username">
+                <label for="auth-username">USERNAME</label>
+                <input type="text" id="auth-username" placeholder="ex: akira_leitor" minlength="3" maxlength="20" autocomplete="username" pattern="[A-Za-z0-9_]+">
+            </div>
             <div class="auth-field">
                 <label for="auth-email">E-MAIL</label>
                 <input type="email" id="auth-email" placeholder="Digite seu e-mail" required autocomplete="email">
@@ -55,6 +66,7 @@
         const btnAcao = document.getElementById("btn-acao");
         const tituloForm = document.getElementById("titulo-form");
         const grupoConfirmar = document.getElementById("grupo-confirmar");
+        const grupoUsername = document.getElementById("grupo-username");
         const msgEl = document.getElementById("msg");
         const btnDemo = document.getElementById("btn-demo");
 
@@ -90,10 +102,14 @@
                 tituloForm.innerHTML = "<span>CRIAR</span> A TUA CONTA";
                 btnAcao.textContent = "REGISTAR";
                 grupoConfirmar.classList.remove("escondido");
+                grupoUsername.classList.remove("escondido");
+                document.getElementById("auth-username").required = true;
             } else {
                 tituloForm.innerHTML = "<span>BEM-VINDO</span> DE VOLTA!";
                 btnAcao.textContent = "ENTRAR";
                 grupoConfirmar.classList.add("escondido");
+                grupoUsername.classList.add("escondido");
+                document.getElementById("auth-username").required = false;
             }
             limparMsg();
         }
@@ -112,6 +128,7 @@
             const email = document.getElementById("auth-email").value.trim();
             const senha = document.getElementById("auth-senha").value;
             const confirmar = document.getElementById("auth-confirmar").value;
+            const username = document.getElementById("auth-username").value.trim();
 
             if (!email || !senha) {
                 mostrarMsg("Preenche o e-mail e a senha.", "erro");
@@ -123,11 +140,16 @@
                 return;
             }
 
+            if (modo === "registar" && !username) {
+                mostrarMsg("Escolhe um username.", "erro");
+                return;
+            }
+
             btnAcao.disabled = true;
             btnAcao.textContent = modo === "registar" ? "A REGISTAR..." : "A ENTRAR...";
 
             const resultado = modo === "registar"
-                ? await registarComEmail(email, senha)
+                ? await registarComEmail(email, senha, username)
                 : await entrarComEmail(email, senha);
 
             btnAcao.disabled = false;

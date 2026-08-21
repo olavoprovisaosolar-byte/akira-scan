@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ranking — AkiraScan</title>
+    <meta name="description" content="Ranking semanal, mensal e geral do catálogo AkiraScan.">
+    <meta name="theme-color" content="#060608">
+    <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
+    <script src="js/host-env.js"></script>
+</head>
+<body class="akira-app">
+    <div id="header-slot"></div>
+
+    <main class="container ranking-page">
+        <section class="updates-hero">
+            <p class="hero-kicker">Descoberta</p>
+            <h1 id="ranking-heading">Ranking semanal</h1>
+            <p class="updates-sub">Os títulos mais acompanhados — semana, mês e catálogo completo.</p>
+        </section>
+
+        <div class="updates-sort-bar" id="ranking-tabs">
+            <button type="button" class="genre-chip ativo" data-tab="semanal">Semanal</button>
+            <button type="button" class="genre-chip" data-tab="mensal">Mensal</button>
+            <button type="button" class="genre-chip" data-tab="geral">Geral</button>
+        </div>
+
+        <div class="ranking-list ranking-list-page" id="ranking-list">
+            <p class="msg-vazia">A carregar ranking…</p>
+        </div>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script type="module">
+        import { renderHeader, renderFooter, initShell } from "./js/app-shell.js";
+        import { initRankingPage } from "./js/pages/ranking-page.js";
+
+        document.getElementById("header-slot").innerHTML = renderHeader();
+        document.getElementById("footer-slot").innerHTML = renderFooter();
+        await initShell();
+        await initRankingPage();
+    </script>
+</body>
+</html>

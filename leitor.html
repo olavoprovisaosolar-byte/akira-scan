@@ -2,30 +2,139 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5">
     <title>Leitor — AkiraScan</title>
-    <meta name="theme-color" content="#060608">
-    <meta name="description" content="Leitor vertical de mangás — AkiraScan">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Leitor vertical — AkiraScan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="img/akirascan-logo.png">
+    <link rel="icon" type="image/svg+xml" href="img/akirascan-logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
     <link rel="stylesheet" href="css/leitor.css">
+    <script src="js/host-env.js"></script>
 </head>
-<body class="leitor-app">
-    <div class="leitor-progresso" id="barra-progresso"></div>
-    <header class="leitor-barra">
-        <button type="button" class="btn-leitor-voltar" id="btn-voltar">← Voltar</button>
-        <span class="titulo" id="titulo-cap">A carregar...</span>
-        <span class="leitor-contador" id="contador-paginas"></span>
+<body class="leitor-app nexus-reader rail-only">
+    <div class="nx-progress" id="barra-progresso" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="nx-progress-fill" id="barra-progresso-fill"></div>
+    </div>
+
+    <header class="reader-header reader-header-minimal" id="leitor-barra">
+        <div class="reader-header-inner">
+            <button type="button" class="nx-icon-btn" id="btn-voltar" title="Voltar para a obra" aria-label="Voltar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="reader-header-center">
+                <span class="reader-title" id="titulo-cap">A carregar...</span>
+                <span class="reader-page-count" id="contador-paginas"></span>
+            </div>
+            <span class="reader-header-spacer" aria-hidden="true"></span>
+        </div>
     </header>
 
-    <div id="area-leitor"></div>
-    <nav class="leitor-nav-caps escondido" id="nav-caps">
-        <button type="button" id="btn-cap-anterior" title="Capítulo anterior">◀</button>
-        <button type="button" id="btn-cap-proximo" title="Próximo capítulo">▶</button>
-    </nav>
+    <main class="reader-main" id="reader-main">
+        <div id="area-leitor" class="reading-content"></div>
+    </main>
 
+    <!-- Único painel de controlos: passador lateral -->
+    <aside class="reader-rail" id="reader-rail" aria-label="Controlos do leitor">
+        <button type="button" class="rail-btn" id="rail-prev" title="Capítulo anterior" aria-label="Capítulo anterior" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-toc" title="Índice de capítulos" aria-label="Índice de capítulos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-zoom-in" title="Zoom in" aria-label="Aumentar zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-zoom-out" title="Zoom out" aria-label="Diminuir zoom">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M8 11h6"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-settings" title="Configurações" aria-label="Configurações do leitor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.2.7.8 1.2 1.5 1.2H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-comments" title="Comentários" aria-label="Comentários">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-report" title="Reportar erro" aria-label="Reportar erro na página">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-top" title="Ir para o topo" aria-label="Ir para o topo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+        <button type="button" class="rail-btn" id="rail-next" title="Próximo capítulo" aria-label="Próximo capítulo" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </aside>
+
+    <div class="reader-drawer-backdrop" id="reader-drawer-backdrop" hidden></div>
+
+    <aside class="reader-drawer" id="drawer-toc" hidden aria-labelledby="drawer-toc-title">
+        <header class="reader-drawer-head">
+            <h2 id="drawer-toc-title">Capítulos</h2>
+            <button type="button" class="rail-btn drawer-close" data-close-drawer title="Fechar" aria-label="Fechar">×</button>
+        </header>
+        <div class="reader-drawer-body" id="drawer-toc-list"></div>
+    </aside>
+
+    <aside class="reader-drawer" id="drawer-settings" hidden aria-labelledby="drawer-settings-title">
+        <header class="reader-drawer-head">
+            <h2 id="drawer-settings-title">Configurações</h2>
+            <button type="button" class="rail-btn drawer-close" data-close-drawer title="Fechar" aria-label="Fechar">×</button>
+        </header>
+        <div class="reader-drawer-body">
+            <label class="rail-setting">
+                <span>Largura das páginas</span>
+                <input type="range" id="setting-zoom" min="300" max="1400" step="50" value="800">
+                <output id="setting-zoom-val">800px</output>
+            </label>
+            <label class="rail-setting">
+                <span>Modo de leitura</span>
+                <select id="setting-reader-mode">
+                    <option value="webtoon">Webtoon (tira)</option>
+                    <option value="paged">Páginas</option>
+                </select>
+            </label>
+            <label class="rail-setting rail-setting-row">
+                <span>Esconder UI ao ler</span>
+                <input type="checkbox" id="setting-autohide" checked>
+            </label>
+        </div>
+    </aside>
+
+    <aside class="reader-drawer" id="drawer-comments" hidden aria-labelledby="drawer-comments-title">
+        <header class="reader-drawer-head">
+            <h2 id="drawer-comments-title">Comentários</h2>
+            <button type="button" class="rail-btn drawer-close" data-close-drawer title="Fechar" aria-label="Fechar">×</button>
+        </header>
+        <div class="reader-drawer-body" id="drawer-comments-body"></div>
+    </aside>
+
+    <aside class="reader-drawer" id="drawer-report" hidden aria-labelledby="drawer-report-title">
+        <header class="reader-drawer-head">
+            <h2 id="drawer-report-title">Reportar erro</h2>
+            <button type="button" class="rail-btn drawer-close" data-close-drawer title="Fechar" aria-label="Fechar">×</button>
+        </header>
+        <div class="reader-drawer-body">
+            <p class="rail-hint">Descreve o problema nesta página (imagem partida, ordem errada, etc.).</p>
+            <form id="report-form" class="rail-report-form">
+                <textarea name="motivo" rows="4" maxlength="500" required placeholder="O que está errado?"></textarea>
+                <button type="submit" class="btn-retry">Enviar report</button>
+            </form>
+            <p class="rail-hint" id="report-status" hidden></p>
+        </div>
+    </aside>
+
+    <script>
+        window.__AKIRA_BLOGGER__ = window.__AKIRA_BLOGGER__ || {
+            host: "akiraascan.blogspot.com",
+            blogId: "7927581336692557047"
+        };
+    </script>
     <script type="module">
         import { registerServiceWorker } from "./js/sw-register.js";
         import { startPerformanceMonitor } from "./js/core/performance-monitor.js";
@@ -39,7 +148,8 @@
             tituloCap: document.getElementById("titulo-cap"),
             contador: document.getElementById("contador-paginas"),
             barra: document.getElementById("barra-progresso"),
-            navCaps: document.getElementById("nav-caps"),
+            barraFill: document.getElementById("barra-progresso-fill"),
+            navCaps: null,
             btnVoltar: document.getElementById("btn-voltar")
         });
     </script>

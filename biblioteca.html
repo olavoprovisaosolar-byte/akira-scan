@@ -11,20 +11,32 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="img/akirascan-logo.png">
     <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
     <link rel="preload" href="data/catalogo-index.json" as="fetch" crossorigin>
+    <script src="js/host-env.js"></script>
 </head>
 <body class="akira-app">
     <div id="header-slot"></div>
     <div id="aviso-servidor"></div>
 
+    <section class="bib-hero" aria-label="Biblioteca AkiraScan">
+        <div class="bib-hero-inner">
+            <p class="bib-hero-kicker">Catálogo completo</p>
+            <h1>Biblioteca</h1>
+            <p class="bib-hero-sub">Explore centenas de títulos — filtros por gênero, popularidade e ordem alfabética.</p>
+        </div>
+    </section>
+
     <div class="akira-layout">
         <div id="sidebar-slot"></div>
         <main class="akira-main">
-            <div class="secao-header">
-                <h1 style="margin:0;font-size:1.5rem">Biblioteca</h1>
-                <span id="total-label" class="msg-vazia" style="padding:0;margin:0"></span>
+            <div class="bib-toolbar" id="bib-toolbar"></div>
+            <div class="bib-filters-panel" id="bib-filters"></div>
+            <div class="bib-meta-row">
+                <span id="total-label" class="bib-total"></span>
             </div>
-            <div class="grid-mangas" id="grid-catalogo"></div>
+            <div class="grid-mangas grid-mangas-premium" id="grid-catalogo"></div>
             <button type="button" id="btn-mais" class="btn-akira btn-akira-ghost escondido" style="margin:24px auto;display:block">Carregar mais</button>
             <p id="status-catalogo" class="msg-vazia"></p>
         </main>
@@ -46,6 +58,8 @@
         const ctrl = createBibliotecaController({
             grid: document.getElementById("grid-catalogo"),
             sidebar: document.getElementById("sidebar-slot"),
+            toolbar: document.getElementById("bib-toolbar"),
+            filtersPanel: document.getElementById("bib-filters"),
             totalLabel: document.getElementById("total-label"),
             btnMais: document.getElementById("btn-mais"),
             statusEl: document.getElementById("status-catalogo"),

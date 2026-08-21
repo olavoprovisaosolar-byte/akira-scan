@@ -33,6 +33,7 @@ export class LeitorVertical {
         this.paginas = opcoes.paginas || opcoes.urls?.map((u) => ({ url: u, original: u })) || [];
         this.aoMudarPagina = opcoes.aoMudarPagina;
         this.barraProgresso = opcoes.barraProgresso;
+        this.barraFill = opcoes.barraFill || null;
         this._observer = null;
         this._paginaAtual = 0;
         this._alive = true;
@@ -57,7 +58,7 @@ export class LeitorVertical {
 
         this.paginas.forEach((pag, index) => {
             const wrap = document.createElement("div");
-            wrap.className = "pagina-wrap";
+            wrap.className = index === 0 ? "pagina-wrap is-current" : "pagina-wrap";
 
             const img = document.createElement("img");
             img.className = "pagina-manga";
@@ -175,7 +176,22 @@ export class LeitorVertical {
     _atualizarProgresso() {
         if (!this.barraProgresso || !this.paginas.length) return;
         const pct = ((this._paginaAtual + 1) / this.paginas.length) * 100;
-        this.barraProgresso.style.width = `${pct}%`;
+        const fill = this.barraProgresso.querySelector?.(".nx-progress-fill") || this.barraFill;
+        if (fill) fill.style.width = `${pct}%`;
+        else this.barraProgresso.style.width = `${pct}%`;
+    }
+
+    /** @param {number} index 0-based */
+    scrollToPage(index) {
+        const imgs = this.container.querySelectorAll(".pagina-manga");
+        const i = Math.max(0, Math.min(imgs.length - 1, index));
+        const img = imgs[i];
+        if (!img) return;
+        this._aplicarSrc(img);
+        img.scrollIntoView({ behavior: "auto", block: "start" });
+        this._paginaAtual = i;
+        this._atualizarProgresso();
+        this.aoMudarPagina?.(i, this.paginas.length);
     }
 
     destruir() {

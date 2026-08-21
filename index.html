@@ -11,17 +11,29 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
     <title>AkiraScan — Leia Mangás Online</title>
     <link rel="stylesheet" href="css/akira.css">
+    <link rel="stylesheet" href="css/akira-premium.css">
+    <link rel="stylesheet" href="css/akira-responsive.css">
     <link rel="preload" href="data/catalogo-index.json" as="fetch" crossorigin>
+    <script src="js/host-env.js"></script>
 </head>
 <body class="akira-app">
     <div id="header-slot"></div>
     <div id="aviso-servidor"></div>
 
-    <section id="hero-section" aria-label="AkiraScan Intelligence">
-        <div id="hero-planet-slot"></div>
+    <section id="hero-section" aria-label="Destaques">
+        <div class="hero-carousel" id="hero-carousel" aria-label="Destaques">
+            <div class="hero-carousel-track" id="hero-track"></div>
+            <div class="hero-carousel-dots" id="hero-dots"></div>
+            <button type="button" class="hero-carousel-btn prev" id="hero-prev" aria-label="Anterior">‹</button>
+            <button type="button" class="hero-carousel-btn next" id="hero-next" aria-label="Próximo">›</button>
+        </div>
     </section>
 
     <main class="container">
+
+        <div class="home-stats-strip" id="home-stats-strip" aria-label="Estatísticas do catálogo"></div>
+
+        <nav class="home-quick-nav" id="home-quick-nav" aria-label="Atalhos rápidos"></nav>
 
         <section id="categories-section" aria-label="Categorias e catálogo">
             <section class="secao-akira escondido" id="continuar">
@@ -33,10 +45,18 @@
 
             <div id="category-grids"></div>
 
+            <section class="secao-akira" id="sec-hoje">
+                <div class="secao-header">
+                    <h2>🔥 Atualizações de hoje</h2>
+                    <a href="atualizacoes.html">Ver feed completo</a>
+                </div>
+                <div class="updates-feed updates-feed-compact" id="sec-atualizacoes-hoje"></div>
+            </section>
+
             <section class="secao-akira">
                 <div class="secao-header">
                     <h2>Recém-lançados</h2>
-                    <a href="biblioteca.html?sort=recentes">Ver todos</a>
+                    <a href="atualizacoes.html">Ver todos</a>
                 </div>
                 <div class="lista-caps-recentes" id="sec-recentes"></div>
             </section>
@@ -45,29 +65,46 @@
                 <section class="secao-akira">
                     <div class="secao-header">
                         <h2>Ranking semanal</h2>
-                        <a href="biblioteca.html?sort=popular">Ver ranking</a>
+                        <a href="ranking.html">Ver ranking</a>
                     </div>
                     <div class="ranking-list" id="sec-ranking"></div>
                 </section>
                 <section class="secao-akira">
                     <div class="secao-header">
+                        <h2>Ranking mensal</h2>
+                        <a href="ranking.html?tab=mensal">Ver todos</a>
+                    </div>
+                    <div class="ranking-list" id="sec-ranking-mensal"></div>
+                </section>
+            </div>
+
+            <div class="home-grid-duo">
+                <section class="secao-akira">
+                    <div class="secao-header">
                         <h2>Novidades</h2>
                         <a href="biblioteca.html?sort=recentes">Ver mais</a>
                     </div>
-                    <div class="grid-mangas grid-mangas-compact" id="sec-novidades"></div>
+                    <div id="sec-novidades"></div>
+                </section>
+                <section class="secao-akira">
+                    <div class="secao-header">
+                        <h2>Recomendados para ti</h2>
+                        <a href="biblioteca.html?sort=rating">Por nota</a>
+                    </div>
+                    <div id="sec-recomendados"></div>
                 </section>
             </div>
 
             <section class="secao-akira">
                 <div class="secao-header">
-                    <h2>Populares</h2>
+                    <h2>Em alta</h2>
                     <a href="biblioteca.html?sort=popular">Ver todos</a>
                 </div>
-                <div class="grid-mangas" id="sec-populares"></div>
+                <div id="sec-populares"></div>
             </section>
 
             <section class="secao-akira">
-                <div class="secao-header"><h2>Gêneros</h2></div>
+                <div class="secao-header"><h2>Explorar por gênero</h2></div>
                 <div class="genre-list" id="sec-generos"></div>
             </section>
         </section>
