@@ -85,7 +85,7 @@ export function buildUrl(view, params = {}) {
     else if (view === "reader") {
         if (params.mangaId)
             sp.set("id", params.mangaId);
-        if (params.chapterNum)
+        if (params.chapterNum != null && Number.isFinite(Number(params.chapterNum)))
             sp.set("n", String(params.chapterNum));
         if (params.chapterId)
             sp.set("ch", params.chapterId);

@@ -9,6 +9,7 @@ import { mangaStore } from "../core/manga-store.js";
 import { assertManga } from "./validate.js";
 import { createChapterLoader } from "../hooks/index.js";
 import { normalizeManga, toLegacyManga } from "./data-normalizer.js";
+import { isStaticHost } from "../site-config.js";
 
 let pendingMangaId = null;
 
@@ -141,9 +142,17 @@ const _chapterLoader = createChapterLoader({
 });
 
 async function fetchFromApi(mangaId) {
+    // CF Pages / GitHub Pages não têm /api/manga — o SPA devolve HTML 200.
+    if (isStaticHost()) {
+        throw new Error("API manga indisponível no host estático.");
+    }
     const res = await fetch(`/api/manga/${encodeURIComponent(mangaId)}`);
     if (!res.ok) {
         throw new Error(res.status === 404 ? "Mangá não encontrado." : "Falha crítica na rede.");
+    }
+    const ct = res.headers.get("content-type") || "";
+    if (!ct.includes("application/json")) {
+        throw new Error("Resposta não-JSON da API manga.");
     }
     const payload = await res.json();
     return payload.manga || payload;
@@ -180,6 +189,7 @@ export const MangaService = {
                     fonte = "data-service";
                 } catch (localErr) {
                     console.warn("[MangaService] Catálogo local:", localErr.message);
+                    if (isStaticHost()) throw localErr;
                     const proxy = await fetchMangaFromProxy(mangaId, source);
                     data = proxy.manga;
                     fonte = proxy.cached ? `cache:${proxy.source}` : `proxy:${proxy.source}`;
@@ -187,7 +197,8 @@ export const MangaService = {
             }
 
             const capsLocais = data?.capitulos?.length || 0;
-            if (capsLocais < 3) {
+            // Proxy externo só no host com Netlify functions — no CF/GH só atrasa e falha.
+            if (!isStaticHost() && capsLocais < 3) {
                 try {
                     const proxy = await fetchMangaFromProxy(mangaId, source, 12000);
                     const proxyCaps = proxy.manga?.capitulos?.length || 0;

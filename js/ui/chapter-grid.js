@@ -10,7 +10,11 @@ export function capsVisiveis(manga) {
 }
 
 export function capsTodos(manga) {
-    return (manga?.capitulos || []).filter((c) => c.id && Number(parseChapterNumber(c)) > 0);
+    return (manga?.capitulos || []).filter((c) => {
+        if (!c?.id) return false;
+        const n = Number(parseChapterNumber(c));
+        return Number.isFinite(n) && n >= 0;
+    });
 }
 
 export function contarCapsLegiveis(manga) {
@@ -27,7 +31,8 @@ export function primeiroCapLegivel(manga) {
 
 function capValido(cap) {
     const num = parseChapterNumber(cap);
-    const baseValid = cap.id && Number.isFinite(Number(num)) && Number(num) > 0;
+    const n = Number(num);
+    const baseValid = Boolean(cap.id) && Number.isFinite(n) && n >= 0;
     return { num, baseValid, valido: baseValid && cap.legivel === true };
 }
 
