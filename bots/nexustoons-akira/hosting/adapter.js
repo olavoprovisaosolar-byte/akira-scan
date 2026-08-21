@@ -28,7 +28,7 @@ function resolveHostingAdapterName(name) {
     return name
         || process.env.HOSTING_ADAPTER
         || process.env.NEXUSTOONS_HOSTING_ADAPTER
-        || "telegra";
+        || "freeimage";
 }
 
 export async function getHostingAdapter(name) {
@@ -37,7 +37,10 @@ export async function getHostingAdapter(name) {
     adapter = null;
     adapterName = resolved;
 
-    if (resolved === "telegra") {
+    if (resolved === "freeimage" || resolved === "iili") {
+        const mod = await import("./freeimage-host.js");
+        adapter = mod.createAdapter();
+    } else if (resolved === "telegra") {
         const mod = await import("./telegra.js");
         adapter = mod.createAdapter();
     } else if (resolved === "cloud-static") {
@@ -47,7 +50,7 @@ export async function getHostingAdapter(name) {
         const mod = await import("./catbox.js");
         adapter = mod.createAdapter();
     } else {
-        throw new Error(`Hosting adapter desconhecido: ${resolved} (telegra | cloud-static | catbox)`);
+        throw new Error(`Hosting adapter desconhecido: ${resolved} (freeimage | catbox | telegra | cloud-static)`);
     }
     return adapter;
 }

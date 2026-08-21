@@ -16,6 +16,7 @@ import {
     publishApiBaseUrl,
     syncChapterIndex
 } from "../../../scripts/cloud/publish-client.mjs";
+import { isServablePageUrl } from "../../../scripts/lib/page-url-rules.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..", "..", "..");
@@ -39,14 +40,16 @@ function resolveDefaultHosting(explicit) {
     return explicit
         || process.env.HOSTING_ADAPTER
         || process.env.NEXUSTOONS_HOSTING_ADAPTER
-        || "catbox";
+        || "freeimage";
 }
 
 function inferPageOrigem(url, fallback) {
     const u = String(url || "");
+    if (u.includes("iili.io") || u.includes("freeimage.host")) return "freeimage";
     if (u.includes("catbox.moe")) return "catbox";
     if (u.includes("telegra.ph")) return "telegra";
     if (u.includes("/api/cloud/page")) return "r2";
+    if (u.includes("/api/gh-cdn/")) return "github-cdn";
     if (u.includes("/data/cloud/pages/")) return "cloud-static";
     return fallback || resolveDefaultHosting();
 }
@@ -90,13 +93,7 @@ function restoreSnapshots(snap) {
 
 function capLegivelIndice(rec) {
     if (!rec?.done) return false;
-    return !!(rec.pages?.some((p) => {
-        const u = String(p.url || "");
-        return u.includes("telegra.ph")
-            || u.includes("catbox.moe")
-            || u.includes("/api/cloud/page")
-            || u.includes("/data/cloud/pages/");
-    }));
+    return !!(rec.pages?.some((p) => isServablePageUrl(p.url)));
 }
 
 function recomputePorManga(capsObj) {
