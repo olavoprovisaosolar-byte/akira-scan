@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
- * O "impossível" sem Nexus: rehost github-cdn → Freeimage (iili.io).
- * Baixa de /api/gh-cdn (já funciona) e sobe para iili permanente.
+ * Rehost github-cdn → Freeimage (iili.io), sem Nexus.
+ * Baixa via /api/gh-cdn e sobe para iili permanente.
  *
  *   node scripts/rehost-ghcdn-to-freeimage.mjs
  *   node scripts/rehost-ghcdn-to-freeimage.mjs --limit=5
- *   node scripts/rehost-ghcdn-to-freeimage.mjs --concurrency=6
+ *   node scripts/rehost-ghcdn-to-freeimage.mjs --concurrency=2
+ *   node scripts/rehost-ghcdn-to-freeimage.mjs --wait-proxy
  *   node scripts/rehost-ghcdn-to-freeimage.mjs --manga=obra-e7e46b19
  */
 import fs from "node:fs";
@@ -26,11 +27,15 @@ const PROGRESS = path.join(ROOT, "data", "nexustoons", "rehost-ghcdn-progress.js
 const args = process.argv.slice(2);
 const LIMIT = Number(args.find((a) => a.startsWith("--limit="))?.split("=")[1] || 0) || 0;
 const CONCURRENCY = Math.max(1, Number(args.find((a) => a.startsWith("--concurrency="))?.split("=")[1]
-    || process.env.REHOST_CONCURRENCY || 4));
+    || process.env.REHOST_CONCURRENCY || 2));
 const MANGA = args.find((a) => a.startsWith("--manga="))?.split("=")[1] || "";
+const WAIT_PROXY = args.includes("--wait-proxy") || process.env.REHOST_WAIT_PROXY === "1";
+const CLEAR_FAILED = args.includes("--clear-failed") || process.env.REHOST_CLEAR_FAILED === "1";
 const CHECKPOINT_EVERY = Math.max(1, Number(process.env.REHOST_CHECKPOINT_EVERY || 5));
 const PAGE_TIMEOUT_MS = Math.max(5000, Number(process.env.REHOST_PAGE_TIMEOUT_MS || 45000));
-const UPLOAD_DELAY_MS = Math.max(0, Number(process.env.FREEIMAGE_DELAY_MS || 120));
+const UPLOAD_DELAY_MS = Math.max(0, Number(process.env.FREEIMAGE_DELAY_MS || 200));
+const PAGE_RETRIES = Math.max(1, Number(process.env.REHOST_PAGE_RETRIES || 4));
+const PROXY_PROBE_MS = Math.max(15_000, Number(process.env.REHOST_PROXY_PROBE_MS || 60_000));
 
 function sleep(ms) {
     return new Promise((r) => setTimeout(r, ms));
@@ -68,18 +73,39 @@ function saveCloud(cloud) {
     fs.renameSync(tmp, CLOUD);
 }
 
+function isTransientGetError(err) {
+    const msg = String(err?.message || err || "");
+    return /\b(502|503|429|403|408|500|fetch failed|timeout|aborted)\b/i.test(msg);
+}
+
 async function fetchPageBuffer(url) {
-    const res = await fetch(url, {
-        headers: { "User-Agent": "AkiraScan-Rehost/1.0", Accept: "image/*,*/*" },
-        signal: AbortSignal.timeout(PAGE_TIMEOUT_MS),
-        redirect: "follow"
-    });
-    if (!res.ok) throw new Error(`GET ${res.status}`);
-    const ct = res.headers.get("content-type") || "";
-    if (ct.includes("text/html") || ct.includes("application/json")) {
-        throw new Error(`não é imagem (${ct})`);
+    let lastErr;
+    for (let attempt = 1; attempt <= PAGE_RETRIES; attempt++) {
+        try {
+            const res = await fetch(url, {
+                headers: { "User-Agent": "AkiraScan-Rehost/1.0", Accept: "image/*,*/*" },
+                signal: AbortSignal.timeout(PAGE_TIMEOUT_MS),
+                redirect: "follow"
+            });
+            if (!res.ok) {
+                const body = await res.text().catch(() => "");
+                throw new Error(`GET ${res.status}${body ? `: ${body.slice(0, 80)}` : ""}`);
+            }
+            const ct = res.headers.get("content-type") || "";
+            if (ct.includes("text/html") || ct.includes("application/json") || ct.includes("text/plain")) {
+                const body = await res.text().catch(() => "");
+                throw new Error(`não é imagem (${ct}): ${body.slice(0, 80)}`);
+            }
+            return Buffer.from(await res.arrayBuffer());
+        } catch (err) {
+            lastErr = err;
+            if (attempt >= PAGE_RETRIES || !isTransientGetError(err)) throw err;
+            const wait = Math.min(120_000, 2000 * (2 ** (attempt - 1)));
+            console.warn(`  retry page ${attempt}/${PAGE_RETRIES} em ${Math.round(wait / 1000)}s — ${err.message}`);
+            await sleep(wait);
+        }
     }
-    return Buffer.from(await res.arrayBuffer());
+    throw lastErr;
 }
 
 async function mapPool(items, concurrency, worker) {
@@ -138,10 +164,58 @@ function updateCatalogHosting(catalogo, mangaId, capId) {
     }
 }
 
+function pickProbeUrl(cloud) {
+    for (const rec of Object.values(cloud.caps || {})) {
+        if (rec.hosting !== "github-cdn") continue;
+        const url = rec.pages?.[0]?.url;
+        if (url && String(url).includes("/api/gh-cdn/")) return String(url);
+    }
+    return "https://akira-scan.pages.dev/api/gh-cdn/15/pages/probe.jpg";
+}
+
+async function proxyHealthy(url) {
+    try {
+        const res = await fetch(url, {
+            method: "GET",
+            headers: { "User-Agent": "AkiraScan-Rehost/1.0", Accept: "image/*,*/*" },
+            signal: AbortSignal.timeout(20_000)
+        });
+        const ct = res.headers.get("content-type") || "";
+        if (!res.ok) return false;
+        if (ct.includes("image/")) return true;
+        // alguns paths 404 = token ok mas ficheiro em falta
+        return false;
+    } catch {
+        return false;
+    }
+}
+
+async function waitForProxy(cloud) {
+    const probe = pickProbeUrl(cloud);
+    console.log(`A aguardar gh-cdn saudável…\n  probe: ${probe.slice(0, 90)}`);
+    for (;;) {
+        const ok = await proxyHealthy(probe);
+        if (ok) {
+            console.log("gh-cdn OK — a continuar rehost\n");
+            return;
+        }
+        console.log(`[wait] gh-cdn ainda 502/403 — nova tentativa em ${Math.round(PROXY_PROBE_MS / 1000)}s`);
+        await sleep(PROXY_PROBE_MS);
+    }
+}
+
 const cloud = JSON.parse(fs.readFileSync(CLOUD, "utf8"));
 const catalogo = readJsonFile(CATALOGO, { mangas: [] });
 const progress = loadProgress();
 if (!progress.startedAt) progress.startedAt = new Date().toISOString();
+if (CLEAR_FAILED) {
+    progress.failed = {};
+    progress.fail = 0;
+}
+
+if (WAIT_PROXY) {
+    await waitForProxy(cloud);
+}
 
 const queue = Object.entries(cloud.caps || {})
     .filter(([, rec]) => {
@@ -158,10 +232,11 @@ const queue = Object.entries(cloud.caps || {})
 const work = LIMIT > 0 ? queue.slice(0, LIMIT) : queue;
 console.log(`\n=== Rehost gh-cdn → Freeimage ===`);
 console.log(`  fila: ${work.length} caps (de ${queue.length} pendentes)`);
-console.log(`  concurrency: ${CONCURRENCY}  delay: ${UPLOAD_DELAY_MS}ms\n`);
+console.log(`  concurrency: ${CONCURRENCY}  delay: ${UPLOAD_DELAY_MS}ms  pageRetries: ${PAGE_RETRIES}\n`);
 
 let ok = 0;
 let fail = 0;
+let streakFail = 0;
 const t0 = Date.now();
 
 for (let i = 0; i < work.length; i++) {
@@ -178,15 +253,22 @@ for (let i = 0; i < work.length; i++) {
         };
         delete progress.failed[key];
         ok++;
+        streakFail = 0;
         console.log(`[OK ${ok}/${work.length}] ${label} → ${updated.pages[0]?.url?.slice(0, 50)}`);
     } catch (err) {
         fail++;
+        streakFail++;
         progress.failed[key] = { at: new Date().toISOString(), error: String(err.message || err).slice(0, 200) };
         console.error(`[FAIL ${fail}] ${label}: ${err.message || err}`);
-        // rate-limit: pause
         if (/rate|limit|429/i.test(String(err.message || ""))) {
             console.warn("Rate limit — pausa 60s");
             await sleep(60_000);
+        } else if (isTransientGetError(err) && streakFail >= 3) {
+            const pause = Math.min(600_000, 30_000 * streakFail);
+            console.warn(`Proxy instável (${streakFail} falhas) — pausa ${Math.round(pause / 1000)}s`);
+            await sleep(pause);
+            if (WAIT_PROXY) await waitForProxy(cloud);
+            streakFail = 0;
         }
     }
 
@@ -200,7 +282,7 @@ for (let i = 0; i < work.length; i++) {
         saveProgress(progress);
         const elapsed = (Date.now() - t0) / 1000;
         const rate = ok / Math.max(elapsed, 1);
-        console.log(`[checkpoint] ok=${ok} fail=${fail} ${rate.toFixed(2)} caps/s`);
+        console.log(`[checkpoint] ok=${ok} fail=${fail} doneTotal=${progress.ok} ${rate.toFixed(2)} caps/s`);
     }
 }
 
