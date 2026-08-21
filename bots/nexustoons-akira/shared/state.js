@@ -195,19 +195,17 @@ function hasTelegraPages(rec) {
 function hasHostedPages(rec) {
     return rec?.pages?.some((p) => {
         const u = String(p.url || "");
+        if (!u || u.includes("litter.catbox.moe")) return false;
+        if (u.includes("/data/cloud/pages/")) return false;
         return u.includes("i.ibb.co")
             || u.includes("ibb.co")
             || u.includes("imgbb.com")
             || u.includes("telegra.ph")
-            || u.includes("catbox.moe")
-            || u.includes("litter.catbox.moe")
+            || u.includes("files.catbox.moe")
             || u.includes("iili.io")
             || u.includes("freeimage.host")
             || u.includes("pixeldrain.com")
             || u.includes("/api/cloud/page")
-            || u.includes("cdn.discordapp.com")
-            || u.includes("media.discordapp.net")
-            || u.includes("/api/discord-img")
             || u.includes("/api/gh-cdn/");
     });
 }

@@ -51,18 +51,21 @@ async function loadIndex(env) {
 function findPage(index, ch, msg, att) {
     for (const rec of Object.values(index?.caps || {})) {
         for (const p of rec.pages || []) {
-            if (att && String(p.discordAttachmentId || "") === att) return p;
-            if (
-                String(p.discordChannelId || "") === ch
-                && String(p.discordMessageId || "") === msg
-                && (!att || String(p.discordAttachmentId || "") === att)
-            ) {
-                return p;
-            }
+            const sameCh = String(p.discordChannelId || "") === ch;
+            const sameMsg = String(p.discordMessageId || "") === msg;
+            if (!sameCh || !sameMsg) continue;
+            if (att && String(p.discordAttachmentId || "") !== att) continue;
+            return p;
+        }
+    }
+    // fallback: match by proxy URL query
+    for (const rec of Object.values(index?.caps || {})) {
+        for (const p of rec.pages || []) {
             const u = String(p.url || "");
-            if (u.includes("/api/discord-img") && u.includes(`ch=${ch}`) && u.includes(`msg=${msg}`)) {
-                if (!att || u.includes(`att=${att}`)) return p;
-            }
+            if (!u.includes("/api/discord-img")) continue;
+            if (!u.includes(`ch=${ch}`) || !u.includes(`msg=${msg}`)) continue;
+            if (att && !u.includes(`att=${att}`)) continue;
+            return p;
         }
     }
     return null;

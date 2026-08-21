@@ -37,11 +37,13 @@ const mangasComCaps = new Set(legible.map((id) => caps[id].mangaId).filter(Boole
 
 function durableUrl(u) {
     const s = String(u || "");
+    if (s.includes("litter.catbox.moe")) return false;
     return s.includes("iili.io")
         || s.includes("freeimage.host")
         || s.includes("i.ibb.co")
         || s.includes("files.catbox.moe")
-        || s.includes("telegra.ph");
+        || s.includes("telegra.ph")
+        || s.includes("/api/gh-cdn/");
 }
 const durable = capIds.filter((id) => {
     const r = caps[id];
@@ -61,7 +63,7 @@ if (legible.length !== capIds.length) {
 }
 if (durable.length < legible.length) {
     console.warn(
-        `[verify-cloud-data] aviso: ${durable.length}/${legible.length} caps com host durável (iili/telegra/catbox); resto depende de /api/gh-cdn ou /api/discord-img + secrets`
+        `[verify-cloud-data] aviso: ${durable.length}/${legible.length} caps com host durável (iili/telegra/catbox/gh-cdn)`
     );
 }
 

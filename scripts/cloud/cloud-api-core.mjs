@@ -65,23 +65,27 @@ export function chapterStorageKey(mangaId, capId) {
 }
 
 export function isDirectRemotePageUrl(url) {
+    // Espelho de scripts/lib/page-url-rules.mjs isServablePageUrl
     const u = String(url || "");
+    if (!u || u.includes("litter.catbox.moe")) return false;
+    if (u.includes("/data/cloud/pages/")) return false;
+    if (u.includes("/api/discord-img")) return false;
     return u.includes("telegra.ph")
-        || u.includes("catbox.moe")
-        || u.includes("files.catbox.moe")
-        || u.includes("litter.catbox.moe")
-        || u.includes("pixeldrain.com")
         || u.includes("iili.io")
         || u.includes("freeimage.host")
         || u.includes("i.ibb.co")
         || u.includes("ibb.co")
-        || u.includes("/api/discord-img")
+        || u.includes("files.catbox.moe")
+        || u.includes("pixeldrain.com")
         || u.includes("/api/gh-cdn/")
         || u.includes("/api/cloud/page");
 }
 
 export function capLegivelRec(rec) {
     if (!rec?.done) return false;
+    if (rec.localPurged && !(rec.pages || []).some((p) => isDirectRemotePageUrl(p.url))) {
+        return false;
+    }
     return !!(rec.pages?.some((p) => isDirectRemotePageUrl(p.url)));
 }
 
@@ -251,17 +255,8 @@ export async function handleGetPages(bucket, origin, mangaId, capId, env = {}) {
 
     const pages = info.pages || [];
     const directPages = pages.filter((p) => isDirectRemotePageUrl(p.url));
-    if (directPages.length && directPages.length === pages.length) {
+    if (directPages.length) {
         return jsonResponse({ mangaId, capId, total: directPages.length, pages: directPages });
-    }
-
-    const apiPages = pages.filter((p) => String(p.url || "").includes("/api/cloud/page"));
-    if (apiPages.length) {
-        return jsonResponse({ mangaId, capId, total: apiPages.length, pages: apiPages });
-    }
-
-    if (pages.length) {
-        return jsonResponse({ mangaId, capId, total: pages.length, pages });
     }
 
     if (bucket) {

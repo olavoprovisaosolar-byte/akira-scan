@@ -98,6 +98,21 @@ for (const [mangaId, stats] of Object.entries(cloud.porManga || {})) {
     }
 }
 
+// Limpar caps de obras sem páginas legíveis (evita "Ler" fantasma no catálogo)
+let cleared = 0;
+for (const manga of catalogo.mangas || []) {
+    const stats = cloud.porManga?.[manga.id];
+    const legibleN = stats?.legibleCaps || 0;
+    if (legibleN > 0) continue;
+    if ((manga.capitulos || []).length) {
+        manga.capitulos = [];
+        manga.totalCapitulos = 0;
+        manga.ultimoCapitulo = null;
+        cleared++;
+    }
+}
+totalCaps = (catalogo.mangas || []).reduce((a, m) => a + (m.capitulos || []).length, 0);
+
 catalogo.atualizadoEm = new Date().toISOString();
 writeJsonAtomic(CATALOGO, catalogo);
 
@@ -105,7 +120,8 @@ console.log(JSON.stringify({
     mangas: (catalogo.mangas || []).length,
     created,
     updated,
-    mangasWithCaps: [...byId.values()].filter((m) => (m.capitulos || []).length > 0).length,
+    cleared,
+    mangasWithCaps: (catalogo.mangas || []).filter((m) => (m.capitulos || []).length > 0).length,
     caps: totalCaps,
     cloudCaps: Object.keys(cloud.caps || {}).length,
     cloudLegibleMangas: Object.values(cloud.porManga).filter((p) => (p.legibleCaps || 0) > 0).length

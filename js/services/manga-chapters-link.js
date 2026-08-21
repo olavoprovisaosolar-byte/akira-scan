@@ -4,20 +4,10 @@
  */
 import { capsRemotosManga, mangaTemCapsRemotos } from "./cloud-chapters-service.js";
 import { parseChapterNumber } from "./chapter-label.js";
+import { isServablePageUrl } from "./page-url-rules.js";
 
 function urlRemotaViva(url) {
-    const u = String(url || "");
-    return u.includes("telegra.ph")
-        || u.includes("catbox.moe")
-        || u.includes("litter.catbox.moe")
-        || u.includes("pixeldrain.com")
-        || u.includes("iili.io")
-        || u.includes("freeimage.host")
-        || u.includes("i.ibb.co")
-        || u.includes("ibb.co")
-        || u.includes("/api/cloud/page")
-        || u.includes("/api/discord-img")
-        || u.includes("/api/gh-cdn/");
+    return isServablePageUrl(url);
 }
 
 function temPaginasHospedadas(remoto) {

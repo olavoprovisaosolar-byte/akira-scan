@@ -67,7 +67,7 @@ export async function onRequest(context) {
     if (request.method === "OPTIONS") {
         return new Response(null, { status: 204, headers: cors() });
     }
-    if (request.method !== "GET") {
+    if (request.method !== "GET" && request.method !== "HEAD") {
         return new Response("Method not allowed", { status: 405, headers: cors() });
     }
 
@@ -100,13 +100,21 @@ export async function onRequest(context) {
         const mime = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", gif: "image/gif" }[ext]
             || "application/octet-stream";
 
+        const headers = {
+            "Content-Type": mime,
+            "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
+            ...cors()
+        };
+
+        if (request.method === "HEAD") {
+            // Consumir/cancelar body do upstream para não vazar stream
+            try { await result.response.arrayBuffer(); } catch { /* ignore */ }
+            return new Response(null, { status: 200, headers });
+        }
+
         return new Response(result.response.body, {
             status: 200,
-            headers: {
-                "Content-Type": mime,
-                "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
-                ...cors()
-            }
+            headers
         });
     } catch (e) {
         return new Response(JSON.stringify({ ok: false, error: String(e?.message || e) }), {
