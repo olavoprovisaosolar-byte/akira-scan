@@ -102,12 +102,13 @@ export function isTelegraUrl(url) {
     return String(url || "").includes("telegra.ph");
 }
 
-/** URL legível no leitor: hosts duráveis + proxy gh-cdn / R2 (não litter, não discord expirado). */
+/** URL legível no leitor: hosts duráveis + R2 (não litter, discord, gh-cdn quebrado). */
 export function isLegiblePageUrl(url) {
     const u = String(url || "");
     if (!u || u.includes("litter.catbox.moe")) return false;
     if (u.includes("/data/cloud/pages/")) return false;
     if (u.includes("/api/discord-img")) return false;
+    if (u.includes("/api/gh-cdn/")) return false;
     return u.includes("telegra.ph")
         || u.includes("iili.io")
         || u.includes("freeimage.host")
@@ -115,7 +116,6 @@ export function isLegiblePageUrl(url) {
         || u.includes("ibb.co")
         || u.includes("files.catbox.moe")
         || u.includes("pixeldrain.com")
-        || u.includes("/api/gh-cdn/")
         || u.includes("/api/cloud/page");
 }
 
