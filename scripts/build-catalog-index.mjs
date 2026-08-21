@@ -5,6 +5,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { capLegivelIndice } from "./lib/chapter-index-utils.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -19,23 +20,6 @@ function lerIndiceCloud() {
     } catch {
         return null;
     }
-}
-
-/** Caps prontos — URLs remotas vivas (Telegra, Freeimage, Catbox, R2, proxies). */
-function capLegivelIndice(rec) {
-    if (!rec?.done) return false;
-    return !!(rec.pages?.some((p) => {
-        const u = String(p.url || "");
-        return u.includes("telegra.ph")
-            || u.includes("catbox.moe")
-            || u.includes("iili.io")
-            || u.includes("freeimage.host")
-            || u.includes("i.ibb.co")
-            || u.includes("ibb.co")
-            || u.includes("/api/cloud/page")
-            || u.includes("/api/discord-img")
-            || u.includes("/api/gh-cdn/");
-    }));
 }
 
 function prontosDoIndice(cloudIdx, mangaId) {

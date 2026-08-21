@@ -3,6 +3,7 @@
  */
 import { assetUrl, cloudApiDisponivel, cloudApiUrl, isStaticHost } from "../site-config.js";
 import { isRealChapterPageSet } from "./chapter-label.js";
+import { isServablePageUrl } from "./page-url-rules.js";
 
 const CACHE_MS = 120000;
 
@@ -74,18 +75,7 @@ export async function mangaTemCapsRemotos(mangaId) {
 }
 
 function paginaLegivel(url) {
-    const u = String(url || "");
-    return u.includes("telegra.ph")
-        || u.includes("catbox.moe")
-        || u.includes("litter.catbox.moe")
-        || u.includes("pixeldrain.com")
-        || u.includes("iili.io")
-        || u.includes("freeimage.host")
-        || u.includes("i.ibb.co")
-        || u.includes("ibb.co")
-        || u.includes("/api/cloud/page")
-        || u.includes("/api/discord-img")
-        || u.includes("/api/gh-cdn/");
+    return isServablePageUrl(url);
 }
 
 function paginasDiretasDoIndice(info) {
@@ -118,8 +108,9 @@ export async function obterPaginasRemotas(mangaId, capId) {
             );
             if (res.ok) {
                 const data = await res.json();
-                if (isRealChapterPageSet(data.pages)) {
-                    return data.pages.map((p, i) => ({
+                const filtered = (data.pages || []).filter((p) => paginaLegivel(p.url));
+                if (isRealChapterPageSet(filtered) && filtered.length) {
+                    return filtered.map((p, i) => ({
                         index: p.index ?? i,
                         url: p.url,
                         origem: p.origem || "r2-api"

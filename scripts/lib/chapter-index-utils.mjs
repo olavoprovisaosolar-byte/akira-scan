@@ -3,34 +3,21 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import {
+    capLegivelIndice,
+    capHostScore
+} from "./page-url-rules.mjs";
 
-/** URL de página servível pelo leitor (CDN direto ou proxy Pages). */
-export function isServablePageUrl(url) {
-    const u = String(url || "");
-    return u.includes("telegra.ph")
-        || u.includes("catbox.moe")
-        || u.includes("files.catbox.moe")
-        || u.includes("litter.catbox.moe")
-        || u.includes("pixeldrain.com")
-        || u.includes("iili.io")
-        || u.includes("freeimage.host")
-        || u.includes("i.ibb.co")
-        || u.includes("ibb.co")
-        || u.includes("/api/cloud/page")
-        || u.includes("/api/discord-img")
-        || u.includes("/api/gh-cdn/")
-        || u.includes("/data/cloud/pages/");
-}
-
-export function hasHostedPages(rec) {
-    if (!rec?.pages?.length) return false;
-    return rec.pages.some((p) => isServablePageUrl(p.url));
-}
-
-/** Cap pronto: done + páginas hospedadas (Telegra ou cloud-static). */
-export function capLegivelIndice(rec) {
-    return !!(rec?.done && hasHostedPages(rec));
-}
+export {
+    isDurablePageUrl,
+    isWorkingProxyPageUrl,
+    isServablePageUrl,
+    isStructurallyValidPageUrl,
+    hasHostedPages,
+    capLegivelIndice,
+    pageUrlScore,
+    capHostScore
+} from "./page-url-rules.mjs";
 
 function recTime(rec) {
     const raw = rec?.hostedAt || rec?.capturedAt || rec?.atualizadoEm || 0;
@@ -40,11 +27,14 @@ function recTime(rec) {
 
 /**
  * Escolhe o melhor registo entre local e live ao mesclar índices.
- * Empate → local (evita CDN antigo sobrescrever git restaurado).
+ * Prefere host durável/proxy funcional → mais páginas → timestamp → local.
  */
 export function pickBetterCap(localRec, liveRec) {
     if (!localRec) return liveRec;
     if (!liveRec) return localRec;
+    const localScore = capHostScore(localRec);
+    const liveScore = capHostScore(liveRec);
+    if (liveScore !== localScore) return liveScore > localScore ? liveRec : localRec;
     const localPages = localRec?.pages?.length || 0;
     const livePages = liveRec?.pages?.length || 0;
     if (livePages !== localPages) return livePages > localPages ? liveRec : localRec;

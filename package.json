@@ -49,6 +49,7 @@
     "verify:cloud-data": "node scripts/verify-cloud-data.mjs",
     "test:cloud-utils": "node scripts/test-chapter-index-utils.mjs && node scripts/test-cloud-routes.mjs",
     "probe:nexus": "node scripts/probe-nexus-access.mjs",
+    "mark:cloud-static-purged": "node scripts/mark-cloud-static-purged.mjs",
     "rebuild:catalogo-cloud": "node scripts/rebuild-catalogo-from-cloud.mjs",
     "upload:keep-alive": "node scripts/keep-upload-alive.mjs",
     "upload:keep-alive:bg": "node scripts/keep-upload-alive.mjs --background",

@@ -1,3 +1,5 @@
+import { isStructurallyValidPageUrl } from "./page-url-rules.js";
+
 export function parseChapterNumber(cap) {
     const id = String(cap.id || "");
     const url = String(cap.url || "");
@@ -76,13 +78,9 @@ export function isValidChapterPageSet(pages = []) {
         if (/\/covers?\//i.test(low) && !/\/uploads\/.*chapter/i.test(low)) return false;
         if (/\d{2,3}x\d{2,3}\.(webp|jpg|png)/i.test(low)) return false;
         if (/logo|avatar|banner|icon|favicon/i.test(low)) return false;
-        return (
-            low.includes("placehold.co")
-            || /\.(webp|jpg|jpeg|png|gif)(\?|$)/i.test(low)
-            || /\/api\/cloud\/page(\?|$)/i.test(low)
-            || u.startsWith("/biblioteca/")
-            || u.startsWith("/backup/")
-        );
+        if (low.includes("placehold.co")) return true;
+        if (u.startsWith("/biblioteca/") || u.startsWith("/backup/")) return true;
+        return isStructurallyValidPageUrl(u);
     });
     return valid.length >= 1;
 }

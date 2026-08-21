@@ -13,15 +13,14 @@ import { bindWorkerEnv } from "../../../scripts/cloud/worker-bind-env.mjs";
 
 function routePath(pathname) {
     const p = pathname.replace(/\/$/, "") || "/";
-    // Atenção: "/cloud/pages" contém a substring "/cloud/page" — checar pages antes de page.
     return {
         isRoot: p === "/api/cloud",
-        isStatus: p.endsWith("/status") || p.includes("/cloud/status") || p === "/api/cloud",
+        isStatus: p.endsWith("/status") || /\/cloud\/status$/.test(p) || p === "/api/cloud",
         isIndex: p.endsWith("/chapters-index") || p.endsWith("/index"),
-        isPages: p.endsWith("/pages") || p.includes("/cloud/pages"),
+        isPages: p.endsWith("/pages") || /\/cloud\/pages$/.test(p),
         isPage: /(^|\/)page$/.test(p) || /\/cloud\/page$/.test(p),
-        isPublish: p.endsWith("/publish") || p.includes("/cloud/publish"),
-        isIndexChapter: p.endsWith("/index/chapter") || p.includes("/cloud/index/chapter")
+        isPublish: p.endsWith("/publish") || /\/cloud\/publish$/.test(p),
+        isIndexChapter: p.endsWith("/index/chapter") || /\/cloud\/index\/chapter$/.test(p)
     };
 }
 
