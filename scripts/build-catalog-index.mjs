@@ -21,7 +21,7 @@ function lerIndiceCloud() {
     }
 }
 
-/** Caps prontos — URLs remotas vivas (Telegra, Freeimage, Catbox, R2, Discord proxy). */
+/** Caps prontos — URLs remotas vivas (Telegra, Freeimage, Catbox, R2, proxies). */
 function capLegivelIndice(rec) {
     if (!rec?.done) return false;
     return !!(rec.pages?.some((p) => {
@@ -30,9 +30,11 @@ function capLegivelIndice(rec) {
             || u.includes("catbox.moe")
             || u.includes("iili.io")
             || u.includes("freeimage.host")
+            || u.includes("i.ibb.co")
+            || u.includes("ibb.co")
             || u.includes("/api/cloud/page")
             || u.includes("/api/discord-img")
-            || u.includes("akira-scan.pages.dev");
+            || u.includes("/api/gh-cdn/");
     }));
 }
 

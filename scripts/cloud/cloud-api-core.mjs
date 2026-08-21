@@ -72,16 +72,17 @@ export function isDirectRemotePageUrl(url) {
         || u.includes("litter.catbox.moe")
         || u.includes("pixeldrain.com")
         || u.includes("iili.io")
-        || u.includes("freeimage.host");
+        || u.includes("freeimage.host")
+        || u.includes("i.ibb.co")
+        || u.includes("ibb.co")
+        || u.includes("/api/discord-img")
+        || u.includes("/api/gh-cdn/")
+        || u.includes("/api/cloud/page");
 }
 
 export function capLegivelRec(rec) {
     if (!rec?.done) return false;
-    // Só URLs remotas vivas — /data/cloud/pages/ purged = 404 no site
-    return !!(rec.pages?.some((p) => {
-        const u = String(p.url || "");
-        return isDirectRemotePageUrl(u) || u.includes("/api/cloud/page");
-    }));
+    return !!(rec.pages?.some((p) => isDirectRemotePageUrl(p.url)));
 }
 
 export function recomputePorManga(capsObj) {

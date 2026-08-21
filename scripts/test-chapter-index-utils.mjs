@@ -9,6 +9,7 @@ import {
 
 assert.equal(hasHostedPages({ pages: [{ url: "https://iili.io/abc.jpg" }] }), true);
 assert.equal(hasHostedPages({ pages: [{ url: "https://akira-scan.pages.dev/api/discord-img?x=1" }] }), true);
+assert.equal(hasHostedPages({ pages: [{ url: "https://akira-scan.pages.dev/api/gh-cdn/04/pages/a/b/001.jpg" }] }), true);
 assert.equal(hasHostedPages({ pages: [{ url: "https://example.com/a.jpg" }] }), false);
 assert.equal(capLegivelIndice({ done: true, pages: [{ url: "https://iili.io/a.jpg" }] }), true);
 assert.equal(capLegivelIndice({ done: false, pages: [{ url: "https://iili.io/a.jpg" }] }), false);

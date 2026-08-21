@@ -13,12 +13,13 @@ import { bindWorkerEnv } from "../../../scripts/cloud/worker-bind-env.mjs";
 
 function routePath(pathname) {
     const p = pathname.replace(/\/$/, "") || "/";
+    // Atenção: "/cloud/pages" contém a substring "/cloud/page" — checar pages antes de page.
     return {
         isRoot: p === "/api/cloud",
         isStatus: p.endsWith("/status") || p.includes("/cloud/status") || p === "/api/cloud",
         isIndex: p.endsWith("/chapters-index") || p.endsWith("/index"),
         isPages: p.endsWith("/pages") || p.includes("/cloud/pages"),
-        isPage: p.endsWith("/page") || p.includes("/cloud/page"),
+        isPage: /(^|\/)page$/.test(p) || /\/cloud\/page$/.test(p),
         isPublish: p.endsWith("/publish") || p.includes("/cloud/publish"),
         isIndexChapter: p.endsWith("/index/chapter") || p.includes("/cloud/index/chapter")
     };
@@ -61,6 +62,13 @@ export async function onRequest(context) {
             return handleGetIndex(bucket, env);
         }
 
+        if (routes.isPages) {
+            if (!mangaId || !capId) {
+                return jsonResponse({ error: "Parâmetros m e ch obrigatórios." }, 400);
+            }
+            return handleGetPages(bucket, origin, mangaId, capId, env);
+        }
+
         if (routes.isPage) {
             const n = url.searchParams.get("n");
             if (!mangaId || !capId || !n) {
@@ -69,10 +77,7 @@ export async function onRequest(context) {
             return handleGetPage(bucket, mangaId, capId, n, env);
         }
 
-        if (routes.isPages || (mangaId && capId)) {
-            if (!mangaId || !capId) {
-                return jsonResponse({ error: "Parâmetros m e ch obrigatórios." }, 400);
-            }
+        if (mangaId && capId) {
             return handleGetPages(bucket, origin, mangaId, capId, env);
         }
 

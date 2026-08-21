@@ -4,21 +4,27 @@
 import fs from "node:fs";
 import path from "node:path";
 
+/** URL de página servível pelo leitor (CDN direto ou proxy Pages). */
+export function isServablePageUrl(url) {
+    const u = String(url || "");
+    return u.includes("telegra.ph")
+        || u.includes("catbox.moe")
+        || u.includes("files.catbox.moe")
+        || u.includes("litter.catbox.moe")
+        || u.includes("pixeldrain.com")
+        || u.includes("iili.io")
+        || u.includes("freeimage.host")
+        || u.includes("i.ibb.co")
+        || u.includes("ibb.co")
+        || u.includes("/api/cloud/page")
+        || u.includes("/api/discord-img")
+        || u.includes("/api/gh-cdn/")
+        || u.includes("/data/cloud/pages/");
+}
+
 export function hasHostedPages(rec) {
     if (!rec?.pages?.length) return false;
-    return rec.pages.some((p) => {
-        const u = String(p.url || "");
-        return u.includes("telegra.ph")
-            || u.includes("catbox.moe")
-            || u.includes("iili.io")
-            || u.includes("freeimage.host")
-            || u.includes("i.ibb.co")
-            || u.includes("ibb.co")
-            || u.includes("/api/cloud/page")
-            || u.includes("/api/discord-img")
-            || u.includes("/data/cloud/pages/")
-            || u.includes("akira-scan.pages.dev");
-    });
+    return rec.pages.some((p) => isServablePageUrl(p.url));
 }
 
 /** Cap pronto: done + páginas hospedadas (Telegra ou cloud-static). */
