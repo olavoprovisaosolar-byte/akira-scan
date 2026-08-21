@@ -1,9 +1,10 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Login ‚Äî AkiraScan</title>
+    <title>Login ó AkiraScan</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23060608'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-family='system-ui,sans-serif' fill='%23e8e8ec'%3EA%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="css/akira.css">
     <link rel="stylesheet" href="css/akira-premium.css">
@@ -14,7 +15,7 @@
     <div class="auth-box">
         <div class="auth-brand">
             <img class="auth-brand-logo" src="img/akirascan-logo.svg" alt="AkiraScan" width="200" height="40">
-            <span class="auth-brand-tag">Leitura premium de mang√°s</span>
+            <span class="auth-brand-tag">Leitura premium de mang·s</span>
         </div>
         <h2 id="titulo-form"><span>BEM-VINDO</span> DE VOLTA!</h2>
 
@@ -34,7 +35,7 @@
             </div>
             <div class="auth-field">
                 <label for="auth-senha">SENHA</label>
-                <input type="password" id="auth-senha" placeholder="M√≠nimo 6 caracteres" required minlength="6" autocomplete="current-password">
+                <input type="password" id="auth-senha" placeholder="MÌnimo 6 caracteres" required minlength="6" autocomplete="current-password">
             </div>
             <div class="auth-field escondido" id="grupo-confirmar">
                 <label for="auth-confirmar">CONFIRMAR SENHA</label>
@@ -45,11 +46,11 @@
 
         <div id="msg" class="auth-mensagem"></div>
 
-        <p class="auth-info">Favoritos e hist√≥rico sincronizam na nuvem quando entras com e-mail e senha.</p>
+        <p class="auth-info">Favoritos e histÛrico sincronizam na nuvem quando entras com e-mail e senha.</p>
 
         <button type="button" class="auth-demo escondido" id="btn-demo">Experimentar (offline)</button>
 
-        <a href="index.html" class="auth-voltar">‚Üê Voltar ao in√≠cio</a>
+        <a href="index.html" class="auth-voltar">? Voltar ao inÌcio</a>
     </div>
 
     <script type="module">
@@ -136,7 +137,7 @@
             }
 
             if (modo === "registar" && senha !== confirmar) {
-                mostrarMsg("As senhas n√£o coincidem.", "erro");
+                mostrarMsg("As senhas n„o coincidem.", "erro");
                 return;
             }
 

@@ -128,6 +128,15 @@ function writeCloudflareMeta() {
         "/mobile  /mobile/  301",
         "/biblioteca/*  /data/toonlivre-backup/:splat  200",
         "/backup/*  /data/toonlivre-backup/:splat  200",
+        "/obra/:id/:cap  /leitor.html  200",
+        "/obra/:id  /index.html  200",
+        "/ranking  /ranking.html  200",
+        "/historico  /historico.html  200",
+        "/atualizacoes  /atualizacoes.html  200",
+        "/perfil  /perfil.html  200",
+        "/biblioteca  /biblioteca.html  200",
+        "/login  /login.html  200",
+        "/leitor  /leitor.html  200",
         "/*  /index.html  200"
     ].join("\n") + "\n", "utf8");
 

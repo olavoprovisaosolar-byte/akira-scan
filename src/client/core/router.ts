@@ -96,6 +96,11 @@ export function showView(view: AppView): void {
     const categories = document.getElementById(ZONES.categories);
     const details = document.getElementById(ZONES.details);
     const reader = document.getElementById(ZONES.reader);
+    const homeExtras = [
+        document.getElementById("home-stats-strip"),
+        document.getElementById("home-quick-nav"),
+        document.getElementById("aviso-servidor")
+    ];
 
     const showHome = view === "home";
     const showDetails = view === "details";
@@ -103,8 +108,13 @@ export function showView(view: AppView): void {
 
     if (hero) hero.hidden = !showHome;
     if (categories) categories.hidden = !showHome;
+    homeExtras.forEach((el) => {
+        if (el) el.hidden = !showHome;
+    });
     if (details) details.hidden = !showDetails;
     if (reader) reader.hidden = !showReader;
+    document.body.classList.toggle("view-details", showDetails);
+    document.body.classList.toggle("view-reader", showReader);
 
     if (showDetails) {
         const root = ensureDetailsRoot();
