@@ -60,7 +60,35 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
+      - name: Sync índice live → git (nunca encolher)
+        env:
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+        run: node scripts/sync-live-cloud-index.mjs
+
+      - name: Probe NexusToons (Cloudflare)
+        id: nexus_probe
+        continue-on-error: true
+        env:
+          NEXUSTOONS_COOKIE: ${{ secrets.NEXUSTOONS_COOKIE }}
+          CF_CLEARANCE: ${{ secrets.CF_CLEARANCE }}
+        run: |
+          set +e
+          node scripts/probe-nexus-access.mjs
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" = "3" ]; then
+            echo "blocked=true" >> "$GITHUB_OUTPUT"
+            echo "::warning::NexusToons bloqueou o IP do runner (Cloudflare). Defina o secret NEXUSTOONS_COOKIE ou rode no PC."
+          else
+            echo "blocked=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
       - name: Estado inicial
+        env:
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+          NEXUSTOONS_COOKIE: ${{ secrets.NEXUSTOONS_COOKIE }}
+          CF_CLEARANCE: ${{ secrets.CF_CLEARANCE }}
         run: |
           node scripts/check-full-sync-pending.mjs || true
           if [ -f data/cloud/chapters-index.json ]; then
@@ -68,6 +96,7 @@ jobs:
           fi
 
       - name: Backfill hyper (catálogo completo, todos os caps)
+        if: steps.nexus_probe.outputs.blocked != 'true'
         env:
           SYNC_INTERVAL_MINUTES: "30"
           MIGRATE_LOOP: "1"
@@ -105,10 +134,13 @@ jobs:
           AKIRA_PUBLISH_TOKEN: ${{ secrets.AKIRA_PUBLISH_TOKEN }}
           AKIRA_PUBLISH_BASE_URL: https://akira-scan.pages.dev
           AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+          NEXUSTOONS_COOKIE: ${{ secrets.NEXUSTOONS_COOKIE }}
+          CF_CLEARANCE: ${{ secrets.CF_CLEARANCE }}
         run: |
           node scripts/cloud-hyper-run.mjs --hyper --all --full-catalog --all-chapters --no-deploy --no-git-sync
 
       - name: Rebuild catalogo-index
+        if: steps.nexus_probe.outputs.blocked != 'true'
         run: npm run build:catalog-index
         continue-on-error: true
 
@@ -128,7 +160,7 @@ jobs:
           git push || true
 
       - name: Deploy Cloudflare (opcional)
-        if: inputs.deploy == true
+        if: inputs.deploy == true && steps.nexus_probe.outputs.blocked != 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_PAGES_PROJECT: akira-scan
@@ -138,11 +170,23 @@ jobs:
         continue-on-error: true
 
       - name: Re-disparar até terminar
-        if: always()
+        if: always() && steps.nexus_probe.outputs.blocked != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
+          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+          NEXUSTOONS_COOKIE: ${{ secrets.NEXUSTOONS_COOKIE }}
+          CF_CLEARANCE: ${{ secrets.CF_CLEARANCE }}
         run: |
+          if node scripts/probe-nexus-access.mjs; then
+            :
+          else
+            code=$?
+            if [ "$code" = "3" ]; then
+              echo "Cloudflare bloqueou — não re-disparar."
+              exit 0
+            fi
+          fi
           if node scripts/check-full-sync-pending.mjs; then
             echo "Ainda há obras/caps pendentes — próxima rodada em 60s…"
             sleep 60

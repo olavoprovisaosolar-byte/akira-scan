@@ -45,6 +45,8 @@
     "bot:nexustoons:bulk:catbox": "node scripts/run-catbox-bulk.mjs",
     "sprint:1day": "node scripts/run-1day-sprint.mjs",
     "sprint:1day:full": "node scripts/run-1day-sprint.mjs --full-chapters",
+    "sync:live-index": "node scripts/sync-live-cloud-index.mjs",
+    "probe:nexus": "node scripts/probe-nexus-access.mjs",
     "migrate:bulk": "node scripts/run-bulk-migration.mjs",
     "migrate:bulk:all": "node scripts/run-bulk-migration.mjs --all --background",
     "migrate:bulk:all:turbo": "node scripts/run-bulk-migration.mjs --all --background --turbo",

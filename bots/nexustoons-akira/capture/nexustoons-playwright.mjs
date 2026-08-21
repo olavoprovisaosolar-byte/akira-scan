@@ -36,6 +36,34 @@ function extractImageUrls(html) {
         .filter((u) => !/logo|avatar|banner|404|widget|turnstile|og-image|\/site\//i.test(u));
 }
 
+function parseCookieHeader(raw) {
+    if (!raw?.trim()) return [];
+    return raw.split(";").map((part) => {
+        const idx = part.indexOf("=");
+        if (idx < 0) return null;
+        const name = part.slice(0, idx).trim();
+        const value = part.slice(idx + 1).trim();
+        if (!name) return null;
+        return {
+            name,
+            value,
+            domain: ".nexustoons.com",
+            path: "/",
+            httpOnly: name.startsWith("__"),
+            secure: true
+        };
+    }).filter(Boolean);
+}
+
+function nexusCookieHeader() {
+    return process.env.NEXUSTOONS_COOKIE
+        || process.env.NEXUSTOONS_CF_COOKIE
+        || [
+            process.env.CF_CLEARANCE && `cf_clearance=${process.env.CF_CLEARANCE}`,
+            process.env.NEXUSTOONS_CF_CLEARANCE && `cf_clearance=${process.env.NEXUSTOONS_CF_CLEARANCE}`
+        ].filter(Boolean).join("; ");
+}
+
 export function createChapterFetcher() {
     let browser = null;
     let context = null;
@@ -93,6 +121,11 @@ export function createChapterFetcher() {
             locale: "pt-BR",
             viewport: { width: 1280, height: 900 }
         });
+        const cookies = parseCookieHeader(nexusCookieHeader());
+        if (cookies.length) {
+            await context.addCookies(cookies);
+            log.info("Playwright: cookies Nexus/CF injetados", { count: cookies.length });
+        }
         page = await context.newPage();
     }
 

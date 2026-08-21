@@ -18,6 +18,22 @@ const HEADERS = {
     Accept: "application/json"
 };
 
+function cookieHeader() {
+    return process.env.NEXUSTOONS_COOKIE
+        || process.env.NEXUSTOONS_CF_COOKIE
+        || [
+            process.env.CF_CLEARANCE && `cf_clearance=${process.env.CF_CLEARANCE}`,
+            process.env.NEXUSTOONS_CF_CLEARANCE && `cf_clearance=${process.env.NEXUSTOONS_CF_CLEARANCE}`
+        ].filter(Boolean).join("; ") || "";
+}
+
+function requestHeaders() {
+    const h = { ...HEADERS, Accept: "application/json" };
+    const cookie = cookieHeader();
+    if (cookie) h.Cookie = cookie;
+    return h;
+}
+
 const DEFAULT_NEXUS_DELAY = process.env.NEXUSTOONS_BULK === "1" ? 300 : 800;
 const NEXUSTOONS_DELAY_MS = Math.max(0, Number(process.env.NEXUSTOONS_DELAY_MS || DEFAULT_NEXUS_DELAY));
 let lastRequestAt = 0;
@@ -44,7 +60,7 @@ async function throttleNexusRequest() {
 
 async function apiGet(path, getPwFetcher = null) {
     await throttleNexusRequest();
-    const res = await client.get(path, { headers: { ...HEADERS, Accept: "application/json" } });
+    const res = await client.get(path, { headers: requestHeaders() });
     if (res.status >= 400) {
         if (getPwFetcher && isCloudflareBlocked(res.status, res.data)) {
             const pw = await getPwFetcher().catch(() => null);
@@ -53,7 +69,9 @@ async function apiGet(path, getPwFetcher = null) {
                 return pw.fetchJson(path);
             }
         }
-        throw new Error(`NexusToons ${path} → HTTP ${res.status}: ${JSON.stringify(res.data).slice(0, 200)}`);
+        const err = new Error(`NexusToons ${path} → HTTP ${res.status}: ${JSON.stringify(res.data).slice(0, 200)}`);
+        if (isCloudflareBlocked(res.status, res.data)) err.code = "NEXUS_CF_BLOCKED";
+        throw err;
     }
     return processResponse(res.data);
 }

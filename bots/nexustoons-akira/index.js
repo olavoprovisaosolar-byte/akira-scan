@@ -187,7 +187,12 @@ async function processManga(capture, hosting, upload, manifest, state, entry, ma
     try {
         remote = await capture.getManga(slug);
     } catch (e) {
-        log.error(`Falha ao ler mangá ${slug}`, { err: e.message });
+        log.error(`Falha ao ler mangá ${slug}`, { err: e.message, code: e.code });
+        if (BULK_MODE) {
+            const err = new Error(`Falha ao ler mangá ${slug}: ${e.message}`);
+            err.code = e.code || "NEXUS_GET_MANGA_FAILED";
+            throw err;
+        }
         return { captured: 0, hosted: 0, uploaded: 0, skipped: 0, skippedManga: false };
     }
 
@@ -555,6 +560,8 @@ async function main() {
     let totalUploaded = 0;
     let totalSkipped = 0;
     let mangasSkippedComplete = 0;
+    let mangasFailed = 0;
+    let cfBlocked = false;
 
     for (let mi = 0; mi < mangas.length; mi++) {
         const entry = mangas[mi];
@@ -571,6 +578,10 @@ async function main() {
             if (stats.skippedManga) mangasSkippedComplete++;
             saveManifest(manifest);
         } catch (e) {
+            mangasFailed++;
+            if (e.code === "NEXUS_CF_BLOCKED" || /HTTP 403|Just a moment|challenge-platform/i.test(e.message)) {
+                cfBlocked = true;
+            }
             log.error("Mangá falhou — seguindo o próximo", {
                 slug: entry.slug || entry.nexusSlug,
                 err: e.message
@@ -599,6 +610,7 @@ async function main() {
     log.info("Concluído", {
         mangas: mangas.length,
         mangasSkippedComplete,
+        mangasFailed,
         captured: totalCaptured,
         hosted: totalHosted,
         uploaded: totalUploaded,
@@ -609,6 +621,12 @@ async function main() {
         saveStateImmediate(state);
     } else {
         saveState(state);
+    }
+
+    if (cfBlocked && totalUploaded === 0 && mangasFailed > 0) {
+        process.exitCode = 3;
+    } else if (mangasFailed > 0 && totalUploaded === 0 && mangasSkippedComplete === 0) {
+        process.exitCode = 1;
     }
 }
 

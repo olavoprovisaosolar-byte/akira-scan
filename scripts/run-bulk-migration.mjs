@@ -22,6 +22,7 @@ import {
     mangasWithCloudCaps
 } from "../bots/nexustoons-akira/shared/nexus-catalog.js";
 import { spawnWithWatchdog } from "./lib/supervised-spawn.mjs";
+import { isCloudflareError } from "../bots/nexustoons-akira/shared/cloudflare.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
@@ -407,9 +408,13 @@ if (!DRY_RUN) {
     async function runMangaPool(items, parallelism) {
         let nextIdx = 0;
         let failures = 0;
+        let cfFailures = 0;
+        let successes = 0;
+        let abortErr = null;
 
         async function worker(workerId) {
             for (;;) {
+                if (abortErr) break;
                 const i = nextIdx++;
                 if (i >= items.length) break;
                 const m = items[i];
@@ -418,10 +423,21 @@ if (!DRY_RUN) {
                 log(`[MANGÁ ${i + 1}/${items.length}] Worker ${workerId}: '${title}' | slug=${slug}`);
                 try {
                     await runMangaAsync(slug, title);
+                    successes++;
                     log(`✓ Bulk import: ${title}`);
                 } catch (e) {
                     failures++;
+                    if (isCloudflareError(e) || e.code === "NEXUS_CF_BLOCKED") cfFailures++;
                     log(`✗ Falhou (segue o próximo): ${title} — ${e.message}`);
+                    // Cloudflare bloqueou o IP da nuvem — não queimar a fila toda
+                    if (cfFailures >= 3 && successes === 0) {
+                        abortErr = new Error(
+                            "NexusToons bloqueou este IP (Cloudflare). " +
+                            "Pare o workflow na nuvem e rode no PC, ou defina o secret NEXUSTOONS_COOKIE (cf_clearance)."
+                        );
+                        abortErr.code = "NEXUS_CF_BLOCKED";
+                        break;
+                    }
                 }
             }
         }
@@ -431,14 +447,29 @@ if (!DRY_RUN) {
             workers.push(worker(w + 1));
         }
         await Promise.all(workers);
+        if (abortErr) {
+            log(`✗ Abortado: ${abortErr.message}`);
+            process.exitCode = 3;
+            throw abortErr;
+        }
         if (failures) {
             log(`⚠ ${failures} mangá(s) falharam nesta rodada — a fila continua (state.json retoma)`);
+        }
+        if (successes === 0 && failures > 0) {
+            log("✗ Nenhum mangá processado com sucesso nesta rodada");
+            process.exitCode = 1;
+            throw new Error("Nenhum mangá processado com sucesso nesta rodada");
         }
     }
 
     if (MANGA_PARALLEL > 1) {
         log(`▶ Import bulk paralelo (${MANGA_PARALLEL} workers)`);
-        await runMangaPool(queue, MANGA_PARALLEL);
+        try {
+            await runMangaPool(queue, MANGA_PARALLEL);
+        } catch (e) {
+            log(`✗ Import bulk paralelo falhou: ${e.message}`);
+            process.exit(e.code === "NEXUS_CF_BLOCKED" || process.exitCode === 3 ? 3 : (process.exitCode || 1));
+        }
         log(`✓ Import bulk paralelo concluído (${queue.length} mangás)`);
     } else {
         for (let i = 0; i < queue.length; i++) {

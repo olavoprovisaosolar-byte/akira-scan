@@ -19,6 +19,28 @@ import {
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG = path.join(ROOT, "bots", "nexustoons-akira", "config.mangas.json");
+const LIVE_BASE = (process.env.AKIRA_SCAN_BASE_URL || process.env.AKIRA_PUBLISH_BASE_URL || "https://akira-scan.pages.dev").replace(/\/$/, "");
+
+async function loadBestCloudIndex() {
+    let local = loadCloudIndex();
+    const localCount = Object.keys(local.caps || {}).length;
+    try {
+        const res = await fetch(`${LIVE_BASE}/data/cloud/chapters-index.json`, {
+            headers: { Accept: "application/json" }
+        });
+        if (res.ok) {
+            const live = await res.json();
+            const liveCount = Object.keys(live.caps || {}).length;
+            if (liveCount > localCount) {
+                console.error(`[sprint-pending] usando índice live (${liveCount} > local ${localCount})`);
+                return live;
+            }
+        }
+    } catch (e) {
+        console.error("[sprint-pending] live index indisponível:", e.message);
+    }
+    return local;
+}
 
 try {
     let config = { mangas: [] };
@@ -31,7 +53,7 @@ try {
     await capture.close?.();
 
     const queue = buildFastMangaQueue(nexusList, config);
-    const hasCaps = mangasWithCloudCaps(loadCloudIndex());
+    const hasCaps = mangasWithCloudCaps(await loadBestCloudIndex());
     let pending = 0;
 
     for (const m of queue) {
