@@ -14,7 +14,16 @@ async function obterTotalCapitulosCloud() {
         const res = await fetch(assetUrl("data/cloud/chapters-index.json"), { cache: "force-cache" });
         if (!res.ok) return null;
         const data = await res.json();
-        cloudTotalCache = data.total || Object.keys(data.caps || {}).length || null;
+        const por = data.porManga || {};
+        const legiveis = Object.values(por).reduce(
+            (acc, info) => acc + (Number(info?.legibleCaps) || 0),
+            0
+        );
+        cloudTotalCache = legiveis
+            || data.legibleTotal
+            || data.total
+            || Object.keys(data.caps || {}).length
+            || null;
         return cloudTotalCache;
     } catch {
         return null;
@@ -51,22 +60,27 @@ function lerVisitasHoje() {
 }
 
 function contarCapitulos(catalogo) {
-    const fromCatalog = catalogo.reduce(
-        (acc, m) => acc + (m.capitulos?.length || m.totalCapitulos || 0),
-        0
-    );
-    return fromCatalog || cloudTotalCache || 7636;
+    const fromCatalog = catalogo.reduce((acc, m) => {
+        const prontos = Number(m.syncProntos);
+        if (Number.isFinite(prontos) && prontos > 0) return acc + prontos;
+        const legiveis = (m.capitulos || []).filter((c) => c.legivel === true).length;
+        if (legiveis > 0) return acc + legiveis;
+        return acc;
+    }, 0);
+    return fromCatalog || cloudTotalCache || 0;
 }
 
 export function calcularStatsLocais(catalogo = [], extras = {}) {
-    const mangas = catalogo.length || 433;
-    const capitulos = extras.chapters ?? contarCapitulos(catalogo);
+    const comCaps = catalogo.filter((m) => Number(m.syncProntos) > 0
+        || (m.capitulos || []).some((c) => c.legivel === true));
+    const mangas = comCaps.length || catalogo.length || 0;
+    const capitulos = extras.chapters ?? contarCapitulos(comCaps.length ? comCaps : catalogo);
     const visitas = lerVisitasHoje();
     const baseOnline = 900 + Math.floor(mangas * 2.5);
     const jitter = extras.jitter ?? 0;
 
-    const popular = [...catalogo]
-        .sort((a, b) => (b.popularidade || 0) - (a.popularidade || 0))[0];
+    const popular = [...(comCaps.length ? comCaps : catalogo)]
+        .sort((a, b) => (Number(b.syncProntos) || b.popularidade || 0) - (Number(a.syncProntos) || a.popularidade || 0))[0];
 
     return {
         usersOnline: baseOnline + jitter,
@@ -74,7 +88,7 @@ export function calcularStatsLocais(catalogo = [], extras = {}) {
         countries: 38 + Math.floor(mangas / 40),
         mangas,
         chapters: capitulos,
-        users: Math.max(1200, Math.floor(mangas * 18)),
+        users: Math.max(1200, Math.floor(Math.max(mangas, 1) * 18)),
         visitsToday: visitas + 12000,
         topManga: popular?.titulo || "O Começo Depois do Fim",
         topMangaId: popular?.id || "obra-0f20295f",

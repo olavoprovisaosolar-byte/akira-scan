@@ -16,7 +16,7 @@ import {
 } from "./api-catalog-service.js";
 import { isStaticHost } from "../site-config.js";
 import { linkLeitor, linkManhwa, linkBiblioteca } from "../core/router.js";
-import { mergeCatalogo } from "../mangas-destaque.js";
+import { mergeCatalogo, temCapsProntos } from "../mangas-destaque.js";
 
 let firestoreModule = null;
 let firestoreModuleFailed = false;
@@ -155,10 +155,15 @@ export async function listarMangas(opts = {}) {
         busca = "",
         genero = "",
         sort = "az",
-        favoritos = null
+        favoritos = null,
+        soComCaps = true
     } = opts;
 
-    let lista = ordenar(mangas, sort);
+    let lista = mangas;
+    if (soComCaps) {
+        lista = lista.filter(temCapsProntos);
+    }
+    lista = ordenar(lista, sort);
     const termo = busca.trim().toLowerCase();
 
     if (termo === "favoritos" && Array.isArray(favoritos)) {
@@ -187,7 +192,8 @@ export async function listarMangas(opts = {}) {
 }
 
 export async function obterPopulares(limite = 8) {
-    return ordenar(await obterCatalogoCompleto(), "popular").slice(0, limite);
+    const lista = (await obterCatalogoCompleto()).filter(temCapsProntos);
+    return ordenar(lista, "popular").slice(0, limite);
 }
 
 export async function obterRankingSemanal(limite = 10) {

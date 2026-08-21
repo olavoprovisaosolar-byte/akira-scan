@@ -19,8 +19,11 @@ export function escHtml(t = "") {
 }
 
 export function paginaAtiva(path) {
-    const p = location.pathname.split("/").pop() || "index.html";
-    return p === path ? " ativo" : "";
+    const raw = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const file = raw.replace(/\.html$/i, "") || "index";
+    const want = String(path || "").toLowerCase().replace(/\.html$/i, "") || "index";
+    // CF/SPA pode servir /biblioteca sem .html
+    return file === want ? " ativo" : "";
 }
 
 export function renderHeader({ busca = true, buscaValor = "" } = {}) {

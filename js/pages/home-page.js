@@ -30,11 +30,15 @@ import {
 } from "../core/router.js";
 import { MANGA_CATEGORIES } from "../services/manga-schema.js";
 import { normalizeManga, isCompleteManga, toLegacyManga } from "../services/data-normalizer.js";
-import { capsRecentes, rankingSemanal } from "../mangas-destaque.js";
+import { capsRecentes, rankingSemanal, temCapsProntos } from "../mangas-destaque.js";
 import { MangaDetails } from "../ui/manga-details.js";
 import { enriquecerMangaComRemoto } from "../services/manga-chapters-link.js";
 
 let detailsView = null;
+
+function soComCapitulos(lista) {
+    return (lista || []).filter(temCapsProntos);
+}
 
 function isDisplayable(m) {
     if (!m?.id || !m?.titulo) return false;
@@ -95,7 +99,7 @@ export async function initHomePage() {
         if (!catalogo?.length) {
             throw new Error("Catálogo vazio — verifique a ligação ao servidor.");
         }
-        const lista = catalogo.filter((m) => m?.id && m?.titulo);
+        const lista = soComCapitulos(catalogo.filter((m) => m?.id && m?.titulo));
 
         renderContinuar();
         await renderRecentes(lista);
@@ -274,7 +278,8 @@ async function renderRanking(catalogoPre = null) {
 }
 
 function renderNovidades(catalogo) {
-    const novidades = ordenar(catalogo, "recentes").slice(0, 6);
+    const base = soComCapitulos(catalogo);
+    const novidades = ordenar(base, "recentes").slice(0, 6);
     document.getElementById("sec-novidades").innerHTML = novidades.length
         ? novidades.map((m) => renderMangaCard(safeLegacy(m), { badge: "Novo" })).join("")
         : '<p class="msg-vazia">Sem novidades.</p>';
@@ -282,7 +287,7 @@ function renderNovidades(catalogo) {
 
 async function renderPopulares(catalogoPreFiltrado = null) {
     const populares = catalogoPreFiltrado
-        ? ordenar(catalogoPreFiltrado, "popular").slice(0, 8)
+        ? ordenar(soComCapitulos(catalogoPreFiltrado), "popular").slice(0, 8)
         : (await obterPopulares(16)).slice(0, 8);
 
     document.getElementById("sec-populares").innerHTML = populares.length

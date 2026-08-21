@@ -1,8 +1,8 @@
 /**
  * Service Worker — cache estático + catálogo stale-while-revalidate.
  */
-const CACHE_STATIC = "akirascan-static-v26";
-const CACHE_DATA = "akirascan-data-v26";
+const CACHE_STATIC = "akirascan-static-v27";
+const CACHE_DATA = "akirascan-data-v27";
 
 const STATIC_ASSETS = [
     "/",
@@ -16,9 +16,9 @@ const STATIC_ASSETS = [
     "/js/site-config.js"
 ];
 
+// Índice leve só — chapters-index é grande e muda com frequência (não pré-cachear).
 const DATA_ASSETS = [
-    "data/catalogo-index.json",
-    "data/cloud/chapters-index.json"
+    "data/catalogo-index.json"
 ];
 
 self.addEventListener("message", (event) => {

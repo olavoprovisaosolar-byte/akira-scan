@@ -12,7 +12,8 @@ import {
     todosGeneros,
     capsRecentes,
     ordenar,
-    rankingSemanal
+    rankingSemanal,
+    temCapsProntos
 } from "../mangas-destaque.js";
 import { numeroCapituloLabel, parseChapterNumber, isValidChapterPageSet, isRealChapterPageSet } from "./chapter-label.js";
 
@@ -56,9 +57,14 @@ async function carregarMangaDoCatalogoCompleto(mangaId) {
 
 function precisaCatalogoCompleto(manga) {
     if (!manga) return true;
-    const total = manga.totalCapitulos ?? manga.capitulos?.length ?? 0;
+    // Índice já traz preview; só forçar catalogo.json se faltarem caps reais
+    // ou se syncProntos disser que há mais do que o preview carrega.
     const atual = manga.capitulos?.length ?? 0;
-    return total > atual;
+    const sync = Number(manga.syncProntos) || 0;
+    if (sync > 0 && atual < sync) return true;
+    const total = Number(manga.totalCapitulos) || 0;
+    if (total > 0 && atual < Math.min(total, 3) && sync > 0) return true;
+    return false;
 }
 
 function fetchWithTimeout(url, ms = FETCH_TIMEOUT_MS) {
@@ -205,10 +211,13 @@ export async function listarMangasApi(opts = {}) {
         busca = "",
         genero = "",
         sort = "az",
-        favoritos = null
+        favoritos = null,
+        soComCaps = true
     } = opts;
 
-    let lista = ordenar(await obterCatalogoApi(), sort);
+    let lista = await obterCatalogoApi();
+    if (soComCaps) lista = lista.filter(temCapsProntos);
+    lista = ordenar(lista, sort);
     const termo = busca.trim().toLowerCase();
 
     if (termo === "favoritos" && Array.isArray(favoritos)) {

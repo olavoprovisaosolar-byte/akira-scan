@@ -102,7 +102,9 @@ export function buildUrl(view: AppView, params: {
         if (params.mangaId) sp.set("id", params.mangaId);
     } else if (view === "reader") {
         if (params.mangaId) sp.set("id", params.mangaId);
-        if (params.chapterNum) sp.set("n", String(params.chapterNum));
+        if (params.chapterNum != null && Number.isFinite(Number(params.chapterNum))) {
+            sp.set("n", String(params.chapterNum));
+        }
         if (params.chapterId) sp.set("ch", params.chapterId);
         return `leitor.html?${sp}`;
     }
