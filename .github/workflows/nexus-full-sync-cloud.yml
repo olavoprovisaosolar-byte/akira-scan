@@ -4,19 +4,20 @@ name: Nexus Full Sync (Cloud)
 # Roda sozinho: checkpoint git a cada 30 min + re-dispara até fila vazia.
 # PC pode ficar desligado.
 
-# Merge neste ficheiro (ou nos scripts abaixo) dispara o backfill na hora —
-# para o PC poder desligar. Commits só em data/*.json NÃO re-disparam.
+# Pausado: IPs do GitHub Actions são bloqueados pela Cloudflare da NexusToons.
+# Reative schedule/push depois de configurar NEXUSTOONS_COOKIE, ou rode no PC:
+#   node scripts/keep-upload-alive.mjs --background
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/nexus-full-sync-cloud.yml"
-      - "scripts/cloud-hyper-run.mjs"
-      - "scripts/run-bulk-migration.mjs"
-      - "scripts/lib/supervised-spawn.mjs"
-      - "bots/nexustoons-akira/capture/nexustoons.js"
-  schedule:
-    - cron: "40 */3 * * *"
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - ".github/workflows/nexus-full-sync-cloud.yml"
+  #     - "scripts/cloud-hyper-run.mjs"
+  #     - "scripts/run-bulk-migration.mjs"
+  #     - "scripts/lib/supervised-spawn.mjs"
+  #     - "bots/nexustoons-akira/capture/nexustoons.js"
+  # schedule:
+  #   - cron: "40 */3 * * *"
   workflow_dispatch:
     inputs:
       deploy:

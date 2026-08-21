@@ -9,6 +9,7 @@ on:
       - "scripts/prepare-cloudflare-deploy.mjs"
       - "scripts/deploy-cloudflare.mjs"
       - "data/catalogo*.json"
+      - "data/cloud/chapters-index.json"
       - "js/**"
       - "css/**"
       - "*.html"
