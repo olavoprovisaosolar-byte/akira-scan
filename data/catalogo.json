@@ -1,6 +1,6 @@
 {
   "fonte": "toonlivre-backup+local",
-  "atualizadoEm": "2026-08-21T13:28:04.063Z",
+  "atualizadoEm": "2026-08-21T13:30:55.475Z",
   "total": 433,
   "toonlivre": 433,
   "mangas": [
@@ -683,55 +683,55 @@
           "id": "cap-5a66811e-44",
           "numero": 44,
           "titulo": "Capítulo 44",
-          "publicadoEm": "2026-08-02T18:44:49.016Z",
+          "publicadoEm": "2026-08-21T13:30:55.407Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-312e2b29-43",
           "numero": 43,
           "titulo": "Capítulo 43",
-          "publicadoEm": "2026-08-02T18:44:49.007Z",
+          "publicadoEm": "2026-08-21T13:30:47.556Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-6e028a8f-42",
           "numero": 42,
           "titulo": "Capítulo 42",
-          "publicadoEm": "2026-08-02T18:44:49.003Z",
+          "publicadoEm": "2026-08-21T13:30:38.618Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-c10d453d-41",
           "numero": 41,
           "titulo": "Capítulo 41",
-          "publicadoEm": "2026-08-02T18:44:48.943Z",
+          "publicadoEm": "2026-08-21T13:30:30.413Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-72273d0d-40",
           "numero": 40,
           "titulo": "Capítulo 40",
-          "publicadoEm": "2026-08-02T18:44:48.882Z",
+          "publicadoEm": "2026-08-21T13:30:22.921Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-bfa3ed84-39",
           "numero": 39,
           "titulo": "Capítulo 39",
-          "publicadoEm": "2026-08-02T18:44:48.879Z",
+          "publicadoEm": "2026-08-21T13:30:17.081Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-fcef5799-38",
@@ -746,10 +746,10 @@
           "id": "cap-cf549b8c-37",
           "numero": 37,
           "titulo": "Capítulo 37",
-          "publicadoEm": "2026-08-02T18:44:48.854Z",
+          "publicadoEm": "2026-08-21T13:30:11.042Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-c25a9834-36",
@@ -764,28 +764,28 @@
           "id": "cap-287affb1-35",
           "numero": 35,
           "titulo": "Capítulo 35",
-          "publicadoEm": "2026-08-02T18:44:48.853Z",
+          "publicadoEm": "2026-08-21T13:30:05.287Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-6ae08745-34",
           "numero": 34,
           "titulo": "Capítulo 34",
-          "publicadoEm": "2026-08-02T18:44:48.832Z",
+          "publicadoEm": "2026-08-21T13:29:59.972Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-d68d56d4-33",
           "numero": 33,
           "titulo": "Capítulo 33",
-          "publicadoEm": "2026-08-02T18:44:48.824Z",
+          "publicadoEm": "2026-08-21T13:29:54.723Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-98f9906a-32",
@@ -800,154 +800,154 @@
           "id": "cap-108dfc4f-31",
           "numero": 31,
           "titulo": "Capítulo 31",
-          "publicadoEm": "2026-08-02T18:44:48.822Z",
+          "publicadoEm": "2026-08-21T13:29:48.349Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-4d4c62a0-30",
           "numero": 30,
           "titulo": "Capítulo 30",
-          "publicadoEm": "2026-08-02T18:44:48.745Z",
+          "publicadoEm": "2026-08-21T13:29:42.534Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-1a212ecb-29",
           "numero": 29,
           "titulo": "Capítulo 29",
-          "publicadoEm": "2026-08-02T18:44:48.724Z",
+          "publicadoEm": "2026-08-21T13:29:36.118Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-fbaff449-28",
           "numero": 28,
           "titulo": "Capítulo 28",
-          "publicadoEm": "2026-08-02T18:44:48.680Z",
+          "publicadoEm": "2026-08-21T13:29:30.167Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-f84e8dce-27",
           "numero": 27,
           "titulo": "Capítulo 27",
-          "publicadoEm": "2026-08-02T18:44:48.676Z",
+          "publicadoEm": "2026-08-21T13:29:24.568Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-88b455ba-26",
           "numero": 26,
           "titulo": "Capítulo 26",
-          "publicadoEm": "2026-08-02T18:44:48.607Z",
+          "publicadoEm": "2026-08-21T13:29:18.033Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-ed66530d-25",
           "numero": 25,
           "titulo": "Capítulo 25",
-          "publicadoEm": "2026-08-02T18:44:48.606Z",
+          "publicadoEm": "2026-08-21T13:29:11.678Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-20b8bc63-24",
           "numero": 24,
           "titulo": "Capítulo 24",
-          "publicadoEm": "2026-08-02T18:44:48.606Z",
+          "publicadoEm": "2026-08-21T13:29:05.631Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-a4fff7e2-23",
           "numero": 23,
           "titulo": "Capítulo 23",
-          "publicadoEm": "2026-08-02T18:44:48.598Z",
+          "publicadoEm": "2026-08-21T13:28:58.390Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-0e04c9b9-22",
           "numero": 22,
           "titulo": "Capítulo 22",
-          "publicadoEm": "2026-08-02T18:44:48.591Z",
+          "publicadoEm": "2026-08-21T13:28:52.473Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-dcd1d72b-21",
           "numero": 21,
           "titulo": "Capítulo 21",
-          "publicadoEm": "2026-08-02T18:44:48.585Z",
+          "publicadoEm": "2026-08-21T13:28:46.240Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-110465e7-20",
           "numero": 20,
           "titulo": "Capítulo 20",
-          "publicadoEm": "2026-08-02T18:44:48.585Z",
+          "publicadoEm": "2026-08-21T13:28:40.576Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-a6f58b77-19",
           "numero": 19,
           "titulo": "Capítulo 19",
-          "publicadoEm": "2026-08-02T18:44:48.576Z",
+          "publicadoEm": "2026-08-21T13:28:34.835Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-5450434a-18",
           "numero": 18,
           "titulo": "Capítulo 18",
-          "publicadoEm": "2026-08-02T18:44:48.575Z",
+          "publicadoEm": "2026-08-21T13:28:28.558Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-5d4ecb61-17",
           "numero": 17,
           "titulo": "Capítulo 17",
-          "publicadoEm": "2026-08-02T18:44:48.563Z",
+          "publicadoEm": "2026-08-21T13:28:22.429Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-7ce65028-16",
           "numero": 16,
           "titulo": "Capítulo 16",
-          "publicadoEm": "2026-08-02T18:44:48.561Z",
+          "publicadoEm": "2026-08-21T13:28:16.638Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-f88232b8-15",
           "numero": 15,
           "titulo": "Capítulo 15",
-          "publicadoEm": "2026-08-02T18:44:48.559Z",
+          "publicadoEm": "2026-08-21T13:28:10.421Z",
           "novo": true,
           "origem": "cloud-pages",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-e981dcbd-14",
