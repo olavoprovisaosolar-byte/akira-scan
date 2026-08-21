@@ -26,6 +26,28 @@ export function capLegivelIndice(rec) {
     return !!(rec?.done && hasHostedPages(rec));
 }
 
+function recTime(rec) {
+    const raw = rec?.hostedAt || rec?.capturedAt || rec?.atualizadoEm || 0;
+    const t = Date.parse(raw);
+    return Number.isFinite(t) ? t : 0;
+}
+
+/**
+ * Escolhe o melhor registo entre local e live ao mesclar índices.
+ * Empate → local (evita CDN antigo sobrescrever git restaurado).
+ */
+export function pickBetterCap(localRec, liveRec) {
+    if (!localRec) return liveRec;
+    if (!liveRec) return localRec;
+    const localPages = localRec?.pages?.length || 0;
+    const livePages = liveRec?.pages?.length || 0;
+    if (livePages !== localPages) return livePages > localPages ? liveRec : localRec;
+    const localTs = recTime(localRec);
+    const liveTs = recTime(liveRec);
+    if (liveTs !== localTs) return liveTs > localTs ? liveRec : localRec;
+    return localRec;
+}
+
 export function legibleCapIdsForManga(cloudIndex, mangaId) {
     const ids = new Set();
     for (const rec of Object.values(cloudIndex?.caps || {})) {

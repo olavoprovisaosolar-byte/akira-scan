@@ -57,8 +57,11 @@ jobs:
 
       - name: Sync índice live → git (nunca encolher)
         env:
-          AKIRA_SCAN_BASE_URL: https://akira-scan.pages.dev
+          AKIRA_SCAN_BASE_URL: https://olavoprovisaosolar-byte.github.io/akira-scan
         run: node scripts/sync-live-cloud-index.mjs
+
+      - name: Verificar índice após sync
+        run: node scripts/verify-cloud-data.mjs
 
       - name: Probe NexusToons (Cloudflare)
         id: nexus_probe
