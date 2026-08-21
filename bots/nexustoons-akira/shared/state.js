@@ -207,7 +207,8 @@ function hasHostedPages(rec) {
             || u.includes("/api/cloud/page")
             || u.includes("cdn.discordapp.com")
             || u.includes("media.discordapp.net")
-            || u.includes("/api/discord-img");
+            || u.includes("/api/discord-img")
+            || u.includes("/api/gh-cdn/");
     });
 }
 

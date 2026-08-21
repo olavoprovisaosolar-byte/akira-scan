@@ -47,7 +47,7 @@
     "sprint:1day:full": "node scripts/run-1day-sprint.mjs --full-chapters",
     "sync:live-index": "node scripts/sync-live-cloud-index.mjs",
     "verify:cloud-data": "node scripts/verify-cloud-data.mjs",
-    "test:cloud-utils": "node scripts/test-chapter-index-utils.mjs",
+    "test:cloud-utils": "node scripts/test-chapter-index-utils.mjs && node scripts/test-cloud-routes.mjs",
     "probe:nexus": "node scripts/probe-nexus-access.mjs",
     "rebuild:catalogo-cloud": "node scripts/rebuild-catalogo-from-cloud.mjs",
     "upload:keep-alive": "node scripts/keep-upload-alive.mjs",

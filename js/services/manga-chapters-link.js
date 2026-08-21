@@ -13,7 +13,11 @@ function urlRemotaViva(url) {
         || u.includes("pixeldrain.com")
         || u.includes("iili.io")
         || u.includes("freeimage.host")
-        || u.includes("/api/cloud/page");
+        || u.includes("i.ibb.co")
+        || u.includes("ibb.co")
+        || u.includes("/api/cloud/page")
+        || u.includes("/api/discord-img")
+        || u.includes("/api/gh-cdn/");
 }
 
 function temPaginasHospedadas(remoto) {

@@ -35,6 +35,19 @@ const capIds = Object.keys(caps);
 const legible = capIds.filter((id) => capLegivelIndice(caps[id]));
 const mangasComCaps = new Set(legible.map((id) => caps[id].mangaId).filter(Boolean));
 
+function durableUrl(u) {
+    const s = String(u || "");
+    return s.includes("iili.io")
+        || s.includes("freeimage.host")
+        || s.includes("i.ibb.co")
+        || s.includes("files.catbox.moe")
+        || s.includes("telegra.ph");
+}
+const durable = capIds.filter((id) => {
+    const r = caps[id];
+    return r?.done && (r.pages || []).some((p) => durableUrl(p.url));
+});
+
 if (capIds.length < MIN_CAPS) {
     fail(`índice demasiado pequeno: ${capIds.length} caps (mín ${MIN_CAPS})`);
 }
@@ -44,6 +57,11 @@ if (legible.length < MIN_CAPS) {
 if (legible.length !== capIds.length) {
     console.warn(
         `[verify-cloud-data] aviso: ${capIds.length - legible.length} caps sem páginas hospedadas`
+    );
+}
+if (durable.length < legible.length) {
+    console.warn(
+        `[verify-cloud-data] aviso: ${durable.length}/${legible.length} caps com host durável (iili/telegra/catbox); resto depende de /api/gh-cdn ou /api/discord-img + secrets`
     );
 }
 
@@ -63,6 +81,7 @@ if (catCaps < Math.min(MIN_CAPS, legible.length * 0.5)) {
 const summary = {
     cloudCaps: capIds.length,
     legibleCaps: legible.length,
+    durableCaps: durable.length,
     cloudMangas: mangasComCaps.size,
     catalogMangas: catMangas.length,
     catalogMangasWithCaps: catMangasWithCaps,
