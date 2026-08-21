@@ -54,6 +54,7 @@
     "upload:bot": "node bots/upload-bot/index.mjs",
     "upload:bot:keep-alive": "node bots/upload-bot/keep-alive.mjs",
     "upload:bot:keep-alive:bg": "node bots/upload-bot/keep-alive.mjs --background",
+    "rehost:ghcdn": "node scripts/rehost-ghcdn-to-freeimage.mjs",
     "upload:keep-alive": "node scripts/keep-upload-alive.mjs",
     "upload:keep-alive:bg": "node scripts/keep-upload-alive.mjs --background",
     "migrate:bulk": "node scripts/run-bulk-migration.mjs",
