@@ -36,18 +36,19 @@ export async function entrarComEmail(email, senha) {
     }
 }
 
-export async function registarComEmail(email, senha) {
+export async function registarComEmail(email, senha, username = "") {
     if (senha.length < 6) {
         return { ok: false, mensagem: "A senha deve ter pelo menos 6 caracteres." };
     }
 
     try {
-        const resultado = await apiRegistar(email, senha);
+        const resultado = await apiRegistar(email, senha, username);
         if (resultado.ok) {
             definirSessao({
                 uid: resultado.uid,
                 email: resultado.email,
-                token: resultado.token
+                token: resultado.token,
+                username: resultado.username || username
             });
             return { ok: true, novo: true };
         }

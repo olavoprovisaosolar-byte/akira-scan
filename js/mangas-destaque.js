@@ -2,6 +2,20 @@
  * Metadados base — capas MAL únicas por título. Banner = capa (sem imagens genéricas duplicadas).
  */
 import { slugTipo } from "./services/genre-utils.js";
+import { isServablePageUrl } from "./services/page-url-rules.js";
+
+/** True se a obra tem pelo menos 1 capítulo com páginas legíveis. */
+export function temCapsProntos(manga) {
+    if (!manga) return false;
+    if (Number(manga.capsProntos || manga.readyChapters || 0) > 0) return true;
+    const caps = Array.isArray(manga.capitulos) ? manga.capitulos : [];
+    return caps.some((c) => {
+        if (c?.legivel === true) return true;
+        const pages = c?.paginas || c?.pages || [];
+        if (!Array.isArray(pages) || !pages.length) return false;
+        return pages.some((p) => isServablePageUrl(typeof p === "string" ? p : p?.url || p?.src || ""));
+    }) || Number(manga.totalCapitulos || 0) > 0 && Boolean(manga.hasReadyChapters);
+}
 
 export const MANGAS_DESTAQUE = [
     { id: "solo-leveling", titulo: "Solo Leveling", sinopse: "Sung Jinwoo, o caçador mais fraco, ganha um sistema que lhe permite subir de nível sem limites.", autor: "Chugong", artista: "DUBU", generos: ["Ação", "Fantasia", "Sistema"], status: "Completo", popularidade: 100, capa: "https://cdn.myanimelist.net/images/manga/3/183705.jpg" },

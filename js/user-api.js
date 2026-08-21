@@ -1,5 +1,5 @@
 /**
- * Cliente da API de utilizadores (Netlify Blobs).
+ * Cliente da API de utilizadores (Cloudflare KV via /api/user).
  */
 import { cloudApiUrl, USER_API_BASE } from "./site-config.js";
 
@@ -22,9 +22,10 @@ function lerSessao() {
     }
 }
 
-function authHeaders() {
+function authHeaders(json = true) {
     const sessao = lerSessao();
-    const headers = { "Content-Type": "application/json" };
+    const headers = {};
+    if (json) headers["Content-Type"] = "application/json";
     if (sessao?.token) headers.Authorization = `Bearer ${sessao.token}`;
     return headers;
 }
@@ -43,10 +44,10 @@ async function pedir(acao, opts = {}) {
     return { res, data };
 }
 
-export async function apiRegistar(email, senha) {
+export async function apiRegistar(email, senha, username) {
     const { res, data } = await pedir("register", {
         method: "POST",
-        body: JSON.stringify({ email, senha })
+        body: JSON.stringify({ email, senha, username })
     });
     return { ...data, status: res.status };
 }
@@ -71,7 +72,13 @@ export async function apiValidarSessao() {
     try {
         const { res, data } = await pedir("me", { method: "GET" });
         if (!res.ok || !data.ok) return null;
-        return { uid: data.uid, email: data.email, token: sessao.token };
+        return {
+            uid: data.uid,
+            email: data.email,
+            username: data.username || "",
+            token: sessao.token,
+            perfil: data.perfil || null
+        };
     } catch {
         return sessao;
     }
@@ -83,6 +90,7 @@ export async function apiObterDados() {
     return {
         favoritos: data.favoritos || [],
         historico: data.historico || {},
+        perfil: data.perfil || { nome: "", username: "", avatar: "" },
         ultimaAtualizacao: data.ultimaAtualizacao || null
     };
 }
@@ -96,6 +104,26 @@ export async function apiGuardarDados(payload) {
     return true;
 }
 
+export async function apiAtualizarUsername(username) {
+    const { res, data } = await pedir("username", {
+        method: "POST",
+        body: JSON.stringify({ username })
+    });
+    return { ...data, status: res.status };
+}
+
+export async function apiUploadAvatar(dataUrl) {
+    const { res, data } = await pedir("avatar", {
+        method: "POST",
+        body: JSON.stringify({ image: dataUrl })
+    });
+    return { ...data, status: res.status };
+}
+
 export function temSessaoApi() {
     return Boolean(lerSessao()?.token);
+}
+
+export function obterUsernameSessao() {
+    return lerSessao()?.username || "";
 }
