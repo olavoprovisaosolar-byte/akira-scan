@@ -109,7 +109,7 @@ export function bindChapterGrid(container, manga, { onInvalid } = {}) {
             }
             const num = Number(el.dataset.capNum);
             const capId = el.dataset.capId;
-            if (!capId || !Number.isFinite(num) || num <= 0) {
+            if (!capId || !Number.isFinite(num) || num < 0) {
                 e.preventDefault();
                 onInvalid?.("Parâmetros do capítulo inválidos.");
             }

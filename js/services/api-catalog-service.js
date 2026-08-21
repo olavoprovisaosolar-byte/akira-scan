@@ -123,10 +123,13 @@ async function listaDaApi() {
             return seed.map((m) => {
                 const info = por[m.id];
                 if (!info) return m;
+                const prontos = Number(info.legibleCaps) || 0;
+                const catalogTotal = Number(m.totalCapitulos) || (m.capitulos?.length ?? 0);
+                // Só caps legíveis (Nexus→Freeimage / gh-cdn). Não usar totalCaps/doneCaps (Discord etc.).
                 return {
                     ...m,
-                    syncProntos: info.legibleCaps ?? info.doneCaps ?? 0,
-                    totalCapitulos: Math.max(m.totalCapitulos || 0, info.totalCaps || 0)
+                    syncProntos: prontos,
+                    totalCapitulos: Math.max(catalogTotal, prontos)
                 };
             });
         } catch {

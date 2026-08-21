@@ -67,20 +67,23 @@ function fixMediaPath(p, mangaId = "") {
 }
 
 function slimManga(m) {
-    const caps = (m.capitulos || []).slice(0, 3).map((c) => ({
+    const allCaps = m.capitulos || [];
+    const caps = allCaps.slice(0, 3).map((c) => ({
         id: c.id,
         numero: c.numero ?? c.number,
         publicadoEm: c.publicadoEm || c.publishedAt,
         novo: c.novo || false
     }));
-    const totalCaps = m.capitulos?.length || caps.length;
-    if (totalCaps > caps.length && caps[0]) {
-        caps.unshift({
-            id: m.capitulos[0].id,
-            numero: m.capitulos[0].numero ?? m.capitulos[0].number,
-            publicadoEm: m.capitulos[0].publicadoEm,
-            novo: m.capitulos[0].novo || false
-        });
+    const totalCaps = allCaps.length;
+    // Nunca inventar cap-1 fantasma — mangá sem caps Nexus fica vazio até o bot subir.
+    if (totalCaps > caps.length && allCaps[0]) {
+        const first = {
+            id: allCaps[0].id,
+            numero: allCaps[0].numero ?? allCaps[0].number,
+            publicadoEm: allCaps[0].publicadoEm,
+            novo: allCaps[0].novo || false
+        };
+        if (!caps.some((c) => c.id === first.id)) caps.unshift(first);
     }
 
     const capa = fixMediaPath(m.capa || m.coverUrl || "", m.id);
@@ -96,9 +99,9 @@ function slimManga(m) {
         capa,
         banner: banner || capa,
         popularidade: m.popularidade ?? m.popularity ?? 50,
-        capitulos: caps.length ? caps : [{ id: "cap-1", numero: 1, publicadoEm: m.atualizadoEm }],
+        capitulos: caps,
         totalCapitulos: totalCaps,
-        atualizadoEm: m.atualizadoEm || caps[0]?.publicadoEm,
+        atualizadoEm: m.atualizadoEm || caps[0]?.publicadoEm || null,
         origem: m.origem || "biblioteca"
     };
 }
@@ -127,11 +130,11 @@ const cloudIdx = lerIndiceCloud();
 const mangas = (data.mangas || []).map((m) => {
     const slim = slimManga(m);
     const syncProntos = prontosDoIndice(cloudIdx, m.id);
-    if (!syncProntos) return slim;
+    // Badge = só caps legíveis (Nexus/Freeimage/gh-cdn). Nunca inflar com totalCaps mortos.
     return {
         ...slim,
         syncProntos,
-        totalCapitulos: Math.max(syncProntos, slim.totalCapitulos || 0)
+        totalCapitulos: Math.max(slim.totalCapitulos || 0, syncProntos || 0)
     };
 });
 
