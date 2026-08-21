@@ -74,6 +74,7 @@ async function runMigration(extraArgs) {
     if (result.stalled) return "failed";
     if (result.code === 0) return "done";
     if (result.code === 2) return "empty";
+    if (result.code === 3) return "blocked";
     return "failed";
 }
 
@@ -134,6 +135,12 @@ try {
 
         if (lastResult === "empty") {
             log("Fila vazia nesta rodada.");
+            break;
+        }
+
+        if (lastResult === "blocked") {
+            log("NexusToons bloqueou o IP (Cloudflare) — encerrando sem re-disparar em loop.");
+            process.exitCode = 3;
             break;
         }
 
