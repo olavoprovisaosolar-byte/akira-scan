@@ -141,7 +141,7 @@ export function parseLeitorRoute(searchParams: URLSearchParams) {
     if (!capRaw) return { ok: false as const, error: "Capítulo não especificado." };
 
     const capNum = Number(capRaw);
-    if (!Number.isFinite(capNum) || capNum <= 0) {
+    if (!Number.isFinite(capNum) || capNum < 0) {
         return { ok: false as const, error: "Número de capítulo inválido." };
     }
 

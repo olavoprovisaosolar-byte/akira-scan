@@ -58,7 +58,7 @@ export function legibleCapsForManga(cloudIndex, mangaId) {
     for (const rec of Object.values(cloudIndex?.caps || {})) {
         if (rec.mangaId !== mangaId || !capLegivelIndice(rec)) continue;
         const num = Number(rec.numero);
-        if (!Number.isFinite(num) || num <= 0) continue;
+        if (!Number.isFinite(num) || num < 0) continue;
         byNum.set(num, rec);
     }
     return byNum;

@@ -39,7 +39,7 @@ export async function enriquecerMangaComRemoto(manga) {
 
     for (const c of manga.capitulos || []) {
         const num = parseChapterNumber(c);
-        if (!Number.isFinite(num) || num <= 0) continue;
+        if (!Number.isFinite(num) || num < 0) continue;
         const remoto = remotoMap.get(c.id)
             || remotos.find((r) => String(r.numero) === String(num));
         const legivel = remoto ? capLegivel(remoto) : false;
@@ -58,7 +58,7 @@ export async function enriquecerMangaComRemoto(manga) {
     for (const r of remotos) {
         if (!capLegivel(r)) continue;
         const num = parseChapterNumber({ id: r.capId, numero: r.numero });
-        if (!Number.isFinite(num) || num <= 0) continue;
+        if (!Number.isFinite(num) || num < 0) continue;
         const prev = byNum.get(num);
         if (prev?.legivel) continue;
         byNum.set(num, {
