@@ -1,7 +1,7 @@
 /**
  * Service Worker — cache estático + catálogo stale-while-revalidate.
  */
-const CACHE_STATIC = "akirascan-static-v49";
+const CACHE_STATIC = "akirascan-static-v50";
 const CACHE_DATA = "akirascan-data-v29";
 const CACHE_IMAGES = "akirascan-images-v1";
 

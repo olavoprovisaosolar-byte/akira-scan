@@ -70,13 +70,12 @@ export async function initHomePage() {
     const route = parseRoute();
 
     if (route.view === "reader" && route.mangaId && route.chapterNum) {
-        const q = new URLSearchParams({
-            m: route.mangaId,
-            id: route.mangaId,
-            n: String(route.chapterNum)
-        });
+        // Manter path /obra/:id/:cap — o middleware serve leitor.html sem redirect loop.
+        const path = `/obra/${encodeURIComponent(route.mangaId)}/${encodeURIComponent(String(route.chapterNum))}`;
+        const q = new URLSearchParams();
         if (route.chapterId) q.set("ch", route.chapterId);
-        location.replace(`/leitor.html?${q}`);
+        const qs = q.toString();
+        location.replace(qs ? `${path}?${qs}` : path);
         return;
     }
 
