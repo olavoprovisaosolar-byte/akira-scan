@@ -1,6 +1,6 @@
 {
   "fonte": "toonlivre-backup+local",
-  "atualizadoEm": "2026-08-21T12:54:31.334Z",
+  "atualizadoEm": "2026-08-21T13:25:32.329Z",
   "total": 433,
   "toonlivre": 433,
   "mangas": [
@@ -223,28 +223,28 @@
           "id": "cap-d09e61ac-156",
           "numero": 156,
           "titulo": "Capítulo 156",
-          "publicadoEm": "2026-08-02T18:44:47.886Z",
+          "publicadoEm": "2026-08-21T13:25:32.230Z",
           "novo": true,
           "origem": "nexustoons-bot",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-e028fe79-151",
           "numero": 151,
           "titulo": "Capítulo 151",
-          "publicadoEm": "2026-08-02T18:44:47.842Z",
+          "publicadoEm": "2026-08-21T13:25:25.740Z",
           "novo": true,
           "origem": "nexustoons-bot",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-713cc21f-63",
           "numero": 63,
           "titulo": "Capítulo 63",
-          "publicadoEm": "2026-08-02T18:44:46.760Z",
+          "publicadoEm": "2026-08-21T13:25:17.115Z",
           "novo": true,
           "origem": "nexustoons-bot",
-          "hosting": "github-cdn"
+          "hosting": "freeimage"
         },
         {
           "id": "cap-51c9dc59-34",

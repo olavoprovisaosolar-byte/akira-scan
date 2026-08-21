@@ -1,0 +1,24 @@
+{
+  "done": {
+    "obra-e7e46b19/cap-713cc21f-63": {
+      "at": "2026-08-21T13:25:17.115Z",
+      "pages": 63,
+      "sample": "https://iili.io/CZoxJus.jpg"
+    },
+    "obra-e7e46b19/cap-e028fe79-151": {
+      "at": "2026-08-21T13:25:25.740Z",
+      "pages": 31,
+      "sample": "https://iili.io/CZozgmg.jpg"
+    },
+    "obra-e7e46b19/cap-d09e61ac-156": {
+      "at": "2026-08-21T13:25:32.230Z",
+      "pages": 24,
+      "sample": "https://iili.io/CZoIgF2.jpg"
+    }
+  },
+  "failed": {},
+  "startedAt": "2026-08-21T13:25:05.583Z",
+  "updatedAt": "2026-08-21T13:25:32.337Z",
+  "ok": 3,
+  "fail": 0
+}
