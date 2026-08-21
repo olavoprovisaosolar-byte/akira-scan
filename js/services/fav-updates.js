@@ -52,7 +52,7 @@ export async function initNotifBadge() {
 
     btn.addEventListener("click", () => marcarFavoritosVistos());
 
-    if (obterPrefs().notifComments === false) {
+    if (obterPrefs().notifCaps === false) {
         badge.classList.add("escondido");
         return;
     }

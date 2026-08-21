@@ -54,9 +54,9 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: linear-gradient(135deg, var(--akira-purple, #a855f7), var(--akira-purple-dark, #7c3aed));
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
     border: 2px solid #121212;
-    box-shadow: 0 4px 12px var(--akira-purple-glow, rgba(168, 85, 247, 0.4));
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.45);
 }
 
 .perfil-hero-info {

@@ -18,6 +18,7 @@ export const THEME_SWATCHES = [
 const DEFAULT_PREFS = {
     accent: "violet",
     notifComments: true,
+    notifCaps: true,
     showContinuarHome: true,
     cadastradoEm: null,
     ultimaVisita: null

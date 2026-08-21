@@ -228,10 +228,13 @@ export async function initPerfilPage() {
 
     // Toggles
     const notif = document.getElementById("pref-notif-comments");
+    const notifCaps = document.getElementById("pref-notif-caps");
     const showCont = document.getElementById("pref-show-continuar");
     notif.checked = prefs.notifComments !== false;
+    if (notifCaps) notifCaps.checked = prefs.notifCaps !== false;
     showCont.checked = prefs.showContinuarHome !== false;
     notif.addEventListener("change", () => guardarPrefs({ notifComments: notif.checked }));
+    notifCaps?.addEventListener("change", () => guardarPrefs({ notifCaps: notifCaps.checked }));
     showCont.addEventListener("change", () => guardarPrefs({ showContinuarHome: showCont.checked }));
 
     // Username
