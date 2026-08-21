@@ -2,24 +2,32 @@
 /**
  * Mescla o chapters-index do site (live) no ficheiro local — nunca encolhe o índice.
  *
+ * Preferência por registo:
+ *  1) mais páginas
+ *  2) timestamp mais recente (hostedAt/capturedAt)
+ *  3) em empate, mantém o local (evita CDN antigo sobrescrever git restaurado)
+ *
  * Uso:
  *   node scripts/sync-live-cloud-index.mjs
  *   node scripts/sync-live-cloud-index.mjs --base=https://akira-scan.pages.dev
+ *   node scripts/sync-live-cloud-index.mjs --dry-run
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { hasHostedPages, pickBetterCap } from "./lib/chapter-index-utils.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const LOCAL = path.join(ROOT, "data", "cloud", "chapters-index.json");
 const args = process.argv.slice(2);
+const DRY = args.includes("--dry-run");
 const BASE = (args.find((a) => a.startsWith("--base="))?.split("=")[1]
     || process.env.AKIRA_SCAN_BASE_URL
     || process.env.AKIRA_PUBLISH_BASE_URL
     || "https://akira-scan.pages.dev").replace(/\/$/, "");
 
 function capLegivel(rec) {
-    return !!(rec?.done && Array.isArray(rec.pages) && rec.pages.length > 0);
+    return !!(rec?.done && hasHostedPages(rec));
 }
 
 function recomputePorManga(caps) {
@@ -59,20 +67,46 @@ const live = await fetchLive();
 const before = Object.keys(local.caps || {}).length;
 const liveCount = Object.keys(live.caps || {}).length;
 
-const caps = { ...(local.caps || {}), ...(live.caps || {}) };
-// Preferir registo live quando ambos existem (páginas mais frescas)
+const caps = { ...(local.caps || {}) };
+let keptLocal = 0;
+let tookLive = 0;
+let addedLive = 0;
+
 for (const [k, liveRec] of Object.entries(live.caps || {})) {
-    const loc = local.caps?.[k];
-    if (!loc) continue;
-    const livePages = liveRec?.pages?.length || 0;
-    const locPages = loc?.pages?.length || 0;
-    if (livePages >= locPages) caps[k] = liveRec;
+    const loc = caps[k];
+    if (!loc) {
+        caps[k] = liveRec;
+        addedLive++;
+        continue;
+    }
+    const chosen = pickBetterCap(loc, liveRec);
+    caps[k] = chosen;
+    if (chosen === loc) keptLocal++;
+    else tookLive++;
 }
 
 const after = Object.keys(caps).length;
 if (after < before) {
     console.error(`[sync-live-index] recusa encolher índice: local=${before} merged=${after}`);
     process.exit(1);
+}
+
+const summary = {
+    base: BASE,
+    localBefore: before,
+    live: liveCount,
+    merged: after,
+    mangas: Object.keys(recomputePorManga(caps)).length,
+    grew: after - before,
+    keptLocal,
+    tookLive,
+    addedLive,
+    dryRun: DRY
+};
+
+if (DRY) {
+    console.log(JSON.stringify(summary, null, 2));
+    process.exit(0);
 }
 
 const out = {
@@ -82,7 +116,16 @@ const out = {
     porManga: recomputePorManga(caps),
     atualizadoEm: new Date().toISOString(),
     origem: "merged-live+git",
-    total: after
+    total: after,
+    mergeMeta: {
+        base: BASE,
+        localBefore: before,
+        live: liveCount,
+        merged: after,
+        keptLocal,
+        tookLive,
+        addedLive
+    }
 };
 
 fs.mkdirSync(path.dirname(LOCAL), { recursive: true });
@@ -90,11 +133,4 @@ const tmp = `${LOCAL}.${process.pid}.tmp`;
 fs.writeFileSync(tmp, JSON.stringify(out));
 fs.renameSync(tmp, LOCAL);
 
-console.log(JSON.stringify({
-    base: BASE,
-    localBefore: before,
-    live: liveCount,
-    merged: after,
-    mangas: Object.keys(out.porManga).length,
-    grew: after - before
-}, null, 2));
+console.log(JSON.stringify(summary, null, 2));
