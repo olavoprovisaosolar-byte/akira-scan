@@ -352,6 +352,13 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (!fs.existsSync(filePath)) {
+        // SPA fallback: serve index.html for extensionless page routes
+        // (mirrors _redirects "/obra/* /index.html 200" and "/* /index.html 200").
+        if (req.method === "GET" && !path.extname(url.pathname)) {
+            res.writeHead(200, { "Content-Type": "text/html" });
+            fs.createReadStream(path.join(ROOT, "index.html")).pipe(res);
+            return;
+        }
         res.writeHead(404);
         res.end("Not found");
         return;

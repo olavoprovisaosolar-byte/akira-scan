@@ -214,6 +214,12 @@ const server = http.createServer(async (req, res) => {
             filePath = path.join(filePath, "index.html");
         }
         if (!fs.existsSync(filePath)) {
+            // SPA fallback: serve index.html for extensionless page routes
+            // (mirrors _redirects "/obra/* /index.html 200" and "/* /index.html 200").
+            if ((req.method || "GET") === "GET" && !path.extname(url.pathname)) {
+                servirEstatico(res, path.join(ROOT, "index.html"));
+                return;
+            }
             res.writeHead(404);
             res.end("Not found");
             return;
