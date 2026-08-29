@@ -352,6 +352,18 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (!fs.existsSync(filePath)) {
+        // SPA fallback for extensionless page routes, mirroring the production
+        // Cloudflare middleware (functions/_middleware.js):
+        //   /obra/:id       → index.html
+        //   /obra/:id/:cap  → leitor.html (reader; router reads the pathname)
+        //   everything else → index.html
+        if (req.method === "GET" && !path.extname(url.pathname)) {
+            const parts = url.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+            const spaFile = parts[0] === "obra" && parts.length >= 3 ? "leitor.html" : "index.html";
+            res.writeHead(200, { "Content-Type": "text/html" });
+            fs.createReadStream(path.join(ROOT, spaFile)).pipe(res);
+            return;
+        }
         res.writeHead(404);
         res.end("Not found");
         return;

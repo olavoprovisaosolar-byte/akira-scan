@@ -3,6 +3,7 @@
  */
 import { slugTipo } from "./services/genre-utils.js";
 import { isServablePageUrl } from "./services/page-url-rules.js";
+import { parseChapterNumber } from "./services/chapter-label.js";
 
 /** True se a obra tem pelo menos 1 capítulo com páginas legíveis. */
 export function temCapsProntos(manga) {

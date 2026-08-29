@@ -1,0 +1,17 @@
+{
+  "name": "AkiraScan",
+  "install": "npm ci && npm run build",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "AKIRA_NO_OPEN=1 PORT=5501 node scripts/dev-server.mjs",
+      "description": "AkiraScan local dev server (static site + /api/biblioteca catalog) on http://localhost:5501"
+    }
+  ],
+  "ports": [
+    {
+      "name": "dev server",
+      "port": 5501
+    }
+  ]
+}

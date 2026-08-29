@@ -4,7 +4,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import type { Manga } from "../../../shared/types/manga.js";
 import { assertManga } from "../../../shared/types/manga.js";
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
 type BibliotecaModule = typeof import("../../../netlify/functions/biblioteca-local.mjs");
 type DestaqueModule = typeof import("../../../js/mangas-destaque.js");
