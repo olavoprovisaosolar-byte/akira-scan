@@ -50,6 +50,9 @@ export function initReaderToolbar({
             : null)
         || null;
 
+    const abort = new AbortController();
+    const { signal } = abort;
+
     applyZoomWidth();
     applyReaderMode();
     setCapNavEnabled(canPrev, canNext);
@@ -184,9 +187,6 @@ export function initReaderToolbar({
         bindComentarios(body, resolvedMangaId, escHtml);
         openDrawer("comments");
     }
-
-    const abort = new AbortController();
-    const { signal } = abort;
 
     function wireRail() {
         const stop = (fn) => (e) => {
